@@ -3,7 +3,7 @@
 **Fecha:** 2026-09-21
 **Estado:** **Parte 1 (`L1`, `L2`, `L3`) RESUELTA y aplicada el 2026-09-21** por decisión de Damián Acuña. El resto sigue siendo propuesta sin aplicar.
 **Sesión:** mantenimiento del método (`software-humano-70`)
-**Fuente evaluada:** `docs/pilot/registro-del-piloto.md` del repositorio `sitio-software-humano`, secciones A, B, C, D y E — 25 entradas: `A1`–`A5`, `B1`–`B6`, `C1`–`C9`, `E1`–`E5` — más `A6`, agregada al cierre
+**Fuente evaluada:** `docs/pilot/registro-del-piloto.md` del repositorio `sitio-software-humano`, secciones A, B, C, D y E — 25 entradas: `A1`–`A5`, `B1`–`B6`, `C1`–`C10`, `E1`–`E5` — más `A6`
 
 ## Qué es y qué no es este documento
 
@@ -241,6 +241,32 @@ No existe hoy ningún mecanismo que lo hubiera detectado:
 1. **`FR-009` afirma una versión que ya no es la vigente.** Corregirlo es modificar el PRD, que solo la autoridad de producto puede hacer. La alternativa —que el requisito no fije un número y remita al estado verificado— es una mejora de redacción del fundamento, no del método.
 2. **Si el flujo debe distinguir «decisión aprobada» de «afirmación fáctica verificable».** Esto sí es método, y es doctrinal: tocaría el anexo. No lo propongo redactado.
 
+## `C10` · Un orden de bloques puede dejar una compuerta roja durante un intervalo, y nadie lo declara
+
+> **Agregado el 2026-09-21.** Registrado por la sesión del sitio al cerrar `B03`. Evaluado aquí por `DP-01`.
+
+**Hecho.** Al fusionar `B03` —contenido real en español— la integración continua del sitio falló con 313 hallazgos de `VB-04`: faltan las traducciones y los registros de aprobación. **Es la conducta correcta**: `BR-007` exige detener el build ante traducciones requeridas incompletas, y `A5` ya registró que ese mismo mecanismo impidió que el agente se atribuyera aprobación editorial.
+
+Pero el plan ordena `B03` antes que `B05`, así que la rama principal queda **en rojo durante todo el intervalo entre ambos**, y ningún artefacto declara qué se espera de la compuerta mientras tanto.
+
+**La formulación de la sesión del sitio, que comparto.** No se decidió mal: **no se decidió**. El riesgo no es el rojo sino su duración, porque una compuerta permanentemente roja por una razón conocida deja de señalar, y un fallo nuevo llega a una rama que ya estaba rota.
+
+Es, punto por punto, el mismo mecanismo de `B2` —el `WARNING` permanente de `integration status` que entrena a ignorar avisos— en un lugar más caro.
+
+**Dónde pongo el límite, y difiero del encuadre.** La sesión del sitio lo presenta condicionado a que el paquete recomiende una integración continua de referencia. Verifiqué que **no recomienda ninguna**, y no propongo que empiece a hacerlo: un paquete de método que prescriba infraestructura de CI excedería la regla del anexo, que descarta toda disposición no trazable al núcleo o a una necesidad técnica inevitable de SpecKit.
+
+**Lo que sí es del método, y es más pequeño y más útil.** La plantilla de plan ya tiene el lugar exacto donde esto debía declararse: la tabla de «Dependencias, bloqueantes y orden de ejecución», con sus columnas `Depende de`, `Desbloquea` y `Criterio para avanzar`.
+
+Lo que no pide es el **estado esperado de las verificaciones durante el intervalo**. Un plan que ordena los bloques de modo que una regla de detención **no pueda satisfacerse todavía** debería declararlo: qué comprobación quedará en rojo, desde qué bloque hasta cuál, y por qué razón conocida.
+
+Eso no prescribe CI, no debilita ninguna regla y no crea un artefacto nuevo. Añade una columna o una nota a una tabla que ya existe.
+
+**Relación con `C3`.** Misma familia y mismo eje. `C3` observó que el orden puede exponer el producto **antes de la aceptación**; `C10` observa que el orden puede dejar una compuerta **inútil durante un intervalo**. En ambos casos la consecuencia es del orden en el tiempo, y en ambos ninguna capa la examina. Si se aborda `C3`, conviene abordar `C10` en el mismo cambio.
+
+**Lo que la sesión del sitio hizo bien.** No tocó la CI. Distinguir los hallazgos esperados del resto debilitaría `BR-007` si se hace mal, y esa es una decisión de la autoridad de producto del sitio, no del método.
+
+**Decisión humana requerida.** Si la plantilla de plan pide declarar el estado esperado de las verificaciones por intervalo. Toca el preset —es su plantilla— y por tanto lo versiona.
+
 ## `C5` · El ítem del checklist
 
 **Hecho.** «No [NEEDS CLARIFICATION] markers remain» debe fallar mientras existan decisiones reservadas a la autoridad humana, y falló durante todo `specify` y dos rondas de `clarify`.
@@ -372,6 +398,7 @@ Los puntos 4 a 8 son paquete; el 9 toca el preset y por tanto lo versiona.
 | 10 | Ampliar el foco de `analyze` al repositorio y al orden de ejecución | `C2`, `C3` |
 | 11 | Exigir coherencia entre tarea y dependencias de su bloque | `C4` |
 | 12 | Una condición de integración que compruebe que un bloque terminado deja ejecutable al siguiente | `C8` |
+| 12b | Pedir en la plantilla de plan el **estado esperado de las verificaciones por intervalo**: qué comprobación queda en rojo, entre qué bloques y por qué. Versiona el preset | `C10`, junto con `C3` |
 | 13 | Distinguir «decisión aprobada» de «afirmación fáctica verificable» cuando un `CL` describe un artefacto externo | `C9` |
 
 Tocan el **anexo**. La regla del anexo las admite —`C2` y `C3` se trazan a `STOP07` y `SH-DONE`—, pero redactarlas excede lo que una sesión de mantenimiento debe decidir.
