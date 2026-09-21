@@ -40,6 +40,16 @@ Cada comando corresponde a reglas concretas del modelo de contenido. **Una regla
 | `bun run audit:perf` | Presupuestos de PRD §24.1 | — | LCP ≤ 2,5 s · INP ≤ 200 ms · CLS ≤ 0,1 |
 | `bun run audit:network` | Inventario de peticiones del recorrido completo | — | Solo `softwarehumano.com` y el beacon autorizado → `AC-12`, `BR-008` |
 
+## Dónde se ejecuta cada verificación
+
+La evidencia humana de PRD §26.4 necesita un sitio servido. **No se produce contra el dominio canónico**: PRD §34 establece que aprobar el fundamento no autoriza publicar el sitio, y `B13` pone la publicación después de la aceptación.
+
+| Nivel | Comando | Qué valida | Límite |
+|---|---|---|---|
+| Contenido y experiencia | `bun run preview` | El `dist/` real: rutas, tres idiomas, sin JavaScript, teclado, responsive, orden de lectura sin CSS, enlaces y metadatos | No aplica `_headers` ni `_redirects` |
+| Plataforma, bucle rápido | `wrangler pages dev dist` | Política de seguridad y redirecciones, iterables sin desplegar | Fallos documentados en redirecciones locales: **no es la fuente de verdad** |
+| Plataforma, fuente de verdad | Previsualización en `<hash>.<proyecto>.pages.dev` | Infraestructura real, restringida con Cloudflare Access, con `noindex` automático | Es la última parada **antes** de publicar |
+
 ## Las trece verificaciones de PRD §26.4
 
 | # | Verificación | Cómo | Evidencia | Criterios |

@@ -27,77 +27,77 @@ Las tablas citan las tareas **principales** de cada referencia. La trazabilidad 
 
 | Referencia | Implementan | Verifican | Dependencias | Estado |
 |---|---|---|---|---|
-| `JS-01` | T112 | T146, T157 | T111 | Cubierto |
-| `JS-02` | T112, T114 | T146, T157 | T051 | Cubierto |
-| `JS-03` | T055, T056, T115, T116 | T147, T157 | T054 | Cubierto |
-| `JS-04` | T059, T113 | T149, T148 | T103 | Cubierto |
-| `JS-05` | T051, T053, T114, T075 | T145, T152 | T052 | Cubierto |
-| `JS-06` | T117 | T147, T157 | T063 | Cubierto |
-| `JS-07` | T061, T118 | T157 | T081 | Cubierto |
-| `JS-08` | T070, T128 | T152, T155 | T067 | Cubierto |
-| `JS-09` | T067–T071, T084–T091, T107 | T153, T155 | T036 | Cubierto |
+| `JS-01` | T112 | T149, T160 | T111 | Cubierto |
+| `JS-02` | T112, T114 | T149, T160 | T051 | Cubierto |
+| `JS-03` | T055, T056, T115, T116 | T150, T160 | T054 | Cubierto |
+| `JS-04` | T059, T113 | T152, T151 | T103 | Cubierto |
+| `JS-05` | T051, T053, T114, T075 | T148, T155 | T052 | Cubierto |
+| `JS-06` | T117 | T150, T160 | T063 | Cubierto |
+| `JS-07` | T061, T118 | T160 | T081 | Cubierto |
+| `JS-08` | T070, T128 | T155, T158 | T067 | Cubierto |
+| `JS-09` | T067–T071, T084–T091, T107 | T156, T158 | T036 | Cubierto |
 
 ### Requisitos funcionales
 
 | Referencia | Implementan | Verifican | Dependencias | Estado |
 |---|---|---|---|---|
-| `FR-001` | T058, T112 | T147 | T111 | Cubierto |
-| `FR-002` | T106, T068 | T147 | T067 | Cubierto |
-| `FR-003` | T051, T053, T114 | T145 | T052 | Cubierto |
-| `FR-004` | T054, T055, T056, T115, T116 | T035, T157 | T023 | Cubierto |
-| `FR-005` | T055, T056, T059, T113 | T157 | T054 | Cubierto |
+| `FR-001` | T058, T112 | T150 | T111 | Cubierto |
+| `FR-002` | T106, T068 | T150 | T067 | Cubierto |
+| `FR-003` | T051, T053, T114 | T148 | T052 | Cubierto |
+| `FR-004` | T054, T055, T056, T115, T116 | T035, T160 | T023 | Cubierto |
+| `FR-005` | T055, T056, T059, T113 | T160 | T054 | Cubierto |
 | `FR-006` | T055, T056 | T035 | T023 | Cubierto |
-| `FR-007` | T117 | T147 | T063 | Cubierto |
-| `FR-008` | T118 | T157 | T061 | Cubierto |
+| `FR-007` | T117 | T150 | T063 | Cubierto |
+| `FR-008` | T118 | T160 | T061 | Cubierto |
 | `FR-009` | T061, T118 | T081 | T028 | Cubierto |
-| `FR-010` | T061, T081, T118 | T047, T152 | T028 | Cubierto |
-| `FR-011` | T070, T103, T128 | T152 | T067 | Cubierto |
-| `FR-012` | T017, T062, T119 | T152 | T029 | Cubierto |
-| `FR-013` | T099, T100, T126 | T149 | T098 | Cubierto |
-| `FR-014` | T075, T121 | T155 | T067 | Cubierto |
+| `FR-010` | T061, T081, T118 | T047, T155 | T028 | Cubierto |
+| `FR-011` | T070, T103, T128 | T155 | T067 | Cubierto |
+| `FR-012` | T017, T062, T119 | T155 | T029 | Cubierto |
+| `FR-013` | T099, T100, T126 | T152 | T098 | Cubierto |
+| `FR-014` | T075, T121 | T158 | T067 | Cubierto |
 | `FR-015` | T113, T123, T127, T129 | T123, T130 | T111 | Cubierto |
-| `FR-016` | T073, T074, T076–T079, T131 | T080, T152 | T067 | Cubierto |
-| `FR-017` | T103, T104 | T157 | T030 | Cubierto |
-| `FR-018` | T134, T135, T137 | T136, T152 | T135 | Cubierto |
-| `FR-019` | T067–T071, T084–T088 | T072, T155 | T036 | Cubierto |
-| `FR-020` | T126, T127 | T155 | T067 | Cubierto |
-| `FR-021` | T010, T019, T023–T041 | T049, T156 | T011 | Cubierto |
+| `FR-016` | T073, T074, T076–T079, T131 | T080, T155 | T067 | Cubierto |
+| `FR-017` | T103, T104 | T160 | T030 | Cubierto |
+| `FR-018` | T134, T135, T137 | T136, T155 | T135 | Cubierto |
+| `FR-019` | T067–T071, T084–T088 | T072, T158 | T036 | Cubierto |
+| `FR-020` | T126, T127 | T158 | T067 | Cubierto |
+| `FR-021` | T010, T019, T023–T041 | T049, T159 | T011 | Cubierto |
 
 ### Criterios de aceptación
 
 | Referencia | Implementan | Verifican | Dependencias | Estado |
 |---|---|---|---|---|
-| `AC-01` | T112 | **T146 (humana)** | T123 | Cubierto |
-| `AC-02` | T112, T114 | **T146 (humana)** | T123 | Cubierto |
-| `AC-03` | T051, T052 | T145 | T052 | Cubierto |
-| `AC-04` | T055, T056 | T035, T145 | T054 | Cubierto |
-| `AC-05` | T112, T105 | **T147 (humana)** | T123 | Cubierto |
-| `AC-06` | T106, T121, T126, T128 | T149, T155 | T126 | Cubierto |
-| `AC-07` | T100, T109, T124, T125 | T109, T110, **T148 (humana)** | T098 | Cubierto |
-| `AC-08` | T012, T123 | T141, T151 | T140 | Cubierto |
-| `AC-09` | T061, T118 | T081, **T157 (humana)** | T028 | Cubierto |
-| `AC-10` | Este archivo y `plan.md` | `analyze` + **T161** | — | Cubierto |
-| `AC-11` | T070, T075, T076–T079 | T152 | T067 | Cubierto |
+| `AC-01` | T112 | **T149 (humana)** | T123 | Cubierto |
+| `AC-02` | T112, T114 | **T149 (humana)** | T123 | Cubierto |
+| `AC-03` | T051, T052 | T148 | T052 | Cubierto |
+| `AC-04` | T055, T056 | T035, T148 | T054 | Cubierto |
+| `AC-05` | T112, T105 | **T150 (humana)** | T123 | Cubierto |
+| `AC-06` | T106, T121, T126, T128 | T152, T158 | T126 | Cubierto |
+| `AC-07` | T100, T109, T124, T125 | T109, T110, **T151 (humana)** | T098 | Cubierto |
+| `AC-08` | T012, T123 | T144, T154 | T142 | Cubierto |
+| `AC-09` | T061, T118 | T081, **T160 (humana)** | T028 | Cubierto |
+| `AC-10` | Este archivo y `plan.md` | `analyze` + **T168** | — | Cubierto |
+| `AC-11` | T070, T075, T076–T079 | T155 | T067 | Cubierto |
 | `AC-12` | T134, T135 | T136, T137 | T135 | Cubierto |
-| `AC-13` | T084–T088 | **T153 (humana)**, T154 | T089, T090 | **Bloqueado por dependencia externa** |
-| `AC-14` | T067–T071, T126 | T155 | T067 | Cubierto |
-| `AC-15` | T033–T041, T072, T080, T082 | T156, T152 | T040 | Cubierto |
+| `AC-13` | T084–T088 | **T156 (humana)**, T157 | T089, T090 | **Bloqueado por dependencia externa** |
+| `AC-14` | T067–T071, T126 | T158 | T067 | Cubierto |
+| `AC-15` | T033–T041, T072, T080, T082 | T159, T155 | T040 | Cubierto |
 | `AC-16` | T013, T018 | T020 | T011 | Cubierto |
 
 ### Reglas, estados y excepciones
 
 | Referencia | Implementan | Verifican |
 |---|---|---|
-| `BR-001`–`BR-003` | T036, T039, T068, T088 | T072, T153 |
-| `BR-004` | T051, T103 | T145 |
-| `BR-005` + voz autoral (`CL-04`) | T030, T064, T065, T104 | T157 |
-| `BR-006` | Ausencia por diseño | `analyze`, T161 |
-| `BR-007` | T033–T041, T049 | T042–T048, T156 |
+| `BR-001`–`BR-003` | T036, T039, T068, T088 | T072, T156 |
+| `BR-004` | T051, T103 | T148 |
+| `BR-005` + voz autoral (`CL-04`) | T030, T064, T065, T104 | T160 |
+| `BR-006` | Ausencia por diseño | `analyze`, T168 |
+| `BR-007` | T033–T041, T049 | T042–T048, T159 |
 | `BR-008` | T134, T135 | T136 |
-| `BR-009` | T080 | T152 |
-| `ST-001`–`ST-005` | T036, T121 | T159 |
-| `EX-001`–`EX-003` | T123, T122, T143 | T123, T155, T142 |
-| `SC-001`–`SC-008` | — | T146, T147, T151, T152, T160 |
+| `BR-009` | T080 | T155 |
+| `ST-001`–`ST-005` | T036, T121 | T166 |
+| `EX-001`–`EX-003` | T123, T122, T146 | T123, T158, T145 |
+| `SC-001`–`SC-008` | — | T149, T150, T154, T155, T167 |
 
 ---
 
@@ -326,19 +326,22 @@ Las tablas citan las tareas **principales** de cada referencia. La trazabilidad 
 - [ ] T136 [B10·BR-008] Implementar el script `audit:network` que inventaría las peticiones del recorrido completo en `tools/audit/network.ts` — cualquier origen distinto de los dos autorizados es **fallo**, no observación.
 - [ ] T137 [B10·AC-12] Verificar que el sitio se lee íntegramente **sin registro ni entrega de información personal** y que ningún contenido se bloquea por falta de consentimiento — evidencia registrada.
 
-## Bloque 11 · `B11` Despliegue
+## Bloque 11 · `B11` Configuración de plataforma y despliegue de previsualización
 
 **Resultado cubierto**: PRD §24.2, §24.3, `EX-003`, `CL-11`.
 **Dependencias**: T009–T022, T131–T137.
-**Criterio de integración**: una reversión restituye contenido **y** configuración.
+**Criterio de integración**: una reversión restituye contenido **y** configuración. **Nada se publica en el dominio canónico en este bloque**: PRD §34 establece que aprobar el fundamento «no autoriza automáticamente publicar el sitio», y la publicación es `B13`, después de la aceptación humana.
 
-- [ ] T138 [B11·PRD §24.3] Completar `public/_headers` con `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `Referrer-Policy` restrictivo y `Permissions-Policy` denegando lo no usado — encabezados versionados en el repositorio.
-- [ ] T139 [B11·EX-003] Crear `public/_redirects` con las redirecciones necesarias y su regla de mantenimiento — versionado junto al contenido.
-- [ ] T140 [B11·CL-11] Configurar el proyecto en Cloudflare Pages y el dominio `softwarehumano.com` con las tres raíces de idioma — el sitio responde en el origen canónico.
-- [ ] T141 [B11·AC-08] Implementar el script `audit:perf` que mide los presupuestos de PRD §24.1 sobre el sitio desplegado, en `tools/audit/perf.ts` — reporta LCP, INP y CLS y declara si la fuente es campo o laboratorio representativo.
-- [ ] T142 [B11·PRD §24.2] Probar una reversión de despliegue y comprobar que restituye contenido **y** encabezados y redirecciones juntos — evidencia registrada.
-- [ ] T143 [B11·EX-003] Verificar que un cambio de estructura de URLs conserva redirecciones y contenido canónico versionado — sin enlaces rotos tras el cambio.
-- [ ] T144 [B11·SC-007] Ejecutar `check:links` sobre el despliegue y confirmar ausencia de enlaces internos rotos antes de liberar — cero rotos.
+- [ ] T138 [B11·CL-11] Verificar el estado vigente de Cloudflare Pages frente a Workers con activos estáticos, y si `CL-11` sigue siendo la decisión adecuada — informe con fecha. La documentación de Cloudflare publica una guía de migración de Pages a Workers; **esta tarea comprueba el hecho, no lo supone**. Un cambio de plataforma es decisión de la autoridad de producto.
+- [ ] T139 [B11·PRD §24.3] Completar `public/_headers` con `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `Referrer-Policy` restrictivo y `Permissions-Policy` denegando lo no usado — encabezados versionados en el repositorio.
+- [ ] T140 [B11·EX-003] Crear `public/_redirects` con las redirecciones necesarias y su regla de mantenimiento — versionado junto al contenido.
+- [ ] T141 [B11·PRD §24.3] Instalar `wrangler` como dependencia de desarrollo y añadir el script del **bucle local de plataforma** (`wrangler pages dev dist`), que aplica `_headers` y `_redirects` — permite iterar la política de seguridad y las redirecciones **sin desplegar**. Registrar su límite: hay fallos documentados en el manejo local de redirecciones, de modo que es el bucle rápido y **no la fuente de verdad**, que es `T143`.
+- [ ] T142 [B11·CL-11] Configurar el proyecto en Cloudflare Pages **sin apuntar todavía el dominio canónico** — el proyecto existe y construye; `softwarehumano.com` se apunta en `B13`.
+- [ ] T143 [B11·BR-003] Desplegar una **previsualización** en `<hash>.<proyecto>.pages.dev` y **restringirla con Cloudflare Access** — es la fuente de verdad sobre encabezados y redirecciones porque corre sobre la infraestructura real, y lleva `X-Robots-Tag: noindex` automáticamente, de modo que no compite con el dominio canónico ni se indexa antes de tiempo. La restricción hace que `BR-003` se cumpla también fuera de producción.
+- [ ] T144 [B11·AC-08] Implementar el script `audit:perf` que mide los presupuestos de PRD §24.1 **sobre la previsualización**, en `tools/audit/perf.ts` — reporta LCP, INP y CLS y declara si la fuente es campo o laboratorio representativo.
+- [ ] T145 [B11·PRD §24.2] Probar una reversión de despliegue y comprobar que restituye contenido **y** encabezados y redirecciones juntos — evidencia registrada.
+- [ ] T146 [B11·EX-003] Verificar que un cambio de estructura de URLs conserva redirecciones y contenido canónico versionado — sin enlaces rotos tras el cambio.
+- [ ] T147 [B11·SC-007] Ejecutar `check:links` **sobre la previsualización** y confirmar ausencia de enlaces internos rotos **antes de liberar** — cero rotos.
 
 ## Bloque 12 · `B12` Evidencia y aceptación
 
@@ -346,26 +349,39 @@ Las tablas citan las tareas **principales** de cada referencia. La trazabilidad 
 **Dependencias**: todos los bloques anteriores.
 **Criterio de integración**: **ninguna auditoría automática sustituye la revisión humana** (`STOP07`, PRD §32).
 
-- [ ] T145 [B12·AC-03] Verificación 1: revisión de contenido contra el núcleo, con comparación de integridad y lectura humana — registro de comparación.
-- [ ] T146 [B12·AC-01,AC-02] Verificación 2: **pruebas moderadas de comprensión, humanas**, con representantes de las audiencias de PRD §14.1 — las personas explican el problema sin mencionar primero una funcionalidad del sitio.
-- [ ] T147 [B12·AC-05] Verificación 3: **prueba de navegación sin explicación previa, humana** — observación registrada.
-- [ ] T148 [B12·AC-07] Verificación 4: **revisión completa por teclado y lector de pantalla, humana**, más el barrido automatizado `audit:a11y` — registro por recorrido; la auditoría automática no lo sustituye.
-- [ ] T149 [B12·AC-06] Verificación 5: prueba con movimiento reducido — misma información sin movimiento no esencial.
-- [ ] T150 [B12·PRD §21.4] Verificación 6: **evaluación móvil y escritorio con contenido real, humana** — prohibido aprobar con contenido simulado.
-- [ ] T151 [B12·AC-08] Verificación 7: auditoría de rendimiento contra los presupuestos de PRD §24.1 — LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1; se declara si la fuente es campo o laboratorio representativo.
-- [ ] T152 [B12·AC-11,AC-15] Verificación 8: comprobación de enlaces, metadatos y datos estructurados — sin errores críticos y sin marcado de contenido inexistente.
-- [ ] T153 [B12·AC-13] Verificación 9: **revisión lingüística humana aprobada** en los tres idiomas — registro de aprobación por idioma; sin él la versión 1.0 no puede aceptarse.
-- [ ] T154 [B12·BR-002] Verificación 10: ausencia de voseo, `vosotros` y localismos nacionales, por comando **y** por revisión humana — `R03` deja constancia del límite.
-- [ ] T155 [B12·AC-14] Verificación 11: prueba de cambio de idioma y correspondencia de URLs — la persona se mantiene en la entidad equivalente y una URL explícita no es sustituida.
-- [ ] T156 [B12·AC-15] Verificación 12: validación del modelo de contenido y sus reglas de integridad con los casos negativos — la suite completa pasa.
-- [ ] T157 [B12·PRD §32] Verificación 13: **revisión humana del recorrido completo** — dictamen de la autoridad de producto sobre comprensión, confianza, control y coherencia con los diez principios.
+- [ ] T148 [B12·AC-03] Verificación 1: revisión de contenido contra el núcleo, con comparación de integridad y lectura humana — registro de comparación.
+- [ ] T149 [B12·AC-01,AC-02] Verificación 2: **pruebas moderadas de comprensión, humanas**, con representantes de las audiencias de PRD §14.1 — las personas explican el problema sin mencionar primero una funcionalidad del sitio.
+- [ ] T150 [B12·AC-05] Verificación 3: **prueba de navegación sin explicación previa, humana** — observación registrada.
+- [ ] T151 [B12·AC-07] Verificación 4: **revisión completa por teclado y lector de pantalla, humana**, más el barrido automatizado `audit:a11y` — registro por recorrido; la auditoría automática no lo sustituye.
+- [ ] T152 [B12·AC-06] Verificación 5: prueba con movimiento reducido — misma información sin movimiento no esencial.
+- [ ] T153 [B12·PRD §21.4] Verificación 6: **evaluación móvil y escritorio con contenido real, humana** — prohibido aprobar con contenido simulado.
+- [ ] T154 [B12·AC-08] Verificación 7: auditoría de rendimiento contra los presupuestos de PRD §24.1 — LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1; se declara si la fuente es campo o laboratorio representativo.
+- [ ] T155 [B12·AC-11,AC-15] Verificación 8: comprobación de enlaces, metadatos y datos estructurados — sin errores críticos y sin marcado de contenido inexistente.
+- [ ] T156 [B12·AC-13] Verificación 9: **revisión lingüística humana aprobada** en los tres idiomas — registro de aprobación por idioma; sin él la versión 1.0 no puede aceptarse.
+- [ ] T157 [B12·BR-002] Verificación 10: ausencia de voseo, `vosotros` y localismos nacionales, por comando **y** por revisión humana — `R03` deja constancia del límite.
+- [ ] T158 [B12·AC-14] Verificación 11: prueba de cambio de idioma y correspondencia de URLs — la persona se mantiene en la entidad equivalente y una URL explícita no es sustituida.
+- [ ] T159 [B12·AC-15] Verificación 12: validación del modelo de contenido y sus reglas de integridad con los casos negativos — la suite completa pasa.
+- [ ] T160 [B12·PRD §32] Verificación 13: **revisión humana del recorrido completo** — dictamen de la autoridad de producto sobre comprensión, confianza, control y coherencia con los diez principios.
+
+## Bloque 13 · `B13` Publicación en el dominio canónico
+
+**Resultado cubierto**: `CL-01`, `FR-016`, `AC-11`, `AC-14`, PRD §32, §34.
+**Dependencias**: `B11` y **`B12` completo, con aceptación humana**.
+**Criterio de integración**: el dominio canónico sirve contenido **ya aceptado**, no contenido en validación.
+
+> Este bloque existe porque el orden anterior ponía el despliegue antes de la evidencia, de modo que `softwarehumano.com` habría servido un sitio sin validar. Nadie lo decidió: era un efecto de ordenar por dependencias. PRD §34 es explícito: aprobar el fundamento «no autoriza automáticamente publicar el sitio».
+
+- [ ] T161 [B13·PRD §32] **PUERTA. Obtener la aceptación humana de la autoridad de producto** sobre la evidencia completa de `B12` — dictamen registrado con fecha. Sin él no se ejecuta ninguna tarea posterior de este bloque, y ningún agente puede otorgarse esa aceptación.
+- [ ] T162 [B13·CL-01] Apuntar el dominio `softwarehumano.com` al proyecto, con las tres raíces de idioma — `/`, `/es/` y `/pt-br/` responden en el origen canónico.
+- [ ] T163 [B13·AC-11] Verificar **en producción** las URLs canónicas, la reciprocidad `hreflang`, el sitemap, los encabezados de seguridad y la **ausencia** de `X-Robots-Tag: noindex`, que sí corresponde a las previsualizaciones — comprobación registrada sobre el dominio real.
+- [ ] T164 [B13·BR-008] Retirar la restricción de Cloudflare Access cuando corresponda y ejecutar `audit:network` **sobre producción** — ningún origen fuera de `softwarehumano.com` y del beacon autorizado por `CL-08`.
 
 ## Verificación del resultado completo
 
-- [ ] T158 [VERIF·V01] Reconciliar cada fila del inventario de cobertura con la implementación — matriz sin vacíos ni tareas huérfanas.
-- [ ] T159 [VERIF·V09] Verificar el recorrido completo incluidos estados vacíos, carga, error, extremos y recuperación — evidencia registrada.
-- [ ] T160 [VERIF·SH-SCORE] Evaluar comprensión, esfuerzo, confianza, control, accesibilidad y rendimiento — hallazgos y evidencia; ninguna dimensión crítica puntúa 0.
-- [ ] T161 [VERIF·AC-10] Registrar pendientes, supuestos, excepciones aprobadas y decisiones humanas requeridas, y **verificar que no se introdujeron prioridades, MVP ni exclusiones inventadas** — estado explícito.
+- [ ] T165 [VERIF·V01] Reconciliar cada fila del inventario de cobertura con la implementación — matriz sin vacíos ni tareas huérfanas.
+- [ ] T166 [VERIF·V09] Verificar el recorrido completo incluidos estados vacíos, carga, error, extremos y recuperación — evidencia registrada.
+- [ ] T167 [VERIF·SH-SCORE] Evaluar comprensión, esfuerzo, confianza, control, accesibilidad y rendimiento — hallazgos y evidencia; ninguna dimensión crítica puntúa 0.
+- [ ] T168 [VERIF·AC-10] Registrar pendientes, supuestos, excepciones aprobadas y decisiones humanas requeridas, y **verificar que no se introdujeron prioridades, MVP ni exclusiones inventadas** — estado explícito.
 
 ## Dependencias y orden de ejecución
 
@@ -382,15 +398,17 @@ Las tablas citan las tareas **principales** de cada referencia. La trazabilidad 
 | `B08` T111–T125 | `B04`, `B05`, `B07` | — | `B09`, `B10` |
 | `B09` T126–T130 | `B08` | `B10` | `B12` |
 | `B10` T131–T137 | `B04`, `B08` | `B09` | `B11` |
-| `B11` T138–T144 | `B01`, `B10` | — | `B12` |
-| `B12` T145–T157 | todos | — | aceptación |
+| `B11` T138–T147 | `B01`, `B10` | — | `B12` |
+| `B12` T148–T160 | todos menos `B13` | — | `B13` |
+| `B13` T161–T164 | `B12` **con aceptación humana** | — | publicación |
 
 ### Detenciones que el orden no puede resolver
 
-- **T097** · elección de dirección visual. Requiere la autoridad de producto. Bloquea `B07`–`B12`.
+- **T097** · elección de dirección visual. Requiere la autoridad de producto. Bloquea `B07`–`B13`.
+- **T161** · **aceptación humana antes de publicar**. Bloquea todo `B13`. PRD §34: aprobar el fundamento no autoriza publicar el sitio.
 - **T089, T090** · revisión profesional externa. Bloquea `AC-13` y, con él, la aceptación de la 1.0.
 - **T091** · revisión humana de neutralidad del español.
-- **T146, T147, T148, T150, T157** · verificaciones humanas que ninguna herramienta sustituye.
+- **T149, T150, T151, T153, T160** · verificaciones humanas que ninguna herramienta sustituye.
 
 ## Notas sobre esta derivación
 
