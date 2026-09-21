@@ -79,13 +79,30 @@ MIT y CC BY 4.0 no se contradicen —ambas permiten redistribución con atribuci
 
 # Parte 2 · Evaluación de los hallazgos del piloto
 
-## `C1` · La única con daño ya medido
+## `C1` · Verificabilidad local, no integridad
+
+> **Corregido el 2026-09-21** tras un contraste con la sesión del sitio. Mi primera redacción calificó a `C1` como «el hallazgo más grave» y describió el problema como de integridad. **Ambas cosas eran imprecisas.** Lo que sigue es la versión verificada.
 
 **Hecho, verificado por mí.** `SHA256SUMS` cubre `README.md`, y el paquete coloca ese archivo en la raíz del repositorio, que es donde cualquier proyecto necesita el suyo.
 
-**Daño medido, reproducido por mí en el repositorio del sitio.** Ese proyecto no tiene `SHA256SUMS`, su `preflight.sh` reporta «no se encontró SHA256SUMS en la raíz», y por tanto **no puede verificar la integridad del método que lo gobierna**. La sesión del sitio agravó el efecto: `RQ-01` decidió que el texto canónico se lee de `docs/method/` y `T052` verifica su integridad contra `SHA256SUMS`; el resultado real es `sin_referencia`, y **la evidencia de `AC-03` queda cubierta con reserva**.
+**Efecto medido, reproducido por mí en el repositorio del sitio.** Ese proyecto no tiene `SHA256SUMS`, su `preflight.sh` reporta «no se encontró SHA256SUMS en la raíz». `RQ-01` decidió que el texto canónico se lee de `docs/method/` y `T052` verifica su integridad contra esa constancia; el resultado real es `sin_referencia`, y **la evidencia de `AC-03` queda cubierta con reserva**.
 
-**Mi valoración.** Es el hallazgo más grave, y lo es por una razón que el registro no subraya: no es que falte una comprobación, es que **la comprobación existe, está implementada, y no tiene contra qué comparar**. El sitio hizo su parte; el paquete no le dio el insumo.
+**La precisión que cambia el diagnóstico.** Verifiqué los digests de los tres lados:
+
+| Archivo | Declarado en mi `SHA256SUMS` | Mi copia | La del sitio |
+|---|---|---|---|
+| Núcleo v2.1 | `9beef610c0b1…` | `9beef610c0b1…` | `9beef610c0b1…` |
+| Anexo v1.2 | `9bc3a6f3d9e1…` | `9bc3a6f3d9e1…` | `9bc3a6f3d9e1…` |
+
+Los tres coinciden. **La copia del sitio está intacta, y es demostrablemente intacta.** El digest que su `T052` observa es exactamente el que mi `SHA256SUMS` declara.
+
+Por tanto `C1` **no es un problema de integridad sino de verificabilidad local**: la demostración existe, pero solo mediante un contraste manual entre repositorios que una constancia versionada volvería innecesario y automático.
+
+**Mi valoración corregida.** Sigue mereciendo corrección, por dos razones que se sostienen: una comprobación implementada que no puede resolverse sola es deuda técnica, y depender de un contraste manual entre dos máquinas no escala a un tercer proyecto. Pero **no es el hallazgo más grave del conjunto**: ese lugar corresponde a `L2`, la contradicción entre el `LICENSE` del preset y `CL-10`, que sí bloquea una decisión ya aprobada.
+
+Lo que el registro sí capta bien, y mantengo: el sitio hizo su parte; el paquete no le dio el insumo.
+
+**Nota sobre `docs/method/` duplicado.** La sesión del sitio precisó al cerrar `T008` que el núcleo y el anexo viven en ambos repositorios y **deben** hacerlo: `RQ-01` decidió leer el núcleo de su fuente protegida en lugar de copiarlo al contenido. No es una segunda autoridad sino una instalación, igual que `tools/speckit/` e `instructions/`. La duplicación no autorizada desapareció con `T007`; la que queda es por diseño, y es precisamente la que `C1` debería permitir verificar sin intervención humana.
 
 Es además, en su forma, el mismo error que corregimos en v1.1.1 con `AGENTS.md`: un archivo del paquete ocupando un lugar que pertenece al proyecto. Entonces la salida fue excluirlo de la verificación. Aquí esa salida es peor, porque dejaría sin verificar el documento que explica el método.
 
@@ -213,13 +230,13 @@ Ninguna de estas está aplicada. Requieren decisión de Damián Acuña.
 | 2 | **El paquete no tiene `LICENSE`** (`L1`) | Raíz del paquete | paquete |
 | 3 | **Frontera código/texto**, incluida la licencia del anexo (`L3`) | Documentación de licencias | paquete |
 
-La primera es la más urgente de las tres: mientras el `LICENSE` del preset diga «no permission is granted to… publish», `CL-10` es inejecutable.
+La primera es la más urgente **de toda esta propuesta**, no solo de las tres: mientras el `LICENSE` del preset diga «no permission is granted to… publish», `CL-10` es inejecutable. Supera en gravedad a `C1`, que tras el contraste de digests resultó ser un problema de verificabilidad y no de integridad.
 
 ## Merecen versión del paquete, sin tocar doctrina
 
 | # | Qué | De dónde | Alcance |
 |---|---|---|---|
-| 4 | Resolver la colisión del `README.md` | `C1` | `build-package.sh`, instrucciones, `preflight.sh` |
+| 4 | Resolver la colisión del `README.md`, para que la verificación de integridad sea local y automática en cada proyecto instalado | `C1` | `build-package.sh`, instrucciones, `preflight.sh` |
 | 5 | Preguntar por licencias y deberes permanentes en la plantilla de `AGENTS.md` | `C6`, `C7` | `package/AGENTS.md` |
 | 6 | Automatizar en `preflight.sh` la verificación de los ocho archivos | `B2` | `preflight.sh` |
 | 7 | Documentar `SPECIFY_FEATURE_DIRECTORY` al mover `specs/` entre repositorios, en ambas direcciones | `B5` | instrucción 00 o 01 |
