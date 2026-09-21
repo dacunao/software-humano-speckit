@@ -8,6 +8,8 @@
 
 El resultado que debe quedar cubierto es el alcance completo de `spec.md`: las nueve Job Stories, los veintiún requisitos funcionales, los dieciséis criterios de aceptación, los diez principios como contenido publicado, y los requisitos de experiencia, accesibilidad, rendimiento, privacidad, descubrimiento y gobernanza editorial del PRD. **Este plan no selecciona alcance, no asigna prioridad y no introduce fases de producto, MVP ni releases.** Ordena ejecución por dependencias, que es cosa distinta.
 
+**El sitio vive en su propio repositorio**, `dacunao/sitio-software-humano` (`CL-13`), separado del paquete de método. `B00` materializa esa separación y precede a todo lo demás.
+
 La estrategia recomendada es un sitio estático generado desde una **fuente de contenido única y tipada**, con validación relacional que detiene el build, una **capa de tokens** que se interpone entre la dirección visual y daisyUI, islas de cliente solo donde una interacción las exige, y JSON-LD emitido desde la misma fuente que produce el contenido visible. El despliegue ocurre en Cloudflare Pages con encabezados de seguridad y redirecciones versionados en el repositorio.
 
 El orden de ejecución tiene un condicionante que no proviene de la técnica sino de la fuente: **la exploración visual no puede preceder al contenido real**, porque PRD §21.1.8 prohíbe aprobar con contenido simulado y §21.7 exige detectar expansión de texto, cortes y cambios de jerarquía con las tres versiones lingüísticas reales.
@@ -204,7 +206,8 @@ Todo elemento obligatorio tiene destino técnico. **Ningún elemento queda pospu
 
 | Bloque | Entrega técnica | Depende de | Desbloquea | Criterio para avanzar |
 |---|---|---|---|---|
-| `B01` | Fundamento del repositorio: bun con versión fijada e instalación congelada, TypeScript estricto, Astro estático, estructura de directorios, integración continua que ejecuta tipado y validaciones | — | `B02`, `B11` | `AC-16` pasa; el build se ejecuta desde una instalación reproducible |
+| `B00` | Separación de repositorios: creación del repositorio del sitio, instalación propia del preset, traslado del fundamento, de los artefactos de SpecKit y del código, y verificación de que nada rector queda duplicado | — | todo | Ningún artefacto rector existe en dos repositorios (`CL-13`) |
+| `B01` | Fundamento del repositorio: bun con versión fijada e instalación congelada, TypeScript estricto, Astro estático, estructura de directorios, integración continua que ejecuta tipado y validaciones | `B00` | `B02`, `B11` | `AC-16` pasa; el build se ejecuta desde una instalación reproducible |
 | `B02` | Modelo de contenido: esquema formal, tipos derivados de fuente única, validadores relacionales de identificadores, relaciones, campos obligatorios y paridad de traducciones; verificación de voseo y `vosotros`; estados editoriales y voz autoral | `B01` | `B03`, `B04` | El build **se detiene** ante cada caso de `BR-007`, demostrado con casos negativos |
 | `B03` | Contenido real en español: núcleo v2.1 íntegro con anclas, `P01`–`P10` con sus ocho secciones, metadatos de versión, procedencia y licencias, estado del preset | `B02` | `B04`, `B05`, `B06`, `B08` | `AC-03` comparado contra el núcleo; `AC-04` por principio |
 | `B04` | Topología y semántica: rutas por idioma, URLs canónicas, `hreflang` recíprocos, sitemap, robots, anclas estables, JSON-LD desde la misma fuente | `B02`, `B03` | `B08`, `B10` | Reciprocidad y correspondencia verificadas en build; `AC-11` parcial |
@@ -235,6 +238,7 @@ Todo elemento obligatorio tiene destino técnico. **Ningún elemento queda pospu
 ## Estructura del proyecto
 
 ```text
+# Raíz del **repositorio del sitio** (`CL-13`), separado del paquete de método.
 .
 ├── src/
 │   ├── content/            # fuente de contenido versionada, por idioma e id estable

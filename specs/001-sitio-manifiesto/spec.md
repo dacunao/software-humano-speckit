@@ -35,6 +35,7 @@ Las decisiones registradas aquí fueron tomadas por la autoridad de producto dur
 - Q: ¿Existe un canal de contacto y cuál? (`CL-07`) → A: Alias de correo dedicado publicado como `mailto:`, más Issues del repositorio del sitio para asuntos técnicos.
 - Q: ¿Bajo qué cuenta y con qué nombre se publicará el repositorio del preset? (`CL-10`) → A: Cuenta personal `dacunao`, nombre `spec-kit-preset-software-humano`, según la convención documentada.
 - Q: ¿Cuál es el repositorio del sitio, cuyas Issues son el segundo canal de `CL-07`? → A: `https://github.com/dacunao/sitio-software-humano`. Valor faltante detectado por `analyze` y completado por la autoridad de producto el 2026-09-21.
+- Q: ¿El sitio vive en este repositorio o en uno propio? (`CL-13`) → A: **En uno propio.** `dacunao/sitio-software-humano` aloja el sitio; este repositorio permanece como paquete de método. Contradicción detectada durante la implementación de `S1` y resuelta por la autoridad de producto el 2026-09-21.
 
 #### Consecuencias registradas
 
@@ -106,6 +107,18 @@ Esa voz autoral es un registro más, señalado por el mismo mecanismo que `FR-01
 **Restricción de implementación derivada.** La dirección **no se ofusca mediante JavaScript**. Un `mailto:` es un enlace común que funciona sin JavaScript (`FR-015`) y cuyo propósito es comprensible sin contexto adicional (WCAG 2.2 criterio 2.4.4, `AC-07`); ofuscarlo rompería ambas cosas. El costo aceptado y registrado es la recolección automatizada de la dirección por terceros.
 
 La dirección es única para los tres idiomas: no se traduce, y `BR-003` no le aplica. Se registra que existe la alternativa de un alias sobre el dominio propio mediante reenvío gratuito; la autoridad de producto eligió el alias actual, y sustituirlo más adelante es un cambio de contenido, no de arquitectura.
+
+**`CL-13` · Separación de repositorios.** El sitio vive en **`https://github.com/dacunao/sitio-software-humano`**; el repositorio que hasta ahora contenía todo permanece como **paquete de método** Software Humano para SpecKit.
+
+**Cómo apareció.** No la detectó `analyze` sino la implementación: al escribir los primeros archivos en la raíz durante `S1` quedó a la vista que `README.md` es el del paquete de método, está protegido y verificado por `SHA256SUMS`, y que colocar allí un `LICENSE` habría licenciado también el paquete —algo que `CL-12` no autoriza—. `FR-021`, `CL-07` y `CL-12` suponían un «repositorio del sitio» que no existía como entidad separada.
+
+**Qué se traslada.** El fundamento de producto, los artefactos de SpecKit del sitio —`specs/001-sitio-manifiesto/` íntegro—, una instalación propia del preset con su constitución, el `AGENTS.md` del proyecto con su sección «Completar por proyecto», y el código. **Qué permanece**: manifiesto, anexo, preset, instrucciones, paquete distribuible, `SHA256SUMS` y las propuestas de método.
+
+**Consecuencias registradas.** «Versionado en GitHub» de `FR-021` se refiere al repositorio del sitio; las Issues de `CL-07` son las suyas; el MIT de `CL-12` cubre el código del sitio y **no** el paquete de método, cuya licencia decide la sesión que lo mantiene. **Ningún artefacto rector puede quedar duplicado entre ambos**: `AGENTS.md` establece que dos copias de instrucciones rectoras divergen, y por eso `T008` lo verifica de forma explícita.
+
+**Tres acciones exceden la autoridad de esta sesión** y quedan como tareas con esa marca: crear el repositorio público es una acción que publica y requiere autorización humana en el momento (`T001`); trasladar el PRD toca un archivo protegido y requiere instrucción humana explícita (`T004`); retirar del repositorio de método lo que pase al del sitio corresponde a la sesión que mantiene el paquete (`T007`).
+
+**Esta decisión no altera el alcance.** No cambia ninguna Job Story, requisito ni criterio de aceptación: cambia dónde viven los artefactos, no qué debe construirse.
 
 ## Progreso y resultado esperado
 
