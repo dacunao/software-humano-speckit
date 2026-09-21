@@ -208,6 +208,10 @@ Cualquier cambio en `package/`, en `docs/method/` o en el preset obliga a:
 
 Un paquete cuya integridad no verifica no es distribuible. `SHA256SUMS` es el único mecanismo que permite a un proyecto instalado demostrar que su método no fue alterado.
 
+**Y comprueba a quién invalida el número de versión que estás moviendo.** Un proyecto instalado puede tener en su fundamento una afirmación fáctica sobre el paquete —«validado técnicamente en la versión X», «licencia Y»— que el incremento vuelve falsa. `SHA256SUMS` comprueba que los archivos no cambiaron, no que las afirmaciones sobre ellos sigan siendo ciertas, y el desacoplamiento que protege al proyecto de propagaciones involuntarias **oculta también esa invalidación**.
+
+Ocurrió: al incrementar el preset a 1.0.1 quedó obsoleto el `FR-009` del PRD del sitio, que afirma la validación «en versión 1.0.0». Ninguna capa lo detectó; apareció al redactar el contenido que debía afirmarlo. Antes de cerrar un incremento, identifica los proyectos instalados conocidos y avisa qué afirmación suya deja de ser cierta. Corregirla es decisión de su autoridad de producto, no tuya.
+
 ## `DP-03` · Mantener definida la frontera entre código y texto citado
 
 El paquete mezcla dos naturalezas bajo licencias distintas: **código** —preset, scripts, herramientas, instrucciones— y **texto del manifiesto**, que el preset materializa como constitución.

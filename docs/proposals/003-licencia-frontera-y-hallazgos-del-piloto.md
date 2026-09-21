@@ -3,7 +3,7 @@
 **Fecha:** 2026-09-21
 **Estado:** propuesta para decisión de Damián Acuña. **Ninguna parte está aplicada.**
 **Sesión:** mantenimiento del método (`software-humano-70`)
-**Fuente evaluada:** `docs/pilot/registro-del-piloto.md` del repositorio `sitio-software-humano`, secciones A, B, C, D y E — 24 entradas: `A1`–`A5`, `B1`–`B6`, `C1`–`C8`, `E1`–`E5`
+**Fuente evaluada:** `docs/pilot/registro-del-piloto.md` del repositorio `sitio-software-humano`, secciones A, B, C, D y E — 25 entradas: `A1`–`A5`, `B1`–`B6`, `C1`–`C9`, `E1`–`E5`
 
 ## Qué es y qué no es este documento
 
@@ -141,6 +141,49 @@ Es además, en su forma, el mismo error que corregimos en v1.1.1 con `AGENTS.md`
 
 Eso sí es incorporable al preset sin tocar doctrina: es la misma regla, aplicada al objeto que el proyecto produce. Lo registro como la mejora de mejor relación entre costo y valor de todo el conjunto.
 
+## `C9` · Una decisión aprobada puede ser correcta como intención y falsa como descripción
+
+> **Agregado el 2026-09-21.** Registrado por la sesión del sitio a partir de `L2`, y verificado por mí. Es el hallazgo de mayor alcance doctrinal de todo el conjunto, y **no lo detectó ninguna capa del flujo**.
+
+**El patrón.** Un `CL` es una decisión aprobada, y aguas abajo se trata como dato. Pero cuando esa decisión **describe un artefacto externo**, puede ser simultáneamente:
+
+- **correcta como intención** — es lo que la autoridad decidió;
+- **falsa como descripción** — el artefacto no dice eso.
+
+`specify`, `clarify`, `plan`, `tasks` y `analyze` **no distinguen esos dos casos**. Tratan toda decisión aprobada como un hecho.
+
+**Dos instancias verificadas, no una.**
+
+| # | Afirmación del fundamento | Lo que dice el artefacto | Dónde apareció |
+|---|---|---|---|
+| 1 | `FR-009`: la adaptación «fue validada técnicamente en **versión 1.0.0**» | La instalada y verificada en ambos repositorios es la **1.0.1** | Al redactar el contenido que debía afirmarlo |
+| 2 | `CL-10` / `licencia: MIT` en el contenido publicable | `LICENSE` del preset: «All rights reserved… **no permission is granted to… publish**» | Al redactar el contenido que debía afirmarlo |
+
+Verifiqué ambas: `FR-009` en la línea 619 del PRD dice literalmente «fue validada técnicamente en versión 1.0.0», y `preset.yml` declara `version: "1.0.1"` tanto aquí como en la instalación del sitio.
+
+**Lo que hizo la sesión del sitio, y es lo correcto.** No revirtió `CL-10` —MIT es decisión de la autoridad de producto— ni corrigió `FR-009`, que es texto del PRD. Declaró ambas como **limitaciones visibles** en `src/content/preset.yaml`, dejando la contradicción abierta en lugar de resolverla desde su autoridad. `P07` y `BR-009` habrían sido infringidos si el sitio publicaba «MIT» junto a «no publicado» sin más: haría creer que el paquete ya puede usarse cuando su propio archivo lo prohíbe.
+
+## Mi responsabilidad en la primera instancia
+
+**La causé yo, y ningún mecanismo lo señaló.**
+
+Cuando incrementé el preset a 1.0.1 para corregir las dos anclas desplazadas —propuesta 001—, la afirmación fáctica de `FR-009` quedó obsoleta. Yo verifiqué entonces que el texto doctrinal era byte a byte idéntico, que la constitución se rematerializaba correctamente y que la integridad pasaba 30/30. **No verifiqué si alguna afirmación de un fundamento aguas abajo dependía del número de versión que acababa de mover.**
+
+No existe hoy ningún mecanismo que lo hubiera detectado:
+
+- `SHA256SUMS` comprueba que los archivos no cambiaron, no que las afirmaciones sobre ellos sigan siendo ciertas;
+- `analyze` recorre los artefactos del proyecto, no las versiones de un paquete instalado desde otro repositorio;
+- `preflight.sh` comprueba el entorno, no la coherencia entre el fundamento y el artefacto que describe.
+
+**Es la contracara aguas arriba de `E1`.** `E1` establece que nada de lo que corrija aquí se propaga solo hacia el proyecto instalado, y eso es correcto y deseable para los **archivos**. Pero significa también que **nada avisa cuando un cambio aquí falsifica una afirmación de allá**. El desacoplamiento protege de la propagación involuntaria y, por el mismo mecanismo, oculta la invalidación.
+
+**Consecuencia para el mantenimiento.** Versionar el paquete no es solo regenerar `SHA256SUMS`. Es comprobar si algún proyecto instalado afirma algo sobre la versión que se está moviendo. He extendido `DP-02` de `AGENTS.md` en consecuencia.
+
+**Decisión humana requerida.** Dos, y son de distinta naturaleza:
+
+1. **`FR-009` afirma una versión que ya no es la vigente.** Corregirlo es modificar el PRD, que solo la autoridad de producto puede hacer. La alternativa —que el requisito no fije un número y remita al estado verificado— es una mejora de redacción del fundamento, no del método.
+2. **Si el flujo debe distinguir «decisión aprobada» de «afirmación fáctica verificable».** Esto sí es método, y es doctrinal: tocaría el anexo. No lo propongo redactado.
+
 ## `C5` · El ítem del checklist
 
 **Hecho.** «No [NEEDS CLARIFICATION] markers remain» debe fallar mientras existan decisiones reservadas a la autoridad humana, y falló durante todo `specify` y dos rondas de `clarify`.
@@ -252,6 +295,7 @@ Los puntos 4 a 8 son paquete; el 9 toca el preset y por tanto lo versiona.
 | 10 | Ampliar el foco de `analyze` al repositorio y al orden de ejecución | `C2`, `C3` |
 | 11 | Exigir coherencia entre tarea y dependencias de su bloque | `C4` |
 | 12 | Una condición de integración que compruebe que un bloque terminado deja ejecutable al siguiente | `C8` |
+| 13 | Distinguir «decisión aprobada» de «afirmación fáctica verificable» cuando un `CL` describe un artefacto externo | `C9` |
 
 Tocan el **anexo**. La regla del anexo las admite —`C2` y `C3` se trazan a `STOP07` y `SH-DONE`—, pero redactarlas excede lo que una sesión de mantenimiento debe decidir.
 
