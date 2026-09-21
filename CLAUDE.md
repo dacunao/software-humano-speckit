@@ -32,6 +32,34 @@ tools/speckit/specify <subcomando>
 
 No uses el `specify` instalado globalmente. Ese ejecutable permanece en **0.15.0** —fuera del rango exigido por el preset— y da servicio a otros proyectos del usuario cuyo `.specify/` fue generado con esa versión. Actualizarlo o reemplazarlo excede la autoridad de este proyecto y requiere una decisión humana separada.
 
+### Scripts de SpecKit: shim de python3 obligatorio
+
+`.specify/scripts/bash/common.sh` usa el primer `python3` del `PATH`. En este equipo es el de Homebrew, que **no tiene PyYAML**, y entonces la resolución de plantillas falla:
+
+```
+Error: PyYAML is required to resolve preset template composition
+```
+
+Instalar PyYAML en el python3 de Homebrew está bloqueado por PEP 668, y forzarlo con `--break-system-packages` puede romper la instalación de Homebrew. Por eso el repositorio incluye `tools/speckit/shim/python3`, que delega en un intérprete que sí tiene PyYAML.
+
+**Invoca siempre los scripts de SpecKit con el shim antepuesto al `PATH`:**
+
+```bash
+PATH="$PWD/tools/speckit/shim:$PATH" .specify/scripts/bash/resolve-template.sh spec-template
+```
+
+Esto aplica a `resolve-template.sh`, `check-prerequisites.sh`, `create-new-feature.sh`, `setup-plan.sh` y `setup-tasks.sh`. Si un comando `speckit.*` falla al resolver una plantilla, esta es la primera causa a descartar.
+
+No modifiques `.specify/scripts/` para evitar el shim: son copias generadas por SpecKit y una actualización las reescribiría.
+
+### Constancia de procedencia de la constitución
+
+**No modifiques `.specify/memory/.constitution-template.json`.**
+
+Ese archivo pertenece al mecanismo `constitution-sync`, que el README del preset prohíbe adoptar en este proyecto. El CLI compara su campo `sha256` contra el sha del **contenido vivo** de `constitution.md`. Hoy no coinciden, y esa discrepancia es deliberada: hace que `_constitution_is_generated()` devuelva `False`, de modo que el CLI trata la constitución como redactada por una persona y **no la sobrescribe**.
+
+Actualizar esa constancia invertiría la protección: el CLI pasaría a considerarla un archivo generado sin cambios y podría reemplazarla.
+
 ### Gestor de paquetes
 
 **`bun` es el único gestor de paquetes y ejecutor de este proyecto.** Aplica a instalación de dependencias, scripts, pruebas, herramientas de línea de comandos y ejecución local.
