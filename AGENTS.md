@@ -119,69 +119,97 @@ Si un campo está sin completar, el agente debe detenerse y solicitarlo. No lo i
 
 ## Producto
 
-- **Nombre del proyecto**: Sitio del Manifiesto de Software Humano
-- **Qué construye este repositorio**: el sitio web público, narrativo y documental del Manifiesto de Software Humano, en inglés general, español neutro latinoamericano y portugués de Brasil. Es además el primer proyecto real desarrollado con esta adaptación, y este repositorio mantiene el propio paquete de método.
+- **Nombre del proyecto**: Software Humano para SpecKit — paquete de método
+- **Qué construye este repositorio**: el **paquete de método** distribuible que aplica el Manifiesto de Software Humano al ciclo SDD nativo de SpecKit, en cualquier proyecto. Aquí viven el núcleo, el anexo, el preset, las instrucciones de instalación, las herramientas de apoyo y el ensamblador de la distribución.
+
+**Este repositorio NO construye el sitio del Manifiesto.** Hasta el 2026-09-21 lo hizo. La decisión `CL-13` separó el sitio a su propio repositorio, `https://github.com/dacunao/sitio-software-humano`, que desde entonces es **el autoritativo** para el PRD del sitio, sus `specs/`, su código y su registro del piloto. No trabajes aquí sobre el producto del sitio ni asumas que sus artefactos viven en este repositorio.
 
 ## Fundamento de producto autorizado
 
-- **Ruta**: `docs/product/PRD_Sitio_Manifiesto_Software_Humano_v1.0.md`
-- **Versión**: 1.0, fecha 2026-09-21, estado «Definición de producto para revisión»
-- **Autoridad de producto**: Damián Acuña
+Este repositorio **no tiene un fundamento de producto en el sentido de `SH-FUND`**, y esa ausencia es correcta: no construye un producto para usuarios finales. Construye el método con el que otros lo construyen.
 
-Solo esa autoridad puede aprobar cambios de alcance, resultados, exclusiones o estado de publicación. El agente puede proponer alternativas y señalar contradicciones; no puede aprobarlas.
+Su fundamento es la doctrina que distribuye, y el criterio de corrección de cualquier cambio es la conformidad con ella:
 
-La especificación derivada vive en `specs/001-sitio-manifiesto/spec.md`. No sustituye al PRD ni adquiere autoridad por haber sido generada.
+- `docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md` — núcleo v2.1
+- `docs/method/Anexo_Aplicacion_SpecKit_v1.2.md` — anexo v1.2
+- **Autoridad**: Damián Acuña
+
+La regla del anexo gobierna toda incorporación al paquete: *«Si una disposición de la adaptación no puede trazarse al núcleo v2.1 o a una necesidad técnica inevitable de SpecKit, no pertenece a la adaptación.»*
 
 ## Identificadores que deben preservarse
 
-Sin renumerar ni reagrupar:
+Los del propio núcleo, porque son el contenido que el paquete distribuye y las direcciones que citan el preset, el anexo y las instrucciones:
 
-- `JS-01`–`JS-09` — Job Stories, con su circunstancia, motivación y resultado
-- `FR-001`–`FR-021` — requisitos funcionales
-- `AC-01`–`AC-16` — criterios de aceptación del producto
-- `P01`–`P10` — principios del núcleo, que aquí son además **contenido publicado** del sitio
-- `CL-01`–`CL-11` — decisiones materiales abiertas registradas en `spec.md`
+- `P01`–`P10`, `SH-FUND`, `D01`–`D06`, `F01`–`F08`, `A01`–`A08`
+- `SH-STOP` y `STOP01`–`STOP07`, `CR01`–`CR08`, `O01`–`O09`, `V01`–`V12`
+- `SH-INDEX`, `SH-SCORE`, `SH-AP`, `SH-GOV`, `SH-DONE`, `SH-POCKET`
 
-El orden de las Job Stories permite construir una narrativa. **No expresa prioridad ni autoriza a omitir ninguna.**
+Una constitución materializada debe contener las quince familias completas. `instructions/01` §6 lo verifica.
 
 ## Decisiones técnicas aprobadas
 
-Aprobadas por el PRD §24.6. El agente debe preservarlas, no reabrirlas. Solo pueden reemplazarse mediante decisión humana y evidencia de incompatibilidad material; preferencia personal o conveniencia del agente no bastan.
-
-- **TypeScript estricto** para lógica, componentes, integraciones, validadores, pruebas y configuración compatible. El build falla ante errores de tipado. Se evita `any`.
-- **Astro** con generación estática por defecto. Islas solo para interacciones que realmente lo requieran.
-- **daisyUI sobre Tailwind CSS** como base de componentes, subordinada a la identidad visual y a WCAG 2.2 AA.
-- **YAML versionado en GitHub** como fuente de contenido, con esquema formal capaz de detener el build.
-- **JSON-LD y Schema.org** derivados de la misma fuente que el contenido visible.
-- **WCAG 2.2 AA** como mínimo, y los presupuestos de Core Web Vitals del PRD §24.1.
-- **Experiencia pública determinista** en la versión 1.0: sin función generativa para el visitante.
+- **Versionado semántico independiente** para el paquete, el preset, el núcleo y el anexo. La versión del preset no sigue a la del núcleo.
+- **El preset solo usa presets nativos de SpecKit.** No se crean extensiones, workflows ni bundles, y no se adopta `constitution-sync`. Lo fija el anexo, que descarta esos mecanismos con su razón.
+- **Composición `wrap`** para los ocho comandos: el core nativo permanece íntegro. El reemplazo total queda reservado a incompatibilidades que la composición no pueda neutralizar.
+- **El checklist nativo se conserva sin intervención.**
+- **Compatibilidad declarada** con SpecKit `>=1.0.0,<2.0.0`, verificada sobre 1.0.8.
+- **`SHA256SUMS` cubre los archivos invariantes**, y deliberadamente **no** cubre `AGENTS.md`, que cada proyecto completa.
 
 ## Contrato lingüístico
 
-- Inglés general (`en`) es el idioma predeterminado y ocupa las rutas **sin prefijo**, incluida `/`.
-- Español neutro latinoamericano (`es`) en `/es/`.
-- Portugués de Brasil (`pt-BR`) en `/pt-br/`, conservando `pt-BR` en metadatos.
-- Las tres versiones cubren el alcance público completo. No son resúmenes.
-- El manifiesto original en español conserva la autoridad doctrinal.
-- La versión española usa `tú` y `ustedes`. Prohíbe voseo, `vosotros` y localismos nacionales.
-- El cambio de idioma navega a una URL equivalente; no sustituye texto solo en cliente.
-- Una URL localizada explícita prevalece sobre detección del navegador y sobre la preferencia guardada.
-- No se publica traducción automática ni un widget externo sin revisión humana.
+No aplica como contrato de producto. El paquete se redacta íntegramente en **español**, incluidos documentos, comentarios y mensajes de las herramientas. El núcleo en español conserva la autoridad doctrinal.
 
 ## Herramientas del proyecto
 
-- **Gestor de paquetes y ejecutor**: `bun`. Usa `bun install`, `bun run`, `bunx` y `bun test`. No introduzcas `npm`, `yarn` ni `pnpm`, y no generes sus archivos de bloqueo. Decisión humana reversible de Damián Acuña, 21 de septiembre de 2026, conforme al PRD §2.3. Debe registrarse en `plan.md` junto con su consecuencia sobre la reproducibilidad exigida por el PRD §24.5.
-- **SpecKit**: usa `tools/speckit/specify`, que fija v1.0.8 aislada. La instalación global permanece en 0.15.0 al servicio de otros proyectos y **no debe actualizarse** desde aquí.
+- **SpecKit**: `tools/speckit/specify`, que fija una instancia aislada en 1.0.8. La instalación global está en 0.15.0 al servicio de otros proyectos y **no debe actualizarse desde aquí**.
+- **Scripts de SpecKit**: antepón siempre el shim, o la resolución de plantillas compuestas falla: `PATH="$PWD/tools/speckit/shim:$PATH" .specify/scripts/bash/<script>`
+- **Ensamblado de la distribución**: `tools/build-package.sh`. Es idempotente, toma las fuentes canónicas, regenera `SHA256SUMS` y produce el ZIP en `dist/`.
+- **Comprobación de entorno**: `tools/speckit/preflight.sh`.
+- No hay gestor de paquetes: el repositorio no compila nada.
 
 ## Archivos protegidos adicionales
 
 Más allá de los protegidos por el método:
 
-- `docs/product/PRD_Sitio_Manifiesto_Software_Humano_v1.0.md`
-- `package/` y `tools/build-package.sh` — fuentes del paquete de método distribuible. Modificarlas implica versionar el paquete y regenerar su `SHA256SUMS`.
+- `package/` y `tools/build-package.sh` — fuentes de la distribución. Modificarlas implica versionar el paquete y regenerar su `SHA256SUMS`.
+- `docs/proposals/` — registro de mantenimiento. Se agrega, no se reescribe.
 
 ## Decisiones abiertas conocidas
 
-Las once registradas como `CL-01`–`CL-11` en `specs/001-sitio-manifiesto/spec.md`. Diez provienen del PRD §29; `CL-11` es la plataforma de alojamiento, que el PRD no fija.
+No pueden cerrarse con un valor predeterminado. Requieren decisión de Damián Acuña.
 
-**Ninguna puede cerrarse con un valor predeterminado.** No bloquean especificar ni planificar la arquitectura conceptual; bloquean la publicación y cualquier implementación que las vuelva irreversibles o públicas. `CL-06`, `CL-08` y `CL-09` afectan además contenido y aceptación.
+- **Licencia del paquete.** Este repositorio **no tiene `LICENSE`**. Sin ella el paquete queda como «todos los derechos reservados» por omisión, lo que contradice que se distribuya para instalarse en otros proyectos. Detallado en `docs/proposals/003`.
+- **Frontera entre código y texto citado dentro del paquete.** El preset se publicará bajo MIT (`CL-10`) y materializa la constitución, que es texto del manifiesto, publicado bajo CC BY 4.0 (`CL-05`). **`CL-05` tiene precedencia**: fue una decisión de la autoridad de producto. Detallado en `docs/proposals/003`.
+- **Hallazgos del piloto `C1`–`C8`.** Registrados en el repositorio del sitio, evaluados en `docs/proposals/003`. Una propuesta no es una autorización.
+
+---
+
+# Deberes permanentes de este repositorio
+
+Estos deberes **no son historias, requisitos ni tareas**, y por eso no tienen destino en ningún artefacto del flujo. Viven aquí porque `AGENTS.md` es el único archivo que toda sesión carga automáticamente.
+
+La razón está en el hallazgo `C7` del registro del piloto: la obligación de registrar hallazgos viajó en el prompt de una sesión, y **un prompt muere con la sesión**. Al abrir la siguiente, el deber desaparece sin que nada lo señale. Si estos deberes solo viven en un prompt, dejan de existir en cuanto alguien abra una sesión sin repetirlos.
+
+## `DP-01` · Evaluar los hallazgos del piloto
+
+El sitio del Manifiesto es el piloto real de este paquete y mantiene su registro en `docs/pilot/registro-del-piloto.md` de su propio repositorio. Ese documento **observa y no propone**: evaluarlo corresponde a este repositorio.
+
+Al abrir una sesión de mantenimiento, comprueba si el registro creció desde la última evaluación. Las entradas nuevas se evalúan en `docs/proposals/`, distinguiendo hecho observado, inferencia y decisión humana requerida.
+
+**Evaluar no es aplicar.** Cambiar el manifiesto, el anexo o el preset exige decisión humana separada.
+
+## `DP-02` · Regenerar `SHA256SUMS` al versionar el paquete
+
+Cualquier cambio en `package/`, en `docs/method/` o en el preset obliga a:
+
+1. incrementar la versión que corresponda, con entrada en el `CHANGELOG.md` del preset cuando sea él quien cambia;
+2. ejecutar `tools/build-package.sh`, que regenera `SHA256SUMS` y el ZIP;
+3. verificar que la integridad pasa antes de confirmar.
+
+Un paquete cuya integridad no verifica no es distribuible. `SHA256SUMS` es el único mecanismo que permite a un proyecto instalado demostrar que su método no fue alterado.
+
+## `DP-03` · Mantener definida la frontera entre código y texto citado
+
+El paquete mezcla dos naturalezas bajo licencias distintas: **código** —preset, scripts, herramientas, instrucciones— y **texto del manifiesto**, que el preset materializa como constitución.
+
+Toda decisión de licencia, publicación o redistribución debe declarar de qué lado cae cada archivo. La frontera se define por naturaleza y no por carpeta. Mientras la decisión siga abierta, ninguna sesión puede resolverla por inferencia ni publicar el paquete.
