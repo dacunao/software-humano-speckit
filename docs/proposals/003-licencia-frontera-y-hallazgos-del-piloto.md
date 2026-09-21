@@ -117,17 +117,55 @@ Lo que el registro sí capta bien, y mantengo: el sitio hizo su parte; el paquet
 
 Es además, en su forma, el mismo error que corregimos en v1.1.1 con `AGENTS.md`: un archivo del paquete ocupando un lugar que pertenece al proyecto. Entonces la salida fue excluirlo de la verificación. Aquí esa salida es peor, porque dejaría sin verificar el documento que explica el método.
 
-**Opciones, con su consecuencia.**
+## `C1` reformulado tras la re-sincronización del 2026-09-21
 
-| Opción | Qué resuelve | Qué cuesta |
-|---|---|---|
-| **A · Renombrar el README del paquete** a un nombre que no colisione, por ejemplo `METODO-SOFTWARE-HUMANO.md`, y mantenerlo en `SHA256SUMS` | El proyecto conserva su `README.md`; el método conserva su documento verificado | Quien descomprima el ZIP suelto ya no encuentra un `README.md` de entrada. Se mitiga con un `README.md` **solo dentro del ZIP**, fuera de `SHA256SUMS` y no copiado a la raíz |
-| **B · Excluir `README.md` de `SHA256SUMS`**, como se hizo con `AGENTS.md` | Elimina el fallo | Deja sin verificar el documento que describe el método. Repetir la exclusión erosiona lo que `SHA256SUMS` significa |
-| **C · Mover todo el método a un subdirectorio**, por ejemplo `method/` | Elimina la clase entera de colisiones, no solo esta | Cambia todas las rutas de las instrucciones, del preflight y del envoltorio. Rompe la compatibilidad con instalaciones existentes |
+> **Esto reemplaza las tres opciones que yo había propuesto.** La sesión del sitio re-sincronizó a 1.0.2 y contrastó `SHA256SUMS` entrada por entrada antes de decidir si lo copiaba. No lo copió, y su razón reorienta la solución.
 
-**Mi recomendación, como recomendación y no como decisión: opción A.** Resuelve el daño medido, conserva la verificación, y es la de menor superficie de cambio. La opción C es la correcta a largo plazo si aparecen más colisiones; hoy no hay evidencia de que existan.
+**El contraste, verificado por mí de forma independiente.**
 
-**Efecto sobre el piloto si se aplica A.** Ninguno inmediato. Es la re-sincronización que el propio piloto identificó como `E4.3`: tarea de seguimiento, no interrupción.
+| Resultado | Cuántos | Cuáles |
+|---|---:|---|
+| **Coinciden** | **10** | Núcleo v2.1, anexo v1.2, las dos instrucciones, `preflight.sh`, `specify`, `shim/python3`, `shim/README.md`, `CLAUDE.md`, `START_WITH_AI_AGENT.md` |
+| **Difieren** | **3** | `README.md`, `LICENSE`, `LICENSE-CONTENT` |
+| **Ausentes** | **20** | El árbol fuente del preset, su ZIP y la plantilla de fundamento: archivos del paquete que una instalación no debe tener |
+
+Copiar la constancia entera produciría una verificación que **falla en 23 de 33** y un preflight que reporta errores donde no los hay. **Sería peor que no tenerla**, porque enseñaría a ignorarla — el mismo razonamiento que sacó a `AGENTS.md` de la verificación en v1.1.1.
+
+**La reformulación, y es de la sesión del sitio.** `C1` no se resuelve publicando una constancia del paquete. Se resuelve **distinguiendo qué archivos de un proyecto instalado pertenecen al método y cuáles al proyecto**. Es la misma **frontera por naturaleza y no por carpeta** que `L1`–`L3` acaban de trazar para las licencias, aplicada ahora a la integridad en lugar de al derecho de uso.
+
+Lo que hace convincente la reformulación es que **los 10 que coinciden no son un conjunto arbitrario**: son exactamente los archivos que un proyecto instalado copia y no debe modificar. Y los 3 que difieren son exactamente los que le pertenecen por naturaleza. La frontera ya existe en los hechos; lo que falta es declararla.
+
+## Lo que empeoré al resolver `L1`–`L3`
+
+**Antes de mi cambio, la colisión era de un archivo. Ahora es de tres.**
+
+`README.md` colisionaba desde siempre. `LICENSE` y `LICENSE-CONTENT` no existían en el paquete hasta la v1.2.0: los agregué yo, y ambos repositorios tienen legítimamente los suyos.
+
+No me arrepiento de la decisión —el paquete no podía seguir sin licencia—, pero registro el efecto: **resolver las licencias amplió la superficie del problema de integridad**. Y descarta de paso mi opción A original, «renombrar el `README` del paquete»: renombrar `LICENSE` sería mucho peor, porque es un nombre convencional que herramientas y personas esperan en la raíz.
+
+## Un hallazgo adicional, verificado hoy
+
+**El preset que realmente se ejecuta no está cubierto por ninguna constancia.**
+
+Vive en `.specify/presets/software-humano/` —25 archivos en el repositorio del sitio— y `SHA256SUMS` tiene **cero entradas** que lo alcancen. Mi árbol fuente tiene 17 archivos y una estructura distinta, porque la instalación agrega las composiciones.
+
+O sea: la constancia cubre hoy el preset **como se distribuye**, no **como se ejecuta**. Un proyecto no puede demostrar que los ocho comandos que gobiernan su ciclo SDD son los que el paquete entregó.
+
+Es, en su forma, el mismo problema que `C1` describe para el núcleo, un nivel más abajo y sin que nadie lo hubiera advertido.
+
+## Forma de solución que propongo, sin redactarla
+
+**Una constancia que declare su propio alcance.** La idea es de la sesión del sitio; la concreto sin decidirla:
+
+- **`SHA256SUMS`** sigue cubriendo el paquete completo, que es lo correcto para verificar un ZIP descargado.
+- **Un segundo manifiesto —o un subconjunto marcado dentro del mismo—** declara qué archivos deben ser idénticos **en una instalación**: hoy esos 10, más lo que se decida sobre el preset en ejecución.
+- `preflight.sh` elige cuál verificar según detecte un paquete recién descomprimido o un proyecto instalado.
+
+Eso resolvería las tres cosas a la vez: el sitio recuperaría la verificación local, `AC-03` dejaría de estar cubierta con reserva, y la re-sincronización pasaría de exigir criterio a ser mecánica.
+
+**Decisión humana requerida.** Si se aborda, y con qué alcance: solo los 10 archivos de método, o también el preset en ejecución. Lo segundo es más valioso y más caro.
+
+**Efecto sobre el piloto.** Ninguno inmediato. Hoy funciona sin la constancia, con su reserva sobre `AC-03` registrada y su `T052` reportando `sin_referencia` de forma honesta.
 
 ## `C2`, `C3`, `C4` y `C8` · La verificación se detiene en los artefactos
 
