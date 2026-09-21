@@ -238,6 +238,10 @@ Recomendar la separación como práctica del método sería exactamente el antip
 
 **Lo que sí propongo**, y es modesto: que `A6` se conserve como **observación registrada** para contrastarla contra el segundo proyecto que use el paquete. Si vuelve a ocurrir, hay base para documentarlo; si no, quedará como una particularidad de este piloto. No requiere cambio alguno en el paquete hoy.
 
+> **Ya aplicado en el origen.** La sesión del sitio aceptó el límite y acotó la entrada (su commit `aab45c8`, verificado): el título pasó a «produjo verificación **en este caso**», se eliminó la frase «lo que compra vale más que lo que cuesta» —que era una conclusión de costo-beneficio presentada como hecho observado—, se sustituyó el contrafáctico «ninguna la habría producido una sesión sola» por lo que sí consta, que ninguna apareció dentro de una sola sesión, y la sección `D` advierte ahora que `A6` debe leerse con su límite. Conservó sin acotar lo único que no depende de la muestra: que la revisión cruzada no figuraba entre los motivos de `CL-13`.
+>
+> Con eso, esta propuesta no pide nada sobre `A6`: pide **no** convertirla en práctica, y el registro ya no lo insinúa.
+
 ## `A1`–`A5` · Lo que confirma que el preset funciona
 
 No requieren acción. Los registro porque una evaluación que solo lista defectos no permite decidir sobre un preset.
