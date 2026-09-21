@@ -3,7 +3,7 @@
 **Fecha:** 2026-09-21
 **Estado:** propuesta para decisión de Damián Acuña. **Ninguna parte está aplicada.**
 **Sesión:** mantenimiento del método (`software-humano-70`)
-**Fuente evaluada:** `docs/pilot/registro-del-piloto.md` del repositorio `sitio-software-humano`, secciones A, B, C, D y E — 25 entradas: `A1`–`A5`, `B1`–`B6`, `C1`–`C9`, `E1`–`E5`
+**Fuente evaluada:** `docs/pilot/registro-del-piloto.md` del repositorio `sitio-software-humano`, secciones A, B, C, D y E — 25 entradas: `A1`–`A5`, `B1`–`B6`, `C1`–`C9`, `E1`–`E5` — más `A6`, agregada al cierre
 
 ## Qué es y qué no es este documento
 
@@ -221,6 +221,22 @@ No son defectos de doctrina. Mi lectura de cuáles merecen atención:
 - **`B5`** es nueva y no tiene mitigación: los scripts no resuelven la feature cuando `specs/` llega desde otro repositorio, y el mensaje de error sugiere `run the specify command`, que es precisamente lo que **no** debe hacerse. Merece un apartado en la instrucción 00 o 01. **Observación mía:** encontré hoy su contracara. Al retirar `specs/` de este repositorio, `.specify/feature.json` quedó apuntando a un directorio inexistente. Es la misma pieza de estado que no viaja con los archivos, en las dos direcciones.
 - **`B6`** —el flujo exige evidencia y no dice dónde se archiva— no es defecto del preset, como el propio registro señala. Pero una convención en la instrucción 01 costaría un párrafo y evitaría que cada sesión elija un lugar distinto.
 - **`B1`**, **`B3`** y **`B4`** están documentadas y sin salida mejor conocida. `B4` además se cerró: la segunda sesión materializó la constitución sin fricción adicional.
+
+## `A6` · La separación de autoridades produjo verificación, no solo coordinación
+
+> **Agregado al cierre del contraste.** Registrado por la sesión del sitio, verificado por mí (su commit `780336d`). Evaluado aquí por obligación de `DP-01`.
+
+**Hecho.** Cuatro correcciones salieron de que ninguna de las dos sesiones aceptó la evidencia de la otra sin comprobarla: la precisión de `C1`, el matiz de `T008`, la contracara de `E1` y la procedencia de `FR-009`. Dos las produjo cada lado, y **dos de ellas son autocorrecciones**: cada sesión corrigió algo propio al ser contrastada.
+
+**Mi valoración, y coincido en cuál es la que más dice.** La cuarta. Atribuir `FR-009` a falta de cuidado habría producido «verificar mejor», que no es accionable; atribuirlo al mecanismo produjo `DP-02` extendido. La sesión del sitio agrega la condición que lo hace posible, y creo que es correcta: **eso solo aparece cuando quien cometió el error puede describirlo sin que le cueste autoridad**. Con una sola sesión, quien se equivoca es también quien evalúa.
+
+**Lo más interesante, y es suyo.** `CL-13` se decidió para evitar duplicar artefactos rectores, **no** para obtener revisión cruzada. El beneficio no estaba en el motivo.
+
+**Dónde pongo el límite, y por eso no lo propongo como práctica.** Esto es **n=1**. Un piloto no establece que la separación de autoridades produzca verificación en general; establece que la produjo aquí, con dos sesiones que eligieron contrastar. Nada garantiza que dos sesiones cualesquiera lo hagan: podrían aceptarse mutuamente sin comprobar, y entonces el costo del protocolo se pagaría sin el beneficio.
+
+Recomendar la separación como práctica del método sería exactamente el antipatrón `SH-AP` de «la circunstancia fue inventada»: generalizar desde un caso plausible sin evidencia de que se repita.
+
+**Lo que sí propongo**, y es modesto: que `A6` se conserve como **observación registrada** para contrastarla contra el segundo proyecto que use el paquete. Si vuelve a ocurrir, hay base para documentarlo; si no, quedará como una particularidad de este piloto. No requiere cambio alguno en el paquete hoy.
 
 ## `A1`–`A5` · Lo que confirma que el preset funciona
 
