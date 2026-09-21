@@ -192,6 +192,12 @@ No existe hoy ningún mecanismo que lo hubiera detectado:
 
 **Consecuencia para el mantenimiento.** Versionar el paquete no es solo regenerar `SHA256SUMS`. Es comprobar si algún proyecto instalado afirma algo sobre la versión que se está moviendo. He extendido `DP-02` de `AGENTS.md` en consecuencia.
 
+> **`DP-02` ya se validó, y en su modo útil.** Al versionar a 1.0.2 encontré en el `README.md` del preset un párrafo que acababa de quedar falso en dos de sus tres afirmaciones: «antes de publicarla en un catálogo se debe definir un repositorio público, una URL de descarga versionada y una licencia de distribución aprobada. **No se ha supuesto una autorización de código abierto**». Lo corregí antes de construir el paquete.
+>
+> La sesión del sitio hizo la distinción que lo vuelve significativo, y es suya: **`FR-009` fue un hallazgo forense** —apareció cuando alguien tuvo que escribir el dato— **y el del README fue preventivo** —apareció porque `DP-02` obliga a buscarlo—. Un mecanismo que solo produce hallazgos forenses documenta bien y no protege. Este ya hizo las dos cosas.
+>
+> Sin `C9`, el paquete v1.2.0 se habría publicado afirmando que no existía autorización de código abierto, dentro de la misma versión que la concede.
+
 **Decisión humana requerida.** Dos, y son de distinta naturaleza:
 
 1. **`FR-009` afirma una versión que ya no es la vigente.** Corregirlo es modificar el PRD, que solo la autoridad de producto puede hacer. La alternativa —que el requisito no fije un número y remita al estado verificado— es una mejora de redacción del fundamento, no del método.
