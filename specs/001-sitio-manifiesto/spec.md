@@ -34,6 +34,7 @@ Las decisiones registradas aquí fueron tomadas por la autoridad de producto dur
 - Q: ¿Cuánto aparece el autor dentro de la narrativa del sitio? (`CL-04`) → A: Voz impersonal en el recorrido, con una nota de origen identificada en primera persona.
 - Q: ¿Existe un canal de contacto y cuál? (`CL-07`) → A: Alias de correo dedicado publicado como `mailto:`, más Issues del repositorio del sitio para asuntos técnicos.
 - Q: ¿Bajo qué cuenta y con qué nombre se publicará el repositorio del preset? (`CL-10`) → A: Cuenta personal `dacunao`, nombre `spec-kit-preset-software-humano`, según la convención documentada.
+- Q: ¿Cuál es el repositorio del sitio, cuyas Issues son el segundo canal de `CL-07`? → A: `https://github.com/dacunao/sitio-software-humano`. Valor faltante detectado por `analyze` y completado por la autoridad de producto el 2026-09-21.
 
 #### Consecuencias registradas
 
@@ -98,7 +99,7 @@ Esa voz autoral es un registro más, señalado por el mismo mecanismo que `FR-01
 **`CL-07` · Canal de contacto.** Dos canales y ninguna captura:
 
 1. **Alias de correo dedicado** `manifiestosoftwarehumano@gmail.com`, publicado en «Acerca de» como `mailto:` en texto plano. No es la dirección personal de la autoridad de producto.
-2. **Issues del repositorio del sitio**, para asuntos técnicos y para quien prefiera un registro público.
+2. **Issues del repositorio del sitio**, `https://github.com/dacunao/sitio-software-humano`, para asuntos técnicos y para quien prefiera un registro público. Es además el repositorio que `FR-021` exige para versionar el contenido en GitHub y el que `CL-12` publica bajo MIT.
 
 **El sitio no captura datos personales.** La conversación la inicia el visitante desde su propio cliente de correo o desde su cuenta de GitHub: no hay formulario, función de servidor, almacenamiento, antiabuso ni política de privacidad. `FR-018` y `AC-12` permanecen intactos y la decisión es coherente con `CL-06`, que descartó la captura para el preset.
 
@@ -473,7 +474,7 @@ Las diez primeras corresponden a PRD §29, que las declara decisiones que **requ
 - **`CL-04`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Voz impersonal en los siete actos y en los diez principios, con una nota de origen identificada en primera persona, marcada como registro distinguible. Ver Clarifications · Consecuencias registradas.
 - **`CL-05`** — **Resuelta el 2026-09-21 por la autoridad de producto.** CC BY 4.0 para el texto canónico y el contenido editorial del sitio. Ver Clarifications · Consecuencias registradas.
 - **`CL-06`** — **Resuelta el 2026-09-21 por la autoridad de producto.** El estado de publicación del preset se modela como dato; se declara licencia y ruta prevista como disponibilidad futura y no se publican enlaces sin destino. Ver Clarifications · Consecuencias registradas.
-- **`CL-07`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Alias de correo dedicado publicado como `mailto:` en texto plano, más Issues del repositorio del sitio. Sin formulario ni captura de datos por parte del sitio. Ver Clarifications · Consecuencias registradas.
+- **`CL-07`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Alias de correo dedicado publicado como `mailto:` en texto plano, más Issues de `https://github.com/dacunao/sitio-software-humano`. Sin formulario ni captura de datos por parte del sitio. Ver Clarifications · Consecuencias registradas.
 - **`CL-08`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Google Search Console y CrUX como base sin script ni datos de visitante; Cloudflare Web Analytics como único script de terceros autorizado, sin cookies, sin `localStorage`, sin *fingerprinting* y sin datos personales. Queda excluida toda analítica de sesiones, reproducción de sesión, identificador de visitante o plataforma de observabilidad. Ver Clarifications · Consecuencias registradas.
 - **`CL-09`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Aprobación doctrinal de la autoridad de producto en los tres idiomas; aprobación lingüística del español a cargo de la autoridad de producto, y del inglés general y el portugués de Brasil mediante servicio profesional pagado de revisión nativa. Ver Clarifications · Consecuencias registradas.
 - **`CL-10`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Licencia MIT; se publica el repositorio y no servicios derivados ni soporte; repositorio `https://github.com/dacunao/spec-kit-preset-software-humano`, vía el catálogo de comunidad de SpecKit. Ver Clarifications · Consecuencias registradas.
