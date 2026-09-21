@@ -261,11 +261,22 @@ Lo que no pide es el **estado esperado de las verificaciones durante el interval
 
 Eso no prescribe CI, no debilita ninguna regla y no crea un artefacto nuevo. Añade una columna o una nota a una tabla que ya existe.
 
+**La reformulación que lo reordena, y es de la sesión del sitio.** Aceptó el reencuadre y retiró la condicional sobre la CI, observando que «al sugerir que el paquete previera el caso *si llegara a recomendar una CI de referencia* estaba proponiendo que empezara a hacerlo, con una condicional que disimulaba la propuesta». Y agregó la frase que cambia cómo debe leerse todo el hallazgo:
+
+> **No describe un problema de la compuerta: describe una omisión del plan que la compuerta reveló. La compuerta hizo su trabajo, incluido señalar lo que nadie había previsto.**
+
+Eso es exacto y conviene tenerlo presente al decidir. `C10` **no es evidencia de que `BR-007` sea demasiado estricta** ni de que la detención esté mal calibrada: es evidencia de que el plan omitió declarar una consecuencia de su propio orden, y de que la regla de detención fue lo único que lo hizo visible. La salida correcta **refuerza el plan, no relaja la compuerta**.
+
 **Relación con `C3`.** Misma familia y mismo eje. `C3` observó que el orden puede exponer el producto **antes de la aceptación**; `C10` observa que el orden puede dejar una compuerta **inútil durante un intervalo**. En ambos casos la consecuencia es del orden en el tiempo, y en ambos ninguna capa la examina. Si se aborda `C3`, conviene abordar `C10` en el mismo cambio.
 
 **Lo que la sesión del sitio hizo bien.** No tocó la CI. Distinguir los hallazgos esperados del resto debilitaría `BR-007` si se hace mal, y esa es una decisión de la autoridad de producto del sitio, no del método.
 
-**Decisión humana requerida.** Si la plantilla de plan pide declarar el estado esperado de las verificaciones por intervalo. Toca el preset —es su plantilla— y por tanto lo versiona.
+**Decisión humana requerida, y son dos en planos distintos.**
+
+1. **Del método**: si la plantilla de plan pide declarar el estado esperado de las verificaciones por intervalo. Toca el preset —es su plantilla— y por tanto lo versiona.
+2. **Del producto del sitio**: si esa sesión puede agregar a su `plan.md` la línea que declara el rojo de `B03` a `B05`. No la escribió, y con razón: `plan.md` es un artefacto rector revisado, y modificarlo durante `implement` —aunque sea para documentar un hecho que ya existe— es autoridad de producto.
+
+Si la segunda se aprueba, el proyecto habrá aplicado la lección **antes** de que el método la codifique, igual que ocurrió con `C2` y `C3` según `E3`. Eso no anticipa la decisión del método: la informa, porque habrá una redacción concreta que evaluar en lugar de una hipótesis.
 
 ## `C5` · El ítem del checklist
 
