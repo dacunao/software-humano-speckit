@@ -1,10 +1,10 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 1.1.1
+**Versión del paquete:** 1.2.0
 **Fecha:** 2026-09-21
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 1.2
-**Preset Software Humano:** 1.0.1
+**Preset Software Humano:** 1.0.2
 **Autoridad:** Damián Acuña
 
 ## Qué es
@@ -15,7 +15,7 @@ Reúne en una sola estructura:
 
 - el núcleo completo del manifiesto v2.1;
 - el anexo que lo aplica a SpecKit v1.2;
-- el preset instalable Software Humano v1.0.1;
+- el preset instalable Software Humano v1.0.2, bajo MIT;
 - los requisitos de entorno, con comprobación ejecutable;
 - las instrucciones de instalación y verificación;
 - un prompt de arranque para entregar al agente;
@@ -68,7 +68,7 @@ Ningún documento debe absorber el papel de otro.
 | 1 | [`docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md`](docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md) | Cómo se concibe, decide, implementa y verifica software humano. |
 | 2 | Tu fundamento de producto, en `docs/product/` | Qué debe construirse, con qué alcance y qué evidencia permite aceptarlo. |
 | 3 | [`docs/method/Anexo_Aplicacion_SpecKit_v1.2.md`](docs/method/Anexo_Aplicacion_SpecKit_v1.2.md) | Cómo se corresponde el núcleo con los mecanismos nativos de SpecKit. |
-| 4 | [`tools/speckit/software-humano-spec-kit-preset-1.0.1/`](tools/speckit/software-humano-spec-kit-preset-1.0.1/) | Cómo se materializa técnicamente la adaptación. |
+| 4 | [`tools/speckit/software-humano-spec-kit-preset-1.0.2/`](tools/speckit/software-humano-spec-kit-preset-1.0.2/) | Cómo se materializa técnicamente la adaptación. |
 | 5 | SpecKit nativo | El ciclo SDD y todo comportamiento que el preset no modifique. |
 
 El núcleo y el fundamento no compiten: el núcleo gobierna el método; el fundamento gobierna el producto. Ante una contradicción real o aparente, el agente debe identificarla y detener la decisión afectada, no inventar una conciliación.
@@ -81,6 +81,9 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
 ├── CLAUDE.md                         Referencia a AGENTS.md + lo específico de Claude Code.
 ├── START_WITH_AI_AGENT.md            Prompt de arranque.
 ├── SHA256SUMS
+├── LICENSE                           Frontera de licencias, por naturaleza.
+├── LICENSE-CODE                      MIT · preset, herramientas e instrucciones.
+├── LICENSE-CONTENT                   CC BY 4.0 · texto del núcleo v2.1.
 ├── docs/
 │   ├── method/
 │   │   ├── Manifiesto_Software_Humano_IA_Nucleo_v2.1.md
@@ -95,8 +98,8 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
         ├── preflight.sh                    Comprueba el entorno. No modifica nada.
         ├── specify                         Envoltorio con versión de SpecKit fijada.
         ├── shim/python3                    Intérprete con PyYAML para los scripts.
-        ├── Software_Humano_SpecKit_Preset_v1.0.1.zip
-        └── software-humano-spec-kit-preset-1.0.1/
+        ├── Software_Humano_SpecKit_Preset_v1.0.2.zip
+        └── software-humano-spec-kit-preset-1.0.2/
 ```
 
 El directorio y el ZIP del preset son la misma versión. El directorio facilita inspección e instalación local; el ZIP conserva la distribución verificable.
@@ -162,6 +165,18 @@ Esta versión **no modifica doctrina**. El núcleo v2.1 y el anexo v1.2 son idé
 | `CLAUDE.md` | Nuevo. Referencia `AGENTS.md` y añade solo lo específico de Claude Code. |
 | Preset 1.0.1 | Corrige dos anclas desplazadas en la plantilla de constitución. Sin cambio doctrinal. |
 
+### 1.2.0
+
+**El paquete pasa a ser redistribuible.** Hasta 1.1.1 no tenía `LICENSE`, de modo que quedaba como «todos los derechos reservados» por omisión mientras invitaba a instalarse en cualquier proyecto. Y el `LICENSE` del preset decía expresamente «no permission is granted to… publish», lo que volvía **inejecutable** la decisión aprobada de publicarlo en el catálogo de comunidad de SpecKit.
+
+| Área | Cambio |
+|---|---|
+| `LICENSE`, `LICENSE-CODE`, `LICENSE-CONTENT` | Nuevos. Declaran la frontera por naturaleza: MIT para código y operación, CC BY 4.0 para el texto del núcleo |
+| Anexo v1.2 | Queda bajo MIT. Es documentación de la adaptación, no doctrina |
+| Preset 1.0.2 | Sustituye la licencia propietaria por MIT; `preset.yml` declara `license: "MIT"`. **Sin cambio doctrinal ni funcional** |
+
+Un proyecto con 1.0.1 instalado **no necesita rematerializar su constitución** al adoptar esta versión: la proyección doctrinal es byte a byte la misma.
+
 ### 1.1.1
 
 `AGENTS.md` sale de `SHA256SUMS`. Al migrar el primer repositorio a 1.1.0 se hizo evidente que completar la sección «Completar por proyecto» —el uso previsto del archivo— rompía la verificación de integridad. Un control que falla en el caso normal deja de ser un control.
@@ -171,6 +186,21 @@ Esta versión **no modifica doctrina**. El núcleo v2.1 y el anexo v1.2 son idé
 `SHA256SUMS` verifica los archivos **invariantes** del método: el manifiesto, el anexo, el preset, las instrucciones y las herramientas. Usa rutas relativas, de modo que sigue verificando si mueves el paquete completo o lo instalas en un repositorio con otros archivos.
 
 **`AGENTS.md` queda deliberadamente fuera de la verificación**, porque su sección «Completar por proyecto» está diseñada para que cada repositorio la edite. Incluirlo haría que la integridad fallara en cuanto alguien usara el paquete como se espera, y eso enseñaría a ignorar el resultado. Si `SHA256SUMS` falla, hay un problema real.
+
+### Licencias
+
+El paquete contiene **dos naturalezas bajo dos licencias**, con la frontera definida **por naturaleza y no por carpeta**:
+
+| Qué | Licencia |
+|---|---|
+| Preset, herramientas, instrucciones y el anexo v1.2 | [MIT](LICENSE-CODE) |
+| Texto del núcleo del manifiesto v2.1, dondequiera que aparezca | [CC BY 4.0](LICENSE-CONTENT) |
+
+`templates/constitution-template.md` vive dentro del preset y es **contenido**, no código: su texto doctrinal es el del núcleo. [`LICENSE`](LICENSE) explica la frontera completa.
+
+Puedes instalar, modificar y redistribuir el paquete sin pedir permiso, y citar, traducir o adaptar el texto del manifiesto con atribución.
+
+Este paquete no concede licencia alguna sobre SpecKit ni sobre software de terceros, que conservan las suyas.
 
 El preset conserva su licencia propietaria en su propio directorio. Este paquete no concede una licencia adicional sobre el manifiesto, SpecKit ni software de terceros.
 

@@ -1,7 +1,7 @@
 # Propuesta 003 — Licencia del paquete, frontera código/texto, y evaluación de los hallazgos del piloto
 
 **Fecha:** 2026-09-21
-**Estado:** propuesta para decisión de Damián Acuña. **Ninguna parte está aplicada.**
+**Estado:** **Parte 1 (`L1`, `L2`, `L3`) RESUELTA y aplicada el 2026-09-21** por decisión de Damián Acuña. El resto sigue siendo propuesta sin aplicar.
 **Sesión:** mantenimiento del método (`software-humano-70`)
 **Fuente evaluada:** `docs/pilot/registro-del-piloto.md` del repositorio `sitio-software-humano`, secciones A, B, C, D y E — 25 entradas: `A1`–`A5`, `B1`–`B6`, `C1`–`C9`, `E1`–`E5` — más `A6`, agregada al cierre
 
@@ -16,6 +16,17 @@ Un aviso sobre el alcance de mi verificación: el registro del piloto fue produc
 ---
 
 # Parte 1 · Licencia del paquete
+
+> **RESUELTA el 2026-09-21.** Damián Acuña autorizó resolver `L1`, `L2` y `L3` juntas y versionar el preset a **1.0.2**. Aplicado en el paquete **v1.2.0**:
+>
+> - `LICENSE`, `LICENSE-CODE` y `LICENSE-CONTENT` declaran la frontera **por naturaleza y no por carpeta**;
+> - **MIT** para el preset, las herramientas, las instrucciones y el **anexo v1.2** —la única pieza que nadie había decidido, resuelta aquí porque el anexo es documentación de la adaptación y no doctrina—;
+> - **CC BY 4.0** para el texto del núcleo v2.1 dondequiera que aparezca, incluida su proyección dentro del preset, respetando la precedencia de `CL-05`;
+> - el preset **v1.0.2** sustituye la licencia propietaria por MIT, **sin cambio doctrinal ni funcional**.
+>
+> Verificado: la proyección doctrinal de 1.0.2 es byte a byte la de 1.0.1, y **la constitución de este repositorio no necesitó rematerializarse**.
+>
+> Lo que sigue es el análisis que fundamentó la decisión, conservado como registro.
 
 ## `L1` · Hecho: este repositorio no tiene `LICENSE`
 

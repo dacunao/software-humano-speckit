@@ -1,5 +1,15 @@
 # Registro de cambios
 
+## 1.0.2 — 2026-09-21
+
+Licencia. **Ningún cambio doctrinal ni funcional**: `templates/constitution-template.md` es byte a byte idéntica a la de 1.0.1, y las plantillas y comandos no cambian.
+
+- sustituye la licencia propietaria por **MIT**, y `preset.yml` declara `license: "MIT"`. La versión 1.0.1 y anteriores declaraban «All rights reserved… no permission is granted to copy, modify, distribute, sublicense, publish, or use this package», lo que hacía **inejecutable** la decisión de publicar el preset en el catálogo de comunidad de SpecKit, que exige un archivo de licencia open source;
+- declara la frontera de licencias **por naturaleza y no por carpeta**: `templates/constitution-template.md` contiene el texto del núcleo v2.1 y se publica bajo **CC BY 4.0**, mientras MIT cubre el resto del preset;
+- conserva el aviso de que SpecKit y el software de terceros mantienen sus propias licencias.
+
+Un proyecto que tenga instalada la versión 1.0.1 **no necesita rematerializar su constitución** al adoptar esta versión: la proyección doctrinal no cambió.
+
 ## 1.0.1 — 2026-09-21
 
 Corrección de navegación. **Ningún cambio doctrinal**: el texto del núcleo v2.1, ignorando las líneas de ancla, es byte a byte idéntico al de la versión 1.0.0.

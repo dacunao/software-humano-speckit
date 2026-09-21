@@ -22,24 +22,8 @@ SOFTWARE.
 
 ---
 
-CONTENIDO INCORPORADO BAJO OTRA LICENCIA
-
-`templates/constitution-template.md` contiene el texto del **Núcleo del
-manifiesto para el desarrollo de software humano con inteligencia artificial
-v2.1**, reorganizado únicamente para cumplir la jerarquía nativa de constitución
-de SpecKit. Su contenido doctrinal no es código de este preset.
-
-Ese texto se publica bajo **Creative Commons Atribución 4.0 Internacional
-(CC BY 4.0)**: https://creativecommons.org/licenses/by/4.0/
-
-La licencia MIT de arriba cubre el resto del preset: `preset.yml`, los ocho
-comandos compuestos, y las plantillas de especificación, plan y tareas.
-
-La frontera se define por naturaleza y no por carpeta.
-
----
-
-SOFTWARE DE TERCEROS
+Esta licencia cubre el código y la operación del paquete. NO cubre el texto del
+Núcleo del manifiesto v2.1, que se publica bajo CC BY 4.0. Ver LICENSE.
 
 GitHub SpecKit y cualquier otro software de terceros conservan sus propias
 licencias y avisos de copyright.

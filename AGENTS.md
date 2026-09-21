@@ -178,9 +178,14 @@ Más allá de los protegidos por el método:
 
 No pueden cerrarse con un valor predeterminado. Requieren decisión de Damián Acuña.
 
-- **Licencia del paquete.** Este repositorio **no tiene `LICENSE`**. Sin ella el paquete queda como «todos los derechos reservados» por omisión, lo que contradice que se distribuya para instalarse en otros proyectos. Detallado en `docs/proposals/003`.
-- **Frontera entre código y texto citado dentro del paquete.** El preset se publicará bajo MIT (`CL-10`) y materializa la constitución, que es texto del manifiesto, publicado bajo CC BY 4.0 (`CL-05`). **`CL-05` tiene precedencia**: fue una decisión de la autoridad de producto. Detallado en `docs/proposals/003`.
-- **Hallazgos del piloto `C1`–`C8`.** Registrados en el repositorio del sitio, evaluados en `docs/proposals/003`. Una propuesta no es una autorización.
+- **Hallazgos del piloto.** Registrados en `docs/pilot/registro-del-piloto.md` del repositorio del sitio, evaluados en `docs/proposals/003`. Una propuesta no es una autorización.
+- **`FR-009` del PRD del sitio** afirma que la adaptación «fue validada técnicamente en versión 1.0.0». La instalada y verificada es la 1.0.2. Corregirlo es decisión de la autoridad de producto del sitio, no de este repositorio.
+- **`Software_Humano_Manifesto_Site_Starter_v1.0.0.zip`**, rastreado en la raíz, es la distribución del starter específico del sitio y embebe su PRD. Conservarlo como artefacto histórico o retirarlo por coherencia con `T007` está sin decidir.
+
+## Decisiones ya resueltas
+
+- **Licencias del paquete** — resueltas el 2026-09-21 por Damián Acuña. Frontera **por naturaleza y no por carpeta**: MIT para el preset, las herramientas, las instrucciones y el anexo v1.2; CC BY 4.0 para el texto del núcleo v2.1, incluida su proyección en `templates/constitution-template.md`. Ver `LICENSE`, `LICENSE-CODE` y `LICENSE-CONTENT`.
+- **Licencia del preset** — MIT desde la v1.0.2. La versión 1.0.1 y anteriores declaraban una licencia propietaria que prohibía publicar, lo que volvía inejecutable `CL-10`.
 
 ---
 

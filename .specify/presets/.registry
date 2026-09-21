@@ -2,9 +2,9 @@
   "schema_version": "1.0",
   "presets": {
     "software-humano": {
-      "version": "1.0.1",
+      "version": "1.0.2",
       "source": "local",
-      "manifest_hash": "sha256:c4ea585bb94c3bd7357a2a0471191341e3e80a2b3d3e9be35ac5f32ba7340fd1",
+      "manifest_hash": "sha256:9ca9040d8cb318053804945ac6e87293acd4144c831f3a3b78849309012a0179",
       "enabled": true,
       "priority": 5,
       "registered_commands": {
@@ -31,7 +31,7 @@
           "speckit-converge"
         ]
       },
-      "installed_at": "2026-09-21T16:28:43.289072+00:00"
+      "installed_at": "2026-09-21T20:54:01.791903+00:00"
     }
   }
 }
