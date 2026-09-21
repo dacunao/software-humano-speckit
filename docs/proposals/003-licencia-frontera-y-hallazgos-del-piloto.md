@@ -177,6 +177,8 @@ No existe hoy ningún mecanismo que lo hubiera detectado:
 
 **Es la contracara aguas arriba de `E1`.** `E1` establece que nada de lo que corrija aquí se propaga solo hacia el proyecto instalado, y eso es correcto y deseable para los **archivos**. Pero significa también que **nada avisa cuando un cambio aquí falsifica una afirmación de allá**. El desacoplamiento protege de la propagación involuntaria y, por el mismo mecanismo, oculta la invalidación.
 
+> La sesión del sitio aceptó esto como corrección y no como complemento, y enmendó `E1` en consecuencia (su commit `4565f8e`, verificado por mí). `E1` presentaba el desacoplamiento solo por su lado tranquilizador; ahora registra que **no es solo una garantía sino una responsabilidad de ida y vuelta, y que hoy ninguna de las dos direcciones tiene mecanismo**. La de este repositorio es `DP-02`, extendido abajo. La de un proyecto instalado es contrastar antes de publicar, que es lo que hizo aparecer las dos instancias de `C9`. La conclusión de `E5` no cambia.
+
 **Consecuencia para el mantenimiento.** Versionar el paquete no es solo regenerar `SHA256SUMS`. Es comprobar si algún proyecto instalado afirma algo sobre la versión que se está moviendo. He extendido `DP-02` de `AGENTS.md` en consecuencia.
 
 **Decisión humana requerida.** Dos, y son de distinta naturaleza:
