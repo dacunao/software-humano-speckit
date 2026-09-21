@@ -1,6 +1,6 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 1.1.0
+**Versión del paquete:** 1.1.1
 **Fecha:** 2026-09-21
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 1.2
@@ -162,9 +162,15 @@ Esta versión **no modifica doctrina**. El núcleo v2.1 y el anexo v1.2 son idé
 | `CLAUDE.md` | Nuevo. Referencia `AGENTS.md` y añade solo lo específico de Claude Code. |
 | Preset 1.0.1 | Corrige dos anclas desplazadas en la plantilla de constitución. Sin cambio doctrinal. |
 
+### 1.1.1
+
+`AGENTS.md` sale de `SHA256SUMS`. Al migrar el primer repositorio a 1.1.0 se hizo evidente que completar la sección «Completar por proyecto» —el uso previsto del archivo— rompía la verificación de integridad. Un control que falla en el caso normal deja de ser un control.
+
 ## Integridad y licencias
 
-`SHA256SUMS` permite verificar los archivos del paquete. Usa rutas relativas, de modo que sigue verificando si mueves el paquete completo.
+`SHA256SUMS` verifica los archivos **invariantes** del método: el manifiesto, el anexo, el preset, las instrucciones y las herramientas. Usa rutas relativas, de modo que sigue verificando si mueves el paquete completo o lo instalas en un repositorio con otros archivos.
+
+**`AGENTS.md` queda deliberadamente fuera de la verificación**, porque su sección «Completar por proyecto» está diseñada para que cada repositorio la edite. Incluirlo haría que la integridad fallara en cuanto alguien usara el paquete como se espera, y eso enseñaría a ignorar el resultado. Si `SHA256SUMS` falla, hay un problema real.
 
 El preset conserva su licencia propietaria en su propio directorio. Este paquete no concede una licencia adicional sobre el manifiesto, SpecKit ni software de terceros.
 

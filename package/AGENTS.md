@@ -113,6 +113,8 @@ Estas no son doctrina. Son fricciones reales observadas en instalaciones anterio
 
 **Todo lo anterior es invariante y se aplica a cualquier proyecto que use este método. Lo que sigue es específico de este repositorio y debe completarse antes de ejecutar `specify`.**
 
+> **Por eso este archivo queda fuera de `SHA256SUMS`.** Está diseñado para que cada proyecto lo edite, de modo que no es un archivo invariante del método. `SHA256SUMS` verifica el manifiesto, el anexo, el preset, las instrucciones y las herramientas: todo lo que **no** debe cambiar. Si la verificación de integridad falla, hay un problema real; completar esta sección nunca la rompe.
+
 Si un campo está sin completar, el agente debe detenerse y solicitarlo. No lo infiera.
 
 ## Producto

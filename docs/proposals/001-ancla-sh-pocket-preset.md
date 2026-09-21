@@ -1,7 +1,7 @@
 # Propuesta 001 — Ancla `sh-pocket` huérfana en la plantilla de constitución del preset
 
 **Fecha de registro:** 2026-09-21
-**Estado:** propuesta abierta, sin autorización para aplicar
+**Estado:** RESUELTA el 2026-09-21 en el preset v1.0.1
 **Archivo afectado:** `tools/speckit/software-humano-spec-kit-preset-1.0.0/templates/constitution-template.md`
 **Autoridad requerida:** autoridad del preset
 
@@ -44,3 +44,25 @@ Al ser un cambio en el preset, requiere además:
 ## Alternativa más simple
 
 No corregir. El defecto no afecta doctrina ni alcance, y el costo de mover una versión del preset supera hoy el beneficio de un ancla de navegación. Esta alternativa es razonable si no hay otra razón para versionar el preset; si aparece una, conviene incluir esta corrección en ese mismo cambio.
+
+
+---
+
+## Resolución — 2026-09-21
+
+Aplicada en el **preset v1.0.1**, con autoridad humana otorgada en esa fecha.
+
+**El defecto era mayor de lo descrito arriba.** Al corregirlo se encontró que había **dos anclas mal ubicadas**, no una:
+
+| Ancla | Estaba | Debía estar |
+|---|---|---|
+| `sh-gov` | línea 887, precediendo la Guía de bolsillo | antes de la sección `Governance` |
+| `sh-pocket` | línea 1034, huérfana al final del archivo | antes de `GUÍA DE BOLSILLO · SH-POCKET` |
+
+La sección `Governance` quedaba, por tanto, **sin ancla alguna**.
+
+**Causa raíz.** La proyección reordena el documento para que `Governance` sea la sección final, como exige la jerarquía nativa de SpecKit. Las anclas no acompañaron a sus secciones durante ese movimiento.
+
+**Verificación.** El texto doctrinal, ignorando las líneas de ancla, es byte a byte idéntico entre v1.0.0 y v1.0.1: hash `fee5df7352708fa0…` en ambas. Ninguna obligación fue agregada, eliminada ni reformulada.
+
+**Propagación.** El preset instalado de este repositorio se actualizó a v1.0.1 y `.specify/memory/constitution.md` fue rematerializada mediante el comando registrado. Ahora es byte a byte la proyección corregida, y las siete anclas preceden cada una a su sección.

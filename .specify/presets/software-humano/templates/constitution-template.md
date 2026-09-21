@@ -884,7 +884,7 @@ Ambas historias pertenecen al mismo Jobs to Be Done de nivel superior: desarroll
 
 El objetivo no es que el estudiante llegue al final de la secuencia. Es que pueda resolver o explicar un ejercicio equivalente con menos ayuda. Esa diferencia cambia la interfaz, la lógica, la medición y el uso de IA.
 
-<a id="sh-gov"></a>
+<a id="sh-pocket"></a>
 
 ## GUÍA DE BOLSILLO · `SH-POCKET`
 
@@ -968,6 +968,8 @@ Alan Klement. [<u>Designing Features Using Job Stories</u>](https://www.intercom
 
 La tecnología puede ser extraordinariamente sofisticada detrás de la interfaz. Delante de ella debe permanecer una persona concentrada en aquello que quería conseguir.
 
+<a id="sh-gov"></a>
+
 ## Governance · GOBERNANZA · `SH-GOV`
 
 ### Cómo convertir el manifiesto en una práctica habitual
@@ -1030,7 +1032,5 @@ La versión 2.1 preserva la tesis, los diez principios, la doctrina para IA, las
 Un desarrollo está completo cuando todos los elementos obligatorios de la definición de producto tienen una implementación y una evidencia verificable, o una excepción explícita y aprobada; las personas alcanzan los resultados previstos bajo las condiciones definidas, y la conducta del sistema y la calidad de la experiencia han sido verificadas con rigor proporcional al riesgo.
 
 Cuando el fundamento incluye Job Stories, la verificación debe demostrar el resultado en sus circunstancias. La completitud incluye código correcto, pero no termina allí. Exige cobertura del alcance, integración entre sus partes, estados críticos confiables, una experiencia que no obligue a aprender la arquitectura del producto, IA dentro de límites explícitos y claridad sobre lo que debe observarse después del lanzamiento.
-
-<a id="sh-pocket"></a>
 
 **Version**: 2.1 | **Ratified**: 2026-09-20 | **Last Amended**: 2026-09-20

@@ -1,80 +1,72 @@
-# Instrucciones del proyecto
+# Instrucciones del proyecto para Claude Code
 
-Las reglas persistentes que gobiernan este repositorio están en `AGENTS.md` y se cargan desde aquí. `AGENTS.md` es la fuente única: este archivo la referencia, no la duplica ni la reinterpreta.
+Las reglas que gobiernan este repositorio están en `AGENTS.md` y se cargan desde aquí. **`AGENTS.md` es la fuente única**: este archivo la referencia y añade solo lo específico de Claude Code. No duplica ninguna regla, porque dos copias de instrucciones rectoras divergen.
 
 @AGENTS.md
 
-## Entorno de este repositorio
+---
 
-Lo siguiente describe cómo está montado el entorno. No agrega doctrina, no altera el alcance del PRD y no sustituye ninguna disposición de `AGENTS.md`.
+## Específico de Claude Code
 
-### Raíz del proyecto
+Lo que sigue no es doctrina. Es cómo opera este método dentro de Claude Code.
 
-`PROJECT_ROOT` es la raíz de este repositorio Git. El contenido del paquete de inicio v1.0.0 vive directamente en ella, como indica `README.md`.
+### Los comandos de SpecKit son skills
 
-La integridad del paquete se comprueba desde la raíz:
+`specify init --integration claude` registra los ocho comandos compuestos como skills en `.claude/skills/`. Se invocan así:
 
-```bash
-shasum -a 256 -c SHA256SUMS
-```
+| Operación | Invocación |
+|---|---|
+| Constitución | `/speckit-constitution` |
+| Especificar | `/speckit-specify` |
+| Aclarar | `/speckit-clarify` |
+| Planificar | `/speckit-plan` |
+| Tareas | `/speckit-tasks` |
+| Analizar | `/speckit-analyze` |
+| Implementar | `/speckit-implement` |
+| Converger | `/speckit-converge` |
+| Checklist (nativo, sin adaptar) | `/speckit-checklist` |
 
-Deben verificar 25 de 25 archivos. Un resultado menor significa que un archivo del paquete fue modificado o eliminado, e invalida la evidencia de integridad.
+### Las skills recién instaladas no existen hasta reiniciar la sesión
 
-### SpecKit
+**Esta es la fricción más común y conviene anticiparla.**
 
-Este proyecto usa **SpecKit v1.0.8 en una instancia aislada**, fijada mediante `uvx`. El preset Software Humano v1.0.0 exige el rango `>=1.0.0,<2.0.0`.
-
-Usa siempre el envoltorio del repositorio:
-
-```bash
-tools/speckit/specify <subcomando>
-```
-
-No uses el `specify` instalado globalmente. Ese ejecutable permanece en **0.15.0** —fuera del rango exigido por el preset— y da servicio a otros proyectos del usuario cuyo `.specify/` fue generado con esa versión. Actualizarlo o reemplazarlo excede la autoridad de este proyecto y requiere una decisión humana separada.
-
-### Scripts de SpecKit: shim de python3 obligatorio
-
-`.specify/scripts/bash/common.sh` usa el primer `python3` del `PATH`. En este equipo es el de Homebrew, que **no tiene PyYAML**, y entonces la resolución de plantillas falla:
+Claude Code carga su catálogo de skills **al iniciar la sesión**. Si ejecutas `specify init` y enseguida intentas invocar un comando en la misma sesión, obtendrás:
 
 ```
-Error: PyYAML is required to resolve preset template composition
+Unknown skill: speckit-constitution
 ```
 
-Instalar PyYAML en el python3 de Homebrew está bloqueado por PEP 668, y forzarlo con `--break-system-packages` puede romper la instalación de Homebrew. Por eso el repositorio incluye `tools/speckit/shim/python3`, que delega en un intérprete que sí tiene PyYAML.
+Por eso la instalación normalmente requiere **dos sesiones**:
 
-**Invoca siempre los scripts de SpecKit con el shim antepuesto al `PATH`:**
+1. **Sesión 1** — comprobar entorno, inicializar SpecKit, instalar el preset y verificar plantillas, comandos, checklist y límites.
+2. **Sesión 2**, iniciada de nuevo en el mismo directorio — materializar la constitución con `/speckit-constitution` y verificarla.
+
+Es lo esperado, no un error. Infórmalo a la persona antes de empezar para que no lo interprete como una falla, y **no copies la plantilla de constitución a mano** como sustituto: la instrucción 01 lo prohíbe expresamente.
+
+### Ejecutar scripts de SpecKit
+
+Los comandos te pedirán ejecutar scripts de `.specify/scripts/bash/`. Antepón siempre el shim de PyYAML:
 
 ```bash
 PATH="$PWD/tools/speckit/shim:$PATH" .specify/scripts/bash/resolve-template.sh spec-template
 ```
 
-Esto aplica a `resolve-template.sh`, `check-prerequisites.sh`, `create-new-feature.sh`, `setup-plan.sh` y `setup-tasks.sh`. Si un comando `speckit.*` falla al resolver una plantilla, esta es la primera causa a descartar.
+Sin eso, la resolución de plantillas compuestas falla con `PyYAML is required to resolve preset template composition`. Es la primera causa a descartar cuando un comando `speckit.*` no encuentra su plantilla.
 
-No modifiques `.specify/scripts/` para evitar el shim: son copias generadas por SpecKit y una actualización las reescribiría.
+### Invocar SpecKit
 
-### Constancia de procedencia de la constitución
+Si la instalación global de SpecKit está fuera del rango que exige el preset, usa el envoltorio del repositorio en lugar del comando global:
 
-**No modifiques `.specify/memory/.constitution-template.json`.**
+```bash
+tools/speckit/specify preset list
+```
 
-Ese archivo pertenece al mecanismo `constitution-sync`, que el README del preset prohíbe adoptar en este proyecto. El CLI compara su campo `sha256` contra el sha del **contenido vivo** de `constitution.md`. Hoy no coinciden, y esa discrepancia es deliberada: hace que `_constitution_is_generated()` devuelva `False`, de modo que el CLI trata la constitución como redactada por una persona y **no la sobrescribe**.
+### Antes de empezar cualquier trabajo
 
-Actualizar esa constancia invertiría la protección: el CLI pasaría a considerarla un archivo generado sin cambios y podría reemplazarla.
+Ejecuta la comprobación de entorno y reporta su resultado:
 
-### Gestor de paquetes
+```bash
+tools/speckit/preflight.sh
+```
 
-**`bun` es el único gestor de paquetes y ejecutor de este proyecto.** Aplica a instalación de dependencias, scripts, pruebas, herramientas de línea de comandos y ejecución local.
-
-| En lugar de | Usa |
-|---|---|
-| `npm install` | `bun install` |
-| `npm run <script>` | `bun run <script>` |
-| `npx <paquete>` | `bunx <paquete>` |
-| `npm test` | `bun test` |
-
-No introduzcas `npm`, `yarn` ni `pnpm`, y no generes ni versiones sus archivos de bloqueo. El bloqueo del proyecto es el de `bun`.
-
-Esta es una decisión humana de Damián Acuña, reversible, adoptada el 21 de septiembre de 2026. No altera alcance, contenido, experiencia, seguridad, derechos ni posicionamiento del producto, por lo que se ajusta al artículo 2.3 del PRD. Debe quedar registrada en `plan.md` cuando se planifique, junto con su consecuencia sobre la reproducibilidad de dependencias exigida por el artículo 24.5 del PRD.
-
-### Integración de agente
-
-La integración activa de SpecKit es **Claude Code**. Los comandos `speckit.*` compuestos por el preset se invocan a través de ella.
+Si reporta un bloqueo, detente e informa. No lo rodees por iniciativa propia.

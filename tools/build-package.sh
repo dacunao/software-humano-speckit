@@ -10,7 +10,7 @@
 set -euo pipefail
 
 RAIZ="$(CDPATH="" cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION_PAQUETE="1.1.0"
+VERSION_PAQUETE="1.1.1"
 VERSION_PRESET="1.0.1"
 NOMBRE="software-humano-speckit-starter-v${VERSION_PAQUETE}"
 
@@ -48,7 +48,7 @@ chmod +x "$STAGE/tools/speckit/preflight.sh" \
 
 echo "==> Generando SHA256SUMS"
 ( cd "$STAGE" \
-  && find . -type f ! -name 'SHA256SUMS' -print0 \
+  && find . -type f ! -name 'SHA256SUMS' ! -name 'AGENTS.md' -print0 \
      | LC_ALL=C sort -z \
      | xargs -0 shasum -a 256 \
      | sed 's|  \./|  |' > SHA256SUMS )

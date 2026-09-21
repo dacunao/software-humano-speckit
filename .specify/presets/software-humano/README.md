@@ -24,16 +24,16 @@ Preset instalable que aplica el **Núcleo del manifiesto para el desarrollo de s
 
 - Núcleo del manifiesto: **2.1**.
 - Anexo de aplicación SpecKit: **1.2**.
-- Preset Software Humano: **1.0.0**.
+- Preset Software Humano: **1.0.1**.
 - SpecKit: `>=1.0.0,<2.0.0`.
-- Referencia de validación: SpecKit `1.0.9.dev0`, revisión oficial `d4229c071c7ea3885b43e8a7739847300f618f13` del 21 de septiembre de 2026.
+- Referencia de validación: SpecKit `1.0.8` (etiqueta oficial) y `1.0.9.dev0`, revisión `d4229c071c7ea3885b43e8a7739847300f618f13`. La versión 1.0.1 fue instalada y verificada de extremo a extremo sobre SpecKit `1.0.8` el 21 de septiembre de 2026.
 
 ## Instalación local
 
 El proyecto debe haber sido inicializado previamente con SpecKit y tener una integración de agente activa.
 
 ```bash
-specify preset add --dev /ruta/absoluta/software-humano-spec-kit-preset-1.0.0 --priority 5
+specify preset add --dev /ruta/absoluta/software-humano-spec-kit-preset-1.0.1 --priority 5
 ```
 
 Comprueba la instalación y la resolución efectiva:
