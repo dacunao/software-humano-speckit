@@ -1,6 +1,6 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 1.2.0
+**Versión del paquete:** 1.3.0
 **Fecha:** 2026-09-21
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 1.2
@@ -164,6 +164,16 @@ Esta versión **no modifica doctrina**. El núcleo v2.1 y el anexo v1.2 son idé
 | `AGENTS.md` | Reescrito neutral de agente y de proyecto, con sección **Completar por proyecto**. |
 | `CLAUDE.md` | Nuevo. Referencia `AGENTS.md` y añade solo lo específico de Claude Code. |
 | Preset 1.0.1 | Corrige dos anclas desplazadas en la plantilla de constitución. Sin cambio doctrinal. |
+
+### 1.3.0
+
+**Nuevo apartado en la plantilla de `AGENTS.md`: protocolo de coordinación entre sesiones.**
+
+Se agrega porque la plantilla no preguntaba si el proyecto usaría más de un agente ni bajo qué reglas, y esa omisión tuvo consecuencia medida: durante el desarrollo de este método, dos sesiones sostuvieron ocho rondas de mensajes cruzados que produjeron 17 de 25 commits sin instrucción humana, y la autoridad de producto quedó fuera de su propio proyecto. Registrado como `M1` en las propuestas del repositorio del paquete.
+
+El apartado pide declarar qué sesiones trabajan, qué archivos pueden colisionar, qué exige aprobación humana previa y a quién reporta cada una. Fija además una regla: **ningún commit antes de que la autoridad haya visto de qué se trata**.
+
+**No toca el preset**, que permanece en v1.0.2. Un proyecto con el preset instalado no necesita re-sincronizar nada por esta versión.
 
 ### 1.2.0
 

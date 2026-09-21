@@ -167,6 +167,22 @@ No aplica como contrato de producto. El paquete se redacta íntegramente en **es
 - **Comprobación de entorno**: `tools/speckit/preflight.sh`.
 - No hay gestor de paquetes: el repositorio no compila nada.
 
+## Protocolo de coordinación entre sesiones
+
+Este proyecto **sí** usa más de una sesión: esta mantiene el paquete de método, y otra construye el sitio del Manifiesto en `https://github.com/dacunao/sitio-software-humano`.
+
+**Por qué existe este apartado.** Durante el desarrollo de este método, ocho rondas de mensajes cruzados entre ambas sesiones produjeron diecisiete de veinticinco commits sin que ninguna instrucción humana los originara, y la autoridad de producto quedó fuera de su propio proyecto. Está registrado como `M1` en `docs/proposals/003`. Dos agentes que se verifican mutuamente son ciegos a lo que ambos omiten.
+
+- **Sesiones y autoridad**: esta sesión mantiene el manifiesto, el anexo, el preset, las instrucciones y el paquete distribuible. La del sitio construye el producto. Ninguna decide sobre el objeto de la otra.
+- **Archivos que ambas pueden tocar**: en condiciones normales, **ninguno**. Los repositorios están separados desde `CL-13`. La única colisión observada fue `specs/001-sitio-manifiesto/tasks.md` durante `T007`, y se resolvió acordando que lo marcara su propia sesión.
+- **Exige aprobación humana previa**: versionar el paquete o el preset; modificar el manifiesto, el anexo o cualquier artefacto rector; escribir en el repositorio de la otra sesión; y registrar un hallazgo sobre la conducta de las propias sesiones.
+- **A quién reporta cada sesión**: a Damián Acuña. Nunca solo a la otra sesión.
+
+**Regla de confirmación.** Ningún commit antes de que la autoridad haya visto de qué se trata.
+
+**Estado vigente desde el 2026-09-21.** El diálogo directo entre sesiones está terminado por decisión de Damián. Si surge algo que exija coordinación, va primero a él.
+
+
 ## Archivos protegidos adicionales
 
 Más allá de los protegidos por el método:

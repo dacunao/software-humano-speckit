@@ -158,6 +158,24 @@ Decisiones que el fundamento ya aprobó y que el agente **debe preservar**, no r
 - **Gestor de paquetes y ejecutor**: `[completar, por ejemplo bun, pnpm, npm]`
 - **Otras restricciones de herramientas**: `[completar o «ninguna»]`
 
+## Protocolo de coordinación entre sesiones
+
+Complétalo **solo si más de un agente o sesión trabajará sobre este proyecto**, o sobre este y otro relacionado. Si trabaja una sola sesión, escribe «no aplica» y sáltalo.
+
+**Por qué existe.** La coordinación entre agentes puede desplazar a la autoridad humana de su propio proyecto sin que ningún mecanismo lo señale. Dos agentes que se verifican mutuamente detectan bien lo que uno ve y el otro no, y son **estructuralmente ciegos a lo que ambos omiten**. Que la persona siga dentro de la conversación es justamente lo que ninguno de los dos comprueba.
+
+No es hipotético: ocurrió durante el desarrollo de este método, entre dos sesiones que lo aplicaban deliberadamente. Está registrado como `M1` en `docs/proposals/` del repositorio del paquete.
+
+- **Sesiones previstas y su autoridad**: `[qué trabaja cada una y sobre qué repositorio; qué puede decidir cada una por sí misma]`
+- **Archivos que más de una sesión puede tocar**: `[los puntos de colisión reales, o «ninguno»]`
+- **Qué exige aprobación humana previa**: `[decisiones que ninguna sesión cierra por su cuenta, aunque estén de acuerdo entre ellas]`
+- **A quién reporta cada sesión**: `[la autoridad humana, siempre; nunca solo a la otra sesión]`
+
+**Regla de confirmación.** Ningún commit antes de que la autoridad humana haya visto de qué se trata. Un trabajo correcto que la persona no pudo seguir infringe `P10` aunque no contenga ningún error técnico.
+
+**Coordinación directa entre sesiones.** Cuando sea inevitable —dos sesiones tocando el mismo archivo—, pasa primero por la autoridad humana, que decide si hace falta. Acuerda antes de escribir, no después, y deja constancia de qué se acordó.
+
+
 ## Archivos protegidos adicionales
 
 Más allá de los protegidos por el método, este proyecto protege:
