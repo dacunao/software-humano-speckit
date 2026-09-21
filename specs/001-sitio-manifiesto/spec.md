@@ -15,6 +15,97 @@
 
 **Fuentes rectoras subordinadas.** El núcleo v2.1 (`.specify/memory/constitution.md`) gobierna el método y es además contenido publicado del sitio (`FR-003`). El anexo v1.2 gobierna la correspondencia con SpecKit. El preset v1.0.0 gobierna su materialización técnica. Ante contradicción real o aparente entre el núcleo y el PRD, la decisión afectada se detiene; no se concilia por iniciativa del agente.
 
+## Clarifications
+
+Las decisiones registradas aquí fueron tomadas por la autoridad de producto durante `clarify`. Ninguna fue cerrada por el agente ni con un valor predeterminado (PRD §29, `STOP04`). Cada una conserva el identificador `CL-` con el que fue declarada abierta.
+
+### Session 2026-09-21
+
+- Q: ¿Con qué nombre público y bajo qué dominio se publicará el sitio? (`CL-01`) → A: Nombre único «Software Humano» en los tres idiomas; dominio `softwarehumano.com`.
+- Q: ¿En qué plataforma se alojará y desplegará el sitio? (`CL-11`) → A: Cloudflare Pages.
+- Q: ¿Qué medición se autoriza y con qué herramienta? (`CL-08`) → A: Google Search Console y CrUX como base sin script ni datos de visitante, más Cloudflare Web Analytics como único script de terceros autorizado.
+- Q: ¿Quién figura como autoría visible del sitio y del manifiesto? (`CL-02`) → A: Persona — Damián Acuña.
+- Q: ¿Qué acción pública se ofrece mientras el preset no esté publicado? (`CL-06`) → A: El estado de publicación se modela como dato; se declara licencia y ruta prevista como disponibilidad futura, sin enlaces sin destino.
+- Q: ¿Cómo se publicará el preset? (`CL-10`, parcial) → A: Repositorio propio en GitHub con licencia MIT, la misma de SpecKit, listado en el catálogo de comunidad. Se publica el repositorio, no servicios derivados.
+- Q: ¿Cuántas direcciones visuales explora esa etapa y hay algún activo previo que deba respetarse? (`CL-03`) → A: Dos direcciones; libertad total, sin identidad previa vinculante.
+- Q: ¿Bajo qué licencia se publica el texto del manifiesto? (`CL-05`) → A: CC BY 4.0, cubriendo el texto canónico y el contenido editorial del sitio.
+- Q: ¿Bajo qué licencia se publica el código fuente del sitio? (`CL-12`) → A: MIT.
+- Q: ¿Quién aprueba lingüísticamente cada idioma? (`CL-09`) → A: Mixto — la autoridad de producto aprueba el español; inglés y portugués de Brasil se revisan mediante un servicio profesional pagado de revisión nativa.
+- Q: ¿Cuánto aparece el autor dentro de la narrativa del sitio? (`CL-04`) → A: Voz impersonal en el recorrido, con una nota de origen identificada en primera persona.
+- Q: ¿Existe un canal de contacto y cuál? (`CL-07`) → A: Alias de correo dedicado publicado como `mailto:`, más Issues del repositorio del sitio para asuntos técnicos.
+- Q: ¿Bajo qué cuenta y con qué nombre se publicará el repositorio del preset? (`CL-10`) → A: Cuenta personal `dacunao`, nombre `spec-kit-preset-software-humano`, según la convención documentada.
+
+#### Consecuencias registradas
+
+**`CL-01` · Nombre y dominio.** El origen canónico es `https://softwarehumano.com`. Las rutas sin prefijo sirven inglés, `/es/` sirve español neutro latinoamericano y `/pt-br/` portugués de Brasil sobre ese mismo origen. `WebSite.name` es un valor único y no un campo traducible: el modelo de contenido no crea una entrada de nombre por idioma. Con esto pueden generarse URL canónica, `hreflang` recíprocos, sitemap y Open Graph (`FR-016`, `AC-11`, `AC-15`).
+
+**`CL-11` · Alojamiento y despliegue.** Cloudflare Pages. Los encabezados de seguridad y las redirecciones se declaran como artefactos versionados del repositorio, de modo que una reversión de despliegue restituye contenido y configuración juntos; así se satisfacen PRD §24.2 y §24.3 sin excepción aprobada. El tráfico a activos estáticos es gratuito e ilimitado, por lo que el costo no escala con la lectura. El plan gratuito admite 500 builds mensuales y el excedente se resuelve mediante un plan de cuota fija, no mediante facturación por uso. Límites y precios verificados contra la documentación de la plataforma el 2026-09-21; son externos y pueden cambiar, por lo que la decisión se registra con su fecha.
+
+**`CL-08` · Medición.** Se autorizan tres mecanismos y ninguno más:
+
+1. **Google Search Console** — verificación por DNS o archivo, sin script en el sitio. Provee impresiones, clics y consultas por idioma, la señal con la que PRD §26.3 pone a prueba la hipótesis del inglés predeterminado.
+2. **CrUX / PageSpeed Insights** — datos de campo, sin script. Provee Core Web Vitals en el percentil 75 de visitas reales (`SC-006`), cuando el origen acumula tráfico suficiente para figurar.
+3. **Cloudflare Web Analytics** — único script de terceros autorizado, en los términos que exige `BR-008`. Sin cookies, sin `localStorage`, sin *fingerprinting* y sin datos personales del visitante. Reporta además Core Web Vitals, lo que cubre el período en que CrUX todavía no dispone de datos para el origen.
+
+No se autoriza analítica de sesiones, reproducción de sesión, identificadores de visitante ni plataformas de observabilidad. La lectura no requiere consentimiento y ningún contenido se bloquea por su ausencia (`FR-018`, `AC-12`).
+
+**Concentración de proveedor.** Alojamiento y medición quedan en Cloudflare. Es una consecuencia conocida y aceptada de estas dos decisiones, registrada aquí para que no se descubra después.
+
+**`CL-02` · Autoría visible.** Persona: Damián Acuña. El mapeo Schema.org usa `Person` y no `Organization`, porque PRD §25.2 ordena emplear «el tipo más específico que sea correcto» y `BR-009` prohíbe publicar marcado que describa contenido inexistente: no existe organización que declarar. Alimenta `FR-012` y la superficie «Acerca de». Migrar a `Organization` si más adelante existe una entidad real es un cambio de metadatos; el camino inverso dañaría la confianza y por eso no se anticipa.
+
+**`CL-06` · Acción pública del preset.** El estado de publicación del preset es un campo del modelo de contenido, no una decisión de maquetado. Mientras vale `no-publicado`, la superficie SpecKit muestra arquitectura, versión validada, limitaciones, licencia declarada y la ruta prevista de publicación como **disponibilidad futura**, que es lo que `FR-010` autoriza explícitamente. **No se publican enlaces, botones ni punteros sin destino**, porque un afordance de descarga visible contradiría `AC-09`, `FR-017`, `SC-007`, `P07` y el criterio 2.4.4 de WCAG 2.2. Cuando el estado pase a `publicado`, la misma plantilla rinde enlace, instrucciones y el JSON-LD `SoftwareSourceCode` que PRD §25.2 condiciona a publicación real y URL verificable. `BR-007` exige que el build se detenga si el estado es `publicado` y falta `repositorio`, `download_url` o `sha256`: un estado publicado a medias no puede liberarse.
+
+**`CL-10` · Publicación futura del preset (parcial).** Licencia **MIT**, la misma del repositorio de SpecKit, requisito además del catálogo de comunidad, que exige un archivo de licencia open source. Se publica **el repositorio**, no servicios derivados ni soporte. La vía es un repositorio propio en GitHub con un *release*, más un pull request a `github/spec-kit` que agrega la entrada en `presets/catalog.community.json` y la fila correspondiente en la documentación de presets de comunidad. El repositorio será `https://github.com/dacunao/spec-kit-preset-software-humano`, bajo la cuenta personal de la autoridad de producto y siguiendo la convención `spec-kit-preset-<id>` que emplea el ejemplo de `PUBLISHING.md`. Usar una organización de GitHub se descartó porque comunicaría más estructura de la que existe, con el mismo argumento que cerró `CL-02`; una organización de GitHub es un tipo de cuenta y no habría contradicho la autoría `Person`.
+
+`repositorio` queda por tanto determinado desde ahora; `download_url` y `sha256` solo existirán cuando haya un *release*, y el esquema los admite nulos mientras el estado sea `no-publicado`. Protocolo verificado el 2026-09-21 contra la documentación de SpecKit.
+
+**Límite de autoridad registrado.** El preset vive hoy dentro de este repositorio, en `tools/speckit/` y `package/`. Extraerlo a su repositorio propio, publicar el *release* y enviar el pull request al catálogo corresponde a la sesión que mantiene el paquete de método. Esta especificación registra el destino para que el modelo de contenido lo contemple; no lo ejecuta.
+
+**Hallazgo que sostiene `FR-009` y `AC-09`.** La documentación de SpecKit declara que los mantenedores solo verifican que la entrada del catálogo esté completa y bien formada, y que **no revisan, auditan, respaldan ni dan soporte** al código de un preset de comunidad. La afirmación que `FR-009` obliga a publicar —«no constituye una integración oficial ni un respaldo de GitHub»— seguirá siendo cierta después de la publicación y es verificable contra esa fuente.
+
+**`CL-03` · Dirección visual.** No existe identidad visual previa vinculante: hay libertad para proponerla. El trabajo incluye una **etapa de exploración visual ordenada por dependencias** —no una fase en el sentido que PRD §15 prohíbe, porque no difiere alcance ni posterga ninguna Job Story— que explora **dos direcciones** y entrega escala tipográfica, roles de color con contraste ya verificado contra WCAG 2.2 AA, ritmo de espaciado, tratamiento y reestructuración responsiva de diagramas, política de movimiento compatible con `prefers-reduced-motion`, y los tokens que subordinan daisyUI.
+
+La etapa tiene una **dependencia dura**: PRD §21.1.8 prohíbe aprobar con contenido simulado y §21.7 exige probar cada versión con contenido real para detectar expansión de texto, cortes y cambios de jerarquía. La exploración por tanto no puede preceder al contenido: requiere el texto canónico y al menos un principio completo con sus ocho secciones, en los tres idiomas. El orden resultante es modelo de contenido y contenido real → exploración visual validada → tokens → componentes sobre daisyUI. Fijar tokens después de construir componentes reproduciría el riesgo que PRD §28 registra como «daisyUI impone una apariencia genérica».
+
+**La validación es humana y corresponde a la autoridad de producto.** Ningún agente puede aprobar la dirección visual ni atribuirse esa revisión. `plan.md` debe registrarlo como detención explícita.
+
+**`CL-05` · Licencia del texto.** **CC BY 4.0**, para el texto canónico y para el contenido editorial del sitio —explicaciones, ejemplos, contraejemplos, pruebas de decisión y traducciones—. Permite copiar, adaptar, traducir y usar comercialmente con atribución, y habilita traducciones de terceros más allá de los tres idiomas de lanzamiento, coherente con `JS-09`. La integridad doctrinal no se sostiene en la licencia sino en los mecanismos que el PRD ya define: versión, ancla estable, procedencia visible y la autoridad doctrinal del original en español (`FR-012`, `AC-03`, `AC-11`, PRD §19.4). Alimenta la propiedad `license` del JSON-LD y la invitación a citar que `JS-05` y `JS-08` requieren.
+
+Se registra que la decisión es **asimétricamente irreversible**: relicenciar de forma más permisiva es posible; retirar con efecto real una licencia permisiva ya otorgada, no.
+
+**`CL-12` · Licencia del código fuente del sitio.** **MIT**. Decisión material detectada durante la ronda 2 de `clarify`: el PRD no la contempla y ninguna `CL` la cubría, pese a que `FR-021` exige un repositorio público y `JS-07` invita a comprender el piloto. Sin licencia declarada el repositorio quedaría como «todos los derechos reservados» por omisión, aparentando una apertura que no tendría —una contradicción con `P07` en el proyecto sobre honestidad—. MIT coincide con la del preset y con la de SpecKit, de modo que la declaración de «Acerca de» exigida por `FR-012` cabe en una línea: el software es MIT, el texto y el contenido son CC BY 4.0. La frontera se define por naturaleza y no por carpeta: los archivos YAML de contenido son contenido aunque convivan con el código.
+
+**Reportado a la sesión que mantiene el método, sin actuar sobre ello:** el preset bajo MIT materializa la constitución, que es texto del manifiesto bajo CC BY 4.0. Definir qué parte del paquete es código y qué parte es texto citado corresponde a esa sesión.
+
+**`CL-09` · Aprobación lingüística.** PRD §27.4 exige revisión «lingüística y doctrinal»; son dos revisiones con competencias distintas y se asignan por separado.
+
+- **Aprobación doctrinal**: la autoridad de producto, en los tres idiomas, sin delegación posible.
+- **Aprobación lingüística del español neutro latinoamericano**: la autoridad de producto.
+- **Aprobación lingüística del inglés general y del portugués de Brasil**: **servicio profesional pagado de revisión nativa**. Es una dependencia externa con proveedor, tiempo y costo, que `plan.md` debe ordenar antes de que una traducción pueda darse por terminada.
+
+El criterio de terminado de toda tarea de traducción es el registro de revisión aprobada, no la existencia del texto traducido. `BR-003` y `ST-001` mantienen la compuerta: una superficie sin contenido aprobado en un idioma no se publica como disponible en ese idioma, y `AC-13` exige los tres para aceptar la versión 1.0.
+
+**Verificación automatizada complementaria.** PRD §26.4 exige «verificación específica de ausencia de voseo, `vosotros` y localismos nacionales» y `BR-007` exige detener el build ante contenido inválido. El build incorpora por tanto una comprobación sobre el YAML en español que detecta marcadores de voseo (`vos`, `sos`, `tenés`, `podés`, imperativos como `mirá` o `decí`) y de `vosotros` (`os`, `vuestro`, terminaciones `-áis`, `-éis`). **No sustituye la revisión humana**, que el PRD exige de forma explícita: la abarata y previene regresiones. No constituye una capacidad nueva, sino la implementación de un requisito existente.
+
+**Riesgo registrado.** La revisión de neutralidad latinoamericana queda sin segunda mirada, y es donde la autorrevisión es estructuralmente más débil, porque los localismos resultan invisibles para quien los habla. La verificación automatizada mitiga los marcadores mecánicos, no el vocabulario ni los giros. Queda como riesgo declarado sobre `AC-13`, aceptado por la autoridad de producto.
+
+Los revisores se acreditan como colaboradores; la autoría permanece `Person` y `CL-02` no cambia.
+
+**`CL-04` · Protagonismo personal en la narrativa.** Los siete actos de PRD §16 y los diez principios se escriben en **voz impersonal**, para que cada principio conserve su función de criterio utilizable en una revisión real (`JS-03`, `AC-04`). Una **nota de origen identificada, en primera persona**, explica por qué existe el manifiesto.
+
+Esa voz autoral es un registro más, señalado por el mismo mecanismo que `FR-017` y `BR-005` ya imponen para distinguir cita canónica, explicación, ejemplo, inferencia o propuesta y estado técnico confirmado. `BR-005` exige «al menos seis» estados editoriales, de modo que incorporar la voz autoral como registro distinguible no contradice la regla ni inventa una capacidad: la usa. El modelo de contenido debe poder marcarla, y la presentación debe diferenciarla visual y semánticamente del resto.
+
+**`CL-07` · Canal de contacto.** Dos canales y ninguna captura:
+
+1. **Alias de correo dedicado** `manifiestosoftwarehumano@gmail.com`, publicado en «Acerca de» como `mailto:` en texto plano. No es la dirección personal de la autoridad de producto.
+2. **Issues del repositorio del sitio**, para asuntos técnicos y para quien prefiera un registro público.
+
+**El sitio no captura datos personales.** La conversación la inicia el visitante desde su propio cliente de correo o desde su cuenta de GitHub: no hay formulario, función de servidor, almacenamiento, antiabuso ni política de privacidad. `FR-018` y `AC-12` permanecen intactos y la decisión es coherente con `CL-06`, que descartó la captura para el preset.
+
+**Restricción de implementación derivada.** La dirección **no se ofusca mediante JavaScript**. Un `mailto:` es un enlace común que funciona sin JavaScript (`FR-015`) y cuyo propósito es comprensible sin contexto adicional (WCAG 2.2 criterio 2.4.4, `AC-07`); ofuscarlo rompería ambas cosas. El costo aceptado y registrado es la recolección automatizada de la dirección por terceros.
+
+La dirección es única para los tres idiomas: no se traduce, y `BR-003` no le aplica. Se registra que existe la alternativa de un alias sobre el dominio propio mediante reenvío gratuito; la autoridad de producto eligió el alias actual, y sustituirlo más adelante es un cambio de contenido, no de arquitectura.
+
 ## Progreso y resultado esperado
 
 - **Situación de partida**: una persona que concibe, diseña o construye software observa que la IA le permite producir más y más rápido, y sospecha que esa velocidad no está produciendo productos más comprensibles ni más útiles. Carece de un marco compartido para distinguir capacidad técnica de progreso humano (PRD §6.1, §6.2).
@@ -159,9 +250,9 @@ Todo elemento obligatorio del PRD aparece al menos una vez. **Pendiente de aclar
 | `JS-04` | Experimentar la diferencia | Estructura preservada · `JS-04` | Comparación accesible y explicación del impacto | Cubierto |
 | `JS-05` | Consultar y citar la fuente | Estructura preservada · `JS-05` | URL estable, versión y fuente | Cubierto |
 | `JS-06` | Pasar de doctrina a práctica | Estructura preservada · `JS-06` | Identificación de una decisión o detención | Cubierto |
-| `JS-07` | Comprender SpecKit | Estructura preservada · `JS-07` | Distinción correcta y estado comprendido | Pendiente de aclaración (`CL-06`) |
+| `JS-07` | Comprender SpecKit | Estructura preservada · `JS-07` | Distinción correcta y estado comprendido | Cubierto (`CL-06` resuelta) |
 | `JS-08` | Compartir una idea precisa | Estructura preservada · `JS-08` | Enlace contextual y atribución correcta | Cubierto |
-| `JS-09` | Comprender en mi idioma | Estructura preservada · `JS-09` | Paridad, cambio contextual, preferencia reversible | Pendiente de aclaración (`CL-09`) |
+| `JS-09` | Comprender en mi idioma | Estructura preservada · `JS-09` | Paridad, cambio contextual, preferencia reversible | Cubierto (`CL-09` resuelta) |
 
 ### Requisitos funcionales
 
@@ -176,15 +267,15 @@ Todo elemento obligatorio del PRD aparece al menos una vez. **Pendiente de aclar
 | `FR-007` | Aplicación operativa | Requisitos · `FR-007` | `JS-06` | Cubierto |
 | `FR-008` | Presentación de SpecKit | Requisitos · `FR-008` | `AC-09` | Cubierto |
 | `FR-009` | Estado verificable de SpecKit | Requisitos · `FR-009` | `AC-09` | Cubierto |
-| `FR-010` | Acciones según estado de publicación | Requisitos · `FR-010` | `AC-09` | Pendiente de aclaración (`CL-06`) |
+| `FR-010` | Acciones según estado de publicación | Requisitos · `FR-010` | `AC-09` | Cubierto (`CL-06` resuelta) |
 | `FR-011` | Compartir y citar | Requisitos · `FR-011` | `AC-11` | Cubierto |
-| `FR-012` | Versiones y procedencia | Requisitos · `FR-012` | `AC-11` | Pendiente de aclaración (`CL-02`, `CL-05`) |
+| `FR-012` | Versiones y procedencia | Requisitos · `FR-012` | `AC-11` | Cubierto (`CL-02`, `CL-05`, `CL-12` resueltas) |
 | `FR-013` | Preferencia de movimiento | Requisitos · `FR-013` | `AC-06`, `AC-07` | Cubierto |
 | `FR-014` | Continuidad de lectura | Requisitos · `FR-014` | `AC-06` | Cubierto |
 | `FR-015` | Función esencial sin JavaScript | Requisitos · `FR-015` | `AC-05`, `AC-08` | Cubierto |
 | `FR-016` | Descubrimiento | Requisitos · `FR-016` | `AC-11`, `AC-15` | Cubierto |
 | `FR-017` | Transparencia de contenido derivado | Requisitos · `FR-017` | `AC-03`, `AC-09` | Cubierto |
-| `FR-018` | Privacidad | Requisitos · `FR-018` | `AC-12` | Pendiente de aclaración (`CL-08`) |
+| `FR-018` | Privacidad | Requisitos · `FR-018` | `AC-12` | Cubierto (`CL-08` resuelta) |
 | `FR-019` | Experiencia multilingüe | Requisitos · `FR-019` | `AC-13`, `AC-14` | Cubierto |
 | `FR-020` | Ajustes de idioma y experiencia | Requisitos · `FR-020` | `AC-14` | Cubierto |
 | `FR-021` | Contenido como software | Requisitos · `FR-021` | `AC-15` | Cubierto |
@@ -201,11 +292,11 @@ Todo elemento obligatorio del PRD aparece al menos una vez. **Pendiente de aclar
 | `AC-06` | Control | Evidencia · `AC-06` | Prueba de navegación, compartición y movimiento reducido | Cubierto |
 | `AC-07` | Accesibilidad | Evidencia · `AC-07` | Auditoría WCAG 2.2 AA y revisión humana con teclado y lector de pantalla | Cubierto |
 | `AC-08` | Rendimiento | Evidencia · `AC-08` | Auditoría contra presupuestos de §24.1 | Cubierto |
-| `AC-09` | SpecKit preciso | Evidencia · `AC-09` | Revisión de contenido y prueba de comprensión | Pendiente de aclaración (`CL-06`) |
+| `AC-09` | SpecKit preciso | Evidencia · `AC-09` | Revisión de contenido y prueba de comprensión | Cubierto (`CL-06` resuelta) |
 | `AC-10` | Desarrollo gobernado | Evidencia · `AC-10` | `analyze` y revisión humana de artefactos | Cubierto |
 | `AC-11` | Descubrimiento y cita | Evidencia · `AC-11` | Comprobación de URLs, metadatos y vínculos | Cubierto |
-| `AC-12` | Privacidad | Evidencia · `AC-12` | Lectura completa sin registro ni datos personales | Pendiente de aclaración (`CL-08`) |
-| `AC-13` | Paridad multilingüe | Evidencia · `AC-13` | Revisión lingüística humana en tres idiomas | Pendiente de aclaración (`CL-09`) |
+| `AC-12` | Privacidad | Evidencia · `AC-12` | Lectura completa sin registro ni datos personales | Cubierto (`CL-08` resuelta) |
+| `AC-13` | Paridad multilingüe | Evidencia · `AC-13` | Revisión lingüística humana en tres idiomas | Cubierto (`CL-09` resuelta) |
 | `AC-14` | Preferencia y continuidad de idioma | Evidencia · `AC-14` | Prueba de cambio de idioma y correspondencia de URLs | Cubierto |
 | `AC-15` | Contenido y semántica verificables | Evidencia · `AC-15` | Validación de YAML, enlaces y JSON-LD en build | Cubierto |
 | `AC-16` | Integridad TypeScript | Evidencia · `AC-16` | Comprobación estricta de tipos sin errores | Cubierto |
@@ -235,15 +326,15 @@ Todo elemento obligatorio del PRD aparece al menos una vez. **Pendiente de aclar
 | PRD §18.2 | Navegación global | `FR-002`, `FR-012`, `FR-020` | `AC-06`, `AC-14` | Cubierto |
 | PRD §19.2 | Entidad Principio | Entidades clave · Principio | `AC-03`, `AC-15` | Cubierto |
 | PRD §19.3 | YAML como fuente de contenido | `FR-021`; `BR-007` | `AC-15` | Cubierto |
-| PRD §19.4 | Contrato de localización | `FR-019`; `BR-001`–`BR-003` | `AC-13`, `AC-14` | Pendiente de aclaración (`CL-09`) |
+| PRD §19.4 | Contrato de localización | `FR-019`; `BR-001`–`BR-003` | `AC-13`, `AC-14` | Cubierto (`CL-09` resuelta) |
 | PRD §21.5 | Doce verificaciones de accesibilidad | Evidencia · `AC-07` | Auditoría y revisión humana | Cubierto |
 | PRD §24.1 | Presupuestos de Core Web Vitals | Evidencia · `AC-08`; `SC-006` | Medición en percentil 75 | Cubierto |
-| PRD §24.2 | Confiabilidad y continuidad | `ST-004`; `EX-001`–`EX-003` | Comprobación de enlaces y despliegue reversible | Pendiente de aclaración (`CL-11`) |
-| PRD §24.3 | Seguridad y privacidad | `FR-018`; `BR-008` | `AC-12` | Pendiente de aclaración (`CL-08`, `CL-11`) |
+| PRD §24.2 | Confiabilidad y continuidad | `ST-004`; `EX-001`–`EX-003` | Comprobación de enlaces y despliegue reversible | Cubierto (`CL-11` resuelta) |
+| PRD §24.3 | Seguridad y privacidad | `FR-018`; `BR-008` | `AC-12` | Cubierto (`CL-08`, `CL-11` resueltas) |
 | PRD §24.5 | Mantenibilidad | `BR-007`; `AS-006` | `AC-15`, `AC-16` | Cubierto |
 | PRD §24.6 | Arquitectura técnica aprobada | Restricciones técnicas aprobadas | `AC-16` | Cubierto |
-| PRD §25.2 | Mapeo semántico mínimo | `FR-016`; entidades clave | `AC-15` | Pendiente de aclaración (`CL-02`) |
-| PRD §27 | Gobernanza editorial | `BR-005`, `BR-009` | Revisión humana | Pendiente de aclaración (`CL-09`) |
+| PRD §25.2 | Mapeo semántico mínimo | `FR-016`; entidades clave | `AC-15` | Cubierto (`SoftwareSourceCode` se emite solo cuando exista publicación real, por PRD §25.2) |
+| PRD §27 | Gobernanza editorial | `BR-005`, `BR-009` | Revisión humana | Cubierto (`CL-09` resuelta) |
 | PRD §32 | Definición de terminado | Evidencia y criterios de éxito | Revisión humana final | Cubierto |
 
 ## Contrato de experiencia
@@ -256,7 +347,7 @@ Todo elemento obligatorio del PRD aparece al menos una vez. **Pendiente de aclar
 - **Continuidad**: el regreso a una URL profunda restituye la sección correcta; cualquier preservación adicional de progreso es local, transparente y prescindible (`FR-014`). La preferencia de idioma es local, reversible y prescindible (`FR-020`).
 - **Accesibilidad y carga**: WCAG 2.2 nivel AA como mínimo, con las doce verificaciones de PRD §21.5. Jerarquía equivalente en móvil, tablet y escritorio; los diagramas se reestructuran en lugar de reducirse hasta volverse ilegibles; el orden de lectura semántico permanece correcto sin CSS; no se exige orientación horizontal ni gestos complejos (PRD §21.4). Toda información revelada por hover está disponible por foco y por toque (PRD §21.3).
 
-**Dirección visual.** La identidad debe sentirse humana, deliberada y contemporánea, sin adoptar una estética genérica de "producto de IA": tipografía de lectura sobresaliente, amplitud y ritmo editorial, uso contenido del color para significado y orientación, e imágenes, diagramas o movimiento solo cuando expliquen una relación (PRD §21.2). El PRD declara expresamente que **no prescribe una marca gráfica antes de comprender su efecto**: la dirección visual definitiva debe explorarse y validarse.
+**Dirección visual.** La identidad debe sentirse humana, deliberada y contemporánea, sin adoptar una estética genérica de "producto de IA": tipografía de lectura sobresaliente, amplitud y ritmo editorial, uso contenido del color para significado y orientación, e imágenes, diagramas o movimiento solo cuando expliquen una relación (PRD §21.2). El PRD declara expresamente que **no prescribe una marca gráfica antes de comprender su efecto**: la dirección visual definitiva debe explorarse y validarse. `CL-03` lo resuelve: no existe identidad previa, se exploran dos direcciones sobre contenido real en los tres idiomas y la elección la aprueba la autoridad de producto antes de fijar los tokens que subordinan daisyUI.
 
 ## Requisitos
 
@@ -322,7 +413,7 @@ El PRD §24.6 las aprueba. Solo pueden reemplazarse mediante decisión explícit
 - **Sección canónica**: fragmento del núcleo v2.1 con identificador estable y ancla; conserva versión y procedencia; es la fuente que toda explicación editorial debe referenciar.
 - **Explicación editorial**: contenido derivado y revisado; declara el principio o sección de origen y su estado editorial; nunca sustituye al texto canónico.
 - **Traducción aprobada**: entrada equivalente en otro idioma; conserva identificador, significado, fuente, versión y estado de revisión; declara su código BCP 47.
-- **Estado de implementación del preset**: versión, fecha, validaciones realizadas y limitaciones; alimenta `FR-009` y `FR-012`.
+- **Estado de implementación del preset**: versión, fecha, validaciones realizadas y limitaciones; alimenta `FR-009` y `FR-012`. Incluye además `estado` de publicación (`no-publicado` | `publicado`), `licencia` (MIT), y `repositorio`, `download_url` y `sha256`, admitidos como nulos mientras el estado sea `no-publicado`. El build se detiene si el estado es `publicado` y alguno de esos tres falta (`BR-007`, `CL-06`, `CL-10`).
 - **Metadatos de publicación**: versión, fecha, autoría, idioma, URL canónica, URLs alternas y relaciones semánticas (PRD §19.1).
 
 ## Evidencia y criterios de éxito
@@ -374,18 +465,19 @@ Los supuestos `AS-001`–`AS-005` provienen del PRD §30 y son declarados allí 
 
 ## Decisiones materiales pendientes
 
-Las diez primeras corresponden a PRD §29, que las declara decisiones que **requieren autoridad humana** y establece: "Estas decisiones no bloquean la especificación de la arquitectura conceptual, pero bloquean cualquier implementación que las vuelva irreversibles o públicas." La undécima surge de la necesidad de planificar. Ninguna se cierra con un valor predeterminado.
+Las diez primeras corresponden a PRD §29, que las declara decisiones que **requieren autoridad humana**. `CL-01`–`CL-11` fueron resueltas el 2026-09-21; `CL-12` no proviene del PRD sino de una ambigüedad material detectada durante `clarify`, y se registra aquí resuelta. Todas permanecen en la lista y permanecen en esta lista, marcadas como tales, para conservar su identificador y su trazabilidad. PRD §29 establece: "Estas decisiones no bloquean la especificación de la arquitectura conceptual, pero bloquean cualquier implementación que las vuelva irreversibles o públicas." La undécima surge de la necesidad de planificar. Ninguna se cierra con un valor predeterminado.
 
-- **`CL-01`** — **[NEEDS CLARIFICATION: nombre público definitivo y dominio del sitio. Autoridad requerida: autoridad de producto. Impacto: determina URL canónica, `hreflang` recíprocos, sitemap, metadatos de `WebSite` y Open Graph; sin ella no puede generarse marcado canónico correcto ni publicarse.]**
-- **`CL-02`** — **[NEEDS CLARIFICATION: autoría visible — persona, iniciativa u organización. Autoridad requerida: autoridad de producto. Impacto: determina si el mapeo Schema.org usa `Person` u `Organization` (PRD §25.2), y afecta `FR-012` y la superficie Acerca de.]**
-- **`CL-03`** — **[NEEDS CLARIFICATION: existe una identidad visual previa o hay libertad para proponerla. Autoridad requerida: autoridad de producto. Impacto: condiciona la dirección visual de PRD §21.2, los tokens que subordinan daisyUI y el trabajo de exploración previo al diseño.]**
-- **`CL-04`** — **[NEEDS CLARIFICATION: nivel de protagonismo personal del autor en la narrativa. Autoridad requerida: autoridad de producto. Impacto: cambia el tono del recorrido y el contenido de la superficie Acerca de.]**
-- **`CL-05`** — **[NEEDS CLARIFICATION: licencia del texto del manifiesto y condiciones de reutilización. Autoridad requerida: autoridad de producto. Impacto: `JS-05` y `JS-08` dependen de poder citar y reutilizar; sin licencia declarada no puede publicarse una invitación a citar ni completarse `FR-012`.]**
-- **`CL-06`** — **[NEEDS CLARIFICATION: acción pública disponible mientras el preset no esté publicado — solo estado, solicitud de acceso, o ninguna captura. Autoridad requerida: autoridad de producto. Impacto: determina el comportamiento exigido por `FR-010`; "solicitud de acceso" introduciría un formulario y con él requisitos de privacidad y antiabuso de PRD §24.3 que hoy no están autorizados.]**
-- **`CL-07`** — **[NEEDS CLARIFICATION: existe un canal de contacto y cuál. Autoridad requerida: autoridad de producto. Impacto: si existe, la superficie Acerca de lo incorpora y podría implicar datos personales, lo que activa `FR-018` y PRD §24.3.]**
-- **`CL-08`** — **[NEEDS CLARIFICATION: uso o ausencia de analítica, y herramienta autorizada. Autoridad requerida: autoridad de producto. Impacto: `FR-018` exige minimizar datos, documentar propósito y no bloquear contenido por consentimiento; las señales cuantitativas de PRD §26.3 no pueden medirse sin decidir esto; un script de terceros no autorizado violaría `BR-008`.]**
-- **`CL-09`** — **[NEEDS CLARIFICATION: responsables y mecanismo de aprobación lingüística para inglés general, español neutro latinoamericano y portugués de Brasil. Autoridad requerida: autoridad de producto. Impacto: `AC-13` exige revisión lingüística humana aprobada y `BR-003` impide publicar un idioma sin contenido aprobado; sin responsables designados la paridad multilingüe no puede aceptarse.]**
-- **`CL-10`** — **[NEEDS CLARIFICATION: publicación futura del preset — repositorio, licencia y soporte. Autoridad requerida: autoridad de producto. Impacto: condiciona `FR-010` y el mapeo `SoftwareSourceCode` de PRD §25.2, que solo procede cuando exista publicación real y URL verificable.]**
-- **`CL-11`** — **[NEEDS CLARIFICATION: plataforma de alojamiento y despliegue del sitio. Autoridad requerida: autoridad de producto, por su relación con `CL-01` y `CL-08`. Impacto: PRD §24.2 exige redirecciones y despliegues reversibles y PRD §24.3 exige encabezados de seguridad adecuados; ambos requisitos dependen de la plataforma y no pueden planificarse sin ella. El PRD no la establece.]**
+- **`CL-01`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Nombre público único «Software Humano» en los tres idiomas; dominio `softwarehumano.com`. Ver Clarifications · Consecuencias registradas.
+- **`CL-02`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Autoría visible: persona, Damián Acuña. El mapeo Schema.org usa `Person`. Ver Clarifications · Consecuencias registradas.
+- **`CL-03`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Sin identidad visual previa; libertad para proponerla. El trabajo incluye una etapa de exploración visual, ordenada por dependencias, que explora dos direcciones sobre contenido real y entrega los tokens que subordinan daisyUI. Validación humana obligatoria. Ver Clarifications · Consecuencias registradas.
+- **`CL-04`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Voz impersonal en los siete actos y en los diez principios, con una nota de origen identificada en primera persona, marcada como registro distinguible. Ver Clarifications · Consecuencias registradas.
+- **`CL-05`** — **Resuelta el 2026-09-21 por la autoridad de producto.** CC BY 4.0 para el texto canónico y el contenido editorial del sitio. Ver Clarifications · Consecuencias registradas.
+- **`CL-06`** — **Resuelta el 2026-09-21 por la autoridad de producto.** El estado de publicación del preset se modela como dato; se declara licencia y ruta prevista como disponibilidad futura y no se publican enlaces sin destino. Ver Clarifications · Consecuencias registradas.
+- **`CL-07`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Alias de correo dedicado publicado como `mailto:` en texto plano, más Issues del repositorio del sitio. Sin formulario ni captura de datos por parte del sitio. Ver Clarifications · Consecuencias registradas.
+- **`CL-08`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Google Search Console y CrUX como base sin script ni datos de visitante; Cloudflare Web Analytics como único script de terceros autorizado, sin cookies, sin `localStorage`, sin *fingerprinting* y sin datos personales. Queda excluida toda analítica de sesiones, reproducción de sesión, identificador de visitante o plataforma de observabilidad. Ver Clarifications · Consecuencias registradas.
+- **`CL-09`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Aprobación doctrinal de la autoridad de producto en los tres idiomas; aprobación lingüística del español a cargo de la autoridad de producto, y del inglés general y el portugués de Brasil mediante servicio profesional pagado de revisión nativa. Ver Clarifications · Consecuencias registradas.
+- **`CL-10`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Licencia MIT; se publica el repositorio y no servicios derivados ni soporte; repositorio `https://github.com/dacunao/spec-kit-preset-software-humano`, vía el catálogo de comunidad de SpecKit. Ver Clarifications · Consecuencias registradas.
+- **`CL-11`** — **Resuelta el 2026-09-21 por la autoridad de producto.** Cloudflare Pages, con encabezados de seguridad y redirecciones versionados en el repositorio y restituidos junto al contenido al revertir un despliegue. Ver Clarifications · Consecuencias registradas.
+- **`CL-12`** — **Detectada y resuelta el 2026-09-21 por la autoridad de producto.** Licencia del código fuente del sitio: MIT. Decisión material que el PRD no contempla y que ninguna `CL` cubría. Ver Clarifications · Consecuencias registradas.
 
 **Consecuencia de estas decisiones.** Ninguna impide especificar ni planificar la arquitectura conceptual. Todas bloquean la publicación y cualquier implementación que las vuelva irreversibles o públicas. `CL-06`, `CL-08` y `CL-09` afectan además el contenido y la aceptación, no solo el despliegue.
