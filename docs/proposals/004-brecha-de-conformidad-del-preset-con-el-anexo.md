@@ -37,6 +37,16 @@ Criterio 15:
 
 > El contrato `CR01`–`CR08`, la entrega `O01`–`O09` y los controles transversales **se aplican en las operaciones indicadas**.
 
+## 1.3 · El mapa es un piso, no un techo
+
+Inmediatamente después del mapa, el anexo aclara:
+
+> Estas referencias son **un mínimo, no una lista excluyente**. El riesgo, el contenido del PRD o una dependencia entre decisiones pueden exigir leer otras partes del núcleo.
+
+Esto tiene una consecuencia que conviene fijar antes de leer el resto: **activar en un comando algo que el mapa no le asigna no contradice el anexo**. Lo que el anexo prohíbe es quedarse por debajo del mínimo, no ir por encima cuando el riesgo lo justifica.
+
+Por eso la sección 4 incluye una activación que el mapa no asigna —`SH-SCORE` en `plan` e `implement`— sin que eso constituya un cambio doctrinal.
+
 ---
 
 # 2 · Lo que el preset hace
@@ -119,11 +129,30 @@ El anexo ya advierte cómo hacerlo sin deformar la doctrina:
 
 | Momento | Operaciones | Lo que el anexo ya asigna y falta conectar |
 |---|---|---|
-| **Asegurar** — principios aplicados al diseño y la planificación | `specify`, `clarify`, `plan` | `P02`, `P05`–`P07`, `P10` y el contrato de experiencia `F05`/`A04`/`CR05` en `specify`; `CR02` antes de **abrir** una pregunta en `clarify`; `P03`, `P04`, `P06`–`P10`, `D04`, `F06`, `F07`, `A05`, `A06` en `plan` |
-| **Construir** — principios aplicados al desarrollo | `tasks`, `implement` | `P03`, `P07`–`P10`, `D04`–`D06`, `A05`, `CR06` en `implement`. Y que consulte la **Comprobación de constitución** de `plan.md`, que el propio preset crea y nunca vuelve a mirar |
+| **Asegurar** — principios aplicados al diseño y la planificación | `specify`, `clarify`, `plan` | `P02`, `P05`–`P07`, `P10` y el contrato de experiencia `F05`/`A04`/`CR05` en `specify`; `CR02` antes de **abrir** una pregunta en `clarify`; `P03`, `P04`, `P06`–`P10`, `D04`, `F06`, `F07`, `A05`, `A06` en `plan`, **más `SH-SCORE` antes de comprometer una estrategia** |
+| **Construir** — principios aplicados al desarrollo | `tasks`, `implement` | `P03`, `P07`–`P10`, `D04`–`D06`, `A05`, `CR06` en `implement`, **más `SH-SCORE` antes de proponer una solución**. Y que consulte la **Comprobación de constitución** de `plan.md`, que el propio preset crea y nunca vuelve a mirar |
 | **Controlar** — principios aplicados al control de calidad | `analyze`, `converge` | `V01`–`V12` nombradas una por una, `SH-SCORE`, `SH-AP`, `SH-GOV` en `analyze`; `V01`–`V12`, `SH-SCORE`, `SH-AP`, `STOP01`–`STOP07` en `converge` |
 
-## 4.3 · La asimetría de `clarify`, que es barata y tiene efecto medido
+## 4.3 · `SH-SCORE` como entrada de decisión, además de como verificación
+
+**Qué es.** La tarjeta del núcleo: once criterios puntuados **0** —no existe evidencia—, **1** —cumplimiento parcial o dependiente de un supuesto no validado— o **2** —evidencia suficiente—. Trae una regla de salida mecánica: *«ninguna dimensión crítica puede puntuar 0»*.
+
+**Dónde está hoy.** El mapa lo asigna a `analyze` y `converge`: ambas son verificación, es decir **después** de que el trabajo existe. Es un examen.
+
+**Qué se propone.** Activarlo también en `plan` e `implement`, antes de comprometer una estrategia o proponer una solución. Por §1.3 esto **no toca el anexo ni el núcleo**: el mapa es un mínimo.
+
+**Por qué, con la evidencia del piloto.**
+
+1. **Es el único mecanismo del núcleo que separa «lo razoné» de «lo observé».** Al aplicarlo, ocho de once dimensiones puntuaron **1**, y todas por la misma razón: argumentadas y no observadas. Ese es el sesgo característico de un agente —puntúa alto lo que argumentó bien— y ninguna otra parte del método lo confronta.
+2. **Su regla de detención se cuenta, no se juzga.** «Progreso del usuario» puntuó **0**, lo que por la propia regla del núcleo impide liberar. No requiere criterio: requiere mirar.
+3. **Habría atajado `C13` antes de llegar a la persona.** Las dos direcciones visuales retiradas habrían puntuado 0 en progreso del usuario **antes de presentarse**. El agente las habría descartado él mismo en lugar de abrir una elección que la doctrina ya cerraba.
+4. **Cuesta casi nada.** Al aplicarlo consumió evidencia ya producida. No exige generar nada nuevo.
+
+**El límite, y es del propio núcleo.** `SH-SCORE` declara de sí mismo que *«el puntaje orienta la conversación; no reemplaza el juicio»*. Como entrada debe funcionar como **filtro que evita que lleguen propuestas nacidas en 0**, no como compuerta automática que decida por la autoridad las que sí llegan. Una redacción que lo convierta en aprobación automática lo desnaturaliza.
+
+**Sobre `SH-POCKET`.** El piloto registra que no se usó nunca. El anexo lo describe como recordatorio «en decisiones relevantes y revisiones humanas, **no como formulario que deba completarse en cada comando**». Cabe la misma activación por §1.3, con esa restricción respetada: referenciarlo donde hay una decisión relevante, sin convertirlo en trámite.
+
+## 4.4 · La asimetría de `clarify`, que es barata y tiene efecto medido
 
 El preset tiene seis reglas para **no cerrar** una decisión sin autoridad. **Ninguna para no abrir** una que las fuentes ya deciden.
 
@@ -131,7 +160,7 @@ El preset tiene seis reglas para **no cerrar** una decisión sin autoridad. **Ni
 
 Es una regla, y `C14` es su caso.
 
-## 4.4 · El puente que el preset construye y no cruza
+## 4.5 · El puente que el preset construye y no cruza
 
 `plan-template.md` crea la sección **«Comprobación de constitución»**: una puerta con una tabla que traduce cada disposición del núcleo a una restricción concreta del proyecto.
 
@@ -188,7 +217,13 @@ Sostenible solo si se acepta que el preset no cumple su documento rector y se do
 2. **Cuándo**, dado que el método está congelado y el piloto va por la tarea 99 de 174. Corregirlo le genera una re-sincronización.
 3. **Si la Comprobación de constitución de `plan-template.md`** debe listar las disposiciones asignadas por operación en lugar de dejarlas a criterio del agente.
 
-Una cuarta, que no es del preset y por eso va aparte: el informe del piloto propone colocar `SH-SCORE` **también como entrada de decisión y no solo como verificación final**. Eso no es incumplimiento del anexo —el anexo lo asigna a `analyze` y `converge`, que son verificación— sino una propuesta de cambiar dónde se usa. Tocaría el anexo, y por tanto es doctrina. **No forma parte de esta propuesta.**
+4. **Si `SH-SCORE` se activa también en `plan` e `implement`** como entrada de decisión, además de donde ya está.
+
+## Corrección a una versión anterior de este documento
+
+La primera redacción excluyó `SH-SCORE` como entrada alegando que «tocaría el anexo, y por tanto es doctrina». **Era incorrecto**, y la autoridad de producto pidió la aclaración que lo reveló.
+
+El anexo declara expresamente que su mapa es *«un mínimo, no una lista excluyente»*. Activar `SH-SCORE` en `plan` e `implement` no lo contradice: lo excede donde el riesgo lo justifica, que es lo que el propio anexo prevé. Cabe dentro del preset, sin decisión doctrinal, y por eso pasó a la sección 4.3.
 
 ---
 
