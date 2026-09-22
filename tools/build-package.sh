@@ -10,7 +10,7 @@
 set -euo pipefail
 
 RAIZ="$(CDPATH="" cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION_PAQUETE="1.5.0"
+VERSION_PAQUETE="1.6.0"
 VERSION_PRESET="1.2.0"
 NOMBRE="software-humano-speckit-starter-v${VERSION_PAQUETE}"
 

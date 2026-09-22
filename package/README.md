@@ -1,6 +1,6 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 1.5.0
+**Versión del paquete:** 1.6.0
 **Fecha:** 2026-09-21
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 1.2
@@ -20,6 +20,7 @@ Reúne en una sola estructura:
 - las instrucciones de instalación y verificación;
 - un prompt de arranque para entregar al agente;
 - instrucciones persistentes en `AGENTS.md` y `CLAUDE.md`;
+- **`PARA_QUIEN_DECIDE.md`**, el único documento escrito para la persona y no para el agente;
 - utilidades que resuelven fricciones reales de instalación.
 
 **No incluye un fundamento de producto.** Ese lo aporta cada proyecto. El paquete es el método; el PRD, las Job Stories o la definición que uses son tuyos.
@@ -35,18 +36,19 @@ El paquete prepara el proyecto. No contiene la aplicación ni autoriza al agente
    shasum -a 256 -c SHA256SUMS
    ```
 
-3. Comprueba el entorno **antes de instalar nada**:
+3. Lee [`PARA_QUIEN_DECIDE.md`](PARA_QUIEN_DECIDE.md). Es corto y es el único escrito para vos: dice qué parte del método **no se delega**.
+4. Comprueba el entorno **antes de instalar nada**:
 
    ```bash
    tools/speckit/preflight.sh
    ```
 
-4. Coloca tu fundamento de producto en `docs/product/` y completa la sección **Completar por proyecto** al final de `AGENTS.md`. La [plantilla de fundamento](docs/product/PLANTILLA_FUNDAMENTO_DE_PRODUCTO.md) explica qué debe contener.
-5. Abre el repositorio con el agente elegido y entrégale el contenido de [`START_WITH_AI_AGENT.md`](START_WITH_AI_AGENT.md).
-6. Permite que inspeccione el entorno antes de modificarlo.
-7. Responde las decisiones humanas que aparezcan durante `clarify`.
-8. Revisa en lenguaje natural `spec.md`, `plan.md`, `tasks.md` y el informe de `analyze`.
-9. Autoriza `implement` únicamente cuando esos artefactos sean coherentes, completos y sin decisiones materiales abiertas.
+5. Coloca tu fundamento de producto en `docs/product/` y completa la sección **Completar por proyecto** al final de `AGENTS.md`. La [plantilla de fundamento](docs/product/PLANTILLA_FUNDAMENTO_DE_PRODUCTO.md) explica qué debe contener.
+6. Abre el repositorio con el agente elegido y entrégale el contenido de [`START_WITH_AI_AGENT.md`](START_WITH_AI_AGENT.md).
+7. Permite que inspeccione el entorno antes de modificarlo.
+8. Responde las decisiones humanas que aparezcan durante `clarify`.
+9. Revisa en lenguaje natural `spec.md`, `plan.md`, `tasks.md` y el informe de `analyze`.
+10. Autoriza `implement` únicamente cuando esos artefactos sean coherentes, completos y sin decisiones materiales abiertas.
 
 Los agentes que reconocen `AGENTS.md` cargarán las reglas automáticamente. Claude Code carga `CLAUDE.md`, que referencia `AGENTS.md` sin duplicarlo.
 
@@ -79,6 +81,7 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
 ├── README.md
 ├── AGENTS.md                         Reglas persistentes. Neutral de agente y de proyecto.
 ├── CLAUDE.md                         Referencia a AGENTS.md + lo específico de Claude Code.
+├── PARA_QUIEN_DECIDE.md              Para la persona: cuatro momentos y cinco preguntas.
 ├── START_WITH_AI_AGENT.md            Prompt de arranque.
 ├── SHA256SUMS
 ├── LICENSE                           Frontera de licencias, por naturaleza.
@@ -164,6 +167,16 @@ Esta versión **no modifica doctrina**. El núcleo v2.1 y el anexo v1.2 son idé
 | `AGENTS.md` | Reescrito neutral de agente y de proyecto, con sección **Completar por proyecto**. |
 | `CLAUDE.md` | Nuevo. Referencia `AGENTS.md` y añade solo lo específico de Claude Code. |
 | Preset 1.0.1 | Corrige dos anclas desplazadas en la plantilla de constitución. Sin cambio doctrinal. |
+
+### 1.6.0
+
+**Nuevo `PARA_QUIEN_DECIDE.md`: el primer documento del paquete escrito para la persona y no para el agente.**
+
+La compilación del preset 1.2.0 dejó setenta y nueve comprobaciones a cargo del agente. Lo que no se pudo compilar quedó a cargo de la persona —no aprobar un gate rechazado por prisa, correr las pruebas con personas, y leer lo que el agente pone delante— **y ningún documento se lo decía**. Un método que transfiere obligaciones a quien no sabe que las tiene no las transfirió: las perdió.
+
+El documento tiene cuatro momentos, cinco preguntas y una tabla de respuestas huecas frente a reales. Es corto a propósito y declara que debe seguir siéndolo.
+
+No toca el preset, que permanece en v1.2.0.
 
 ### 1.5.0
 
