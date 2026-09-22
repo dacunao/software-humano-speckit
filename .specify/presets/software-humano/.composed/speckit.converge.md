@@ -21,20 +21,24 @@ Conserva el proceso nativo de convergencia y aplica estas reglas:
 - La convergencia técnica no equivale a aceptación humana ni permite autoaprobar excepciones.
 - Declara terminado únicamente cuando se cumple `SH-DONE`; de lo contrario informa con precisión el estado de avance.
 
-## Alcance semántico de esta operación
+## Alcance semántico de esta operación · comprobaciones
 
-El anexo asigna a `converge` las disposiciones siguientes. Es la operación que separa cierre técnico de aceptación humana.
-
-- **`F08`**, **`A02`**, **`A07`** — recorre desde la fuente autorizada hasta la evidencia y vuelve desde cada decisión implementada hasta su fundamento.
-- **`V01`**–**`V12`** — reconcilia las doce dimensiones contra el resultado real, no contra lo planificado. Declara cuáles tienen evidencia, cuáles la tienen parcial y cuáles no la tienen.
-- **`SH-SCORE`** — puedes presentar una valoración provisional respaldada por evidencia. **No fija el umbral del proyecto ni convierte un puntaje en aceptación.**
-- **`SH-AP`** — comprueba si algún antipatrón sobrevivió al resultado.
-- **`SH-DONE`** — declara terminado únicamente cuando todo elemento obligatorio tiene implementación y evidencia, o excepción aprobada; las personas alcanzan los resultados previstos; y la calidad de la experiencia fue verificada con rigor proporcional al riesgo.
-- **`STOP01`**–**`STOP07`** — comprueba si alguna razón de detención quedó activa.
-- **`CR08`** — reconcilia contra la definición completa y entrega evidencia, pendientes y excepciones aprobadas.
-- **`O01`**–**`O09`** — los nueve elementos, en la medida necesaria para explicar cobertura, evidencia, brechas, excepciones y juicio humano pendiente.
+| Disposición | Comprobación verificable |
+|---|---|
+| `F08`, `A02` | El recorrido va desde la fuente autorizada hasta la evidencia **y vuelve** desde cada decisión implementada hasta su fundamento |
+| `V01`–`V12` | Cada dimensión se reconcilia contra el **resultado real**, no contra lo planificado. Declara cuáles tienen evidencia, cuáles parcial y cuáles no |
+| `A07`, `CR08` | Cada criterio de aceptación tiene su evidencia producida, o su excepción aprobada y registrada |
+| `SH-SCORE` | Puedes presentar una valoración provisional respaldada por evidencia. **No fija el umbral del proyecto ni convierte un puntaje en aceptación** |
+| `SH-AP` | Ningún antipatrón sobrevivió al resultado |
+| `STOP01`–`STOP07` | Ninguna razón de detención quedó activa |
+| `SH-DONE` | Todo elemento obligatorio tiene implementación y evidencia, o excepción aprobada; las personas alcanzan los resultados previstos; la calidad de la experiencia fue verificada con rigor proporcional al riesgo |
+| `O01`–`O09` | Los nueve elementos, en la medida necesaria para explicar cobertura, evidencia, brechas, excepciones y juicio humano pendiente |
 
 **Solo puedes agregar tareas para cerrar brechas del alcance aprobado.** Una capacidad nueva o un cambio de producto se informa para decisión humana; no se incorpora como trabajo autorizado.
+
+### El límite
+
+La convergencia técnica **no equivale a aceptación**. `SH-DONE` incluye que las personas alcancen los resultados previstos, y eso no lo demuestra ninguna comprobación de artefacto: lo demuestran las pruebas moderadas con personas. Declara qué quedó verificado por comprobación y qué espera verificación humana.
 
 ---
 

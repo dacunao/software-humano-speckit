@@ -16,18 +16,28 @@ Aplica el comando nativo con estas precisiones, que prevalecen cuando exista con
 - No agregues capacidades, abstracciones, configuraciones, controles ni documentos que no cambien una decisión necesaria.
 - Una tarea o bloque completado representa avance; no redefine ni reduce el alcance comprometido.
 
-## Alcance semántico de esta operación
+## Alcance semántico de esta operación · comprobaciones
 
-El anexo asigna a `tasks` las disposiciones siguientes. **Declara en tu informe cuáles aplicaste y con qué consecuencia.**
+| Disposición | Comprobación verificable |
+|---|---|
+| `F02`, `A02` | Todo elemento obligatorio del fundamento y del plan tiene **tarea de implementación y tarea de verificación**, o excepción aprobada y visible |
+| `F03` | Cada tarea declara de qué depende. El orden es secuencia de ejecución, nunca selección de alcance |
+| `F08`, `CR07` | Ninguna tarea agrega capacidades, modos, configuraciones ni abstracciones sin fundamento aprobado |
+| `A07` | Cada criterio de aceptación tiene tarea de verificación con **evidencia nombrada**, incluidas experiencia, estados, accesibilidad, rendimiento y control cuando apliquen |
+| `CR03` | Si las restricciones impiden cubrir el alcance, está declarado y solicitada la decisión; no postergado en silencio |
+| `O02`, `O07`–`O09` | El informe cubre inventario, estados, pruebas previstas y lo que requiere juicio humano |
 
-- **`F02`**, **`A02`** — el inventario de cobertura es la obligación central: todo elemento obligatorio del fundamento y del plan tiene tareas de implementación **y** de verificación, o una excepción aprobada y visible.
-- **`F03`** — ordena por dependencias, bloqueantes e integración. El orden es secuencia de ejecución, nunca selección de alcance.
-- **`F08`**, **`CR07`** — cada tarea produce trabajo reconciliable con su fundamento; ninguna agrega capacidades, modos ni abstracciones sin autorización.
-- **`CR03`** — si las restricciones impiden cubrir el alcance, hazlo visible y solicita decisión; no lo resuelvas postergando en silencio.
-- **`A07`** — la evidencia que cada criterio de aceptación exige debe tener tarea propia, incluidas experiencia, estados, accesibilidad, rendimiento y control cuando apliquen.
-- **`O02`**, **`O07`**–**`O09`** — informa inventario y cobertura, estados y casos extremos cubiertos, pruebas previstas, y lo que requiere juicio humano.
+### Estado esperado de las verificaciones por intervalo
 
-**Estado esperado de las verificaciones.** Cuando el orden que produzcas deje una comprobación imposible de satisfacer durante un intervalo —porque el bloque que la satisface viene después—, **declara ese intervalo**: qué comprobación queda en rojo, entre qué bloques y por qué razón conocida. Una compuerta roja sin declarar deja de señalar y oculta los fallos nuevos.
+**Comprobación obligatoria.** Si el orden que produces deja una comprobación imposible de satisfacer durante un intervalo —porque el bloque que la satisface viene después—, **decláralo**: qué comprobación queda en rojo, entre qué bloques y por qué razón conocida.
+
+Si ninguna queda en rojo, **decláralo también**. El silencio no distingue «no hay» de «no se miró».
+
+Una compuerta roja sin declarar deja de señalar, y un fallo nuevo llega a una rama ya rota sin distinguirse del ruido.
+
+### Prohibición explícita
+
+No asignes `P1`/`P2`/`P3`, MVP, independencia ni entrega incremental salvo autorización expresa del fundamento.
 
 ---
 

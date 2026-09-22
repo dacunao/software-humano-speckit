@@ -21,41 +21,50 @@ Conserva la ejecución nativa y aplica estas reglas:
 - Detente ante contradicción material, pérdida de cobertura, autoridad insuficiente o una acción sensible sin autorización y recuperación.
 - El agente no puede otorgarse revisión humana, excepción aprobada ni aceptación de producto.
 
-## Alcance semántico de esta operación
+## Alcance semántico de esta operación · comprobaciones
 
-**Esta es la operación donde se toman las decisiones reales de producto.** El anexo le asigna las disposiciones siguientes. **Declara en tu informe cuáles aplicaste y con qué consecuencia concreta.**
+**Esta es la operación donde se toman las decisiones reales de producto.**
 
-**Antes de decidir: consulta lo que ya se decidió**
+### Antes de decidir
 
-- Lee la **Comprobación de constitución** de `plan.md` antes de resolver cualquier alternativa de diseño o implementación. Esa tabla ya tradujo las disposiciones del núcleo a restricciones concretas de este proyecto. **Una decisión que esa tabla ya adjudica no se vuelve a abrir, ni se traslada a la persona como si estuviera pendiente.**
-- Si vas a presentar opciones a la autoridad humana, comprueba primero que las fuentes rectoras no las resuelvan. Abrir una decisión que la doctrina ya cerró gasta la atención que **`P06`** protege.
+1. **Lee la Comprobación de constitución de `plan.md`.** Esa tabla ya tradujo la doctrina a comprobaciones concretas de este proyecto. **Una decisión que esa tabla ya adjudica no se reabre ni se traslada a la persona como pendiente.**
+2. **Antes de abrir una decisión a la persona, nombra la fuente que consultaste** para confirmar que no está ya resuelta. Sin fuente nombrada, no formules la pregunta (`CR02`, `P06`).
+3. **Antes de proponer una solución, puntúala con `SH-SCORE`.** Una dimensión crítica en `0` significa que no está lista para presentarse. Sirve además para lo que a un agente le cuesta solo: **separar «lo razoné» de «lo observé»**. Un argumento sólido no es evidencia.
 
-**Complejidad, confianza y control**
+### Comprobaciones durante la ejecución
 
-- **`P03`** — absorbe la complejidad en el sistema. Ninguna estructura interna, nombre de entidad ni excepción del dominio llega a la persona sin traducción.
-- **`P07`** — estado visible, consecuencia anticipada, resultado confirmado y recuperación proporcional al riesgo.
-- **`P08`** — estados vacíos, de carga, error, éxito, interrupción y retorno son parte del trabajo, no un cierre posterior.
-- **`P09`** — respuesta, progreso honesto y preservación del trabajo.
-- **`P10`** — confirmación proporcional al impacto, reversibilidad, y ninguna captura de datos que el producto no use.
-- **`A05`** — respeta los estados y transiciones definidos; si aparece uno nuevo, decláralo en lugar de resolverlo en silencio.
+| Disposición | Comprobación verificable |
+|---|---|
+| `P03` | Ningún nombre de entidad, tabla, estado interno ni código de error del esquema aparece en texto visible para la persona |
+| `P07` | Toda acción irreversible declara su consecuencia **antes** de ejecutarse. Toda acción reversible tiene su camino de reversión implementado |
+| `P08` | Cada componente entregado implementa los **seis estados**: vacío, carga, error, éxito, interrupción y retorno |
+| `P09` | Cada interacción crítica cumple su presupuesto de respuesta o muestra progreso. Todo trabajo en curso persiste en el punto declarado |
+| `P10` | Ningún campo se captura sin uso declarado. Ninguna acción de alto impacto se ejecuta sin autorización registrada |
+| `D04` | Cada regla crítica —permisos, cálculos, límites, transiciones— tiene prueba automatizada. Ninguna depende de salida generativa |
+| `D05` | Ningún entregable se declara terminado sin evidencia enlazada por cada criterio de aceptación |
+| `D06` | Toda salida generativa del producto declara su incertidumbre |
+| `A05` | Todo estado que aparezca y no esté en el inventario **se declara antes de usarse**, no se resuelve en silencio |
+| `A07` | Cada criterio de aceptación tiene su evidencia producida o su ausencia declarada |
+| `CR06` | Ninguna acción sensible se autoejecuta; revisión y reversibilidad conservadas |
+| `CR07` | Ningún archivo agrega capacidades, modos, configuraciones ni abstracciones sin fundamento aprobado |
 
-**Uso de IA y evidencia**
+### `SH-AP` · antipatrones a vigilar
 
-- **`D04`** — reglas críticas, permisos, cálculos y validaciones como lógica verificable; no delegues certeza a un comportamiento variable.
-- **`D05`** — código correcto y pruebas verdes no equivalen a producto terminado.
-- **`D06`**, **`CR06`** — declara incertidumbre, mantén revisión y reversibilidad, y no ejecutes acciones de alto impacto sin autorización proporcional.
-- **`F08`**, **`A02`**, **`A07`**, **`CR07`** — mantén visible el inventario completo, produce la evidencia que cada criterio exige, y no agregues nada sin fundamento aprobado.
+«El agente agrega por si acaso» · «el happy path define el producto» · «la estética maquilla la fricción» · «la respuesta fluida parece verdadera».
 
-**Controles de entrada** *(el mapa del anexo es un mínimo y no una lista excluyente)*
+### No edites el contenido para que pase una validación
 
-- **`SH-SCORE` como entrada** — antes de proponer una solución, puntúala. Una dimensión crítica en **0** significa que no está lista para presentarse. Sirve además para lo que a un agente le cuesta solo: **separar «lo razoné» de «lo observé»**. Un argumento sólido no es evidencia.
-- **`SH-AP`** — vigila «el agente agrega por si acaso», «el happy path define el producto» y «la estética maquilla la fricción».
+La regla que prohíbe modificar el paquete para satisfacer una comprobación **se aplica igual a lo que el proyecto produce**. Redactar esquivando lo que un validador marca mal produce una suite verde y un resultado peor. Si una validación está equivocada, corrígela y declara la corrección.
 
-**Entrega**
+### Lo que estas comprobaciones NO cubren
 
-- **`O06`**–**`O09`** — archivos y componentes tocados, estados cubiertos, pruebas y su resultado, y riesgos, pendientes y decisiones que requieren juicio humano.
+Ninguna verifica si la persona **comprende, confía o progresa**. Verifican que el artefacto exista y que la regla esté implementada. La diferencia entre «los seis estados están implementados» y «la experiencia es buena» no la cierra ningún control automático: la cierran las pruebas moderadas con personas.
 
-**No edites el contenido para que pase una validación.** La regla que prohíbe modificar el paquete para satisfacer una comprobación se aplica igual a lo que el proyecto produce: redactar esquivando lo que un validador marca mal produce una suite verde y un resultado peor. Si una validación está equivocada, corrígela y declara la corrección.
+Cuando entregues, **declara qué quedó verificado por comprobación y qué espera verificación humana**. No presentes lo primero como si fuera lo segundo.
+
+### Entrega
+
+`O06` archivos y componentes tocados · `O07` estados cubiertos · `O08` pruebas y su resultado · `O09` riesgos, pendientes y decisiones que requieren juicio humano.
 
 ---
 

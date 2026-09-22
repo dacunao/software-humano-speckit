@@ -1,10 +1,10 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 1.4.1
+**Versión del paquete:** 1.5.0
 **Fecha:** 2026-09-21
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 1.2
-**Preset Software Humano:** 1.1.0
+**Preset Software Humano:** 1.2.0
 **Autoridad:** Damián Acuña
 
 ## Qué es
@@ -15,7 +15,7 @@ Reúne en una sola estructura:
 
 - el núcleo completo del manifiesto v2.1;
 - el anexo que lo aplica a SpecKit v1.2;
-- el preset instalable Software Humano v1.1.0, bajo MIT;
+- el preset instalable Software Humano v1.2.0, bajo MIT;
 - los requisitos de entorno, con comprobación ejecutable;
 - las instrucciones de instalación y verificación;
 - un prompt de arranque para entregar al agente;
@@ -68,7 +68,7 @@ Ningún documento debe absorber el papel de otro.
 | 1 | [`docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md`](docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md) | Cómo se concibe, decide, implementa y verifica software humano. |
 | 2 | Tu fundamento de producto, en `docs/product/` | Qué debe construirse, con qué alcance y qué evidencia permite aceptarlo. |
 | 3 | [`docs/method/Anexo_Aplicacion_SpecKit_v1.2.md`](docs/method/Anexo_Aplicacion_SpecKit_v1.2.md) | Cómo se corresponde el núcleo con los mecanismos nativos de SpecKit. |
-| 4 | [`tools/speckit/software-humano-spec-kit-preset-1.1.0/`](tools/speckit/software-humano-spec-kit-preset-1.1.0/) | Cómo se materializa técnicamente la adaptación. |
+| 4 | [`tools/speckit/software-humano-spec-kit-preset-1.2.0/`](tools/speckit/software-humano-spec-kit-preset-1.2.0/) | Cómo se materializa técnicamente la adaptación. |
 | 5 | SpecKit nativo | El ciclo SDD y todo comportamiento que el preset no modifique. |
 
 El núcleo y el fundamento no compiten: el núcleo gobierna el método; el fundamento gobierna el producto. Ante una contradicción real o aparente, el agente debe identificarla y detener la decisión afectada, no inventar una conciliación.
@@ -98,8 +98,8 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
         ├── preflight.sh                    Comprueba el entorno. No modifica nada.
         ├── specify                         Envoltorio con versión de SpecKit fijada.
         ├── shim/python3                    Intérprete con PyYAML para los scripts.
-        ├── Software_Humano_SpecKit_Preset_v1.1.0.zip
-        └── software-humano-spec-kit-preset-1.1.0/
+        ├── Software_Humano_SpecKit_Preset_v1.2.0.zip
+        └── software-humano-spec-kit-preset-1.2.0/
 ```
 
 El directorio y el ZIP del preset son la misma versión. El directorio facilita inspección e instalación local; el ZIP conserva la distribución verificable.
@@ -164,6 +164,16 @@ Esta versión **no modifica doctrina**. El núcleo v2.1 y el anexo v1.2 son idé
 | `AGENTS.md` | Reescrito neutral de agente y de proyecto, con sección **Completar por proyecto**. |
 | `CLAUDE.md` | Nuevo. Referencia `AGENTS.md` y añade solo lo específico de Claude Code. |
 | Preset 1.0.1 | Corrige dos anclas desplazadas en la plantilla de constitución. Sin cambio doctrinal. |
+
+### 1.5.0
+
+**Preset 1.2.0: las disposiciones pasan de prosa a comprobación.** La 1.1.0 nombró qué debe activar cada comando; al medirlo, menos de la mitad de esas obligaciones podía responderse sí o no mirando el artefacto. Ahora cada una está expresada como comprobación verificable, y **las que no compilan están declaradas como tales**.
+
+Una disposición compila cuando se expresa como «X existe», «X traza a Y» o «ninguna X sin Z». Se resiste cuando se expresa como un adjetivo de calidad. Las que nombran artefactos y estados compilan; las que nombran cualidades no.
+
+Ninguna comprobación verifica si la persona comprende, confía o progresa: eso exige pruebas moderadas con personas, y cada comando lo declara en lugar de darlo por cubierto.
+
+Sin cambio doctrinal: un proyecto instalado **no necesita rematerializar su constitución**.
 
 ### 1.4.1
 

@@ -24,18 +24,30 @@ Conserva el flujo nativo de hasta cinco preguntas por ejecución y aplica ademá
 - Si la respuesta cambia alcance o contradice el fundamento, requiere confirmación de la autoridad correspondiente.
 - Reevalúa el checklist nativo de requisitos sin convertirlo en evidencia de implementación o aceptación.
 
-## Alcance semántico de esta operación
+## Alcance semántico de esta operación · comprobaciones
 
-El anexo asigna a `clarify` las disposiciones siguientes. **Declara en tu informe cuáles aplicaste y con qué consecuencia.**
+### Comprobación previa obligatoria, antes de cada pregunta
 
-- **`CR02`** — **antes de abrir una pregunta, comprueba si las fuentes rectoras ya la deciden.** El núcleo, el fundamento de producto y los artefactos aprobados pueden contener la respuesta. Una pregunta cuya respuesta ya está escrita no es deferencia: es trasladar a la persona un trabajo que te corresponde.
-- **`P06`** — la atención es un recurso del producto y cada decisión solicitada debe justificarse. Una consulta innecesaria gasta ese recurso con apariencia de prudencia.
-- **`SH-FUND`** — la pregunta debe señalar qué elemento del fundamento queda indeterminado y por qué impide avanzar.
-- **`D02`**, **`SH-STOP`**, **`STOP01`**–**`STOP04`** — distingue el supuesto menor y reversible, que puedes declarar y seguir, de la decisión material, que detiene. Un límite de preguntas organiza una ronda; no reduce la obligación de resolverlas.
-- **`CR03`** — ninguna respuesta puede reducir alcance sin decisión explícita de la autoridad.
-- **`O01`**, **`O04`**, **`O09`** — registra fuente, evidencia, supuestos y lo que sigue requiriendo juicio humano.
+| # | Comprobación verificable |
+|---|---|
+| 1 | **Nombra la fuente que consultaste** para confirmar que la pregunta no está ya resuelta: núcleo, fundamento de producto o artefacto aprobado. Sin fuente nombrada, no formules la pregunta (`CR02`) |
+| 2 | La pregunta señala **qué elemento del fundamento queda indeterminado** y por qué impide avanzar (`SH-FUND`) |
+| 3 | La pregunta presenta **opciones reales con su consecuencia**, no una recomendación disfrazada de consulta (`CR03`) |
 
-**Comprobación previa obligatoria.** Para cada pregunta que vayas a formular, declara qué fuente consultaste para confirmar que no está ya resuelta. Si no puedes nombrarla, no formules la pregunta todavía.
+Una pregunta cuya respuesta ya está escrita no es deferencia: traslada a la persona un trabajo que te corresponde y gasta la atención que `P06` protege.
+
+### Comprobaciones sobre el resultado
+
+| Disposición | Comprobación verificable |
+|---|---|
+| `D02`, `SH-STOP` | Ninguna decisión material se cerró con un default, una inferencia ni una recomendación propia |
+| `STOP01`–`STOP04` | Cada respuesta queda registrada en el artefacto que posee la decisión, con su vínculo a la fuente |
+| `CR03` | Ninguna respuesta redujo alcance sin decisión explícita de la autoridad |
+| `O01`, `O04`, `O09` | El informe distingue fuente, evidencia, supuestos y lo que sigue requiriendo juicio humano |
+
+### Lo que NO se puede comprobar
+
+Que la pregunta fuera **necesaria**. Se puede verificar que nombraste una fuente; no que la consultaste de verdad ni que la leíste bien. Esa es la parte que ninguna comprobación cierra.
 
 ---
 

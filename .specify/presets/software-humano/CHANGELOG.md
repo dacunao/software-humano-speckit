@@ -1,5 +1,40 @@
 # Registro de cambios
 
+## 1.2.0 — 2026-09-22
+
+**Las disposiciones pasan de prosa a comprobación.** La versión 1.1.0 cerró la brecha de conformidad con el anexo nombrando las disposiciones que cada comando debe activar, pero las expresó como obligaciones en prosa. Al medirlas, **menos de la mitad podía responderse sí o no mirando el artefacto**.
+
+Esta versión reescribe cada obligación como una comprobación verificable, y **declara explícitamente las que no compilan**.
+
+**Ningún cambio doctrinal.** `templates/constitution-template.md` es byte a byte la de 1.1.0: un proyecto instalado **no necesita rematerializar su constitución**.
+
+### El criterio de compilación
+
+Una disposición compila cuando puede expresarse como **«X existe»**, **«X traza a Y»** o **«ninguna X sin Z»**. Se resiste cuando se expresa como un adjetivo de calidad.
+
+| Antes, en 1.1.0 | Ahora, en 1.2.0 |
+|---|---|
+| `P07` «recuperación proporcional al riesgo» | Toda acción irreversible declara su consecuencia antes de ejecutarse; toda reversible declara cómo se revierte |
+| `P09` «progreso honesto» | Cada interacción crítica declara su presupuesto de respuesta; todo trabajo en curso declara su punto de persistencia |
+| `P06` «cada elemento debe justificarse» | Cada elemento visible traza a un requisito o Job Story. Un elemento sin traza se elimina |
+| `P10` «confirmación proporcional al impacto» | Ningún campo capturado carece de uso declarado; toda acción de alto impacto exige autorización registrada |
+
+El patrón: las disposiciones que nombran **artefactos y estados** compilan; las que nombran **cualidades** no.
+
+### Lo que NO compila, y queda declarado
+
+Cada comando incorpora un apartado «Lo que estas comprobaciones NO cubren». Ninguna comprobación verifica si la persona **comprende, confía o progresa**: verifican que el artefacto exista y que la regla esté implementada.
+
+`P04` y `P05` compilan solo en parte. `P02` compila hasta la existencia del criterio, no hasta la calidad del resultado.
+
+Cuando una decisión dependa de esa parte, **debe declararse y asignarse verificación humana**. Un comando no puede dar por cumplido lo no verificable porque la parte verificable pasó.
+
+### Otros cambios
+
+- `clarify` incorpora una **comprobación previa obligatoria por pregunta**: nombrar la fuente consultada antes de formularla.
+- `tasks` obliga a declarar el estado esperado de las verificaciones por intervalo, **incluido decir que ninguna queda en rojo**. El silencio no distingue «no hay» de «no se miró».
+- `analyze` gana seis comprobaciones de activación doctrinal, y declara su propio límite: lee artefactos y no alcanza lo ocurrido en conversación.
+
 ## 1.1.0 — 2026-09-22
 
 **Conformidad con el anexo v1.2.** Las versiones anteriores no incorporaban las *referencias por operación* que el anexo exige en su línea 516 y verifica en sus criterios 14 y 15. De unas cien asignaciones que el mapa reparte entre los ocho comandos, el preset citaba **tres**.

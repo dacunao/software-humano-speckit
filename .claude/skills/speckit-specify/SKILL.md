@@ -28,36 +28,36 @@ Aplica el comando nativo con estas precisiones, que prevalecen cuando exista con
 - Conserva el checklist nativo de calidad de requisitos. No crees otro checklist propio del manifiesto.
 - Completa la matriz de cobertura de `spec.md` sin generar un informe adicional.
 
-## Alcance semántico de esta operación
+## Alcance semántico de esta operación · comprobaciones
 
-El anexo asigna a `specify` las disposiciones siguientes. **Actívalas: nómbralas donde cambien una decisión y declara en tu informe cuáles aplicaste y con qué consecuencia concreta.** Una disposición citada sin consecuencia no cuenta como aplicada.
+| Disposición | Comprobación verificable | Dónde se responde |
+|---|---|---|
+| `SH-FUND` | Fuente, autoridad, razón, resultado, condiciones y evidencia están identificadas | Fuente y autoridad |
+| `P01` | Cada requisito declara el progreso que habilita. Ninguna Job Story pierde circunstancia, motivación ni resultado | Estructura de producto preservada |
+| `P02` | **Al menos un criterio de aceptación por recorrido mide esfuerzo, claridad o confianza**, no solo corrección de salida | Evidencia y criterios de éxito |
+| `P05` | Toda convención propia que la persona deba aprender está declarada y justificada frente a la convención conocida que reemplaza | Contrato de experiencia |
+| `P06` | Cada elemento visible y cada decisión solicitada traza a un elemento del fundamento | Cobertura del alcance |
+| `P07` | Cada acción está clasificada reversible o irreversible, y cada irreversible declara su consecuencia | Reglas, estados y excepciones |
+| `P10` | Ningún dato solicitado a la persona carece de uso declarado | Requisitos y entidades clave |
+| `D01` | Todos los elementos obligatorios del fundamento están inventariados antes de proponer nada | Cobertura del alcance |
+| `D02` | Toda ambigüedad material permanece como `NEEDS CLARIFICATION`, sin cerrar por supuesto | Decisiones materiales pendientes |
+| `F01`, `F02` | La matriz de cobertura no tiene elementos sin destino | Cobertura del alcance |
+| `F04` | Las Job Stories existentes conservan su forma; ninguna fue inventada | Estructura preservada |
+| `F05`, `A04`, `CR05` | El contrato de experiencia declara ruta principal, lenguaje, decisiones, feedback, control, recuperación y continuidad | Contrato de experiencia |
+| `A01`, `A02` | El mapa del fundamento y el de cobertura viven en `spec.md`, sin documentos separados que dupliquen | `spec.md` |
+| `A03` | Cada Job Story aplicable registra conducta actual, ansiedad, evidencia y supuestos | Estructura preservada |
+| `CR03` | Ningún elemento obligatorio quedó sin destino ni postergado sin decisión | Cobertura del alcance |
+| `CR04` | Cuando la decisión pertenece a producto, están las tres opciones: recomendada, más simple y no construir | Decisiones pendientes |
 
-**Fundamento y alcance**
+**Límite numérico anulado.** Cualquier tope del comando nativo que obligue a ocultar marcadores materiales o reemplazarlos por conjeturas queda sin efecto. Un límite organiza una ronda; no reduce la obligación de resolverlas.
 
-- **`SH-FUND`** — establece fuente, autoridad, razón, resultado, condiciones y evidencia antes de especificar. Si falta una definición capaz de cambiar materialmente la solución, expón el vacío; no lo completes por inferencia.
-- **`D01`** — comprende la definición completa antes de proponer componentes.
-- **`F01`**, **`F02`** — mapea fielmente el fundamento e inventaría todos sus elementos obligatorios.
-- **`A01`**, **`A02`** — el mapa del fundamento y el de cobertura viven dentro de `spec.md`; no generes documentos separados si la información ya está.
-- **`CR01`**–**`CR03`** — la solución más simple que produzca el resultado definido; fuentes y alcance identificados; todo elemento obligatorio con destino.
+### Lo que estas comprobaciones NO cubren
 
-**Progreso y experiencia** — esta familia es la que con más frecuencia se omite. No la trates como requisitos secundarios.
+`P02` compila solo hasta la existencia del criterio: se puede verificar que **exista** un criterio sobre esfuerzo o confianza, no que la experiencia resultante **sea** clara o confiable. Esa parte exige pruebas moderadas con personas, y la especificación debe declararla como tal en su plan de validación.
 
-- **`P01`** — cada requisito se vincula al progreso que habilita. Conserva circunstancia, motivación y resultado cuando el fundamento use Job Stories; no las inventes cuando no las use.
-- **`P02`** — esfuerzo, claridad, confianza y recorrido completo **son parte de la funcionalidad**. Deben aparecer en los criterios de aceptación, no en una sección aparte.
-- **`P05`** — los escenarios comprueban lenguaje, orientación y ausencia de aprendizaje incidental.
-- **`P06`** — cada elemento y cada decisión que la especificación exige a la persona debe tener relación trazable con el fundamento, o no existir.
-- **`P07`** — estado, consecuencia, evidencia y recuperación forman parte de la especificación.
-- **`P10`** — revisión, corrección, reversibilidad y uso de datos permanecen bajo autoridad humana proporcional.
-- **`F04`**, **`F05`**, **`A03`**, **`A04`**, **`CR05`** — el **contrato de experiencia** es obligatorio cuando la experiencia afecta el resultado: ruta principal, lenguaje, decisiones, feedback, control, recuperación y continuidad. Su profundidad depende de ese efecto, no del tamaño del documento.
+### Entrega
 
-**Ambigüedad y detención**
-
-- **`D02`**, **`SH-STOP`** — una ambigüedad material detiene; no se cierra con un supuesto.
-- **`CR04`** — cuando la decisión aún pertenece a producto, presenta alternativa recomendada, alternativa más simple y opción de no construir, sin presentar la recomendación como aprobación.
-
-**Entrega**
-
-- **`O01`**–**`O05`**, **`O09`** — tu informe expresa fuentes y fundamento, inventario de cobertura, Job Stories cuando apliquen, evidencia y supuestos, alternativas comparadas, y lo que requiere juicio humano.
+`O01`–`O05` y `O09`, según el formato del núcleo.
 
 ---
 

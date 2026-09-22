@@ -28,32 +28,42 @@ Además de los controles nativos, el análisis debe comprobar:
 
 Una contradicción con la constitución es crítica. La corrección debe volver al artefacto que posee la decisión; `analyze` no modifica archivos ni reinterpreta el núcleo para acomodar los valores predeterminados de SpecKit.
 
-## Alcance semántico de esta operación
+## Alcance semántico de esta operación · comprobaciones
 
-`analyze` es la operación de **control**. El anexo le asigna las disposiciones siguientes, y comprobarlas es su trabajo, no un añadido.
+`analyze` es la operación de **control**. No modifica archivos: la corrección vuelve al artefacto que posee la decisión.
 
-**Verificación · `V01`–`V12`, una por una**
+### Verificación · `V01`–`V12`, una por una
 
-Recorre las doce dimensiones y declara para cada una si hay evidencia, si es parcial o si falta. No las agrupes ni las des por cubiertas en bloque.
+Declara para cada dimensión: **hay evidencia**, **es parcial** o **falta**. No las agrupes ni las des por cubiertas en bloque.
 
-`V01` cobertura · `V02` progreso · `V03` causalidad · `V04` comprensión · `V05` carga · `V06` profundidad · `V07` confianza · `V08` control · `V09` estados · `V10` accesibilidad · `V11` rendimiento · `V12` uso de IA.
+`V01` cobertura · `V02` progreso · `V03` causalidad · `V04` comprensión · `V05` carga · `V06` profundidad · `V07` confianza · `V08` control · `V09` estados · `V10` accesibilidad · `V11` rendimiento · `V12` uso de IA
 
-**Controles transversales**
+### Comprobación de activación doctrinal
 
-- **`SH-SCORE`** — presenta las dimensiones **sin evidencia**. Una dimensión crítica en 0 es un hallazgo, no una observación menor.
-- **`SH-AP`** — comprueba si algún antipatrón aparece en el resultado, en especial «el plan selecciona alcance», «la descomposición parece exclusión» y «la respuesta fluida parece verdadera».
-- **`SH-GOV`** — comprueba que cada decisión esté en manos de la autoridad que le corresponde y que ninguna aprobación humana haya sido simulada.
-- **`SH-DONE`**, **`SH-STOP`**, **`STOP01`**–**`STOP07`** — comprueba si alguna razón de detención está activa sin haberse declarado.
+| # | Comprobación verificable |
+|---|---|
+| 1 | La Comprobación de constitución de `plan.md` **existe y tiene filas** |
+| 2 | Sus filas citan las disposiciones que el anexo asigna a `plan`, o declaran cuál no aplica y por qué |
+| 3 | **Ninguna celda de consecuencia está vacía ni repite el enunciado.** «Se respetará `P07`» no es una consecuencia; «toda acción irreversible declara su consecuencia antes de ejecutarse» sí lo es |
+| 4 | Cada artefacto declara qué disposiciones activó y **con qué consecuencia concreta** |
+| 5 | `tasks.md` declara el estado esperado de las verificaciones por intervalo, o afirma que ninguna queda en rojo |
+| 6 | Existe la puntuación `SH-SCORE` de entrada y ninguna dimensión crítica está en `0` sin bloqueo declarado |
 
-**Cobertura y evidencia**
+Una disposición citada sin consecuencia, o una sección de activación ausente, **es un hallazgo**: significa que la doctrina no gobernó esa decisión aunque estuviera disponible.
 
-- **`F02`**, **`F08`**, **`A02`**, **`A07`** — correspondencia completa entre fundamento, especificación, plan, tareas y evidencia, en ambas direcciones.
+### Cobertura y controles
 
-**Comprobación de activación doctrinal**
+| Disposición | Comprobación verificable |
+|---|---|
+| `F02`, `F08`, `A02`, `A07` | Correspondencia completa entre fundamento, especificación, plan, tareas y evidencia, **en ambas direcciones** |
+| `SH-SCORE` | Presenta las dimensiones **sin evidencia**. Una dimensión crítica en `0` es un hallazgo, no una observación menor |
+| `SH-AP` | Comprueba si algún antipatrón aparece en el resultado, en especial «el plan selecciona alcance», «la descomposición parece exclusión» y «la respuesta fluida parece verdadera» |
+| `SH-GOV` | Cada decisión está en manos de la autoridad que le corresponde; ninguna aprobación humana fue simulada |
+| `SH-STOP`, `STOP01`–`STOP07` | Ninguna razón de detención está activa sin haberse declarado |
 
-Verifica que cada artefacto declare **qué disposiciones del núcleo activó y con qué consecuencia concreta**. Una disposición citada sin consecuencia, o una sección de activación ausente, es un hallazgo: significa que la doctrina no gobernó esa decisión aunque estuviera disponible.
+### El límite de esta operación
 
-**Límite.** `analyze` no modifica archivos. La corrección vuelve al artefacto que posee la decisión.
+`analyze` **lee artefactos**. No alcanza a lo que ocurrió en conversación: una propuesta hecha en el chat, una pregunta formulada fuera de un comando o un informe presentado de viva voz no pasan por aquí. Declara esa frontera en tu informe en lugar de dar por verificado lo que no pudiste mirar.
 
 ---
 
