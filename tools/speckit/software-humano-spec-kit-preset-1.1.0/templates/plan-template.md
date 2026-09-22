@@ -19,9 +19,34 @@
 
 *PUERTA: debe cumplirse antes de diseñar y revisarse después de resolver la estrategia.*
 
-| Disposición | Consecuencia para el plan | Evidencia o decisión | Estado |
+<!--
+Esta tabla es la traducción de la doctrina a restricciones concretas de ESTE proyecto.
+`implement` debe consultarla antes de resolver una alternativa de diseño: una decisión
+que esta tabla ya adjudica no se reabre ni se traslada a la persona como pendiente.
+
+Incluye como mínimo las disposiciones que el anexo asigna a `plan`: P03, P04, P06-P10,
+D03, D04, F03, F06, F07, A05-A08, CR03-CR06. Agrega cualquier otra que el riesgo del
+proyecto justifique.
+
+Una fila sin consecuencia concreta no cuenta como cumplida: "se respetará P07" no es
+una consecuencia, "todo estado destructivo confirma y ofrece deshacer" sí lo es.
+-->
+
+| Disposición | Consecuencia concreta para este proyecto | Evidencia o decisión | Estado |
 |---|---|---|---|
-| [ID del núcleo] | [regla aplicable] | [cómo se satisface] | Cumple / Bloqueado |
+| [ID del núcleo] | [qué queda prohibido o exigido, en términos verificables] | [cómo se satisface] | Cumple / Bloqueado |
+
+### Puntuación de entrada · `SH-SCORE`
+
+*Antes de comprometer la estrategia. Una dimensión crítica en 0 significa que no está lista para proponerse.*
+
+| Dimensión | 0 / 1 / 2 | Evidencia que sostiene el puntaje |
+|---|---|---|
+| Progreso del usuario | | |
+| Carga cognitiva | | |
+| [resto de las dimensiones aplicables] | | |
+
+Un **1** que se repite por la misma razón —«argumentado y no observado»— indica que la propuesta descansa en razonamiento y no en evidencia.
 
 ## Contexto técnico
 

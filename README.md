@@ -1,10 +1,10 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 1.3.0
+**Versión del paquete:** 1.4.0
 **Fecha:** 2026-09-21
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 1.2
-**Preset Software Humano:** 1.0.2
+**Preset Software Humano:** 1.1.0
 **Autoridad:** Damián Acuña
 
 ## Qué es
@@ -15,7 +15,7 @@ Reúne en una sola estructura:
 
 - el núcleo completo del manifiesto v2.1;
 - el anexo que lo aplica a SpecKit v1.2;
-- el preset instalable Software Humano v1.0.2, bajo MIT;
+- el preset instalable Software Humano v1.1.0, bajo MIT;
 - los requisitos de entorno, con comprobación ejecutable;
 - las instrucciones de instalación y verificación;
 - un prompt de arranque para entregar al agente;
@@ -68,7 +68,7 @@ Ningún documento debe absorber el papel de otro.
 | 1 | [`docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md`](docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md) | Cómo se concibe, decide, implementa y verifica software humano. |
 | 2 | Tu fundamento de producto, en `docs/product/` | Qué debe construirse, con qué alcance y qué evidencia permite aceptarlo. |
 | 3 | [`docs/method/Anexo_Aplicacion_SpecKit_v1.2.md`](docs/method/Anexo_Aplicacion_SpecKit_v1.2.md) | Cómo se corresponde el núcleo con los mecanismos nativos de SpecKit. |
-| 4 | [`tools/speckit/software-humano-spec-kit-preset-1.0.2/`](tools/speckit/software-humano-spec-kit-preset-1.0.2/) | Cómo se materializa técnicamente la adaptación. |
+| 4 | [`tools/speckit/software-humano-spec-kit-preset-1.1.0/`](tools/speckit/software-humano-spec-kit-preset-1.1.0/) | Cómo se materializa técnicamente la adaptación. |
 | 5 | SpecKit nativo | El ciclo SDD y todo comportamiento que el preset no modifique. |
 
 El núcleo y el fundamento no compiten: el núcleo gobierna el método; el fundamento gobierna el producto. Ante una contradicción real o aparente, el agente debe identificarla y detener la decisión afectada, no inventar una conciliación.
@@ -98,8 +98,8 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
         ├── preflight.sh                    Comprueba el entorno. No modifica nada.
         ├── specify                         Envoltorio con versión de SpecKit fijada.
         ├── shim/python3                    Intérprete con PyYAML para los scripts.
-        ├── Software_Humano_SpecKit_Preset_v1.0.2.zip
-        └── software-humano-spec-kit-preset-1.0.2/
+        ├── Software_Humano_SpecKit_Preset_v1.1.0.zip
+        └── software-humano-spec-kit-preset-1.1.0/
 ```
 
 El directorio y el ZIP del preset son la misma versión. El directorio facilita inspección e instalación local; el ZIP conserva la distribución verificable.
@@ -164,6 +164,21 @@ Esta versión **no modifica doctrina**. El núcleo v2.1 y el anexo v1.2 son idé
 | `AGENTS.md` | Reescrito neutral de agente y de proyecto, con sección **Completar por proyecto**. |
 | `CLAUDE.md` | Nuevo. Referencia `AGENTS.md` y añade solo lo específico de Claude Code. |
 | Preset 1.0.1 | Corrige dos anclas desplazadas en la plantilla de constitución. Sin cambio doctrinal. |
+
+### 1.4.0
+
+**El preset pasa a cumplir el anexo que materializa.** Hasta 1.0.2 no incorporaba las *referencias por operación* que el anexo exige en su línea 516 y verifica en sus criterios 14 y 15: de unas cien asignaciones, citaba tres.
+
+La consecuencia, medida en el primer piloto real, era que el preset protegía el alcance y la autoridad y no aplicaba los principios de experiencia ni los controles de verificación.
+
+**Preset 1.1.0**, en cuatro capas para que la doctrina no pueda saltarse en silencio:
+
+1. Cada comando nombra las disposiciones que el anexo le asigna y qué exige cada una **en ese momento**.
+2. Cada comando obliga a **declarar qué activó y con qué consecuencia concreta**.
+3. `plan-template.md` y `tasks-template.md` tienen el hueco donde esa declaración vive.
+4. `analyze` **comprueba que la declaración exista y sea concreta**; su ausencia es un hallazgo.
+
+Sin cambio doctrinal: `constitution-template.md` es byte a byte la de 1.0.2, así que un proyecto instalado **no necesita rematerializar su constitución**.
 
 ### 1.3.0
 

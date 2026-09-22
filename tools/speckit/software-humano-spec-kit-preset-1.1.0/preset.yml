@@ -3,7 +3,7 @@ schema_version: "1.0"
 preset:
   id: "software-humano"
   name: "Software Humano"
-  version: "1.0.2"
+  version: "1.1.0"
   description: "Aplica el Manifiesto de Software Humano al ciclo SDD nativo de SpecKit sin agregar etapas ni artefactos metodológicos."
   author: "Damián Acuña"
   license: "MIT"

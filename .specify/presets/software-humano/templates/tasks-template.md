@@ -70,6 +70,15 @@ la palabra "prueba".
 
 ## Dependencias y orden de ejecución
 
+<!--
+Declara además el ESTADO ESPERADO DE LAS VERIFICACIONES durante el intervalo.
+Si el orden deja una comprobación imposible de satisfacer hasta un bloque posterior,
+dilo aquí: qué comprobación queda en rojo, entre qué bloques y por qué razón conocida.
+Una compuerta roja sin declarar deja de señalar, y un fallo nuevo llega a una rama que
+ya estaba rota sin distinguirse del ruido.
+-->
+
+
 | Tarea o bloque | Depende de | Puede ejecutarse en paralelo con | Bloquea |
 |---|---|---|---|
 | [ID] | [IDs / ninguna] | [IDs / ninguna] | [IDs] |

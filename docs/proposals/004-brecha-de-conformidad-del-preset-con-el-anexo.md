@@ -1,7 +1,7 @@
 # Propuesta 004 — Brecha de conformidad del preset con el anexo v1.2
 
 **Fecha:** 2026-09-22
-**Estado:** propuesta para decisión de Damián Acuña. **Nada aplicado.**
+**Estado:** **APLICADA el 2026-09-22** por decisión de Damián Acuña — conformidad completa, preset **1.1.0**, paquete **1.4.0**.
 **Objeto:** preset `software-humano` v1.0.2, sus ocho comandos compuestos
 **Origen:** pregunta de la autoridad de producto sobre cómo lograr que el manifiesto gobierne efectivamente el proyecto, y el informe de retroalimentación del piloto del 2026-09-22
 
@@ -10,6 +10,21 @@
 **El anexo v1.2 diseñó el mecanismo que se necesita, exige al preset incorporarlo, y el preset no lo incorporó.**
 
 No es una mejora marginal ni un replanteamiento del diseño. Es un **incumplimiento de conformidad** del preset contra su propio documento rector.
+
+---
+
+> **Aplicada.** Damián Acuña autorizó la conformidad completa y preguntó además cómo asegurar que el agente no se salte el manifiesto. Esa segunda pregunta cambió la implementación: texto en un comando es el nivel más débil de aplicación —se lee o no se lee y nadie se entera—, así que se implementó en **cuatro capas**:
+>
+> 1. **Cada comando nombra** las disposiciones que el anexo le asigna y qué exige cada una en ese momento.
+> 2. **Cada comando obliga a declarar** qué activó y con qué consecuencia concreta.
+> 3. **`plan-template.md` y `tasks-template.md`** tienen el hueco donde esa declaración vive.
+> 4. **`analyze` comprueba** que la declaración exista y sea concreta; su ausencia es un hallazgo.
+>
+> Eso convierte «¿consultó la doctrina?» de inverificable en verificable: un agente que se la salte debe declararlo o mentir, y mentir es un fallo distinto y detectable.
+>
+> Medido: los identificadores citados pasaron de **3 a 70 distintos**, repartidos en los ocho comandos. `constitution-template.md` no cambió un byte, de modo que ningún proyecto instalado necesita rematerializar su constitución.
+>
+> Lo que sigue es el análisis que fundamentó la decisión, conservado como registro.
 
 ---
 
