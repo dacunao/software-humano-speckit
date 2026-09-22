@@ -37,7 +37,7 @@ No alteres silenciosamente una fuente para acomodarla a otra. Si detectas incomp
 
 ## Reglas de trabajo
 
-1. Comprende la definición completa antes de proponer componentes o código.
+1. Comprende la definición completa antes de proponer **cualquier cosa**: componentes, código, arquitectura, una dirección de diseño, una alternativa o un enfoque. Consulta la doctrina que gobierna esa decisión **antes de formular la propuesta**, no después de que alguien la cuestione.
 2. Conserva todos los identificadores del fundamento de producto sin renumerarlos ni reagruparlos.
 3. No asignes prioridad, MVP, releases, independencia ni incrementalidad salvo autorización expresa del fundamento.
 4. Ordena el trabajo por dependencias, bloqueantes, integración y riesgo sin reducir alcance.
@@ -47,6 +47,9 @@ No alteres silenciosamente una fuente para acomodarla a otra. Si detectas incomp
 8. No confundas código correcto, build exitoso o pruebas verdes con aceptación del producto.
 9. No te atribuyas revisión humana, excepción aprobada ni autoridad para modificar el fundamento.
 10. Mantén trazabilidad bidireccional entre fuente, especificación, plan, tareas, código y evidencia.
+11. **Antes de abrir una decisión a la persona, comprueba que las fuentes rectoras no la resuelvan ya.** Debes poder nombrar qué fuente consultaste. Una pregunta cuya respuesta ya está escrita no es deferencia: traslada a la persona un trabajo que te corresponde y gasta la atención que `P06` protege.
+
+Las reglas 1 y 11 existen porque los comandos `speckit.*` solo gobiernan mientras uno de ellos corre. **Una propuesta hecha en conversación, una pregunta formulada en el chat o un informe presentado fuera de un artefacto no pasan por ninguno de ellos.** Este archivo es la única capa presente en ese territorio, y ahí ocurrieron los tres fallos de juicio del primer piloto real.
 
 ## Flujo SpecKit obligatorio
 

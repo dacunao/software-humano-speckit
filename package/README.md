@@ -1,6 +1,6 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 1.4.0
+**Versión del paquete:** 1.4.1
 **Fecha:** 2026-09-21
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 1.2
@@ -164,6 +164,17 @@ Esta versión **no modifica doctrina**. El núcleo v2.1 y el anexo v1.2 son idé
 | `AGENTS.md` | Reescrito neutral de agente y de proyecto, con sección **Completar por proyecto**. |
 | `CLAUDE.md` | Nuevo. Referencia `AGENTS.md` y añade solo lo específico de Claude Code. |
 | Preset 1.0.1 | Corrige dos anclas desplazadas en la plantilla de constitución. Sin cambio doctrinal. |
+
+### 1.4.1
+
+Dos reglas nuevas en la plantilla de `AGENTS.md`, que cubren el territorio donde el preset **estructuralmente no llega**: los comandos `speckit.*` solo gobiernan mientras uno de ellos corre, y los tres fallos de juicio del primer piloto ocurrieron en conversación, fuera de todo comando y de todo artefacto.
+
+- La regla 1 se amplía de «antes de proponer componentes o código» a **antes de proponer cualquier cosa**, incluida una dirección de diseño o una alternativa, consultando la doctrina **antes** de formular la propuesta.
+- La regla 11 es nueva: **antes de abrir una decisión a la persona, comprobar que las fuentes rectoras no la resuelvan ya**, pudiendo nombrar cuál se consultó.
+
+Sigue siendo persuasión, no coerción. `AGENTS.md` es la única capa presente cuando no corre ningún comando, y por eso es donde estas reglas pueden servir de algo.
+
+No toca el preset, que permanece en v1.1.0.
 
 ### 1.4.0
 
