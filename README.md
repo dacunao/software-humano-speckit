@@ -1,31 +1,33 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 1.6.0
-**Fecha:** 2026-09-21
+**Versión del paquete:** 2.0.0
 **Núcleo del manifiesto:** 2.1
-**Anexo de aplicación SpecKit:** 1.2
-**Preset Software Humano:** 1.2.0
+**Anexo de aplicación SpecKit:** 2.0
+**Preset · extensión · workflow · bundle:** 2.0.0
 **Autoridad:** Damián Acuña
 
 ## Qué es
 
 Un paquete autocontenido que instala el **Manifiesto de Software Humano** como doctrina operativa dentro del ciclo SDD nativo de SpecKit, en cualquier proyecto.
 
-Reúne en una sola estructura:
+**La doctrina no se reformula: se cita.** Cada exigencia que el método pone delante del agente es texto literal del manifiesto, y el ensamblado no produce el paquete si alguna cita no se encuentra en su fuente.
 
-- el núcleo completo del manifiesto v2.1;
-- el anexo que lo aplica a SpecKit v1.2;
-- el preset instalable Software Humano v1.2.0, bajo MIT;
-- los requisitos de entorno, con comprobación ejecutable;
-- las instrucciones de instalación y verificación;
-- un prompt de arranque para entregar al agente;
-- instrucciones persistentes en `AGENTS.md` y `CLAUDE.md`;
-- **`PARA_QUIEN_DECIDE.md`**, el único documento escrito para la persona y no para el agente;
-- utilidades que resuelven fricciones reales de instalación.
+### Las cuatro capas
 
-**No incluye un fundamento de producto.** Ese lo aporta cada proyecto. El paquete es el método; el PRD, las Job Stories o la definición que uses son tuyos.
+| Capa | Qué aporta |
+|---|---|
+| **Preset** | Lo que el manifiesto exige en cada operación, citado, y los artefactos que define, agregados a las plantillas nativas |
+| **Extensión** `conformidad` | Comprueba que los artefactos tengan lo exigido y que toda ausencia esté declarada como excepción aprobada |
+| **Workflow** | Las compuertas que el propio manifiesto especifica, y la conformidad en los momentos que nombra |
+| **Bundle** | Fija las versiones de las tres anteriores |
 
-El paquete prepara el proyecto. No contiene la aplicación ni autoriza al agente a programar antes de especificar, aclarar, planificar y revisar.
+**No incluye un fundamento de producto.** Ese lo aporta cada proyecto, en la forma que ya tenga. El paquete es el método.
+
+### Lo que no hace
+
+**No sustituye el comportamiento nativo de SpecKit.** Los comandos conservan su descripción, sus `handoffs` y sus scripts; las plantillas conservan sus secciones y sus tokens. El método agrega, no reemplaza.
+
+**No rechaza lo incompleto. Rechaza lo que falta sin que nadie lo sepa.** La definición de terminado del manifiesto admite dos estados: implementación con evidencia verificable, **o excepción explícita y aprobada**. Un repositorio que nació antes del manifiesto entra declarando lo que todavía no cumple.
 
 ## Empieza aquí
 
@@ -36,14 +38,14 @@ El paquete prepara el proyecto. No contiene la aplicación ni autoriza al agente
    shasum -a 256 -c SHA256SUMS
    ```
 
-3. Lee [`PARA_QUIEN_DECIDE.md`](PARA_QUIEN_DECIDE.md). Es corto y es el único escrito para vos: dice qué parte del método **no se delega**.
+3. Lee [`PARA_QUIEN_DECIDE.md`](PARA_QUIEN_DECIDE.md). Es corto y es el único escrito para ti: dice qué parte del método **no se delega**.
 4. Comprueba el entorno **antes de instalar nada**:
 
    ```bash
    tools/speckit/preflight.sh
    ```
 
-5. Coloca tu fundamento de producto en `docs/product/` y completa la sección **Completar por proyecto** al final de `AGENTS.md`. La [plantilla de fundamento](docs/product/PLANTILLA_FUNDAMENTO_DE_PRODUCTO.md) explica qué debe contener.
+5. Coloca tu fundamento de producto en `docs/product/` y completa la sección **Completar por proyecto** al final de `AGENTS.md`. La [plantilla de fundamento](docs/product/PLANTILLA_FUNDAMENTO_DE_PRODUCTO.md) explica qué debe poder responderse.
 6. Abre el repositorio con el agente elegido y entrégale el contenido de [`START_WITH_AI_AGENT.md`](START_WITH_AI_AGENT.md).
 7. Permite que inspeccione el entorno antes de modificarlo.
 8. Responde las decisiones humanas que aparezcan durante `clarify`.
@@ -56,10 +58,19 @@ Los agentes que reconocen `AGENTS.md` cargarán las reglas automáticamente. Cla
 
 Las skills o comandos que registra `specify init` suelen cargarse al iniciar la sesión del agente. Por eso la instalación normalmente requiere:
 
-- **Sesión 1**: comprobar entorno, inicializar SpecKit, instalar y verificar el preset.
+- **Sesión 1**: comprobar entorno, inicializar SpecKit, instalar y verificar las tres capas instalables.
 - **Sesión 2**: materializar y verificar la constitución.
 
-Es lo esperado. Está documentado en el requisito 5 de `instructions/00_REQUISITOS_DE_INSTALACION.md`.
+Es lo esperado, no una falla.
+
+## Dos modos de uso
+
+| Modo | Cómo se usa | Qué garantiza |
+|---|---|---|
+| **Comandos sueltos** | El agente invoca `speckit.*` desde lenguaje natural | La doctrina en los artefactos. **El agente puede omitir una comprobación** |
+| **Workflow** | Una persona o una integración continua lo ejecuta | Todo lo anterior, más las compuertas y la conformidad, **que el agente no ejecuta y no puede saltarse** |
+
+El workflow es el camino recomendado, **no un requisito**: un método que solo funciona bajo workflow excluye a quien invoca comandos sueltos.
 
 ## Orden de lectura y autoridad
 
@@ -69,11 +80,12 @@ Ningún documento debe absorber el papel de otro.
 |---:|---|---|
 | 1 | [`docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md`](docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md) | Cómo se concibe, decide, implementa y verifica software humano. |
 | 2 | Tu fundamento de producto, en `docs/product/` | Qué debe construirse, con qué alcance y qué evidencia permite aceptarlo. |
-| 3 | [`docs/method/Anexo_Aplicacion_SpecKit_v1.2.md`](docs/method/Anexo_Aplicacion_SpecKit_v1.2.md) | Cómo se corresponde el núcleo con los mecanismos nativos de SpecKit. |
-| 4 | [`tools/speckit/software-humano-spec-kit-preset-1.2.0/`](tools/speckit/software-humano-spec-kit-preset-1.2.0/) | Cómo se materializa técnicamente la adaptación. |
-| 5 | SpecKit nativo | El ciclo SDD y todo comportamiento que el preset no modifique. |
+| 3 | [`docs/method/Anexo_Aplicacion_SpecKit_v2.0.md`](docs/method/Anexo_Aplicacion_SpecKit_v2.0.md) | Cómo se corresponde el núcleo con los mecanismos nativos de SpecKit. |
+| 4 | [`docs/method/GUIA_DE_IMPLEMENTACION_SPECKIT.md`](docs/method/GUIA_DE_IMPLEMENTACION_SPECKIT.md) | Cómo se construye y se mantiene esa correspondencia. |
+| 5 | Las cuatro capas, en `tools/speckit/` | Cómo se materializa técnicamente. |
+| 6 | SpecKit nativo | El ciclo SDD y todo comportamiento que el método no modifique. |
 
-El núcleo y el fundamento no compiten: el núcleo gobierna el método; el fundamento gobierna el producto. Ante una contradicción real o aparente, el agente debe identificarla y detener la decisión afectada, no inventar una conciliación.
+El núcleo y el fundamento no compiten: el núcleo gobierna el método; el fundamento gobierna el producto. Ante una contradicción real o aparente, el agente debe identificarla y **detener la decisión afectada**, no inventar una conciliación.
 
 ## Contenido
 
@@ -81,16 +93,22 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
 ├── README.md
 ├── AGENTS.md                         Reglas persistentes. Neutral de agente y de proyecto.
 ├── CLAUDE.md                         Referencia a AGENTS.md + lo específico de Claude Code.
-├── PARA_QUIEN_DECIDE.md              Para la persona: cuatro momentos y cinco preguntas.
+├── PARA_QUIEN_DECIDE.md              Para la persona: qué no se delega.
 ├── START_WITH_AI_AGENT.md            Prompt de arranque.
 ├── SHA256SUMS
 ├── LICENSE                           Frontera de licencias, por naturaleza.
-├── LICENSE-CODE                      MIT · preset, herramientas e instrucciones.
+├── LICENSE-CODE                      MIT · método, herramientas e instrucciones.
 ├── LICENSE-CONTENT                   CC BY 4.0 · texto del núcleo v2.1.
 ├── docs/
 │   ├── method/
 │   │   ├── Manifiesto_Software_Humano_IA_Nucleo_v2.1.md
-│   │   └── Anexo_Aplicacion_SpecKit_v1.2.md
+│   │   ├── Anexo_Aplicacion_SpecKit_v2.0.md
+│   │   ├── Anexo_Aplicacion_SpecKit_v1.2.md      Superado; se conserva para instalaciones previas.
+│   │   ├── GUIA_DE_IMPLEMENTACION_SPECKIT.md     Cómo mantener el método sobre SpecKit.
+│   │   ├── inventario-de-objetos.md              Qué gobierna el manifiesto, generado.
+│   │   ├── compuertas-del-metodo.md              Los seis momentos y su decisión requerida.
+│   │   ├── mapa-de-cobertura.md                  Qué del manifiesto está compilado y qué no.
+│   │   └── vocabulario-de-maquinaria.md          Términos que no son doctrina, declarados.
 │   └── product/
 │       └── PLANTILLA_FUNDAMENTO_DE_PRODUCTO.md
 ├── instructions/
@@ -98,14 +116,17 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
 │   └── 01_INSTALAR_Y_VERIFICAR_SPECKIT.md  Procedimiento y verificación.
 └── tools/
     └── speckit/
-        ├── preflight.sh                    Comprueba el entorno. No modifica nada.
-        ├── specify                         Envoltorio con versión de SpecKit fijada.
-        ├── shim/python3                    Intérprete con PyYAML para los scripts.
-        ├── Software_Humano_SpecKit_Preset_v1.2.0.zip
-        └── software-humano-spec-kit-preset-1.2.0/
+        ├── preflight.sh                             Comprueba el entorno. No modifica nada.
+        ├── specify                                  Envoltorio con versión de SpecKit fijada.
+        ├── shim/python3                             Intérprete con PyYAML para los scripts.
+        ├── software-humano-spec-kit-preset-2.0.0/
+        ├── conformidad-2.0.0/
+        ├── workflow-software-humano-2.0.0/
+        ├── bundle-software-humano-2.0.0/
+        └── *.zip                                    Cada capa, empaquetada por separado.
 ```
 
-El directorio y el ZIP del preset son la misma versión. El directorio facilita inspección e instalación local; el ZIP conserva la distribución verificable.
+Cada capa viaja como directorio y como ZIP. El directorio facilita inspección e instalación local; el ZIP conserva la distribución verificable. **El ZIP del bundle lleva solo su manifiesto**, no los componentes: instalarlo por identificador exige un catálogo publicado.
 
 ## Requisitos previos
 
@@ -118,28 +139,35 @@ Comprobados todos por `tools/speckit/preflight.sh`:
 - permiso para inicializar SpecKit si no existe `.specify/`;
 - capacidad del agente para ejecutar comandos, leer Markdown y presentar resultados en lenguaje natural.
 
-No se requiere un CMS ni ninguna tecnología concreta: el paquete no impone arquitectura. Esas decisiones pertenecen a tu fundamento de producto.
+No se requiere ninguna tecnología concreta: el paquete no impone arquitectura. Esas decisiones pertenecen a tu fundamento de producto.
 
 ## Flujo autorizado
 
-El paquete conserva el flujo nativo de SpecKit:
+El paquete conserva el flujo nativo de SpecKit y le agrega las compuertas que el manifiesto especifica.
 
-1. `constitution` — instala o verifica el núcleo v2.1.
+1. `constitution` — instala o verifica la proyección del núcleo v2.1.
 2. `specify` — deriva la especificación desde el fundamento completo.
 3. `clarify` — resuelve decisiones materiales sin adivinarlas.
-4. `plan` — define la estrategia técnica y las dependencias.
-5. `tasks` — deriva trabajo para todo el alcance autorizado.
-6. `analyze` — comprueba doctrina, cobertura y trazabilidad.
-7. Revisión humana de los artefactos escritos.
-8. `implement` — solo después de autorización explícita.
-9. `converge` — reconcilia implementación, alcance y evidencia.
+4. **Punto de control · antes de diseñar.**
+5. `plan` — define la estrategia técnica y las dependencias.
+6. `tasks` — deriva trabajo para todo el alcance autorizado.
+7. `analyze` — comprueba doctrina, cobertura y trazabilidad.
+8. **Comprobación de conformidad y punto de control · antes de generar código.**
+9. `implement` — solo después de autorización explícita.
+10. **Punto de control · antes de integrar.**
+11. `converge` — reconcilia implementación, alcance y evidencia.
+12. **Comprobación de conformidad y punto de control · antes de liberar.**
 
-Una ejecución parcial es avance, no una reducción del alcance. El agente no puede inventar prioridades, MVP, releases, exclusiones ni aceptación.
+El manifiesto llama **puntos de control** a esos momentos. Bajo comandos sueltos son responsabilidad de la persona; bajo workflow los ejecuta el motor como pasos `gate`, y cuatro de los seis son expresables así.
+
+Una ejecución parcial es avance, **no una reducción del alcance**. El agente no puede inventar prioridades, MVP, releases, exclusiones ni aceptación.
 
 ## Qué significa estar listo para desarrollar
 
 - SpecKit está inicializado con la integración elegida;
-- el preset resuelve sus cuatro plantillas y sus ocho comandos con la cadena core + wrap;
+- las tres capas instalables están instaladas y verificadas;
+- **los comandos compuestos conservan la descripción, los `handoffs` y los `scripts` nativos**;
+- las plantillas conservan sus secciones y tokens nativos, y llevan agregados los artefactos del manifiesto;
 - el checklist nativo sigue sin intervenir;
 - la constitución v2.1 completa está materializada y verificada;
 - el fundamento de producto fue utilizado como fuente autorizada;
@@ -147,26 +175,26 @@ Una ejecución parcial es avance, no una reducción del alcance. El agente no pu
 - `spec.md`, `plan.md`, `tasks.md` y `analyze` conservan todo el alcance;
 - una persona revisó los artefactos y autorizó comenzar `implement`.
 
-Instalar el preset o generar código no basta para declarar que el proyecto está preparado.
+**Instalar el método o generar código no basta** para declarar que el proyecto está preparado.
 
-## Cambios de la versión 1.1.0
+## Qué mide y qué no mide este método
 
-Esta versión **no modifica doctrina**. El núcleo v2.1 y el anexo v1.2 son idénticos a los de la versión 1.0.0. Los cambios corrigen la capa de instalación, a partir de una aplicación real completa que se detuvo cuatro veces por requisitos no declarados.
+Comprueba que lo que el manifiesto exige **esté presente y trazable**. No comprueba que lo escrito sea bueno: una tabla llena de frases plausibles pasa toda comprobación de forma.
 
-| Área | Cambio |
-|---|---|
-| Requisitos | Nuevo `00_REQUISITOS_DE_INSTALACION.md` con seis requisitos, remediación y checklist. |
-| Comprobación | Nuevo `tools/speckit/preflight.sh`: verifica el entorno sin modificar nada. |
-| PyYAML | Declarado como requisito; se incluye `tools/speckit/shim/python3`. Era el bloqueo más grave. |
-| Versión de SpecKit | Nueva ruta de remediación con instancia aislada; se incluye `tools/speckit/specify`. |
-| `--force` | Se distingue su uso en `init --here` (necesario) del de `preset add` (prohibido). La versión anterior los confundía y hacía la instalación imposible de completar al pie de la letra. |
-| Sesiones | Se documenta que los comandos registrados suelen requerir una sesión nueva. |
-| Estado de la integración | El `warning` con 8 archivos modificados se reencuadra como verificación positiva de alcance. |
-| Checklist de `specify` | Se explica por qué dos de sus ítems no pueden aprobarse en situaciones legítimas. |
-| Constitución | Se fija cuándo se retira el reporte de impacto y se añade el `diff` como verificación más fuerte. Se advierte no tocar `.constitution-template.json`. |
-| `AGENTS.md` | Reescrito neutral de agente y de proyecto, con sección **Completar por proyecto**. |
-| `CLAUDE.md` | Nuevo. Referencia `AGENTS.md` y añade solo lo específico de Claude Code. |
-| Preset 1.0.1 | Corrige dos anclas desplazadas en la plantilla de constitución. Sin cambio doctrinal. |
+Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
+
+## Historial de versiones
+
+### 2.0.0
+
+Reconstrucción completa del método. **No modifica el núcleo v2.1.**
+
+- **La doctrina se cita, no se reformula.** Se encontraron diez defectos en la versión anterior y nueve eran de transcripción: un criterio de salida convertido en criterio de entrada, una regla inventada y atribuida al núcleo, una exigencia debilitada de «y» a «o». Ahora no hay campo de redacción propia y el ensamblado verifica cada cita contra su fuente.
+- **Cuatro mecanismos nativos, no uno.** Preset, extensión, workflow y bundle.
+- **Los comandos conservan su frontmatter nativo.** La versión anterior lo declaraba y con eso borraba los `handoffs` —el encadenamiento entre comandos— en los cinco que los traen.
+- **Las plantillas se amplían, no se sustituyen.** Sustituir borraba las secciones que `analyze` busca por su nombre y los tokens que SpecKit sustituye por la invocación del agente.
+- **Los puntos de control no se diseñan: se citan.** El manifiesto especifica seis momentos con su decisión requerida.
+- **La conformidad admite excepciones aprobadas**, que es como un repositorio que ya existía adopta el método sin ser bloqueado.
 
 ### 1.6.0
 

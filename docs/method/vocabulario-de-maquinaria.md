@@ -12,6 +12,8 @@ Lo que no esté aquí ni en el núcleo, y se use en posición de definición, **
 
 | Término | Por qué es maquinaria y no doctrina |
 |---|---|
+| compuerta | El paso `gate` de un workflow de SpecKit. **No es sinónimo de «punto de control»**, que es como el manifiesto llama al momento: la compuerta es el mecanismo que lo implementa, y solo cuatro de los seis puntos de control son expresables como compuerta. |
+| bundle | Mecanismo nativo de SpecKit: distribuye componentes como una unidad versionada. |
 | speckit | Nombre de la herramienta que el método adapta. |
 | texto literal | Rótulo de columna: la cita del núcleo, sin reformular. |
 | comprobacion | Cada control que el ensamblado ejecuta. Maquinaria de la adaptación. |

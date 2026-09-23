@@ -76,6 +76,23 @@ def normalizar(t: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9ñ·]", " ", t)).strip()
 
 
+def en_el_nucleo(termino: str, nuc: str) -> bool:
+    """Si el término aparece en el núcleo, tolerando el número gramatical.
+
+    «punto de control» es del manifiesto, que lo escribe «Puntos de control».
+    Exigir coincidencia exacta marcaba como invención un término que la fuente
+    trae en plural, y deformar la prosa para que coincida sería peor que el
+    falso positivo.
+    """
+    palabras = termino.split()
+    variantes = {termino}
+    for i, w in enumerate(palabras):
+        for alt in (w + "s", w[:-1] if w.endswith("s") else None):
+            if alt:
+                variantes.add(" ".join(palabras[:i] + [alt] + palabras[i + 1:]))
+    return any(v in nuc for v in variantes)
+
+
 def nucleo() -> str:
     m = json.loads(IDENTIFICADORES.read_text(encoding="utf-8"))
     return normalizar(
@@ -171,7 +188,8 @@ def main() -> int:
     cuenta = terminos_de(rutas)
 
     sin_declarar = sorted(
-        ((n, t) for t, n in cuenta.items() if n >= 2 and t not in nuc and t not in glo),
+        ((n, t) for t, n in cuenta.items()
+         if n >= 2 and not en_el_nucleo(t, nuc) and t not in glo),
         reverse=True,
     )
     print(f"artefactos comprobados: {len([r for r in rutas if resolver(r).exists()])}")

@@ -42,7 +42,7 @@ git status --short
 
 ## Requisito 2 · SpecKit dentro del rango `>=1.0.0,<2.0.0`
 
-**Qué hace falta.** Una instalación de SpecKit cuya versión esté dentro del rango que declara el preset.
+**Qué hace falta.** Una instalación de SpecKit cuya versión esté dentro del rango que declaran las cuatro capas del método.
 
 **Comprobación.**
 
@@ -50,7 +50,7 @@ git status --short
 specify --version
 ```
 
-**Por qué.** El preset declara ese rango en `requires.speckit_version`. Fuera de él, la instalación puede rechazarse y varios comandos que la instrucción 01 prescribe no existen. Un síntoma diagnóstico útil: si `specify preset list --json` responde `No such option: --json`, la versión está por debajo del rango.
+**Por qué.** Las cuatro capas declaran ese rango en `requires.speckit_version`. La `1.0.0` es el piso porque es la primera versión donde la composición de comandos conserva el frontmatter del core cuando la capa del preset no declara uno, y de eso dependen los `handoffs`, la descripción nativa y los `scripts`. Fuera de él, la instalación puede rechazarse y varios comandos que la instrucción 01 prescribe no existen. Un síntoma diagnóstico útil: si `specify preset list --json` responde `No such option: --json`, la versión está por debajo del rango.
 
 **Si falla — y esto es importante.** No actualices la instalación global por reflejo.
 
@@ -149,7 +149,7 @@ Unknown skill: speckit-constitution
 
 **Por eso la instalación normalmente requiere dos sesiones:**
 
-1. Sesión 1: comprobar entorno, inicializar SpecKit, instalar y verificar el preset.
+1. Sesión 1: comprobar entorno, inicializar SpecKit, instalar y verificar las tres capas instalables.
 2. Sesión 2, iniciada de nuevo en el mismo directorio: materializar y verificar la constitución.
 
 Es lo esperado, no un error. Plánificalo desde el inicio e infórmalo a la persona antes de empezar, para que no lo interprete como una falla.
@@ -167,6 +167,7 @@ Ninguna de estas acciones puede ejecutarse por iniciativa del agente. Consíguel
 | Actualizar SpecKit global | La versión está fuera de rango y se descarta la instancia aislada |
 | Elegir la integración de agente | Siempre |
 | Usar `--force` en `specify init --here` | El directorio no está vacío, que es lo habitual |
+| Declarar una excepción aprobada | El proyecto no puede cumplir algo todavía. **Es decisión de la autoridad de producto, no del agente** |
 
 Sobre el último punto, que la versión anterior de esta instrucción prohibía de forma ambigua: `--force` significa cosas distintas según el comando.
 
@@ -189,8 +190,9 @@ Copia esto en tu informe inicial y complétalo con evidencia real, no con supues
 [ ] 5. Integración de agente elegida por una persona   · specify check
 [ ] 6. Autorización para inicializar SpecKit
 [ ] 7. Consciencia de que la constitución requerirá una sesión nueva
+[ ] 8. Las tres capas presentes en el paquete    · ls tools/speckit/ → preset, conformidad, workflow
 ```
 
-Con los siete puntos resueltos, continúa con [`01_INSTALAR_Y_VERIFICAR_SPECKIT.md`](01_INSTALAR_Y_VERIFICAR_SPECKIT.md).
+Con los ocho puntos resueltos, continúa con [`01_INSTALAR_Y_VERIFICAR_SPECKIT.md`](01_INSTALAR_Y_VERIFICAR_SPECKIT.md).
 
 Si alguno queda abierto, **no instales**. Informa el hecho observado, la evidencia, el impacto, la decisión requerida y la acción que no ejecutaste.
