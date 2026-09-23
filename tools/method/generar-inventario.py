@@ -268,11 +268,19 @@ falta una que debería estar, eso es el hallazgo.
         for clave, etiqueta in APORTES:
             for ref in angulos.get(clave, []):
                 titulo, t = texto(d, ref)
-                origen = f"`{ref[0]}` regla {ref[1] + 1}" if isinstance(ref, tuple) else f"`{ref}`"
-                if titulo and not isinstance(ref, tuple):
-                    origen += f" {titulo}"
-                elif isinstance(ref, tuple):
-                    origen += f" · {titulo}"
+                if isinstance(ref, tuple):
+                    # Un principio se cita por su regla; un pasaje sin
+                    # identificador, por su párrafo. Y la dirección de un pasaje
+                    # ya es su título: repetirlo solo estorba.
+                    es_pasaje = d[ref[0]]["familia"] == "pasaje"
+                    unidad = "párrafo" if es_pasaje else "regla"
+                    origen = f"`{ref[0]}` {unidad} {ref[1] + 1}"
+                    if not es_pasaje and titulo:
+                        origen += f" · {titulo}"
+                else:
+                    origen = f"`{ref}`"
+                    if titulo and titulo != ref:
+                        origen += f" {titulo}"
                 t = t.replace("|", "·").strip()
                 L.append(f"| {etiqueta} | {origen} | {t} |")
         L.append("")
