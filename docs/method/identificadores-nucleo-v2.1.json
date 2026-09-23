@@ -1,0 +1,1617 @@
+{
+  "version_nucleo": "2.1",
+  "fuente": "docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md",
+  "sha256_fuente": "9beef610c0b1e81ebc8bb56d3c1a07aa1e1bb75e330ba4cddc1eebdc60fa68dc",
+  "generado_por": "tools/method/extraer-identificadores.py",
+  "total": 76,
+  "conteo_por_familia": {
+    "principios": 10,
+    "directivas": 6,
+    "flujo": 8,
+    "artefactos": 8,
+    "verificacion": 12,
+    "contrato": 8,
+    "entrega": 9,
+    "detenciones": 7,
+    "controles": 8
+  },
+  "disposiciones": [
+    {
+      "id": "P01",
+      "familia": "principios",
+      "titulo": "El progreso del usuario es la unidad de diseño",
+      "ancla": "p01",
+      "linea_inicio": 135,
+      "linea_fin": 172,
+      "texto": "<a id=\"p01\"></a>\n\n## PRINCIPIO 1 · `P01`\n\n### El progreso del usuario es la unidad de diseño\n\nNo diseñes lo que el usuario puede hacer. Diseña el progreso que necesita conseguir.\n\n#### Qué significa\n\nUna funcionalidad solo tiene sentido si ayuda a una persona a pasar de una situación actual a un resultado deseado. El fundamento de producto establece la razón autorizada del desarrollo. Jobs to Be Done puede definir el progreso en un nivel amplio y la Job Story lo vuelve operativo al describir cuándo surge la necesidad, qué motiva a la persona y qué resultado busca, sin anticipar la solución.\n\n#### Por qué importa\n\nCuando el trabajo se organiza alrededor de features o perfiles genéricos, el equipo puede entregar mucho y resolver poco. Una Job Story obliga a explicar la causalidad: la circunstancia que activa la necesidad, la tensión que impulsa a actuar y la situación mejor que permitiría reconocer el progreso. Cuando el producto utiliza otra forma, esa misma causalidad debe conservarse en la medida en que resulte aplicable.\n\n#### Reglas de diseño\n\n- Identificar el fundamento de producto y la fuente autorizada que establece el alcance antes de diseñar una respuesta.\n\n- Cuando el fundamento se exprese mediante Job Stories, ubicarlas dentro del progreso o propósito de nivel superior que corresponda.\n\n- Formular cada Job Story como circunstancia, motivación y resultado, sin nombrar una pantalla, un componente ni una funcionalidad.\n\n- Respaldar las decisiones con conducta observada, obstáculo o ansiedad actual y evidencia que permita aceptar el resultado.\n\n#### Pruebas de decisión\n\n- ¿Puede señalarse la fuente autorizada que justifica esta decisión y su relación con el alcance completo?\n\n- Cuando existe una Job Story, ¿la circunstancia es específica y observable o solo describe un rol?\n\n- ¿La motivación y el resultado están respaldados por evidencia o fueron supuestos por el equipo?\n\n- ¿La formulación admite varias soluciones posibles? Si ya prescribe una interfaz sin que ello sea una decisión de producto, debe revisarse.\n\n**Señal de incumplimiento.** Como estudiante quiero recibir pistas para resolver derivadas parece una historia útil, pero comienza por un rol y prescribe una función. No explica cuándo surge el bloqueo, qué necesita comprender la persona ni cómo reconocer que recuperó el avance.",
+      "sha256": "3c1afa98ce85bb38094b27367ca12b942c5263d194bee01cb6011b65a3322055",
+      "normativo": {
+        "Reglas de diseño": [
+          "- Identificar el fundamento de producto y la fuente autorizada que establece el alcance antes de diseñar una respuesta.",
+          "- Cuando el fundamento se exprese mediante Job Stories, ubicarlas dentro del progreso o propósito de nivel superior que corresponda.",
+          "- Formular cada Job Story como circunstancia, motivación y resultado, sin nombrar una pantalla, un componente ni una funcionalidad.",
+          "- Respaldar las decisiones con conducta observada, obstáculo o ansiedad actual y evidencia que permita aceptar el resultado."
+        ],
+        "Pruebas de decisión": [
+          "- ¿Puede señalarse la fuente autorizada que justifica esta decisión y su relación con el alcance completo?",
+          "- Cuando existe una Job Story, ¿la circunstancia es específica y observable o solo describe un rol?",
+          "- ¿La motivación y el resultado están respaldados por evidencia o fueron supuestos por el equipo?",
+          "- ¿La formulación admite varias soluciones posibles? Si ya prescribe una interfaz sin que ello sea una decisión de producto, debe revisarse."
+        ]
+      }
+    },
+    {
+      "id": "P02",
+      "familia": "principios",
+      "titulo": "La experiencia también es funcionalidad",
+      "ancla": "p02",
+      "linea_inicio": 173,
+      "linea_fin": 206,
+      "texto": "<a id=\"p02\"></a>\n\n## PRINCIPIO 2 · `P02`\n\n### La experiencia también es funcionalidad\n\nSi funciona pero desgasta, todavía no funciona bien.\n\n#### Qué significa\n\nEl producto no se define únicamente por la exactitud de su salida. También importa cuánto esfuerzo, incertidumbre y atención exige para obtenerla. La sensación de fluidez o frustración modifica la capacidad real de la persona para completar su trabajo.\n\n#### Por qué importa\n\nDos productos pueden entregar el mismo resultado y generar desempeños distintos. Una experiencia pesada provoca abandono, errores, dependencia de soporte y pérdida de confianza. Ese costo es funcional, aunque no aparezca en la especificación técnica.\n\n#### Reglas de diseño\n\n- Incluir esfuerzo, claridad y confianza dentro de los criterios de aceptación.\n\n- Probar el flujo completo, no solo cada pantalla o endpoint de forma aislada.\n\n- Considerar el estado emocional y cognitivo que acompaña la situación definida por el producto y, cuando exista, por la Job Story.\n\n#### Pruebas de decisión\n\n- ¿La persona puede concentrarse en su objetivo o debe administrar la herramienta?\n\n- ¿Qué momentos provocan duda, tensión o interrupción?\n\n- ¿Una tarea correcta deja al usuario con energía para continuar?\n\n**Señal de incumplimiento.** Un formulario técnicamente válido que borra datos tras un error convierte la corrección en castigo. La validación funciona; la experiencia, no.",
+      "sha256": "275acbefba87f957d2a36168fa8f1fc7851eb4db2976a71b77dff80c5c7dfeef",
+      "normativo": {
+        "Reglas de diseño": [
+          "- Incluir esfuerzo, claridad y confianza dentro de los criterios de aceptación.",
+          "- Probar el flujo completo, no solo cada pantalla o endpoint de forma aislada.",
+          "- Considerar el estado emocional y cognitivo que acompaña la situación definida por el producto y, cuando exista, por la Job Story."
+        ],
+        "Pruebas de decisión": [
+          "- ¿La persona puede concentrarse en su objetivo o debe administrar la herramienta?",
+          "- ¿Qué momentos provocan duda, tensión o interrupción?",
+          "- ¿Una tarea correcta deja al usuario con energía para continuar?"
+        ]
+      }
+    },
+    {
+      "id": "P03",
+      "familia": "principios",
+      "titulo": "La complejidad pertenece al sistema",
+      "ancla": "p03",
+      "linea_inicio": 207,
+      "linea_fin": 240,
+      "texto": "<a id=\"p03\"></a>\n\n## PRINCIPIO 3 · `P03`\n\n### La complejidad pertenece al sistema\n\nQue sea complejo construirlo no significa que deba ser complejo usarlo.\n\n#### Qué significa\n\nEl dominio puede exigir reglas, integraciones y excepciones. El equipo debe absorber esa complejidad y presentarla como decisiones comprensibles. Las tablas, estados y servicios internos no deberían dictar el lenguaje ni la navegación del usuario.\n\n#### Por qué importa\n\nCuando la interfaz replica la arquitectura, la persona debe aprender cómo fue construido el producto antes de obtener valor. Esa transferencia suele parecer inevitable solo porque resulta conveniente para el equipo.\n\n#### Reglas de diseño\n\n- Traducir conceptos internos al lenguaje y al modelo mental de la persona.\n\n- Resolver dependencias, valores predeterminados y secuencias cuando exista suficiente contexto.\n\n- Exponer una excepción solo a quienes realmente deben decidirla.\n\n#### Pruebas de decisión\n\n- ¿Este paso existe por una necesidad del usuario o por la estructura del sistema?\n\n- ¿Estamos mostrando una entidad técnica que podría traducirse o inferirse?\n\n- ¿La persona necesita comprender esta regla para tomar una buena decisión?\n\n**Señal de incumplimiento.** Pedir que el usuario elija primero un tipo de registro interno, sin que esa distinción tenga significado para él, expone el esquema de datos como si fuera una necesidad humana.",
+      "sha256": "6fb8487793ea3be660b20527d0cee64f8026cd5e0995d1360eb764e7b419d0ae",
+      "normativo": {
+        "Reglas de diseño": [
+          "- Traducir conceptos internos al lenguaje y al modelo mental de la persona.",
+          "- Resolver dependencias, valores predeterminados y secuencias cuando exista suficiente contexto.",
+          "- Exponer una excepción solo a quienes realmente deben decidirla."
+        ],
+        "Pruebas de decisión": [
+          "- ¿Este paso existe por una necesidad del usuario o por la estructura del sistema?",
+          "- ¿Estamos mostrando una entidad técnica que podría traducirse o inferirse?",
+          "- ¿La persona necesita comprender esta regla para tomar una buena decisión?"
+        ]
+      }
+    },
+    {
+      "id": "P04",
+      "familia": "principios",
+      "titulo": "Simple al comenzar y profundo al necesitarlo",
+      "ancla": "p04",
+      "linea_inicio": 241,
+      "linea_fin": 274,
+      "texto": "<a id=\"p04\"></a>\n\n## PRINCIPIO 4 · `P04`\n\n### Simple al comenzar y profundo al necesitarlo\n\nNo elimines el poder. Elimina la obligación de enfrentarse a él antes de necesitarlo.\n\n#### Qué significa\n\nLa simplicidad no consiste en reducir la capacidad del producto. Consiste en adaptar lo visible al momento, al nivel de experiencia y a la decisión actual. La profundidad aparece de forma progresiva y permanece disponible.\n\n#### Por qué importa\n\nUn producto minimalista puede resultar fácil el primer día y limitante el décimo. Un producto que muestra toda su potencia desde el inicio puede ser inabordable. La revelación progresiva evita ambos extremos.\n\n#### Reglas de diseño\n\n- Mostrar primero la ruta principal y revelar opciones avanzadas cuando el contexto las vuelva relevantes.\n\n- Conservar atajos y precisión para usuarios expertos sin imponerlos al principiante.\n\n- Usar buenos valores predeterminados, siempre editables cuando la decisión importa.\n\n#### Pruebas de decisión\n\n- ¿Qué necesita ver la persona exactamente en este estado?\n\n- ¿La simplificación elimina ruido o elimina capacidad necesaria?\n\n- ¿Un usuario experto puede avanzar con rapidez sin que el principiante cargue con esa profundidad?\n\n**Señal de incumplimiento.** Ocultar todas las opciones puede producir una primera impresión limpia y un callejón sin salida cuando aparece un caso menos común.",
+      "sha256": "3c46b0de9df285a6c0ec1628bae56fe6c6cd94b5db731848fcdf0a14c8661caa",
+      "normativo": {
+        "Reglas de diseño": [
+          "- Mostrar primero la ruta principal y revelar opciones avanzadas cuando el contexto las vuelva relevantes.",
+          "- Conservar atajos y precisión para usuarios expertos sin imponerlos al principiante.",
+          "- Usar buenos valores predeterminados, siempre editables cuando la decisión importa."
+        ],
+        "Pruebas de decisión": [
+          "- ¿Qué necesita ver la persona exactamente en este estado?",
+          "- ¿La simplificación elimina ruido o elimina capacidad necesaria?",
+          "- ¿Un usuario experto puede avanzar con rapidez sin que el principiante cargue con esa profundidad?"
+        ]
+      }
+    },
+    {
+      "id": "P05",
+      "familia": "principios",
+      "titulo": "La interfaz no debe convertirse en otra tarea",
+      "ancla": "p05",
+      "linea_inicio": 275,
+      "linea_fin": 308,
+      "texto": "<a id=\"p05\"></a>\n\n## PRINCIPIO 5 · `P05`\n\n### La interfaz no debe convertirse en otra tarea\n\nLa persona vino a hacer su trabajo, no a aprender el nuestro.\n\n#### Qué significa\n\nUna interfaz debe apoyarse en expectativas conocidas, jerarquía comprensible y feedback inmediato. Cada convención propia que el usuario debe memorizar consume capacidad que debería emplear en el problema real.\n\n#### Por qué importa\n\nLa carga de aprendizaje se vuelve especialmente dañina en productos educativos, de salud, financieros o de uso infrecuente. La persona ya enfrenta suficiente complejidad en el contenido o en la decisión.\n\n#### Reglas de diseño\n\n- Preferir convenciones conocidas cuando resuelvan bien el problema.\n\n- Explicar en contexto sin exigir tutoriales previos para acciones básicas.\n\n- Hacer evidente la acción principal, el estado actual y el siguiente paso posible.\n\n#### Pruebas de decisión\n\n- ¿La persona entiende qué significan los elementos sin una leyenda externa?\n\n- ¿Necesita recordar algo de una pantalla anterior para actuar correctamente?\n\n- ¿La interfaz agrega una capa de aprendizaje ajena a la situación o al resultado que debe resolver?\n\n**Señal de incumplimiento.** Una secuencia numerada sin significado visible obliga a aprender la navegación al mismo tiempo que el contenido. Los números organizan para el equipo, pero no orientan al usuario.",
+      "sha256": "d84e994c036b2af022ef56cc0508685d76c36b64ea2fb18c9f7baf627bcde680",
+      "normativo": {
+        "Reglas de diseño": [
+          "- Preferir convenciones conocidas cuando resuelvan bien el problema.",
+          "- Explicar en contexto sin exigir tutoriales previos para acciones básicas.",
+          "- Hacer evidente la acción principal, el estado actual y el siguiente paso posible."
+        ],
+        "Pruebas de decisión": [
+          "- ¿La persona entiende qué significan los elementos sin una leyenda externa?",
+          "- ¿Necesita recordar algo de una pantalla anterior para actuar correctamente?",
+          "- ¿La interfaz agrega una capa de aprendizaje ajena a la situación o al resultado que debe resolver?"
+        ]
+      }
+    },
+    {
+      "id": "P06",
+      "familia": "principios",
+      "titulo": "La atención es un recurso del producto",
+      "ancla": "p06",
+      "linea_inicio": 309,
+      "linea_fin": 342,
+      "texto": "<a id=\"p06\"></a>\n\n## PRINCIPIO 6 · `P06`\n\n### La atención es un recurso del producto\n\nCada cosa que mostramos compite con aquello que la persona vino a hacer.\n\n#### Qué significa\n\nLa atención es finita. Menús, alertas, animaciones, elecciones y textos demandan parte de ella. El diseño debe administrar ese presupuesto con la misma disciplina que el rendimiento o el costo.\n\n#### Por qué importa\n\nUna interfaz puede no tener errores y aun así fracasar por saturación. La carga acumulada deteriora comprensión, aumenta decisiones accidentales y hace que tareas simples se sientan pesadas.\n\n#### Reglas de diseño\n\n- Exigir que cada elemento visible y cada decisión solicitada respondan a una circunstancia, motivación o resultado verificable.\n\n- Jerarquizar por relevancia para el estado actual, no por igualdad entre features.\n\n- Reducir interrupciones y reservar señales intensas para asuntos que realmente requieren atención.\n\n#### Pruebas de decisión\n\n- ¿Qué compite visual o mentalmente con la acción principal?\n\n- ¿Puede eliminarse un elemento sin perder información necesaria o control?\n\n- ¿La interfaz diferencia lo urgente, lo importante y lo opcional?\n\n**Señal de incumplimiento.** Presentar cinco acciones con igual peso visual obliga al usuario a establecer una prioridad que el producto ya debería conocer por contexto.",
+      "sha256": "dddff60a0d4026d7e023a416ff4748992546eabb0c803383df280cc5589bec91",
+      "normativo": {
+        "Reglas de diseño": [
+          "- Exigir que cada elemento visible y cada decisión solicitada respondan a una circunstancia, motivación o resultado verificable.",
+          "- Jerarquizar por relevancia para el estado actual, no por igualdad entre features.",
+          "- Reducir interrupciones y reservar señales intensas para asuntos que realmente requieren atención."
+        ],
+        "Pruebas de decisión": [
+          "- ¿Qué compite visual o mentalmente con la acción principal?",
+          "- ¿Puede eliminarse un elemento sin perder información necesaria o control?",
+          "- ¿La interfaz diferencia lo urgente, lo importante y lo opcional?"
+        ]
+      }
+    },
+    {
+      "id": "P07",
+      "familia": "principios",
+      "titulo": "La confianza se diseña",
+      "ancla": "p07",
+      "linea_inicio": 343,
+      "linea_fin": 376,
+      "texto": "<a id=\"p07\"></a>\n\n## PRINCIPIO 7 · `P07`\n\n### La confianza se diseña\n\nUna buena herramienta explica lo suficiente para que la persona actúe sin miedo.\n\n#### Qué significa\n\nLa confianza surge cuando el producto muestra su estado, anticipa consecuencias, confirma resultados y ofrece recuperación. No depende de promesas generales, sino de una conducta predecible.\n\n#### Por qué importa\n\nLa incertidumbre frena la acción. Con IA, la confianza requiere además distinguir hechos, inferencias, propuestas y acciones ejecutadas. Una respuesta fluida no puede ocultar sus límites.\n\n#### Reglas de diseño\n\n- Mostrar qué está ocurriendo, qué cambiará y cuándo una acción será irreversible.\n\n- Permitir deshacer, corregir o volver a un estado seguro cuando sea razonable.\n\n- Diferenciar con claridad recomendaciones, decisiones automáticas y resultados confirmados.\n\n#### Pruebas de decisión\n\n- ¿La persona sabe qué ocurrirá antes de confirmar?\n\n- ¿Puede verificar qué hizo el sistema y por qué?\n\n- ¿Existe una ruta de recuperación proporcional al riesgo?\n\n**Señal de incumplimiento.** Un agente que informa \"listo\" sin mostrar qué cambió obliga a confiar en su tono, no en evidencia.",
+      "sha256": "1ed0dcf903487bf01c23c361a87412de3271d177f79082a9c87ddd3b9da39e6f",
+      "normativo": {
+        "Reglas de diseño": [
+          "- Mostrar qué está ocurriendo, qué cambiará y cuándo una acción será irreversible.",
+          "- Permitir deshacer, corregir o volver a un estado seguro cuando sea razonable.",
+          "- Diferenciar con claridad recomendaciones, decisiones automáticas y resultados confirmados."
+        ],
+        "Pruebas de decisión": [
+          "- ¿La persona sabe qué ocurrirá antes de confirmar?",
+          "- ¿Puede verificar qué hizo el sistema y por qué?",
+          "- ¿Existe una ruta de recuperación proporcional al riesgo?"
+        ]
+      }
+    },
+    {
+      "id": "P08",
+      "familia": "principios",
+      "titulo": "La calidad vive en la acumulación de detalles",
+      "ancla": "p08",
+      "linea_inicio": 377,
+      "linea_fin": 410,
+      "texto": "<a id=\"p08\"></a>\n\n## PRINCIPIO 8 · `P08`\n\n### La calidad vive en la acumulación de detalles\n\nLa calidad rara vez depende de una gran decisión. Se reconoce en muchas decisiones pequeñas que coinciden.\n\n#### Qué significa\n\nTipografía, espaciado, textos, foco, estados vacíos, errores, transiciones y microinteracciones forman una sola experiencia. Ningún detalle compensa por sí mismo una mala solución, pero su acumulación puede reforzar o erosionar la confianza.\n\n#### Por qué importa\n\nLos usuarios no separan interfaz, ingeniería y contenido. Experimentan un producto completo. Una inconsistencia pequeña puede ser tolerable; cien inconsistencias convierten el uso en fricción constante.\n\n#### Reglas de diseño\n\n- Diseñar y verificar estados normales, vacíos, de carga, error, éxito y recuperación.\n\n- Mantener lenguaje, jerarquía y comportamiento consistentes en todo el flujo.\n\n- Revisar el producto a escala real y con contenido realista antes de aprobarlo.\n\n#### Pruebas de decisión\n\n- ¿Los detalles refuerzan la misma lógica o contradicen expectativas?\n\n- ¿Qué ocurre en los estados menos frecuentes?\n\n- ¿El producto se siente deliberadamente construido o ensamblado por partes?\n\n**Señal de incumplimiento.** Un botón cambia de nombre entre pasos, un error aparece lejos del campo y el foco se pierde tras guardar. Cada defecto es menor; juntos rompen la continuidad.",
+      "sha256": "21b8e9abdf64039f53ec227ee496bd047f52356f6682e052a4dc25811e217fff",
+      "normativo": {
+        "Reglas de diseño": [
+          "- Diseñar y verificar estados normales, vacíos, de carga, error, éxito y recuperación.",
+          "- Mantener lenguaje, jerarquía y comportamiento consistentes en todo el flujo.",
+          "- Revisar el producto a escala real y con contenido realista antes de aprobarlo."
+        ],
+        "Pruebas de decisión": [
+          "- ¿Los detalles refuerzan la misma lógica o contradicen expectativas?",
+          "- ¿Qué ocurre en los estados menos frecuentes?",
+          "- ¿El producto se siente deliberadamente construido o ensamblado por partes?"
+        ]
+      }
+    },
+    {
+      "id": "P09",
+      "familia": "principios",
+      "titulo": "El tiempo y la continuidad forman parte de la interfaz",
+      "ancla": "p09",
+      "linea_inicio": 411,
+      "linea_fin": 444,
+      "texto": "<a id=\"p09\"></a>\n\n## PRINCIPIO 9 · `P09`\n\n### El tiempo y la continuidad forman parte de la interfaz\n\nLa persona experimenta la espera antes de conocer nuestra arquitectura.\n\n#### Qué significa\n\nLatencia, disponibilidad, sincronización y preservación del trabajo son propiedades de la experiencia. El usuario no distingue entre infraestructura e interfaz cuando una respuesta tarda, una acción se duplica o un avance se pierde.\n\n#### Por qué importa\n\nLa lentitud modifica conductas: genera clics repetidos, dudas, abandono y errores. La pérdida de continuidad obliga a reconstruir contexto y destruye confianza con rapidez.\n\n#### Reglas de diseño\n\n- Definir presupuestos de respuesta para las interacciones críticas.\n\n- Mostrar progreso honesto y permitir continuar cuando una operación pueda demorarse.\n\n- Guardar trabajo, contexto y estado con una frecuencia proporcional al costo de perderlos.\n\n#### Pruebas de decisión\n\n- ¿La interfaz responde de inmediato aunque el proceso final continúe?\n\n- ¿Qué pierde la persona si la conexión falla ahora?\n\n- ¿El producto evita acciones duplicadas y estados ambiguos?\n\n**Señal de incumplimiento.** Un botón sin feedback durante tres segundos invita a pulsarlo otra vez. La duplicación resultante parece error del usuario, pero nace del sistema.",
+      "sha256": "1a01c89fa8276cf0abd6691d8cbae9c73453b67c7766b8e7c303e7d2f4f3db2f",
+      "normativo": {
+        "Reglas de diseño": [
+          "- Definir presupuestos de respuesta para las interacciones críticas.",
+          "- Mostrar progreso honesto y permitir continuar cuando una operación pueda demorarse.",
+          "- Guardar trabajo, contexto y estado con una frecuencia proporcional al costo de perderlos."
+        ],
+        "Pruebas de decisión": [
+          "- ¿La interfaz responde de inmediato aunque el proceso final continúe?",
+          "- ¿Qué pierde la persona si la conexión falla ahora?",
+          "- ¿El producto evita acciones duplicadas y estados ambiguos?"
+        ]
+      }
+    },
+    {
+      "id": "P10",
+      "familia": "principios",
+      "titulo": "La persona conserva control y propiedad",
+      "ancla": "p10",
+      "linea_inicio": 445,
+      "linea_fin": 478,
+      "texto": "<a id=\"p10\"></a>\n\n## PRINCIPIO 10 · `P10`\n\n### La persona conserva control y propiedad\n\nAyudar no significa decidir por la persona ni apropiarse de su trabajo.\n\n#### Qué significa\n\nEl software puede anticipar, recomendar y automatizar. Debe hacerlo sin ocultar decisiones, encerrar información ni impedir alternativas. En sistemas con IA, el control incluye comprender qué información se usó y qué acción se ejecutó.\n\n#### Por qué importa\n\nLa automatización sin agencia humana puede acelerar el camino equivocado. La propiedad y la portabilidad reducen dependencia, fortalecen confianza y permiten que la persona combine herramientas según sus necesidades.\n\n#### Reglas de diseño\n\n- Pedir confirmación proporcional al impacto, no para cada gesto ni después de una acción irreversible.\n\n- Permitir revisar, editar, exportar y revertir cuando el dominio lo permita.\n\n- Explicar el uso de datos y separar autorización, recomendación y ejecución.\n\n#### Pruebas de decisión\n\n- ¿La persona puede rechazar la propuesta sin perder su avance?\n\n- ¿Entiende qué datos se utilizaron y con qué propósito?\n\n- ¿Puede recuperar o llevarse su contenido en un formato útil?\n\n**Señal de incumplimiento.** Una IA que reescribe y publica sin vista previa convierte asistencia en apropiación del proceso.",
+      "sha256": "1c149c12e202c93a74ec221945bc2939950a58b835f60170be228d36e4c0b7f7",
+      "normativo": {
+        "Reglas de diseño": [
+          "- Pedir confirmación proporcional al impacto, no para cada gesto ni después de una acción irreversible.",
+          "- Permitir revisar, editar, exportar y revertir cuando el dominio lo permita.",
+          "- Explicar el uso de datos y separar autorización, recomendación y ejecución."
+        ],
+        "Pruebas de decisión": [
+          "- ¿La persona puede rechazar la propuesta sin perder su avance?",
+          "- ¿Entiende qué datos se utilizaron y con qué propósito?",
+          "- ¿Puede recuperar o llevarse su contenido en un formato útil?"
+        ]
+      }
+    },
+    {
+      "id": "D01",
+      "familia": "directivas",
+      "titulo": "Fundamento antes que implementación",
+      "ancla": null,
+      "linea_inicio": 601,
+      "linea_fin": 601,
+      "texto": "| `D01` Fundamento antes que implementación            | Comprender la definición de producto, su autoridad, su alcance y la evidencia que la respalda antes de proponer componentes o código. Cuando existan Job Stories, conservar su circunstancia, motivación y resultado. | No comenzar a construir si una ambigüedad material puede alterar la solución, el alcance o una regla.        |",
+      "sha256": "a55e3fbeeb304b321e9fdffac5ee49fd29af938b9b81633949e72fada992f985",
+      "campos": {
+        "identificador": "`D01` Fundamento antes que implementación",
+        "definicion": "Comprender la definición de producto, su autoridad, su alcance y la evidencia que la respalda antes de proponer componentes o código. Cuando existan Job Stories, conservar su circunstancia, motivación y resultado.",
+        "limite": "No comenzar a construir si una ambigüedad material puede alterar la solución, el alcance o una regla."
+      }
+    },
+    {
+      "id": "D02",
+      "familia": "directivas",
+      "titulo": "Especificación suficiente antes que generación",
+      "ancla": null,
+      "linea_inicio": 602,
+      "linea_fin": 602,
+      "texto": "| `D02` Especificación suficiente antes que generación | Definir estados, decisiones, restricciones y criterios de aceptación con el nivel necesario para el riesgo.                                                                                                           | No convertir un prompt vago en una implementación extensa y luego usar el código para descubrir el problema. |",
+      "sha256": "1c8ca4d1db9a39cea7441586c8963396ab00e310a1b4f02507afc47a187763f1",
+      "campos": {
+        "identificador": "`D02` Especificación suficiente antes que generación",
+        "definicion": "Definir estados, decisiones, restricciones y criterios de aceptación con el nivel necesario para el riesgo.",
+        "limite": "No convertir un prompt vago en una implementación extensa y luego usar el código para descubrir el problema."
+      }
+    },
+    {
+      "id": "D03",
+      "familia": "directivas",
+      "titulo": "Simplicidad deliberada",
+      "ancla": null,
+      "linea_inicio": 603,
+      "linea_fin": 603,
+      "texto": "| `D03` Simplicidad deliberada                         | Preferir la solución que exige menos conceptos, decisiones y memoria al usuario cuando ambas logran el mismo resultado.                                                                                               | Menos código no es la medida; menos carga innecesaria sí.                                                    |",
+      "sha256": "a8584859d571a38e74781bacca554f189f2a1731e9e47e70db868513117becf8",
+      "campos": {
+        "identificador": "`D03` Simplicidad deliberada",
+        "definicion": "Preferir la solución que exige menos conceptos, decisiones y memoria al usuario cuando ambas logran el mismo resultado.",
+        "limite": "Menos código no es la medida; menos carga innecesaria sí."
+      }
+    },
+    {
+      "id": "D04",
+      "familia": "directivas",
+      "titulo": "Determinismo donde importa",
+      "ancla": null,
+      "linea_inicio": 604,
+      "linea_fin": 604,
+      "texto": "| `D04` Determinismo donde importa                     | Implementar reglas críticas, permisos, cálculos, estados y validaciones como lógica verificable.                                                                                                                      | No delegar certeza, cumplimiento o seguridad al comportamiento variable de un modelo.                        |",
+      "sha256": "42b4ae4d2b4e2666ba5d1dc0aa572c528463ef114fe5603e29cbcab75931aa84",
+      "campos": {
+        "identificador": "`D04` Determinismo donde importa",
+        "definicion": "Implementar reglas críticas, permisos, cálculos, estados y validaciones como lógica verificable.",
+        "limite": "No delegar certeza, cumplimiento o seguridad al comportamiento variable de un modelo."
+      }
+    },
+    {
+      "id": "D05",
+      "familia": "directivas",
+      "titulo": "Verificación antes que aceptación",
+      "ancla": null,
+      "linea_inicio": 605,
+      "linea_fin": 605,
+      "texto": "| `D05` Verificación antes que aceptación              | Evaluar el flujo, los estados extremos, accesibilidad, rendimiento y resultado real.                                                                                                                                  | Código generado y pruebas unitarias aprobadas no equivalen a producto terminado.                             |",
+      "sha256": "fd7d756368e392e0fc477842fa019786dac35548bc2772a9ea535c9199ce51d2",
+      "campos": {
+        "identificador": "`D05` Verificación antes que aceptación",
+        "definicion": "Evaluar el flujo, los estados extremos, accesibilidad, rendimiento y resultado real.",
+        "limite": "Código generado y pruebas unitarias aprobadas no equivalen a producto terminado."
+      }
+    },
+    {
+      "id": "D06",
+      "familia": "directivas",
+      "titulo": "IA subordinada al usuario",
+      "ancla": null,
+      "linea_inicio": 606,
+      "linea_fin": 606,
+      "texto": "| `D06` IA subordinada al usuario                      | Usar IA para proponer, explicar y ejecutar bajo límites claros, manteniendo revisión y reversibilidad proporcionales al impacto.                                                                                      | La fluidez de una respuesta nunca sustituye evidencia ni autorización.                                       |",
+      "sha256": "5a1c4352c869b7b42fa6148895f8cf49b00d48f1aceb527440a2a6fdf4371e2c",
+      "campos": {
+        "identificador": "`D06` IA subordinada al usuario",
+        "definicion": "Usar IA para proponer, explicar y ejecutar bajo límites claros, manteniendo revisión y reversibilidad proporcionales al impacto.",
+        "limite": "La fluidez de una respuesta nunca sustituye evidencia ni autorización."
+      }
+    },
+    {
+      "id": "F01",
+      "familia": "flujo",
+      "titulo": "Comprender el fundamento",
+      "ancla": null,
+      "linea_inicio": 633,
+      "linea_fin": 633,
+      "texto": "| `F01`    | Comprender el fundamento              | Reconocer las fuentes, la autoridad, el alcance, la estructura utilizada y los resultados esperados.               | Mapa fiel de la definición de producto, sin reformularla por conveniencia técnica. |",
+      "sha256": "f86df6bcdb1f84d7dc3b523ac5ae7b842cac10f9ee2eb972888bf004f1d35e9c",
+      "campos": {
+        "identificador": "`F01`",
+        "paso": "Comprender el fundamento",
+        "que_hace": "Reconocer las fuentes, la autoridad, el alcance, la estructura utilizada y los resultados esperados.",
+        "resultado": "Mapa fiel de la definición de producto, sin reformularla por conveniencia técnica."
+      }
+    },
+    {
+      "id": "F02",
+      "familia": "flujo",
+      "titulo": "Establecer cobertura",
+      "ancla": null,
+      "linea_inicio": 634,
+      "linea_fin": 634,
+      "texto": "| `F02`    | Establecer cobertura                  | Inventariar historias, capacidades, reglas, estados, recorridos, criterios y relaciones aplicables.                | Cobertura completa y vacíos o contradicciones visibles.                            |",
+      "sha256": "e6d1fd893c960b1b46d5d36d78b3c26b2742e35994c5ef04e59659ac9c10f6c7",
+      "campos": {
+        "identificador": "`F02`",
+        "paso": "Establecer cobertura",
+        "que_hace": "Inventariar historias, capacidades, reglas, estados, recorridos, criterios y relaciones aplicables.",
+        "resultado": "Cobertura completa y vacíos o contradicciones visibles."
+      }
+    },
+    {
+      "id": "F03",
+      "familia": "flujo",
+      "titulo": "Planificar la implementación",
+      "ancla": null,
+      "linea_inicio": 635,
+      "linea_fin": 635,
+      "texto": "| `F03`    | Planificar la implementación          | Resolver dependencias, bloqueantes, orden, paralelismo, integración y pruebas sin modificar el alcance.            | Plan coherente que da cuenta de toda la definición aprobada.                       |",
+      "sha256": "c8c743c5099d221d9a45fbfe66499235b506469983b31ea0e1bc7a2436274ad3",
+      "campos": {
+        "identificador": "`F03`",
+        "paso": "Planificar la implementación",
+        "que_hace": "Resolver dependencias, bloqueantes, orden, paralelismo, integración y pruebas sin modificar el alcance.",
+        "resultado": "Plan coherente que da cuenta de toda la definición aprobada."
+      }
+    },
+    {
+      "id": "F04",
+      "familia": "flujo",
+      "titulo": "Concretar el progreso",
+      "ancla": null,
+      "linea_inicio": 636,
+      "linea_fin": 636,
+      "texto": "| `F04`    | Concretar el progreso                 | Usar las Job Stories existentes o formular una vista derivada cuando aporte claridad y esté identificada como tal. | Circunstancias, motivaciones y resultados preservados cuando corresponda.          |",
+      "sha256": "8ea90e51bfb8afbb7ec5fd1d5a1cd593677840b5e73e83f45f59acb70d1b1a9d",
+      "campos": {
+        "identificador": "`F04`",
+        "paso": "Concretar el progreso",
+        "que_hace": "Usar las Job Stories existentes o formular una vista derivada cuando aporte claridad y esté identificada como tal.",
+        "resultado": "Circunstancias, motivaciones y resultados preservados cuando corresponda."
+      }
+    },
+    {
+      "id": "F05",
+      "familia": "flujo",
+      "titulo": "Establecer el contrato de experiencia",
+      "ancla": null,
+      "linea_inicio": 637,
+      "linea_fin": 637,
+      "texto": "| `F05`    | Establecer el contrato de experiencia | Describir qué debe comprender, decidir y sentir la persona en los momentos críticos.                               | Ruta principal, estados y promesa de interacción.                                  |",
+      "sha256": "393624bee5ff2124791fe88dc7c4bcd05fbf3dbe7bf450757a40006021d9d78a",
+      "campos": {
+        "identificador": "`F05`",
+        "paso": "Establecer el contrato de experiencia",
+        "que_hace": "Describir qué debe comprender, decidir y sentir la persona en los momentos críticos.",
+        "resultado": "Ruta principal, estados y promesa de interacción."
+      }
+    },
+    {
+      "id": "F06",
+      "familia": "flujo",
+      "titulo": "Modelar reglas y riesgos",
+      "ancla": null,
+      "linea_inicio": 638,
+      "linea_fin": 638,
+      "texto": "| `F06`    | Modelar reglas y riesgos              | Separar lógica determinista, comportamiento generativo, permisos y acciones irreversibles.                         | Mapa de decisiones y límites.                                                      |",
+      "sha256": "7c219fa7d3b250d22ff0e16bd5fcd3eca467313016b475d1f5c971fc4f74a267",
+      "campos": {
+        "identificador": "`F06`",
+        "paso": "Modelar reglas y riesgos",
+        "que_hace": "Separar lógica determinista, comportamiento generativo, permisos y acciones irreversibles.",
+        "resultado": "Mapa de decisiones y límites."
+      }
+    },
+    {
+      "id": "F07",
+      "familia": "flujo",
+      "titulo": "Explorar y prototipar",
+      "ancla": null,
+      "linea_inicio": 639,
+      "linea_fin": 639,
+      "texto": "| `F07`    | Explorar y prototipar                 | Comparar alternativas y probar comprensión, jerarquía y recuperación antes de optimizar código.                    | Razón de la alternativa elegida y evidencia del recorrido.                         |",
+      "sha256": "198ae7c889cbb910862b3dc54e967add933e39a9e1fe2f027c6baabbed11135c",
+      "campos": {
+        "identificador": "`F07`",
+        "paso": "Explorar y prototipar",
+        "que_hace": "Comparar alternativas y probar comprensión, jerarquía y recuperación antes de optimizar código.",
+        "resultado": "Razón de la alternativa elegida y evidencia del recorrido."
+      }
+    },
+    {
+      "id": "F08",
+      "familia": "flujo",
+      "titulo": "Construir, integrar y verificar",
+      "ancla": null,
+      "linea_inicio": 640,
+      "linea_fin": 640,
+      "texto": "| `F08`    | Construir, integrar y verificar       | Implementar el plan, mantener trazabilidad y reconciliar resultados contra el alcance completo.                    | Código, pruebas y evidencia de cobertura; pendientes y excepciones explícitos.     |",
+      "sha256": "aefd52ea17aa2b9684959c9009ed0bd0bd0f496704b31ca9bce23999ee9e2cbb",
+      "campos": {
+        "identificador": "`F08`",
+        "paso": "Construir, integrar y verificar",
+        "que_hace": "Implementar el plan, mantener trazabilidad y reconciliar resultados contra el alcance completo.",
+        "resultado": "Código, pruebas y evidencia de cobertura; pendientes y excepciones explícitos."
+      }
+    },
+    {
+      "id": "A01",
+      "familia": "artefactos",
+      "titulo": "Mapa del fundamento",
+      "ancla": null,
+      "linea_inicio": 648,
+      "linea_fin": 648,
+      "texto": "| `A01` Mapa del fundamento               | ¿Qué debe construirse, por qué y con qué autoridad?       | Fuentes; alcance; resultados; reglas; límites; evidencia; no objetivos                                  |",
+      "sha256": "766a7dd6896071ce5f2a3f5e4614e194d2d68ffe7a80f499da0afeeaa50f1da4",
+      "campos": {
+        "identificador": "`A01` Mapa del fundamento",
+        "pregunta": "¿Qué debe construirse, por qué y con qué autoridad?",
+        "contenido": "Fuentes; alcance; resultados; reglas; límites; evidencia; no objetivos"
+      }
+    },
+    {
+      "id": "A02",
+      "familia": "artefactos",
+      "titulo": "Mapa de cobertura",
+      "ancla": null,
+      "linea_inicio": 649,
+      "linea_fin": 649,
+      "texto": "| `A02` Mapa de cobertura                 | ¿Cómo se dará cuenta de todo el alcance?                  | Elementos obligatorios; relaciones; dependencias; implementación; pruebas; estado; excepciones          |",
+      "sha256": "d0eed38eafd81f5a5a9d6c5bbea0b3febc972e69adc6a7e715ca76ef1fe77e70",
+      "campos": {
+        "identificador": "`A02` Mapa de cobertura",
+        "pregunta": "¿Cómo se dará cuenta de todo el alcance?",
+        "contenido": "Elementos obligatorios; relaciones; dependencias; implementación; pruebas; estado; excepciones"
+      }
+    },
+    {
+      "id": "A03",
+      "familia": "artefactos",
+      "titulo": "Ficha de Job Story cuando aplique",
+      "ancla": null,
+      "linea_inicio": 650,
+      "linea_fin": 650,
+      "texto": "| `A03` Ficha de Job Story cuando aplique | ¿Cuándo surge la necesidad y qué cambio busca la persona? | Circunstancia; motivación; resultado; conducta actual; ansiedad; evidencia; supuestos                   |",
+      "sha256": "ca7dac0e3277acb730421276df0f26ca008c845bb9ce2ef9f4cd376c0f612671",
+      "campos": {
+        "identificador": "`A03` Ficha de Job Story cuando aplique",
+        "pregunta": "¿Cuándo surge la necesidad y qué cambio busca la persona?",
+        "contenido": "Circunstancia; motivación; resultado; conducta actual; ansiedad; evidencia; supuestos"
+      }
+    },
+    {
+      "id": "A04",
+      "familia": "artefactos",
+      "titulo": "Contrato de experiencia",
+      "ancla": null,
+      "linea_inicio": 651,
+      "linea_fin": 651,
+      "texto": "| `A04` Contrato de experiencia           | ¿Qué debe comprender y poder hacer la persona?            | Ruta principal; lenguaje; decisiones; feedback; control; recuperación                                   |",
+      "sha256": "4626b4857672df6cb2db2a101ef68276dda5b726d5911caa1d0bc0495988370b",
+      "campos": {
+        "identificador": "`A04` Contrato de experiencia",
+        "pregunta": "¿Qué debe comprender y poder hacer la persona?",
+        "contenido": "Ruta principal; lenguaje; decisiones; feedback; control; recuperación"
+      }
+    },
+    {
+      "id": "A05",
+      "familia": "artefactos",
+      "titulo": "Modelo de estados",
+      "ancla": null,
+      "linea_inicio": 652,
+      "linea_fin": 652,
+      "texto": "| `A05` Modelo de estados                 | ¿Qué puede ocurrir y qué transiciones son válidas?        | Estados; eventos; reglas; errores; permisos; persistencia                                               |",
+      "sha256": "2815cd8d6b4141f4f2c3bbba913b86e2bb54f031dbfbaa061596b2d934e4703c",
+      "campos": {
+        "identificador": "`A05` Modelo de estados",
+        "pregunta": "¿Qué puede ocurrir y qué transiciones son válidas?",
+        "contenido": "Estados; eventos; reglas; errores; permisos; persistencia"
+      }
+    },
+    {
+      "id": "A06",
+      "familia": "artefactos",
+      "titulo": "Presupuesto de complejidad",
+      "ancla": null,
+      "linea_inicio": 653,
+      "linea_fin": 653,
+      "texto": "| `A06` Presupuesto de complejidad        | ¿Qué carga estamos agregando?                             | Conceptos nuevos; decisiones; pasos; excepciones; opciones visibles                                     |",
+      "sha256": "b070809b2a734f1a84108b243d51d75e7d6c1fe13cce2d00cd2930c2c4400135",
+      "campos": {
+        "identificador": "`A06` Presupuesto de complejidad",
+        "pregunta": "¿Qué carga estamos agregando?",
+        "contenido": "Conceptos nuevos; decisiones; pasos; excepciones; opciones visibles"
+      }
+    },
+    {
+      "id": "A07",
+      "familia": "artefactos",
+      "titulo": "Plan de aceptación",
+      "ancla": null,
+      "linea_inicio": 654,
+      "linea_fin": 654,
+      "texto": "| `A07` Plan de aceptación                | ¿Qué evidencia autoriza declarar completo el desarrollo?  | Resultados; reglas; Job Stories cuando apliquen; accesibilidad; rendimiento; estados extremos; métricas |",
+      "sha256": "9109321c4f872dcb7ae5ebd0d755563602dbe3571eae35d88260981dfc650bbe",
+      "campos": {
+        "identificador": "`A07` Plan de aceptación",
+        "pregunta": "¿Qué evidencia autoriza declarar completo el desarrollo?",
+        "contenido": "Resultados; reglas; Job Stories cuando apliquen; accesibilidad; rendimiento; estados extremos; métricas"
+      }
+    },
+    {
+      "id": "A08",
+      "familia": "artefactos",
+      "titulo": "Registro de decisiones",
+      "ancla": null,
+      "linea_inicio": 655,
+      "linea_fin": 655,
+      "texto": "| `A08` Registro de decisiones            | ¿Por qué elegimos esta alternativa?                       | Alternativas; tradeoffs; supuestos; decisión; fecha; evidencia pendiente                                |",
+      "sha256": "4b10214460d8e646c8d6f1c31d54ddebaeb6b97f3e61a76a12b5c85d59fa8710",
+      "campos": {
+        "identificador": "`A08` Registro de decisiones",
+        "pregunta": "¿Por qué elegimos esta alternativa?",
+        "contenido": "Alternativas; tradeoffs; supuestos; decisión; fecha; evidencia pendiente"
+      }
+    },
+    {
+      "id": "V01",
+      "familia": "verificacion",
+      "titulo": "Cobertura",
+      "ancla": null,
+      "linea_inicio": 737,
+      "linea_fin": 737,
+      "texto": "| `V01` Cobertura     | Todos los elementos obligatorios de la definición de producto tienen implementación y evidencia o una excepción explícita y aprobada.                            |",
+      "sha256": "fecd97c513594455832163ff7ab326cd99f26e6e6c72ee233a06f54588f07a9f",
+      "campos": {
+        "identificador": "`V01` Cobertura",
+        "criterio": "Todos los elementos obligatorios de la definición de producto tienen implementación y evidencia o una excepción explícita y aprobada."
+      }
+    },
+    {
+      "id": "V02",
+      "familia": "verificacion",
+      "titulo": "Progreso",
+      "ancla": null,
+      "linea_inicio": 738,
+      "linea_fin": 738,
+      "texto": "| `V02` Progreso      | Las personas alcanzan los resultados definidos y pueden reconocerlos; cuando existen Job Stories, esto se comprueba en sus circunstancias.                       |",
+      "sha256": "7b47547c5fecac893e3f1bf6e29934faf3f6dbd6483808d52270d7251e4ecd98",
+      "campos": {
+        "identificador": "`V02` Progreso",
+        "criterio": "Las personas alcanzan los resultados definidos y pueden reconocerlos; cuando existen Job Stories, esto se comprueba en sus circunstancias."
+      }
+    },
+    {
+      "id": "V03",
+      "familia": "verificacion",
+      "titulo": "Causalidad",
+      "ancla": null,
+      "linea_inicio": 739,
+      "linea_fin": 739,
+      "texto": "| `V03` Causalidad    | La evidencia relaciona la situación, la necesidad y el resultado sin depender de un pedido de funcionalidad; cuando aplica, conserva circunstancia y motivación. |",
+      "sha256": "0d5d35ceb3f1dc10aa27c8f57cce8d3f516bc84e035253ec96ab7ba21d796c02",
+      "campos": {
+        "identificador": "`V03` Causalidad",
+        "criterio": "La evidencia relaciona la situación, la necesidad y el resultado sin depender de un pedido de funcionalidad; cuando aplica, conserva circunstancia y motivación."
+      }
+    },
+    {
+      "id": "V04",
+      "familia": "verificacion",
+      "titulo": "Comprensión",
+      "ancla": null,
+      "linea_inicio": 740,
+      "linea_fin": 740,
+      "texto": "| `V04` Comprensión   | Puede explicar dónde está, qué puede hacer y qué ocurrirá después sin ayuda externa.                                                                             |",
+      "sha256": "17c37e61fbeba58065ee38ee33bbbce78b8b2661b372371c92fe3a8e809027ed",
+      "campos": {
+        "identificador": "`V04` Comprensión",
+        "criterio": "Puede explicar dónde está, qué puede hacer y qué ocurrirá después sin ayuda externa."
+      }
+    },
+    {
+      "id": "V05",
+      "familia": "verificacion",
+      "titulo": "Carga",
+      "ancla": null,
+      "linea_inicio": 741,
+      "linea_fin": 741,
+      "texto": "| `V05` Carga         | No enfrenta decisiones, conceptos o datos que el sistema pueda resolver de forma segura.                                                                         |",
+      "sha256": "0fea971a425939b77767e5f5be71844322eb0c5d297292f821f7d2672acc3c3a",
+      "campos": {
+        "identificador": "`V05` Carga",
+        "criterio": "No enfrenta decisiones, conceptos o datos que el sistema pueda resolver de forma segura."
+      }
+    },
+    {
+      "id": "V06",
+      "familia": "verificacion",
+      "titulo": "Profundidad",
+      "ancla": null,
+      "linea_inicio": 742,
+      "linea_fin": 742,
+      "texto": "| `V06` Profundidad   | El principiante encuentra una ruta clara y el usuario avanzado conserva capacidad suficiente.                                                                    |",
+      "sha256": "552bf23a82214be76b7085f1c76a346d1b7eae396736f7750b3774751b7d5934",
+      "campos": {
+        "identificador": "`V06` Profundidad",
+        "criterio": "El principiante encuentra una ruta clara y el usuario avanzado conserva capacidad suficiente."
+      }
+    },
+    {
+      "id": "V07",
+      "familia": "verificacion",
+      "titulo": "Confianza",
+      "ancla": null,
+      "linea_inicio": 743,
+      "linea_fin": 743,
+      "texto": "| `V07` Confianza     | El sistema anticipa consecuencias, confirma resultados y ofrece recuperación proporcional.                                                                       |",
+      "sha256": "2f33394c28de0bfbc7a4064483d6b2c415cd91b0fe583f471ff9590ee7c94a88",
+      "campos": {
+        "identificador": "`V07` Confianza",
+        "criterio": "El sistema anticipa consecuencias, confirma resultados y ofrece recuperación proporcional."
+      }
+    },
+    {
+      "id": "V08",
+      "familia": "verificacion",
+      "titulo": "Control",
+      "ancla": null,
+      "linea_inicio": 744,
+      "linea_fin": 744,
+      "texto": "| `V08` Control       | La persona puede revisar, corregir, rechazar o revertir según el impacto de la acción.                                                                           |",
+      "sha256": "5d8b3b70bd8307230b05a8250beabed83f518348fa553038f163373f7ceabff3",
+      "campos": {
+        "identificador": "`V08` Control",
+        "criterio": "La persona puede revisar, corregir, rechazar o revertir según el impacto de la acción."
+      }
+    },
+    {
+      "id": "V09",
+      "familia": "verificacion",
+      "titulo": "Estados",
+      "ancla": null,
+      "linea_inicio": 745,
+      "linea_fin": 745,
+      "texto": "| `V09` Estados       | Carga, vacío, error, éxito, interrupción y retorno mantienen contexto y orientación.                                                                             |",
+      "sha256": "e47e7ddec3de72645817263900a3dea1ccb0018555e25cd0dc1efb77c3797b03",
+      "campos": {
+        "identificador": "`V09` Estados",
+        "criterio": "Carga, vacío, error, éxito, interrupción y retorno mantienen contexto y orientación."
+      }
+    },
+    {
+      "id": "V10",
+      "familia": "verificacion",
+      "titulo": "Accesibilidad",
+      "ancla": null,
+      "linea_inicio": 746,
+      "linea_fin": 746,
+      "texto": "| `V10` Accesibilidad | El flujo funciona con teclado, foco visible, etiquetas comprensibles, contraste y tecnologías de asistencia aplicables.                                          |",
+      "sha256": "6664686e6605f662fb5413912bd12ea403f04caf66fe3726ba2582d76bfa6f82",
+      "campos": {
+        "identificador": "`V10` Accesibilidad",
+        "criterio": "El flujo funciona con teclado, foco visible, etiquetas comprensibles, contraste y tecnologías de asistencia aplicables."
+      }
+    },
+    {
+      "id": "V11",
+      "familia": "verificacion",
+      "titulo": "Rendimiento",
+      "ancla": null,
+      "linea_inicio": 747,
+      "linea_fin": 747,
+      "texto": "| `V11` Rendimiento   | Las acciones críticas cumplen el presupuesto de respuesta o muestran progreso honesto.                                                                           |",
+      "sha256": "8a9f7d432b1ddf6e3ffb7472e49645bd2ed9732c924b7d42e597db99e769b522",
+      "campos": {
+        "identificador": "`V11` Rendimiento",
+        "criterio": "Las acciones críticas cumplen el presupuesto de respuesta o muestran progreso honesto."
+      }
+    },
+    {
+      "id": "V12",
+      "familia": "verificacion",
+      "titulo": "IA",
+      "ancla": null,
+      "linea_inicio": 748,
+      "linea_fin": 748,
+      "texto": "| `V12` IA            | Las salidas variables declaran incertidumbre; las reglas críticas son verificables; las acciones sensibles requieren autorización.                               |",
+      "sha256": "a34d46bcbf90d1f81f2d1070c1f4052ae74edae295e91c381a75ad44c9c90cb2",
+      "campos": {
+        "identificador": "`V12` IA",
+        "criterio": "Las salidas variables declaran incertidumbre; las reglas críticas son verificables; las acciones sensibles requieren autorización."
+      }
+    },
+    {
+      "id": "CR01",
+      "familia": "contrato",
+      "titulo": "Propósito",
+      "ancla": null,
+      "linea_inicio": 689,
+      "linea_fin": 689,
+      "texto": "**`CR01` Propósito.** Construye la solución más simple que permita al usuario lograr el resultado definido, conservando claridad, control y capacidad de recuperación.",
+      "sha256": "9279043c64d698224b8bdcac316a3961dbe0415ac67a2fa7259e81ea0f621fb4",
+      "cuerpo": "Construye la solución más simple que permita al usuario lograr el resultado definido, conservando claridad, control y capacidad de recuperación."
+    },
+    {
+      "id": "CR02",
+      "familia": "contrato",
+      "titulo": "Antes de programar",
+      "ancla": null,
+      "linea_inicio": 691,
+      "linea_fin": 691,
+      "texto": "**`CR02` Antes de programar.** Identifica las fuentes autorizadas, explica el fundamento de producto y confirma el alcance completo. Reconoce la estructura utilizada por la definición; cuando contenga Job Stories, conserva su circunstancia, motivación y resultado. Separa evidencia de supuestos e identifica cualquier ambigüedad que pueda cambiar materialmente la solución.",
+      "sha256": "82680a309c435d1c8fa26ac51cdd2bbdf49431464bb338eaa1c65432d0b60992",
+      "cuerpo": "Identifica las fuentes autorizadas, explica el fundamento de producto y confirma el alcance completo. Reconoce la estructura utilizada por la definición; cuando contenga Job Stories, conserva su circunstancia, motivación y resultado. Separa evidencia de supuestos e identifica cualquier ambigüedad que pueda cambiar materialmente la solución."
+    },
+    {
+      "id": "CR03",
+      "familia": "contrato",
+      "titulo": "Al planificar",
+      "ancla": null,
+      "linea_inicio": 693,
+      "linea_fin": 693,
+      "texto": "**`CR03` Al planificar.** Da cuenta de todos los elementos obligatorios y establece sus dependencias, bloqueantes, orden, integración y pruebas. No selecciones, omitas ni postergues partes del alcance por iniciativa propia. Si las restricciones impiden cubrirlo, solicita una decisión a la autoridad de producto.",
+      "sha256": "7e3ead93f9ea8176fa06c81ad236e3a56806259a2eb0a5474250f2a8eb1cdeb8",
+      "cuerpo": "Da cuenta de todos los elementos obligatorios y establece sus dependencias, bloqueantes, orden, integración y pruebas. No selecciones, omitas ni postergues partes del alcance por iniciativa propia. Si las restricciones impiden cubrirlo, solicita una decisión a la autoridad de producto."
+    },
+    {
+      "id": "CR04",
+      "familia": "contrato",
+      "titulo": "Al proponer",
+      "ancla": null,
+      "linea_inicio": 695,
+      "linea_fin": 695,
+      "texto": "**`CR04` Al proponer.** Presenta la alternativa recomendada, una alternativa más simple y la opción de no construir cuando la decisión aún pertenezca a producto. Explica cómo responde cada una al fundamento, qué carga introduce y qué tradeoffs exige.",
+      "sha256": "a7b0b09a1e72ba4b0ed08a4254c6b13ab7739ad7f30074236608a659e80a0736",
+      "cuerpo": "Presenta la alternativa recomendada, una alternativa más simple y la opción de no construir cuando la decisión aún pertenezca a producto. Explica cómo responde cada una al fundamento, qué carga introduce y qué tradeoffs exige."
+    },
+    {
+      "id": "CR05",
+      "familia": "contrato",
+      "titulo": "Al diseñar",
+      "ancla": null,
+      "linea_inicio": 697,
+      "linea_fin": 697,
+      "texto": "**`CR05` Al diseñar.** No expongas estructuras internas. Usa lenguaje del usuario, convenciones conocidas, jerarquía clara, profundidad progresiva, valores predeterminados editables y feedback inmediato.",
+      "sha256": "e97b99643eec69194f47c25ecc10fc6a3186d1b4d017117376363308ac0ac7c6",
+      "cuerpo": "No expongas estructuras internas. Usa lenguaje del usuario, convenciones conocidas, jerarquía clara, profundidad progresiva, valores predeterminados editables y feedback inmediato."
+    },
+    {
+      "id": "CR06",
+      "familia": "contrato",
+      "titulo": "Al usar IA",
+      "ancla": null,
+      "linea_inicio": 699,
+      "linea_fin": 699,
+      "texto": "**`CR06` Al usar IA.** Reserva las reglas críticas para lógica verificable. Declara incertidumbre. No ejecutes acciones de alto impacto sin autorización proporcional. Mantén trazabilidad, revisión y reversibilidad.",
+      "sha256": "82ee6e62250a52ec1526b88fc26ba6738c541228d5d7c996153493d9270b116c",
+      "cuerpo": "Reserva las reglas críticas para lógica verificable. Declara incertidumbre. No ejecutes acciones de alto impacto sin autorización proporcional. Mantén trazabilidad, revisión y reversibilidad."
+    },
+    {
+      "id": "CR07",
+      "familia": "contrato",
+      "titulo": "Al implementar",
+      "ancla": null,
+      "linea_inicio": 701,
+      "linea_fin": 701,
+      "texto": "**`CR07` Al implementar.** Respeta el alcance acordado y conserva trazabilidad con su fundamento. No agregues features, modos, configuraciones ni abstracciones no solicitadas. Cubre estados vacíos, carga, error, éxito y recuperación e integra las partes relacionadas.",
+      "sha256": "36e9974b51e5c844f7f5ecc898f07a3caa1b046b7bdfe2282e290fa24a245518",
+      "cuerpo": "Respeta el alcance acordado y conserva trazabilidad con su fundamento. No agregues features, modos, configuraciones ni abstracciones no solicitadas. Cubre estados vacíos, carga, error, éxito y recuperación e integra las partes relacionadas."
+    },
+    {
+      "id": "CR08",
+      "familia": "contrato",
+      "titulo": "Antes de declarar terminado",
+      "ancla": null,
+      "linea_inicio": 703,
+      "linea_fin": 703,
+      "texto": "**`CR08` Antes de declarar terminado.** Reconcilia la implementación contra la definición completa de producto. Verifica resultados, reglas, criterios y, cuando correspondan, las Job Stories en sus circunstancias. Comprueba también accesibilidad, rendimiento percibido, errores, persistencia del trabajo y control del usuario. Entrega evidencia, pendientes y excepciones aprobadas.",
+      "sha256": "83f7caeea75ddb6534fd3c4e0d57c5e539a24a13b05cd1a9fe29b8bd592c9c62",
+      "cuerpo": "Reconcilia la implementación contra la definición completa de producto. Verifica resultados, reglas, criterios y, cuando correspondan, las Job Stories en sus circunstancias. Comprueba también accesibilidad, rendimiento percibido, errores, persistencia del trabajo y control del usuario. Entrega evidencia, pendientes y excepciones aprobadas."
+    },
+    {
+      "id": "O01",
+      "familia": "entrega",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 707,
+      "linea_fin": 707,
+      "texto": "1\\. `O01` Fuentes autorizadas y fundamento de producto que justifican el desarrollo.",
+      "sha256": "9c802a92b15f833f5521adc5fc75a3681cea88cd34751bf19746e7116597bec2",
+      "cuerpo": "Fuentes autorizadas y fundamento de producto que justifican el desarrollo."
+    },
+    {
+      "id": "O02",
+      "familia": "entrega",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 709,
+      "linea_fin": 709,
+      "texto": "2\\. `O02` Inventario de alcance y cobertura de historias, capacidades, reglas, estados y criterios aplicables.",
+      "sha256": "7ed3cff8957dffa84d458890536aa2d376f3ecbc793aee0f71b6332fefa26927",
+      "cuerpo": "Inventario de alcance y cobertura de historias, capacidades, reglas, estados y criterios aplicables."
+    },
+    {
+      "id": "O03",
+      "familia": "entrega",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 711,
+      "linea_fin": 711,
+      "texto": "3\\. `O03` Jobs to Be Done y Job Stories cuando formen parte de la definición o aporten una vista derivada útil.",
+      "sha256": "0e4c75c3c9d0fa89ab0c7e63c282d90b07c9e08ced61cd8ee01a8bf8a25cbe0f",
+      "cuerpo": "Jobs to Be Done y Job Stories cuando formen parte de la definición o aporten una vista derivada útil."
+    },
+    {
+      "id": "O04",
+      "familia": "entrega",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 713,
+      "linea_fin": 713,
+      "texto": "4\\. `O04` Evidencia disponible, supuestos y criterios de resultado.",
+      "sha256": "434c04ec08c038a0a31ff2c3e674df55f18b9af58a90a4abaa17c864a1c48608",
+      "cuerpo": "Evidencia disponible, supuestos y criterios de resultado."
+    },
+    {
+      "id": "O05",
+      "familia": "entrega",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 715,
+      "linea_fin": 715,
+      "texto": "5\\. `O05` Alternativa elegida y razón de descarte de opciones más complejas.",
+      "sha256": "cbad3be4e4bbd929a4147f751bc6cd23a420fe81aa8ff2ab145eceb04f3535b2",
+      "cuerpo": "Alternativa elegida y razón de descarte de opciones más complejas."
+    },
+    {
+      "id": "O06",
+      "familia": "entrega",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 717,
+      "linea_fin": 717,
+      "texto": "6\\. `O06` Archivos o componentes modificados y límites del cambio.",
+      "sha256": "b38af1127077dba73e4277a4efa682ec82a4323fa8afa635e40dd04f59aa7557",
+      "cuerpo": "Archivos o componentes modificados y límites del cambio."
+    },
+    {
+      "id": "O07",
+      "familia": "entrega",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 719,
+      "linea_fin": 719,
+      "texto": "7\\. `O07` Estados y casos extremos cubiertos.",
+      "sha256": "3af5b696e34accd9e0b7568dcef4ff06c5231b95df6acc65c258b2164f79921a",
+      "cuerpo": "Estados y casos extremos cubiertos."
+    },
+    {
+      "id": "O08",
+      "familia": "entrega",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 721,
+      "linea_fin": 721,
+      "texto": "8\\. `O08` Pruebas ejecutadas y evidencia de resultado.",
+      "sha256": "075bfdc21d767c322c9759b4ab263c1a328c9b00b7382b382eb53aa878b69e7b",
+      "cuerpo": "Pruebas ejecutadas y evidencia de resultado."
+    },
+    {
+      "id": "O09",
+      "familia": "entrega",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 723,
+      "linea_fin": 723,
+      "texto": "9\\. `O09` Riesgos, incertidumbres, pendientes, excepciones y decisiones que aún requieren juicio humano.",
+      "sha256": "52db2be21d4d1da3371ceb3db2cb2d1a106f65ce098105cd0c9ba7fb3458e1ae",
+      "cuerpo": "Riesgos, incertidumbres, pendientes, excepciones y decisiones que aún requieren juicio humano."
+    },
+    {
+      "id": "STOP01",
+      "familia": "detenciones",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 986,
+      "linea_fin": 986,
+      "texto": "- `STOP01` No existe un fundamento de producto identificable o la solución parece preceder al problema.",
+      "sha256": "cd3b3ccb984b425a4ee642cf8d519e16b5c09e0ecba8a3d7c67f50d39cf5232d",
+      "cuerpo": "No existe un fundamento de producto identificable o la solución parece preceder al problema."
+    },
+    {
+      "id": "STOP02",
+      "familia": "detenciones",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 988,
+      "linea_fin": 988,
+      "texto": "- `STOP02` El plan no da cuenta de todo el alcance obligatorio definido por producto.",
+      "sha256": "a15d0aea3716f03ad2fc5960d1ab220412aeccabb7bcd4b0da6e5647f47d4ab8",
+      "cuerpo": "El plan no da cuenta de todo el alcance obligatorio definido por producto."
+    },
+    {
+      "id": "STOP03",
+      "familia": "detenciones",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 990,
+      "linea_fin": 990,
+      "texto": "- `STOP03` Se pretende omitir, modificar o postergar una parte sin una decisión autorizada.",
+      "sha256": "8c45a0677cd36be99e59b14b3e5b27297b7d8dd5139f5b82f536b4f4c3909828",
+      "cuerpo": "Se pretende omitir, modificar o postergar una parte sin una decisión autorizada."
+    },
+    {
+      "id": "STOP04",
+      "familia": "detenciones",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 992,
+      "linea_fin": 992,
+      "texto": "- `STOP04` Una ambigüedad material está siendo resuelta por el agente sin autorización.",
+      "sha256": "898a69f64c68a7bf7614744b16cd67e21a4927246119896d4c3f2c91b1c067e9",
+      "cuerpo": "Una ambigüedad material está siendo resuelta por el agente sin autorización."
+    },
+    {
+      "id": "STOP05",
+      "familia": "detenciones",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 994,
+      "linea_fin": 994,
+      "texto": "- `STOP05` La interfaz expone una complejidad interna que el sistema podría absorber.",
+      "sha256": "08e67f15e7564a7e00d8774f328e028ef15600e6fc02a107587bc14b0eb9365e",
+      "cuerpo": "La interfaz expone una complejidad interna que el sistema podría absorber."
+    },
+    {
+      "id": "STOP06",
+      "familia": "detenciones",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 996,
+      "linea_fin": 996,
+      "texto": "- `STOP06` Una acción sensible carece de determinismo, trazabilidad o recuperación.",
+      "sha256": "00262bd912d39a38eb7793d9f1d5338d5ddd03ed76ac88dc6c4e57973103ad37",
+      "cuerpo": "Una acción sensible carece de determinismo, trazabilidad o recuperación."
+    },
+    {
+      "id": "STOP07",
+      "familia": "detenciones",
+      "titulo": "",
+      "ancla": null,
+      "linea_inicio": 998,
+      "linea_fin": 998,
+      "texto": "- `STOP07` El equipo solo puede demostrar que el código funciona, no que el usuario progresa.",
+      "sha256": "c1b8aa64ede183a016911a533f55bc79597cf6923f1e84127d13ed41a233c20b",
+      "cuerpo": "El equipo solo puede demostrar que el código funciona, no que el usuario progresa."
+    },
+    {
+      "id": "SH-INDEX",
+      "familia": "controles",
+      "titulo": "ÍNDICE OPERATIVO PARA AGENTES",
+      "ancla": "sh-index",
+      "linea_inicio": 13,
+      "linea_fin": 34,
+      "texto": "<a id=\"sh-index\"></a>\n\n## ÍNDICE OPERATIVO PARA AGENTES · `SH-INDEX`\n\nEsta capa de navegación permite que personas, agentes y adaptadores citen obligaciones del núcleo de manera estable. Los identificadores no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado. Una referencia por identificador nunca sustituye la lectura del pasaje citado ni modifica la autoridad del texto.\n\n| **Familia** | **Identificadores** | **Contenido** |\n|---|---|---|\n| Navegación | `SH-INDEX` | Índice operativo y regla de uso de identificadores |\n| Principios | `P01`–`P10` | Diez compromisos que gobiernan las decisiones |\n| Fundamento | `SH-FUND` | Definición de producto, autoridad, alcance y Job Stories de referencia |\n| Directivas para IA | `D01`–`D06` | Doctrina para equipos y agentes |\n| Flujo | `F01`–`F08` | Ocho pasos desde el fundamento hasta la verificación |\n| Artefactos | `A01`–`A08` | Ocho respuestas documentales ajustadas al contexto |\n| Detención | `SH-STOP`, `STOP01`–`STOP07` | Condiciones que impiden avanzar o aceptar |\n| Contrato del agente | `CR01`–`CR08` | Instrucciones reutilizables para desarrollar |\n| Entrega del agente | `O01`–`O09` | Contenido esperado de los resultados en lenguaje natural |\n| Verificación | `V01`–`V12` | Dimensiones de evidencia para aceptar una solución |\n| Controles transversales | `SH-SCORE`, `SH-AP`, `SH-GOV`, `SH-DONE`, `SH-POCKET` | Decisión, anti patrones, gobernanza, terminado y guía breve |\n\nLos adaptadores pueden indicar qué identificadores requieren atención en una operación concreta. Esa selección orienta la carga y no autoriza a ignorar otra disposición del núcleo que resulte aplicable por el contexto, el riesgo o una contradicción.",
+      "sha256": "8ed9354e2f7ac00ef1f0b300509ada3b1ce2524b32f195126c1b52b1efcdd08c"
+    },
+    {
+      "id": "SH-FUND",
+      "familia": "controles",
+      "titulo": "FUNDAMENTO DE PRODUCTO Y FORMA DE REFERENCIA",
+      "ancla": "sh-fund",
+      "linea_inicio": 479,
+      "linea_fin": 586,
+      "texto": "<a id=\"sh-fund\"></a>\n\n## FUNDAMENTO DE PRODUCTO Y FORMA DE REFERENCIA · `SH-FUND`\n\n### Del fundamento de producto a una solución verificable\n\nEl fundamento de producto es el contenido autorizado que establece qué debe construirse, por qué debe existir, qué resultados debe producir, qué condiciones debe respetar y cómo podrá determinarse su cumplimiento. No es un nuevo tipo de documento ni una plantilla obligatoria. Puede encontrarse en una Job Story, un Jobs to Be Done, una épica, una capacidad, un requisito, una regla de negocio, un recorrido, un criterio de aceptación o una combinación coherente de estos elementos.\n\n#### Cuándo el fundamento es identificable\n\nUn fundamento de producto es identificable cuando el desarrollo puede establecer, sin inventar decisiones de producto, los siguientes elementos. Pueden estar distribuidos en una o varias partes de la definición recibida y no necesitan utilizar estos nombres ni este orden.\n\n| **Elemento**          | **Pregunta de control**                                    | **Condición mínima**                                        |\n|-----------------------|------------------------------------------------------------|-------------------------------------------------------------|\n| Fuente y autoridad    | ¿De dónde proviene y quién puede modificarlo?              | Origen trazable y autoridad reconocida                      |\n| Razón                 | ¿Qué situación, necesidad, problema u oportunidad aborda?  | Justificación comprensible sin depender de la solución      |\n| Resultado             | ¿Qué cambio o progreso debe producir?                      | Resultado reconocible para las personas o para el producto  |\n| Condiciones y límites | ¿Qué reglas, restricciones y exclusiones deben respetarse? | Límites suficientes para evitar decisiones silenciosas      |\n| Evidencia             | ¿Cómo sabremos que se cumplió?                             | Criterios, observaciones o pruebas proporcionales al riesgo |\n\nLa ausencia de una sección o campo específico en el PRD no constituye por sí misma un defecto. El método debe comprender la estructura que el producto utiliza. Si falta una definición capaz de cambiar materialmente la solución, el agente debe exponer el vacío y acudir a la autoridad correspondiente; no debe completarlo mediante una inferencia silenciosa.\n\n#### Alcance completo y autoridad de producto\n\nCuando una definición de producto aprobada contiene múltiples historias, capacidades, reglas o especificaciones, todas forman parte del alcance salvo que la propia definición o una decisión autorizada establezca lo contrario. El plan de desarrollo debe comprender el conjunto, resolver sus relaciones y dependencias y asegurar su cobertura. Puede descomponer, ordenar, agrupar o ejecutar en paralelo el trabajo; esa descomposición no modifica el alcance.\n\nEl plan organiza cómo se implementa el alcance. No decide silenciosamente qué parte del alcance merece existir.\n\n- Toda omisión, modificación o postergación debe ser explícita, trazable y aprobada por la autoridad de producto.\n\n- Si las restricciones de tiempo, recursos o tecnología impiden cubrir el alcance, el plan debe hacer visible la incompatibilidad y solicitar una decisión.\n\n- Una estrategia incremental, por fases o por releases puede utilizarse cuando el proyecto la adopta; no es una obligación del núcleo.\n\n- La completitud se determina reconciliando la implementación y la evidencia contra la definición de producto completa y sus excepciones aprobadas.\n\n#### Job Stories como forma de referencia\n\nEste manifiesto utiliza Job Stories como forma de referencia para mostrar cómo un fundamento de producto puede trasladarse al diseño, la implementación y la verificación. Las Job Stories hacen explícitas la circunstancia, la motivación y el resultado esperado, por lo que ofrecen una representación especialmente útil para razonar sobre el progreso humano.\n\nSu utilización en las explicaciones, reglas, ejemplos y pruebas no obliga a que toda definición de producto venga expresada mediante Job Stories ni autoriza a transformar automáticamente un PRD a esa estructura. Cuando la definición utilice otra forma, el método debe preservar su significado, sus relaciones y su autoridad. Una Job Story derivada puede proponerse como vista de trabajo cuando agrega claridad, pero no reemplaza la fuente ni adquiere autoridad por haber sido generada.\n\n#### De Jobs to Be Done a Job Stories\n\nJobs to Be Done y Job Stories cumplen funciones distintas. Jobs to Be Done mantiene la dirección del producto: el progreso general por el cual una persona incorpora una solución a su vida o a su trabajo. La Job Story desciende a una situación concreta que puede orientar una decisión de diseño, una implementación y una prueba.\n\nCuando se utiliza esta forma, cada Job Story debe conservar una relación explícita con el trabajo, propósito o resultado de nivel superior que corresponda. Esa relación impide que una historia aislada pierda la dirección del producto.\n\n#### Relación entre los niveles\n\n| **Nivel**               | **Define**                                                                        | **Evita**                                               |\n|-------------------------|-----------------------------------------------------------------------------------|---------------------------------------------------------|\n| Jobs to Be Done         | El progreso amplio que la persona busca conseguir                                 | Organizar el producto alrededor de funcionalidades      |\n| Job Story               | La circunstancia, la motivación y el resultado que activan una necesidad concreta | Diseñar desde roles genéricos o pedidos literales       |\n| Respuesta del producto  | El comportamiento del sistema elegido para resolver la historia                   | Confundir el problema con la primera solución imaginada |\n| Evidencia de aceptación | La observación que demuestra progreso en esa circunstancia                        | Aceptar una entrega porque funciona técnicamente        |\n\n#### Forma canónica de una Job Story\n\nCuando ocurre una circunstancia observable, necesito conseguir un avance sin prescribir la solución, para poder alcanzar un resultado reconocible.\n\n**Cuando.** Describe el hecho, cambio o tensión que activa la necesidad. Debe poder observarse o reconocerse sin depender de una persona ficticia.\n\n**Necesito.** Expresa la motivación, comprensión o decisión requerida. No nombra una pantalla, un botón, un agente ni una funcionalidad.\n\n**Para poder.** Define la situación mejor que la persona busca alcanzar y que luego deberá verificarse.\n\n#### Evidencia mínima que acompaña la historia\n\nLa frase orienta la conversación, pero no reemplaza la investigación. Una historia lista para guiar desarrollo debe registrar solo la evidencia necesaria para sostener sus decisiones.\n\n| **Elemento**         | **Pregunta**                                                | **Contenido mínimo**                                       |\n|----------------------|-------------------------------------------------------------|------------------------------------------------------------|\n| Conducta actual      | ¿Qué hace hoy la persona?                                   | Pasos, alternativa o abandono observados                   |\n| Obstáculo o ansiedad | ¿Qué frena o vuelve riesgoso el avance?                     | Duda, costo, temor, esfuerzo o dependencia relevante       |\n| Evidencia causal     | ¿Qué respalda la relación entre circunstancia y motivación? | Observación, entrevista, dato de uso o supuesto declarado  |\n| Evidencia de éxito   | ¿Qué demostraría que hubo progreso?                         | Conducta o resultado observable dentro de la circunstancia |\n\n#### Cuándo el rol sigue importando\n\nJob Stories evita usar el rol como explicación automática. No elimina diferencias reales entre personas. El rol, la experiencia, la edad, los permisos o una restricción física deben incorporarse cuando cambian causalmente la circunstancia, el riesgo o la solución válida. Si no cambian la decisión, no deben gobernar la historia.\n\n#### Pruebas de calidad antes de diseñar\n\n- La circunstancia describe un desencadenante concreto y no una categoría de usuario.\n\n- La motivación expresa progreso o comprensión y no una funcionalidad solicitada.\n\n- El resultado puede reconocerse sin confundirlo con completar el flujo del producto.\n\n- La historia está respaldada por evidencia o identifica con claridad el supuesto pendiente.\n\n- La formulación permite comparar varias respuestas, incluida la opción de no construir.\n\n- El alcance es suficiente para cambiar una decisión, pero no intenta contener el trabajo completo del usuario.\n\n#### Cadena de trazabilidad\n\nEl desarrollo debe poder recorrerse en ambas direcciones: desde cada decisión implementada hasta el fundamento de producto que la justifica, y desde la definición completa del producto hasta la evidencia que demuestra su cobertura. Cuando el fundamento se expresa mediante Job Stories, la trazabilidad debe conservar la circunstancia, la motivación y el resultado de cada historia aplicable.\n\n| **Origen**              | **Decisión**                                                                  | **Verificación**                                                         |\n|-------------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------|\n| Definición de producto  | Qué debe construirse y bajo qué condiciones                                   | Todo elemento obligatorio tiene cobertura o una excepción aprobada       |\n| Jobs to Be Done         | Qué progreso general merece atención cuando esta forma resulta aplicable      | El resultado sigue siendo relevante para la persona                      |\n| Job Story               | Qué circunstancia concreta debe atenderse cuando la fuente utiliza esta forma | La historia está validada y no prescribe una solución no autorizada      |\n| Diseño e implementación | Qué comportamiento responde al fundamento                                     | Cada elemento tiene una razón trazable                                   |\n| Aceptación              | Qué evidencia autoriza declarar completo el desarrollo                        | Resultados, reglas y criterios se cumplen bajo las condiciones definidas |",
+      "sha256": "baba52fbe80a5124e0c10a719a3ec22b7fa160e8456b157792fad95cfb0659bc"
+    },
+    {
+      "id": "SH-STOP",
+      "familia": "controles",
+      "titulo": "Regla de detención antes de generar",
+      "ancla": "sh-stop",
+      "linea_inicio": 657,
+      "linea_fin": 682,
+      "texto": "<a id=\"sh-stop\"></a>\n\n#### Regla de detención antes de generar · `SH-STOP`\n\nEl agente no debería comenzar una implementación si no puede responder con precisión las siguientes preguntas en el nivel requerido por el riesgo y la complejidad:\n\n- ¿Cuál es la definición de producto autorizada y qué alcance establece?\n\n- ¿Qué elementos del fundamento justifican el desarrollo y qué evidencia los respalda?\n\n- ¿La planificación da cuenta de todas las historias, capacidades, reglas, estados y criterios obligatorios?\n\n- Cuando existen Job Stories, ¿la circunstancia, la motivación y el resultado están separados de la solución?\n\n- ¿Cuál es la ruta principal y qué estados alternativos importan?\n\n- ¿Qué decisiones debe tomar el usuario y cuáles puede resolver el sistema?\n\n- ¿Qué comportamiento necesita certeza determinista?\n\n- ¿Qué no forma parte del alcance y quién estableció esa exclusión?\n\n- ¿Qué evidencia demostrará que el desarrollo está completo?\n\nSi falta una respuesta que pueda cambiar de manera material la solución, el alcance, una regla o un derecho, el agente debe detenerse y solicitarla. Si la incertidumbre es menor, reversible y se encuentra dentro de su autoridad, puede declarar un supuesto y avanzar sin reducir silenciosamente la cobertura comprometida.",
+      "sha256": "055d41687f2cfd939f84098b91162642ccad47c02c245cba5671954f472d3f47"
+    },
+    {
+      "id": "SH-SCORE",
+      "familia": "controles",
+      "titulo": "Scorecard de decisión",
+      "ancla": "sh-score",
+      "linea_inicio": 750,
+      "linea_fin": 795,
+      "texto": "<a id=\"sh-score\"></a>\n\n#### Scorecard de decisión · `SH-SCORE`\n\nAsigne 0 cuando no existe evidencia, 1 cuando el cumplimiento es parcial o depende de un supuesto no validado, y 2 cuando existe evidencia suficiente. El puntaje orienta la conversación; no reemplaza el juicio.\n\n| **Criterio**           | **Puntaje** | **Pregunta de evidencia**                                                            |\n|------------------------|-------------|--------------------------------------------------------------------------------------|\n| Fundamento trazable    | 0 / 1 / 2   | Fuentes, autoridad, alcance, resultados y condiciones son identificables             |\n| Cobertura del producto | 0 / 1 / 2   | Todo elemento obligatorio tiene implementación, prueba o excepción aprobada          |\n| Job Stories aplicables | 0 / 1 / 2   | Cuando existen, circunstancia, motivación y resultado conservan evidencia suficiente |\n| Progreso del usuario   | 0 / 1 / 2   | La implementación produce los resultados definidos por el producto                   |\n| Carga cognitiva        | 0 / 1 / 2   | Reduce o justifica conceptos, decisiones y pasos                                     |\n| Claridad de interfaz   | 0 / 1 / 2   | Estado, acción y consecuencia se comprenden                                          |\n| Control y recuperación | 0 / 1 / 2   | Existe revisión, corrección o reversibilidad proporcional                            |\n| Profundidad progresiva | 0 / 1 / 2   | La capacidad aparece cuando corresponde                                              |\n| Confiabilidad y tiempo | 0 / 1 / 2   | Rendimiento, persistencia y feedback cumplen lo esperado                             |\n| Uso responsable de IA  | 0 / 1 / 2   | Incertidumbre, límites y determinismo están resueltos                                |\n| Calidad acumulativa    | 0 / 1 / 2   | Estados, lenguaje y microinteracciones son coherentes                                |\n\nCriterio de salida recomendado. Ninguna dimensión crítica puede puntuar 0. Los criterios relacionados con seguridad, permisos, dinero, datos personales o acciones irreversibles deben puntuar 2 antes de liberar. Para el resto, el equipo debe definir su umbral según el riesgo y el alcance.\n\n#### Preguntas para una revisión de producto\n\n- ¿Qué fuente autorizada y qué fundamento de producto justifican esta decisión?\n\n- ¿La implementación y sus pruebas dan cuenta del alcance completo?\n\n- Cuando existen Jobs to Be Done o Job Stories, ¿cómo se relaciona esta decisión con ellos?\n\n- ¿La formulación describe una necesidad o es una funcionalidad redactada con otra fórmula?\n\n- ¿Qué carga cognitiva introduce y cuál elimina?\n\n- ¿Estamos exponiendo una complejidad interna?\n\n- ¿Puede eliminarse algún elemento sin reducir capacidad ni control?\n\n- ¿La persona sabe qué ocurrirá antes de actuar?\n\n- ¿Puede recuperarse con facilidad si se equivoca o si el sistema falla?\n\n- ¿La IA está proponiendo, decidiendo o ejecutando? ¿Ese nivel está autorizado?\n\n- ¿Qué haría que rechazáramos esta implementación aunque técnicamente funcione?",
+      "sha256": "bafc2630e9914249a40019cf04bdb988f77c9f3781b29370c477356dd8436f28"
+    },
+    {
+      "id": "SH-AP",
+      "familia": "controles",
+      "titulo": "ANTIPATRONES",
+      "ancla": "sh-ap",
+      "linea_inicio": 796,
+      "linea_fin": 824,
+      "texto": "<a id=\"sh-ap\"></a>\n\n## ANTIPATRONES · `SH-AP`\n\n### Señales de que el producto se aleja del manifiesto\n\n| **Antipatrón**                              | **Cómo se manifiesta**                                                                         | **Respuesta**                                                                        |\n|---------------------------------------------|------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|\n| La Job Story es una feature disfrazada      | La motivación dice usar un dashboard, recibir alertas o pulsar un botón.                       | Reformular el avance que necesita la persona sin anticipar la respuesta.             |\n| La circunstancia fue inventada              | El equipo redacta una historia plausible sin observar conducta, tensión o contexto real.       | Marcarla como hipótesis y obtener evidencia antes de ampliar la implementación.      |\n| La interfaz replica la base de datos        | El usuario debe elegir tipos, estados o relaciones internas.                                   | Traducir la estructura a objetivos y decisiones humanas.                             |\n| Más opciones se confunden con más valor     | Cada excepción se convierte en un control visible.                                             | Resolver por contexto y revelar excepciones cuando aparezcan.                        |\n| La IA llena vacíos conceptuales             | Un prompt ambiguo produce una implementación grande.                                           | Detener, aclarar supuestos materiales y preservar el alcance autorizado.             |\n| El plan selecciona alcance                  | Se implementan algunas historias o reglas y se posterga el resto sin una decisión de producto. | Restablecer la cobertura completa o registrar una modificación explícita y aprobada. |\n| La descomposición parece exclusión          | Una fase técnica se presenta como si redefiniera lo que el PRD exige.                          | Separar orden de ejecución, estado de avance y alcance comprometido.                 |\n| El tutorial compensa una interfaz oscura    | La tarea básica requiere explicación previa.                                                   | Revisar lenguaje, jerarquía, convenciones y feedback.                                |\n| La confirmación sustituye la reversibilidad | Se pregunta varias veces, pero no existe deshacer.                                             | Diseñar recuperación y usar confirmaciones solo según riesgo.                        |\n| El happy path define el producto            | Errores, vacíos e interrupciones quedan para después.                                          | Modelar estados antes de implementar y aceptarlos explícitamente.                    |\n| La respuesta fluida parece verdadera        | El usuario no distingue hecho, inferencia y propuesta.                                         | Mostrar fuente, incertidumbre, límites y ruta de verificación.                       |\n| La velocidad técnica oculta la espera       | La operación tarda sin feedback o bloquea todo el flujo.                                       | Responder de inmediato, mostrar progreso y preservar continuidad.                    |\n| La estética maquilla la fricción            | La pantalla luce bien, pero exige decisiones innecesarias.                                     | Evaluar el recorrido completo y el esfuerzo real.                                    |\n| El agente agrega por si acaso               | Aparecen modos, preferencias y abstracciones no pedidas.                                       | Definir exclusiones y exigir justificación por capacidad.                            |\n\n#### Una advertencia sobre la simplicidad\n\nLa simplicidad puede convertirse en una excusa para ocultar información, negar casos legítimos o limitar al usuario experto. El marco no premia interfaces vacías. Premia la relación correcta entre capacidad, momento y contexto.\n\nLa simplicidad valiosa no elimina lo necesario. Evita exigirlo antes de tiempo.",
+      "sha256": "f6386215cc6236315f707a6b5818b64982934d49804434680ffdea263318ae1b"
+    },
+    {
+      "id": "SH-GOV",
+      "familia": "controles",
+      "titulo": "GOBERNANZA",
+      "ancla": "sh-gov",
+      "linea_inicio": 885,
+      "linea_fin": 941,
+      "texto": "<a id=\"sh-gov\"></a>\n\n## GOBERNANZA · `SH-GOV`\n\n### Cómo convertir el manifiesto en una práctica habitual\n\nEl manifiesto pierde valor si se limita a una presentación inicial. Debe aparecer en los momentos donde el equipo toma decisiones: definición, diseño, generación, revisión y aprendizaje posterior al lanzamiento.\n\n#### Responsabilidades\n\n| **Responsable** | **Obligación principal**                                                                                                                                                        |\n|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Producto        | Establece la definición autorizada, el alcance, los resultados, las reglas, los no objetivos y la evidencia de éxito; valida Jobs to Be Done y Job Stories cuando se utilizan.  |\n| Diseño          | Traduce el fundamento de producto a recorridos coherentes con el modelo mental de la persona y protege su atención; utiliza Job Stories cuando permiten concretar la situación. |\n| Ingeniería      | Absorbe complejidad, garantiza estados, rendimiento, accesibilidad y recuperación.                                                                                              |\n| Agente de IA    | Planifica e implementa dentro del fundamento y del contrato; declara supuestos, mantiene cobertura y no reduce ni amplía alcance por iniciativa propia.                         |\n| Revisión humana | Evalúa causalidad, sentido, riesgo, experiencia completa y evidencia; no se limita a revisar código.                                                                            |\n\n#### Puntos de control\n\n| **Momento**             | **Decisión requerida**                                                                                                                   |\n|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------|\n| Antes de diseñar        | Fuentes, autoridad, alcance, resultados, evidencia, supuestos y no objetivos están claros; las Job Stories se comprenden cuando existen. |\n| Antes de generar código | El plan cubre la definición completa y establece dependencias, respuesta elegida, rutas, estados, reglas críticas, riesgos y aceptación. |\n| Durante la construcción | La descomposición organiza el trabajo sin alterar el alcance; bloqueos, pendientes y excepciones permanecen visibles.                    |\n| Antes de integrar       | Cada cambio conserva trazabilidad con su fundamento, respeta alcance, cubre estados y pasa pruebas técnicas.                             |\n| Antes de liberar        | La implementación completa demuestra resultados, cobertura, comprensión, control y calidad de experiencia.                               |\n| Después de liberar      | Se observan resultado, fricción, abandono y errores; se revisan el fundamento, las historias y sus supuestos cuando corresponda.         |\n\n#### Evolución del manifiesto\n\nLos principios deben ser estables; las reglas y pruebas pueden evolucionar con nueva evidencia. Todo cambio debería registrar el problema observado, la decisión modificada y la razón. El marco no debe crecer por acumulación: una nueva regla solo se incorpora si resuelve un vacío que las existentes no cubren.\n\n#### Control de cambios de las versiones 2.0 y 2.1\n\nLa versión 1.0 permanece como formulación fundacional. La versión 2.0 conserva su tesis y sus diez principios, pero reemplaza referencias operativas genéricas a Jobs to Be Done por una cadena más concreta y verificable.\n\n| **Área**             | **Ajuste de la versión 2.0**                                                | **Contenido que permanece**                                               |\n|----------------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------|\n| Unidad de diseño     | La Job Story concreta el progreso dentro de un Jobs to Be Done.             | El progreso del usuario sigue siendo la medida principal.                 |\n| Arquitectura         | Se incorpora un nivel entre principio y regla.                              | Principios, reglas y pruebas conservan su función.                        |\n| Flujo y artefactos   | Se exige circunstancia, motivación, resultado y evidencia antes de diseñar. | Se mantiene la documentación mínima que cambia decisiones.                |\n| Desarrollo con IA    | El agente debe reformular y respetar la Job Story.                          | Continúan los límites, el determinismo y la revisión humana.              |\n| Aceptación           | El resultado se prueba bajo la circunstancia descrita.                      | Accesibilidad, rendimiento, estados y control siguen siendo obligatorios. |\n| Ejemplo y gobernanza | Se añade trazabilidad causal y validación de historias.                     | El tutor de cálculo y los puntos de control conservan su propósito.       |\n\nLa versión 2.1 preserva la tesis, los diez principios, la doctrina para IA, las Job Stories y el ejemplo aplicado. Amplía el núcleo para admitir definiciones de producto de distinta forma, extensión y profundidad sin imponer una estructura aguas arriba ni suponer una estrategia incremental.\n\n| **Área**              | **Ajuste de la versión 2.1**                                                              | **Contenido que permanece**                                                      |\n|-----------------------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|\n| Fundamento            | Se define una base autorizada, trazable y verificable que puede adoptar distintas formas. | El progreso humano continúa como medida principal.                               |\n| Job Stories           | Se declaran forma de referencia, no estructura universal obligatoria.                     | Se conservan su forma canónica, evidencia, pruebas y ejemplos.                   |\n| Alcance               | Se exige cobertura completa y se prohíben omisiones o postergaciones no autorizadas.      | Producto sigue definiendo alcance y no objetivos.                                |\n| Planificación         | Se separa descomposición, secuencia y paralelismo de cualquier decisión de alcance.       | Continúan la claridad previa, las reglas, los riesgos y la aceptación.           |\n| Estrategia de entrega | La incrementalidad deja de ser un supuesto del núcleo.                                    | Cada proyecto puede adoptar fases o releases cuando corresponda.                 |\n| Implementación SDD    | Se reserva para anexos y adaptadores independientes.                                      | El núcleo conserva principios y garantías que toda implementación debe respetar. |",
+      "sha256": "454a83dfab6be2ba08a2627a47332d3216116adc3cab7448313bcd957d1fc421"
+    },
+    {
+      "id": "SH-DONE",
+      "familia": "controles",
+      "titulo": "Definición de terminado",
+      "ancla": "sh-done",
+      "linea_inicio": 942,
+      "linea_fin": 949,
+      "texto": "<a id=\"sh-done\"></a>\n\n#### Definición de terminado · `SH-DONE`\n\nUn desarrollo está completo cuando todos los elementos obligatorios de la definición de producto tienen una implementación y una evidencia verificable, o una excepción explícita y aprobada; las personas alcanzan los resultados previstos bajo las condiciones definidas, y la conducta del sistema y la calidad de la experiencia han sido verificadas con rigor proporcional al riesgo.\n\nCuando el fundamento incluye Job Stories, la verificación debe demostrar el resultado en sus circunstancias. La completitud incluye código correcto, pero no termina allí. Exige cobertura del alcance, integración entre sus partes, estados críticos confiables, una experiencia que no obligue a aprender la arquitectura del producto, IA dentro de límites explícitos y claridad sobre lo que debe observarse después del lanzamiento.",
+      "sha256": "37c52f39e3a83108b82f50f0e4fbd65e826e98a1ee6c4f4907c5217b2da7c4c3"
+    },
+    {
+      "id": "SH-POCKET",
+      "familia": "controles",
+      "titulo": "GUÍA DE BOLSILLO",
+      "ancla": "sh-pocket",
+      "linea_inicio": 950,
+      "linea_fin": 1007,
+      "texto": "<a id=\"sh-pocket\"></a>\n\n## GUÍA DE BOLSILLO · `SH-POCKET`\n\n### Catorce preguntas antes de aceptar una decisión\n\n1\\. ¿Cuál es la fuente autorizada y qué alcance establece?\n\n2\\. ¿La planificación da cuenta de todos los elementos obligatorios?\n\n3\\. ¿Qué circunstancia concreta activa la necesidad?\n\n4\\. ¿Qué motivación o tensión impulsa a la persona a actuar?\n\n5\\. ¿Qué resultado permitiría reconocer el progreso?\n\n6\\. ¿Qué conducta o evidencia demuestra que la historia ocurre?\n\n7\\. Cuando existe una Job Story, ¿describe el problema sin prescribir la solución?\n\n8\\. ¿Qué complejidad absorbe el sistema y cuál todavía traslada?\n\n9\\. ¿Qué debe ver la persona ahora y qué puede esperar?\n\n10\\. ¿Qué ocurrirá si se equivoca, interrumpe o regresa después?\n\n11\\. ¿Conserva control sobre la decisión, los datos y el resultado?\n\n12\\. ¿Qué parte necesita determinismo y qué parte admite generación?\n\n13\\. ¿Cuál es la alternativa más simple que cumple el fundamento de producto?\n\n14\\. ¿Qué evidencia nos permitiría decir que está terminado?\n\n#### Siete razones para detener una implementación\n\n- `STOP01` No existe un fundamento de producto identificable o la solución parece preceder al problema.\n\n- `STOP02` El plan no da cuenta de todo el alcance obligatorio definido por producto.\n\n- `STOP03` Se pretende omitir, modificar o postergar una parte sin una decisión autorizada.\n\n- `STOP04` Una ambigüedad material está siendo resuelta por el agente sin autorización.\n\n- `STOP05` La interfaz expone una complejidad interna que el sistema podría absorber.\n\n- `STOP06` Una acción sensible carece de determinismo, trazabilidad o recuperación.\n\n- `STOP07` El equipo solo puede demostrar que el código funciona, no que el usuario progresa.\n\n#### Tres frases que protegen el criterio\n\n¿Qué circunstancia activa esta necesidad?\n\n¿Qué progreso habilita?\n\n¿Qué evidencia lo demuestra?",
+      "sha256": "972c7768b1f2b8a97349cd59cd4758231552c18a162d4b53485ecaece5bb8b75"
+    }
+  ],
+  "total_pasajes": 58,
+  "pasajes": [
+    {
+      "id": "(preámbulo)",
+      "familia": "pasaje",
+      "titulo": "(preámbulo)",
+      "linea_inicio": 5,
+      "linea_fin": 5,
+      "texto": "Principios, fundamento de producto, Job Stories y pruebas de decisión para construir productos centrados en el progreso situado de las personas",
+      "sha256": "cda091763e23e6c02db5031d0e4b5c450d1681a14fb547ed78f30cbcfca5c81a"
+    },
+    {
+      "id": "(preámbulo)",
+      "familia": "pasaje",
+      "titulo": "(preámbulo)",
+      "linea_inicio": 7,
+      "linea_fin": 7,
+      "texto": "Construimos herramientas para ampliar las capacidades de las personas, no para exhibir las capacidades del software.",
+      "sha256": "b075f765a5ae0b79d4f521c6cdab9521d4e3efacc6238f2e44b6d2d118dc5be9"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § El problema que este manifiesto busca resolver",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § El problema que este manifiesto busca resolver",
+      "linea_inicio": 39,
+      "linea_fin": 39,
+      "texto": "¿Cómo construimos software que amplifique la capacidad de las personas para conseguir lo que buscan, sin transferirles la complejidad de la tecnología?",
+      "sha256": "c4614147aa90889d4c77982c0278c0facb598be13c83c4aad152b2e8b5f7860d"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § El problema que este manifiesto busca resolver",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § El problema que este manifiesto busca resolver",
+      "linea_inicio": 41,
+      "linea_fin": 41,
+      "texto": "El software gana capacidad con rapidez. La inteligencia artificial acelera todavía más ese proceso: hoy resulta barato generar pantallas, opciones, automatizaciones y capas de abstracción. Esa abundancia no garantiza un mejor producto. También permite convertir una decisión débil en mucho código correcto y una idea innecesaria en una funcionalidad terminada.",
+      "sha256": "b8cb5d718ce987d21badbe63495690b4fc2b2094ae65831a27a77b83d7e70f8d"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § El problema que este manifiesto busca resolver",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § El problema que este manifiesto busca resolver",
+      "linea_inicio": 43,
+      "linea_fin": 43,
+      "texto": "Este manifiesto establece una doctrina para decidir qué merece ser construido, cómo debe sentirse al usarlo y qué evidencia debe existir antes de aceptar una implementación. Su unidad de medida no es la cantidad de funcionalidades entregadas. Es el progreso que una persona puede lograr con claridad, confianza y control.",
+      "sha256": "aec9b16cfdc70cb361b965286200abcf61507ee7b2921f319c87a4833e9c18b6"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § El problema que este manifiesto busca resolver",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § El problema que este manifiesto busca resolver",
+      "linea_inicio": 45,
+      "linea_fin": 45,
+      "texto": "La versión 2.1 conserva la concreción alcanzada mediante Jobs to Be Done y Job Stories, y amplía la capacidad del marco para trabajar con definiciones de producto de distinta extensión y profundidad. Una Job Story sigue ofreciendo una forma especialmente útil de describir la circunstancia que activa una necesidad, la motivación que impulsa a actuar y el resultado buscado. Sin embargo, el fundamento de un desarrollo también puede estar expresado mediante épicas, capacidades, requisitos, reglas, recorridos, criterios u otras estructuras coherentes. La forma de la entrada no debe obligar a deformar la intención del producto.",
+      "sha256": "90484fc6184b9235a873e76a90edb33b8acfa5c698443b4f295386665bd73c10"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § La conclusión central",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § La conclusión central",
+      "linea_inicio": 49,
+      "linea_fin": 49,
+      "texto": "La función establece lo que el software permite hacer. La experiencia determina cuánto de esa capacidad puede aprovechar realmente una persona.",
+      "sha256": "447a1bffb732d740b177c91621d15040209dbd0055710ddce5b4e74001add276"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § La conclusión central",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § La conclusión central",
+      "linea_inicio": 51,
+      "linea_fin": 51,
+      "texto": "La experiencia no es una capa estética que se agrega después de resolver la funcionalidad. Forma parte de ella. Si una solución produce el resultado correcto, pero exige que el usuario descifre la interfaz, recuerde reglas innecesarias o tema equivocarse, la solución sigue incompleta.",
+      "sha256": "27ac52e2d651c68cbb541c17c268b3a140c190950cd5f49509919a9fc3342004"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § Alcance y lectores",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § Alcance y lectores",
+      "linea_inicio": 55,
+      "linea_fin": 55,
+      "texto": "El marco sirve para productos donde la experiencia de uso influye directamente en el resultado: aplicaciones web y móviles, herramientas internas, sistemas de aprendizaje, servicios digitales, productos con agentes y soluciones asistidas por IA. Está dirigido a product managers, diseñadores, desarrolladores y agentes de código que participan en decisiones de producto.",
+      "sha256": "92191be9b407dc6dc1114f8fbffe6906852e56fdb5df9e71cff7405ddd07f215"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § Alcance y lectores",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § Alcance y lectores",
+      "linea_inicio": 57,
+      "linea_fin": 57,
+      "texto": "No prescribe un estilo visual, una tecnología, una estructura de PRD, una estrategia de entrega ni un framework de ingeniería. Tampoco elimina la complejidad real del dominio. Define cómo impedir que la estructura interna del sistema se convierta, por comodidad del equipo, en trabajo adicional para la persona que lo usa.",
+      "sha256": "89f624aacb21a1c574f506cdfabf79cad4a2a536dba0f5f02b1eb7c4fa94b552"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § Alcance y lectores",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § Alcance y lectores",
+      "linea_inicio": 59,
+      "linea_fin": 59,
+      "texto": "Este documento contiene el núcleo del manifiesto. Su traducción a métodos de desarrollo basados en especificaciones y a frameworks particulares debe realizarse mediante anexos o adaptadores separados. Ninguna implementación puede reducir sus principios, alterar el alcance definido por producto ni atribuir al agente una autoridad que el núcleo reserva a las personas.",
+      "sha256": "63661449d40a338ea773823815cab21effc6e6c1ac65c4cff5f29796297ddec5"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § Cómo usar este documento",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § Cómo usar este documento",
+      "linea_inicio": 63,
+      "linea_fin": 63,
+      "texto": "El documento ofrece dos profundidades de lectura. La primera permite comprender la postura en pocos minutos. La segunda convierte esa postura en decisiones verificables durante el desarrollo.",
+      "sha256": "65b0dc5c03c85f8b07e3f235b3c858acba4ae9fc63c928c35d3e9e44fdab5e60"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § La arquitectura del marco",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § La arquitectura del marco",
+      "linea_inicio": 74,
+      "linea_fin": 74,
+      "texto": "Cada principio se traduce en niveles operativos. Ningún nivel sustituye a otro. El fundamento de producto conserva la definición autorizada de lo que debe construirse y por qué. Jobs to Be Done puede orientar el progreso general y la Job Story ofrece la forma de referencia de este manifiesto para volver ese progreso concreto, situado y verificable.",
+      "sha256": "ddeb8cf39801855179dc9086bfc4d295351ccca7ee7fa6dfb458cf6bd4e02d3d"
+    },
+    {
+      "id": "PROPÓSITO DEL DOCUMENTO § Límite entre núcleo e implementación",
+      "familia": "pasaje",
+      "titulo": "PROPÓSITO DEL DOCUMENTO § Límite entre núcleo e implementación",
+      "linea_inicio": 86,
+      "linea_fin": 86,
+      "texto": "El núcleo define principios, autoridades, condiciones de trazabilidad, criterios de aceptación y límites para equipos y agentes. Un anexo general puede traducir estas obligaciones a un método de desarrollo basado en especificaciones. Los adaptadores de frameworks particulares deben resolver comandos, plantillas, flujos, persistencia y compatibilidad sin modificar el núcleo. Un cambio de framework no constituye por sí mismo una nueva versión del manifiesto.",
+      "sha256": "f45ddc8e9fe6fe13af8d7c5486dbd32048118cc92aaf36c3689896c7dedce7b8"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 92,
+      "linea_fin": 92,
+      "texto": "El propósito del software es ampliar lo que una persona puede hacer.",
+      "sha256": "738e225c7bf9e2eb2d8def05b636a29468a050950a1a68417dd8b8fe20bab336"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 94,
+      "linea_fin": 94,
+      "texto": "Las personas no llegan a nuestros productos para utilizar funcionalidades. Llegan porque quieren comprender, decidir, crear, aprender, comunicarse, resolver o avanzar. Ese progreso es nuestro verdadero producto.",
+      "sha256": "e7e802c73362f16ebd7b5d0293bd9a4951d974b35663ef6c4e228489ad1fd1bc"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 96,
+      "linea_fin": 96,
+      "texto": "El progreso no ocurre en abstracto. Se activa cuando una circunstancia crea una necesidad, una tensión o una decisión. Antes de diseñar una respuesta describimos esa circunstancia, la motivación que produce y el resultado que la persona busca. La solución viene después.",
+      "sha256": "3f64c90522b83efcd226385e97169f244f56ce76a34404935903e1150530f4e0"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 98,
+      "linea_fin": 98,
+      "texto": "La definición de producto gobierna qué debe construirse. Puede expresarse con una sola historia o mediante un PRD extenso compuesto por historias, capacidades, reglas, estados, recorridos y criterios. El desarrollo debe comprender esa estructura, conservar su significado y dar cuenta de su alcance completo. Descomponer, ordenar o ejecutar en paralelo el trabajo no autoriza a omitirlo ni a redefinirlo.",
+      "sha256": "7423bf31e699bc0784adacb621526e0e91fac56fa82bf2181ceae5a676a6f4a5"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 100,
+      "linea_fin": 100,
+      "texto": "Por eso la experiencia forma parte de la función. Un sistema que permite completar una tarea, pero obliga a interpretar la interfaz, recordar convenciones, atravesar estructuras innecesarias o preguntarse qué ocurrirá después, transfiere al usuario un problema que el producto debería resolver.",
+      "sha256": "e0f854b8f83d022990d5c2c278a0ad4a52f0092f68b3c280bc14e9aa48e7789b"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 102,
+      "linea_fin": 102,
+      "texto": "No rechazamos la complejidad. Muchos problemas importantes son complejos. Rechazamos que la complejidad de construirlos tenga que convertirse automáticamente en complejidad para quien usa la herramienta.",
+      "sha256": "aaaac0e336bee0b98e3d77f08ea821f1e8a69e9cb00735b8c18c286564e96e7c"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 104,
+      "linea_fin": 104,
+      "texto": "Buscamos software sencillo al comenzar y profundo cuando se necesita. Software que revele capacidades en contexto, explique sin interrumpir, anticipe sin controlar y permita recuperarse sin miedo.",
+      "sha256": "3ee03fdccbab59a58f9bb54fd13862d810f86c6af7202925344ef083741e4aac"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 106,
+      "linea_fin": 106,
+      "texto": "Cada elemento debe justificar la atención que consume. Cada interacción debe ayudar a comprender dónde estamos, qué podemos hacer y qué ocurrirá después. Cada detalle debe contribuir a una experiencia coherente, rápida y confiable.",
+      "sha256": "03d785667267259748ca26ced93a8d00d956ff02161f8a9856333b8fb4f07066"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 108,
+      "linea_fin": 108,
+      "texto": "La inteligencia artificial debe absorber complejidad, no multiplicarla. Puede proponer, resumir y automatizar, pero permanece subordinada a la intención de la persona. Las reglas críticas, los permisos, los compromisos y los estados que requieren certeza no dependen de una interpretación probabilística.",
+      "sha256": "753b32ffda43ce959468d9f0125049a9317ff2dcccd93b94c4f6caa1d850b1ff"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 110,
+      "linea_fin": 110,
+      "texto": "Ahora que construir es más fácil, nuestra responsabilidad aumenta. Antes de agregar una capacidad preguntamos qué progreso habilita, qué carga introduce, qué riesgo crea y si merece existir.",
+      "sha256": "4344d1121dea2b79a10b68bf1017bf30a816aa6fbceb5311990666dcc7fddf95"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 112,
+      "linea_fin": 112,
+      "texto": "Nuestro objetivo es que la sofisticación permanezca detrás de la experiencia y que, delante de ella, la persona conserve su propósito, su atención y su control.",
+      "sha256": "39b10c5773e6ad61cd4b4212bb829214bd4e05ddf4f0465f4d45f2050ee8b246"
+    },
+    {
+      "id": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "familia": "pasaje",
+      "titulo": "TEXTO CANÓNICO § Manifiesto para el desarrollo de software humano",
+      "linea_inicio": 114,
+      "linea_fin": 114,
+      "texto": "El mejor software no consigue que el usuario admire el software. Consigue que se sorprenda de lo que ahora es capaz de hacer.",
+      "sha256": "4ec43bdfecbc77c1a006111d9cfb943b965a338d5b5d94ff8742be4cdc5c006e"
+    },
+    {
+      "id": "PRINCIPIOS DE DISEÑO § Diez compromisos que gobiernan las decisiones",
+      "familia": "pasaje",
+      "titulo": "PRINCIPIOS DE DISEÑO § Diez compromisos que gobiernan las decisiones",
+      "linea_inicio": 120,
+      "linea_fin": 120,
+      "texto": "Los principios no describen aspiraciones decorativas. Cada uno debe ser capaz de cambiar una decisión, detener una implementación o exigir evidencia adicional. Si una frase no tiene consecuencias prácticas, no cumple una función dentro del marco.",
+      "sha256": "9f2cb5d21dc2adfa17e45f97e188748300d91197f8bcd2d8ef87141a733a6d0a"
+    },
+    {
+      "id": "DOCTRINA PARA DESARROLLO CON IA § Cuando construir cuesta menos la decisión importa más",
+      "familia": "pasaje",
+      "titulo": "DOCTRINA PARA DESARROLLO CON IA § Cuando construir cuesta menos la decisión importa más",
+      "linea_inicio": 591,
+      "linea_fin": 591,
+      "texto": "Los agentes de código reducen el costo de transformar instrucciones en software. Esa ventaja cambia el cuello de botella. El problema ya no es solo si una capacidad puede construirse, sino si merece existir, si resuelve el problema correcto y si conserva la comprensión del usuario.",
+      "sha256": "5aef2c6b0f98b4eeda8fb34018d151ffcc56822ae6fea61bbddd260d2a30a690"
+    },
+    {
+      "id": "DOCTRINA PARA DESARROLLO CON IA § Cuando construir cuesta menos la decisión importa más",
+      "familia": "pasaje",
+      "titulo": "DOCTRINA PARA DESARROLLO CON IA § Cuando construir cuesta menos la decisión importa más",
+      "linea_inicio": 595,
+      "linea_fin": 595,
+      "texto": "Un agente puede implementar con gran velocidad una especificación débil, reproducir patrones convencionales que no encajan con el contexto y agregar opciones plausibles que nadie pidió. Por eso el desarrollo asistido por IA necesita una capa explícita de intención, límites y verificación.",
+      "sha256": "849d990414ea076bba7f0390e97d4b948afe1666a74da24382e793fb94cdd0a1"
+    },
+    {
+      "id": "DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora",
+      "familia": "pasaje",
+      "titulo": "DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora",
+      "linea_inicio": 610,
+      "linea_fin": 610,
+      "texto": "Ahora que podemos construir casi cualquier cosa con mayor facilidad, ¿qué merece ser construido y qué debemos dejar deliberadamente fuera?",
+      "sha256": "734d21d7bafa562e60fbf164aafcb78a10629581a0d65b1da83da0ce5b9c28f5"
+    },
+    {
+      "id": "DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora",
+      "familia": "pasaje",
+      "titulo": "DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora",
+      "linea_inicio": 612,
+      "linea_fin": 612,
+      "texto": "Esta pregunta introduce una obligación que antes podía quedar oculta por el costo técnico. Debe plantearse durante la definición de producto y al evaluar alternativas, no utilizarse durante la implementación para recortar unilateralmente un alcance aprobado. Cada capacidad debe justificar su existencia contra una alternativa más simple, incluida la alternativa de no construirla; una vez autorizada, cualquier exclusión requiere una decisión trazable de producto.",
+      "sha256": "03a45914ba87b1ea1c8212cd20e11a2455baea0c52e9e1e288eeabd9673ab342"
+    },
+    {
+      "id": "DOCTRINA PARA DESARROLLO CON IA § Determinismo y generación",
+      "familia": "pasaje",
+      "titulo": "DOCTRINA PARA DESARROLLO CON IA § Determinismo y generación",
+      "linea_inicio": 616,
+      "linea_fin": 616,
+      "texto": "La elección no es entre un producto determinista o un producto con IA. Un sistema confiable combina ambos según la naturaleza de cada decisión.",
+      "sha256": "9baf0423aa636a626e68fe0c484c77b002a84c6ca725cc01931a474dea2108c0"
+    },
+    {
+      "id": "FLUJO DE TRABAJO § Del propósito a una solución verificable",
+      "familia": "pasaje",
+      "titulo": "FLUJO DE TRABAJO § Del propósito a una solución verificable",
+      "linea_inicio": 629,
+      "linea_fin": 629,
+      "texto": "El flujo evita que la generación de código se convierta en el primer acto de diseño. No pretende crear una fase documental pesada ni imponer una estructura al PRD. Busca comprender el fundamento recibido, producir la claridad necesaria para planificar y mantener cobertura hasta la aceptación.",
+      "sha256": "eaacb80789271e6e69fc3bd0d48c80fbc0fa76095ffec0099d47b7e4e8b0ea5c"
+    },
+    {
+      "id": "FLUJO DE TRABAJO § Artefactos ajustados al contexto",
+      "familia": "pasaje",
+      "titulo": "FLUJO DE TRABAJO § Artefactos ajustados al contexto",
+      "linea_inicio": 644,
+      "linea_fin": 644,
+      "texto": "Cada artefacto existe para responder una pregunta, no para satisfacer una plantilla. Puede ser una sección del PRD, una vista derivada, una tabla, una prueba o un documento separado. Si la información ya existe, debe referenciarse y no duplicarse. La profundidad depende de la extensión, complejidad, incertidumbre y riesgo; si un artefacto no cambia una decisión ni ayuda a verificarla, debe simplificarse o eliminarse.",
+      "sha256": "80a83c92ab23750cf86c22eb01fd13dc6b807bcf5f96393683d7d0ddbd4f25b4"
+    },
+    {
+      "id": "CONTRATO REUTILIZABLE § Instrucciones para un agente de desarrollo",
+      "familia": "pasaje",
+      "titulo": "CONTRATO REUTILIZABLE § Instrucciones para un agente de desarrollo",
+      "linea_inicio": 687,
+      "linea_fin": 687,
+      "texto": "El siguiente contrato puede incorporarse a las instrucciones de un repositorio, a un PRD o al prompt de un agente de código. Debe acompañarse con el contexto específico del producto y no sustituye la definición del problema.",
+      "sha256": "796823b9f0b12e6893094c2571ac76b30a18dcf8e30b463ff563cc0ecb84256f"
+    },
+    {
+      "id": "CONTRATO REUTILIZABLE § Prompt breve para iniciar una tarea",
+      "familia": "pasaje",
+      "titulo": "CONTRATO REUTILIZABLE § Prompt breve para iniciar una tarea",
+      "linea_inicio": 727,
+      "linea_fin": 727,
+      "texto": "Antes de escribir código, identifica la definición de producto autorizada, explica su fundamento y confirma el alcance completo. Reconoce todas las historias, capacidades, reglas y criterios aplicables; cuando existan Job Stories, conserva su circunstancia, motivación y resultado. Distingue evidencia de supuestos. Planifica dependencias y cobertura sin omitir ni postergar alcance por iniciativa propia. Implementa la solución más simple que cumpla lo aprobado y verifica resultados, integración, errores y recuperación.",
+      "sha256": "455a914cb59c0ca13678232f73a6803cb901b4d65246a8f90cf0e76a37fbcd00"
+    },
+    {
+      "id": "VERIFICACIÓN § Pruebas para aceptar una solución",
+      "familia": "pasaje",
+      "titulo": "VERIFICACIÓN § Pruebas para aceptar una solución",
+      "linea_inicio": 733,
+      "linea_fin": 733,
+      "texto": "La aceptación debe producir evidencia. La impresión de que una pantalla se ve limpia o que el código compila no demuestra que el producto cumpla su propósito.",
+      "sha256": "de064f7355755f1eacf1f92902aa3b109c4355cc21af6a479f765c159a95237b"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Tutor de cálculo para una persona que todavía no entiende",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Tutor de cálculo para una persona que todavía no entiende",
+      "linea_inicio": 829,
+      "linea_fin": 829,
+      "texto": "Considere una aplicación que explica derivadas, propone un ejercicio, ofrece una pista y finalmente muestra la solución. El flujo parece completo. Sin embargo, si la persona falla después de leer la explicación y tampoco comprende la solución, llega a un callejón sin salida. La aplicación entregó contenido, pero no produjo progreso.",
+      "sha256": "7e6f679d87faf72d6f38e2e7e01b81f7ce76ca37067728137259ba54f6f85e83"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Del pedido de función a la circunstancia",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Del pedido de función a la circunstancia",
+      "linea_inicio": 833,
+      "linea_fin": 833,
+      "texto": "**Formulación débil.** Como estudiante quiero recibir pistas para poder resolver derivadas. El rol es genérico, la pista ya prescribe la respuesta y el resultado no distingue comprensión de avance mecánico.",
+      "sha256": "8cbf02893064e0e8c4ee6540cab3547aea32c66d495d77d992dd842f2d79220f"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Del pedido de función a la circunstancia",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Del pedido de función a la circunstancia",
+      "linea_inicio": 835,
+      "linea_fin": 835,
+      "texto": "**Job Story principal.** *Cuando he leído una explicación y todavía no sé qué regla aplicar, necesito identificar el concepto previo que no comprendo, para poder retomar el ejercicio sin depender de que me muestren la solución.*",
+      "sha256": "9e2b8bf57c843027d9c87bcc27649a8f668295e4cee1d329bc9d8c9c06c2867c"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Del pedido de función a la circunstancia",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Del pedido de función a la circunstancia",
+      "linea_inicio": 837,
+      "linea_fin": 837,
+      "texto": "**Job Story de recuperación.** *Cuando veo la solución y sigo sin entender por qué se eligió el paso siguiente, necesito reconstruir una sola decisión con otra representación, para poder explicar la regla con mis propias palabras.*",
+      "sha256": "04739109376c8b63b690217eb21547dfedfe46c4a7deba875e6e8e6b00b640d9"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Del pedido de función a la circunstancia",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Del pedido de función a la circunstancia",
+      "linea_inicio": 839,
+      "linea_fin": 839,
+      "texto": "Ambas historias pertenecen al mismo Jobs to Be Done de nivel superior: desarrollar comprensión suficiente para resolver un ejercicio equivalente con autonomía creciente. Sin embargo, describen bloqueos distintos y pueden exigir respuestas diferentes.",
+      "sha256": "ba8da8980a239f551e975c201c112bfbaf545fd7d1332cf8024c50d2208abc1d"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "linea_inicio": 861,
+      "linea_fin": 861,
+      "texto": "1\\. Detectar el tipo de bloqueo: concepto, notación, operación previa o interpretación del enunciado.",
+      "sha256": "9b1133b85d9aeab0809e0503be5764857c260ad54c3c174f0c4c6da246b3ea1e"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "linea_inicio": 863,
+      "linea_fin": 863,
+      "texto": "2\\. Reformular con una representación distinta, no repetir la misma explicación con más palabras.",
+      "sha256": "76acda4a8f4e7899e15fcdac9005d39c6c5eff1819cba1984295d51994dbcc30"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "linea_inicio": 865,
+      "linea_fin": 865,
+      "texto": "3\\. Comprobar una microhabilidad anterior mediante una pregunta breve y diagnóstica.",
+      "sha256": "8ceedd90db1a9e6df1e0fb3af5c5bcc51f93e9c6fcb9b0eedb3c6ed0ac8e64c5"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "linea_inicio": 867,
+      "linea_fin": 867,
+      "texto": "4\\. Ofrecer un ejemplo resuelto paso a paso con una decisión por vez y lenguaje del estudiante.",
+      "sha256": "408fd58a3a717f3ff1b0ed44bccad70445638320c102b7736870ba88b3fcdcab"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "linea_inicio": 869,
+      "linea_fin": 869,
+      "texto": "5\\. Pedir que explique el razonamiento o complete un paso equivalente antes de avanzar.",
+      "sha256": "64414523bc003cb7b6140f2eb237b907e931b93213c85cd74107992daf4fe0bd"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Rediseño del recorrido",
+      "linea_inicio": 871,
+      "linea_fin": 871,
+      "texto": "6\\. Mantener siempre una ruta para retroceder, cambiar de explicación o solicitar ayuda humana.",
+      "sha256": "b14a00e1f94a074adbb4ee5f67f93567b672759ed6a72de7e84f692bee227853"
+    },
+    {
+      "id": "EJEMPLO APLICADO § Criterio de éxito",
+      "familia": "pasaje",
+      "titulo": "EJEMPLO APLICADO § Criterio de éxito",
+      "linea_inicio": 883,
+      "linea_fin": 883,
+      "texto": "El objetivo no es que el estudiante llegue al final de la secuencia. Es que pueda resolver o explicar un ejercicio equivalente con menos ayuda. Esa diferencia cambia la interfaz, la lógica, la medición y el uso de IA.",
+      "sha256": "d33c3518b4dd1f251ee83d5ff01b1327467ed885fd8888dfae1d3ab799a1a907"
+    },
+    {
+      "id": "INFLUENCIAS Y NOTAS § Origen de la perspectiva",
+      "familia": "pasaje",
+      "titulo": "INFLUENCIAS Y NOTAS § Origen de la perspectiva",
+      "linea_inicio": 1012,
+      "linea_fin": 1012,
+      "texto": "Este marco es una elaboración independiente inspirada en ideas públicas de Craft y en las conversaciones que dieron origen a este documento. No es un manifiesto oficial de Craft ni atribuye a su fundador las reglas operativas aquí propuestas.",
+      "sha256": "96763d193d39fa45b7fb1c43b452125542340057d6b7b0528ccd25cd94ef817c"
+    },
+    {
+      "id": "INFLUENCIAS Y NOTAS § Origen de la perspectiva",
+      "familia": "pasaje",
+      "titulo": "INFLUENCIAS Y NOTAS § Origen de la perspectiva",
+      "linea_inicio": 1014,
+      "linea_fin": 1014,
+      "texto": "De Craft se recogen cuatro influencias: la unión entre forma y función; el efecto que una herramienta produce en la energía y capacidad de quien la usa; la complejidad adaptable que aparece cuando se necesita; y el enfoque human first frente a sistemas que obligan a las personas a acomodarse a su estructura.",
+      "sha256": "df196e9970e3bbc62375f4461bfcbb56b17ae6d7c12cb64e8e4944517a7635b5"
+    },
+    {
+      "id": "INFLUENCIAS Y NOTAS § Origen de la perspectiva",
+      "familia": "pasaje",
+      "titulo": "INFLUENCIAS Y NOTAS § Origen de la perspectiva",
+      "linea_inicio": 1016,
+      "linea_fin": 1016,
+      "texto": "De Jobs to Be Done se conserva el progreso como referencia superior. De Job Stories se adopta una forma concreta de trasladar ese progreso al diseño mediante circunstancias, motivaciones, resultados, conducta actual, ansiedades y evidencia causal.",
+      "sha256": "3022784d1acb67d9ae809c1c772feaabd522158283c452e6314d913599982ef3"
+    },
+    {
+      "id": "INFLUENCIAS Y NOTAS § Origen de la perspectiva",
+      "familia": "pasaje",
+      "titulo": "INFLUENCIAS Y NOTAS § Origen de la perspectiva",
+      "linea_inicio": 1018,
+      "linea_fin": 1018,
+      "texto": "La versión 2.1 integra estas influencias dentro de un núcleo capaz de respetar definiciones de producto heterogéneas. Las Job Stories permanecen como forma de referencia y ejemplo aplicado; no sustituyen otras estructuras autorizadas ni permiten recortar su alcance.",
+      "sha256": "619e485337589c33982f4bc03e55e2c86789f4c0330d53c4dd0554efbc726a6f"
+    },
+    {
+      "id": "INFLUENCIAS Y NOTAS § Fuentes consultadas",
+      "familia": "pasaje",
+      "titulo": "INFLUENCIAS Y NOTAS § Fuentes consultadas",
+      "linea_inicio": 1022,
+      "linea_fin": 1022,
+      "texto": "Craft. [<u>Acerca de Craft</u>](https://www.craft.do/es/about). Historia del fundador y reflexiones sobre forma, función, fricción, complejidad adaptable y atención al detalle.",
+      "sha256": "c04131833dca3b06342dbf6f261190a61b0e95ca7d78c2d573963fb98abba2fc"
+    },
+    {
+      "id": "INFLUENCIAS Y NOTAS § Fuentes consultadas",
+      "familia": "pasaje",
+      "titulo": "INFLUENCIAS Y NOTAS § Fuentes consultadas",
+      "linea_inicio": 1024,
+      "linea_fin": 1024,
+      "texto": "Balint Orosz. [<u>Introducing Craft 3</u>](https://www.craft.do/blog/welcome-to-craft3), 28 de noviembre de 2024. Adaptación al contexto, reducción de carga cognitiva, rendimiento y funcionamiento offline.",
+      "sha256": "23de990ed35022f79e707310553fe51f3154df8de2803585b565c84cb87fd2e2"
+    },
+    {
+      "id": "INFLUENCIAS Y NOTAS § Fuentes consultadas",
+      "familia": "pasaje",
+      "titulo": "INFLUENCIAS Y NOTAS § Fuentes consultadas",
+      "linea_inicio": 1026,
+      "linea_fin": 1026,
+      "texto": "Balint Orosz. [<u>Your content is yours and that is more empowering than ever</u>](https://www.craft.do/blog/your-content-is-yours), 27 de noviembre de 2025. Control sobre el contenido, portabilidad, IA y el principio human first versus systems first.",
+      "sha256": "c0491672ae959358aa9cebd1d9ce292c37c2f4f05217fa90e29f6c56cb780dce"
+    },
+    {
+      "id": "INFLUENCIAS Y NOTAS § Fuentes consultadas",
+      "familia": "pasaje",
+      "titulo": "INFLUENCIAS Y NOTAS § Fuentes consultadas",
+      "linea_inicio": 1028,
+      "linea_fin": 1028,
+      "texto": "Alan Klement. [<u>Designing Features Using Job Stories</u>](https://www.intercom.com/blog/using-job-stories-design-features-ui-ux/), publicado por Intercom el 23 de diciembre de 2013. Aplicación granular de Jobs to Be Done al diseño de funcionalidades, interfaz y experiencia mediante contexto, causalidad, motivaciones y ansiedades.",
+      "sha256": "c9a4eb50168ca72c22092c67ce13ec47e7ec7807aad321c1b0e8c04912150c94"
+    },
+    {
+      "id": "INFLUENCIAS Y NOTAS § Declaración final",
+      "familia": "pasaje",
+      "titulo": "INFLUENCIAS Y NOTAS § Declaración final",
+      "linea_inicio": 1032,
+      "linea_fin": 1032,
+      "texto": "La tecnología puede ser extraordinariamente sofisticada detrás de la interfaz. Delante de ella debe permanecer una persona concentrada en aquello que quería conseguir.",
+      "sha256": "e34b56dda41ce735ca989f4893c570d0da2e8a30d360749ccb67449e1f3f00ca"
+    }
+  ]
+}

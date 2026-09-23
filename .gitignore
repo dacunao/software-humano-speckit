@@ -2,3 +2,7 @@
 node_modules/
 dist/
 .astro/
+
+# Cachés de las herramientas del método
+__pycache__/
+*.pyc
