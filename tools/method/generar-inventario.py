@@ -52,7 +52,8 @@ OBJETOS = [
     # El mapa lo produce el método. Las disposiciones que le corresponden son las de producirlo, informarlo
     # y detenerse si una ambigüedad material se cierra sin autorización.
     ("A01", "Mapa del fundamento", {
-        "que_es": ["A01"], "paso": ["F01"], "instruccion": ["CR02"],
+        "que_es": ["A01", "FLUJO DE TRABAJO § Artefactos ajustados al contexto"],
+        "paso": ["F01"], "instruccion": ["CR02"],
         "informe": ["O01"], "detencion": ["STOP04"]}),
     ("A02 · V01", "Cobertura", {
         "que_es": ["V01"], "paso": ["F02", "F03"], "artefacto": ["A02"],
@@ -74,10 +75,13 @@ OBJETOS = [
         "directiva": ["D03"], "artefacto": ["A06"], "instruccion": ["CR07"]}),
     ("A07", "Plan de aceptación", {
         "que_es": ["A07"], "compromiso": [("P02", 0), ("P02", 1), ("P08", 2)],
-        "directiva": ["D05"], "paso": ["F08"], "instruccion": ["CR08"],
+        "directiva": ["D05", "VERIFICACIÓN § Pruebas para aceptar una solución"], "paso": ["F08"], "instruccion": ["CR08"],
         "informe": ["O08", "O04"], "evidencia": ["V01"], "detencion": ["STOP07"]}),
     ("A08", "Registro de decisiones", {
-        "que_es": ["A08"], "directiva": ["D03"], "paso": ["F07"],
+        "que_es": ["A08"],
+        "directiva": ["D03", ("DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora", 0),
+                      ("DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora", 1)],
+        "paso": ["F07"],
         "instruccion": ["CR04", "CR01"], "informe": ["O05"]}),
     ("V02", "Progreso", {
         "que_es": ["V02"], "compromiso": [("P01", 1)], "paso": ["F04"],
@@ -105,7 +109,8 @@ OBJETOS = [
     ("V11", "Rendimiento", {
         "que_es": ["V11"], "compromiso": [("P09", 0), ("P09", 1)], "artefacto": ["A05"]}),
     ("V12", "IA", {
-        "que_es": ["V12"], "directiva": ["D04", "D06"],
+        "que_es": ["V12"],
+        "directiva": ["D04", "D06", "DOCTRINA PARA DESARROLLO CON IA § Determinismo y generación"],
         "paso": ["F06"], "instruccion": ["CR06"], "detencion": ["STOP06"]}),
 ]
 
@@ -173,14 +178,35 @@ def pruebas_de(d, objeto_angulos) -> list[tuple[str, str]]:
 
 
 def cargar():
-    return {e["id"]: e for e in json.loads(IDENTIFICADORES.read_text(encoding="utf-8"))["disposiciones"]}
+    """Disposiciones con identificador y pasajes direccionados por su sección.
+
+    Los pasajes normativos sin identificador se citan por el encabezado que el
+    propio documento tiene. Sin ellos, el 27% del núcleo no se puede compilar.
+    """
+    m = json.loads(IDENTIFICADORES.read_text(encoding="utf-8"))
+    d = {e["id"]: e for e in m["disposiciones"]}
+    for x in m.get("pasajes", []):
+        # Una sección puede tener varios párrafos normativos; se acumulan bajo
+        # su dirección y se distinguen por el fragmento que cada control cita.
+        if x["id"] in d:
+            d[x["id"]] = {**d[x["id"]], "texto": d[x["id"]]["texto"] + "\n\n" + x["texto"]}
+        else:
+            d[x["id"]] = {"id": x["id"], "familia": "pasaje", "titulo": x["titulo"],
+                          "texto": x["texto"], "cuerpo": x["texto"]}
+    return d
 
 
 def texto(d, ref):
     """Fragmento literal de una referencia. Nunca redactado."""
     if isinstance(ref, tuple):
         ident, n = ref
-        reglas = d[ident]["normativo"].get("Reglas de diseño", [])
+        e = d[ident]
+        if e["familia"] == "pasaje":
+            # Una sección puede tener varios párrafos normativos; el control cita
+            # el que le corresponde, no la sección entera.
+            parrafos = [x for x in e["texto"].split("\n\n") if x.strip()]
+            return e["titulo"], parrafos[n].strip() if n < len(parrafos) else ""
+        reglas = e["normativo"].get("Reglas de diseño", [])
         if n < len(reglas):
             return d[ident]["titulo"], reglas[n].lstrip("- ").strip()
         return d[ident]["titulo"], ""

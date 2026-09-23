@@ -47,7 +47,26 @@ EDITORIALES = ("PROPÓSITO DEL DOCUMENTO", "EJEMPLO APLICADO", "TEXTO CANÓNICO"
 # Decisiones de la autoridad del 2026-09-23 sobre qué queda fuera y por qué.
 FUERA = {
     "SH-POCKET": "Preguntas dirigidas a una persona. Su destino es el documento de quien decide, no los comandos.",
+    "SH-INDEX": "Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, "
+                "prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado».",
 }
+# Pasajes normativos cuyo destino no es un control. La razón se escribe; no se
+# omiten en silencio.
+FUERA_POR_PASAJE = {
+    "CONTRATO REUTILIZABLE § Instrucciones para un agente de desarrollo":
+        "Su destino es el paquete, no un control: el contrato se incorpora en la plantilla de `AGENTS.md`.",
+    "CONTRATO REUTILIZABLE § Prompt breve para iniciar una tarea":
+        "Su destino es el paquete: es el prompt de `START_WITH_AI_AGENT.md`.",
+    "PRINCIPIOS DE DISEÑO § Diez compromisos que gobiernan las decisiones":
+        "Gobierna la adaptación y no el producto. El anexo lo cita como criterio para admitir un control.",
+}
+EDITORIAL_POR_PASAJE = {
+    "DOCTRINA PARA DESARROLLO CON IA § Cuando construir cuesta menos la decisión importa más":
+        "Expone por qué la doctrina importa ahora. No cambia una decisión de construcción.",
+    "FLUJO DE TRABAJO § Del propósito a una solución verificable":
+        "Explica qué evita el flujo. Los pasos que lo componen sí están compilados.",
+}
+
 FUERA_POR_SUBSECCION = {
     ("SH-GOV", "Control de cambios"): "Historia de versiones del manifiesto. No cambia una decisión de construcción.",
 }
@@ -106,7 +125,10 @@ def esta_compilado(texto: str, compilado: str) -> bool:
     """
     for segmento in [texto] + texto.split(" · "):
         n = norm(segmento)
-        if len(n) >= 40 and n[:70] in compilado:
+        # El piso es bajo a propósito: un enunciado corto como «Estados y casos
+        # extremos cubiertos» es comprobable, y un piso alto lo dejaba fuera de
+        # toda comparación, es decir, pendiente para siempre.
+        if len(n) >= 25 and n[:70] in compilado:
             return True
     return False
 
@@ -136,7 +158,11 @@ def main() -> int:
     for p in m["pasajes"]:
         seccion = p["titulo"].split(" § ")[0]
         e = {"direccion": p["titulo"], "clase": "pasaje", "texto": " ".join(p["texto"].split()), "sub": ""}
-        if seccion in EDITORIALES:
+        if p["titulo"] in FUERA_POR_PASAJE:
+            filas.append((e, "fuera", FUERA_POR_PASAJE[p["titulo"]]))
+        elif p["titulo"] in EDITORIAL_POR_PASAJE:
+            filas.append((e, "editorial", EDITORIAL_POR_PASAJE[p["titulo"]]))
+        elif seccion in EDITORIALES:
             filas.append((e, "editorial", "Sección sin consecuencia sobre una decisión de construcción."))
         elif esta_compilado(e["texto"], compilado):
             filas.append((e, "compilado", ""))

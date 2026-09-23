@@ -8,32 +8,21 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 
 | Estado | Enunciados | |
 |---|---:|---|
-| **compilado** | 127 | su texto literal está en la compilación · 42% |
-| **fuera** | 26 | queda fuera del método, con razón decidida · 8% |
-| **editorial** | 47 | no puede cambiar una decisión de construcción · 15% |
-| **pendiente** | 100 | debería estar y no está · 33% |
+| **compilado** | 133 | su texto literal está en la compilación · 44% |
+| **fuera** | 40 | queda fuera del método, con razón decidida · 13% |
+| **editorial** | 50 | no puede cambiar una decisión de construcción · 16% |
+| **pendiente** | 77 | debería estar y no está · 25% |
 | | **300** | enunciados comprobables del manifiesto |
 
-**Cobertura de lo que debe compilarse: 127 de 227 (55%).** Lo editorial y lo declarado fuera no cuentan en el denominador: no faltan, fueron decididos.
+**Cobertura de lo que debe compilarse: 133 de 210 (63%).** Lo editorial y lo declarado fuera no cuentan en el denominador: no faltan, fueron decididos.
 
 
 ---
 
-## Pendiente · 100
+## Pendiente · 77
 
 | Dirección | Texto del manifiesto |
 |---|---|
-| `CONTRATO REUTILIZABLE § Instrucciones para un agente de desarrollo` | El siguiente contrato puede incorporarse a las instrucciones de un repositorio, a un PRD o al prompt de un agente de código. Debe acompañarse con el contexto específico del producto y no sus |
-| `CONTRATO REUTILIZABLE § Prompt breve para iniciar una tarea` | Antes de escribir código, identifica la definición de producto autorizada, explica su fundamento y confirma el alcance completo. Reconoce todas las historias, capacidades, reglas y criterios |
-| `DOCTRINA PARA DESARROLLO CON IA § Cuando construir cuesta menos la decisión importa más` | Los agentes de código reducen el costo de transformar instrucciones en software. Esa ventaja cambia el cuello de botella. El problema ya no es solo si una capacidad puede construirse, sino s |
-| `DOCTRINA PARA DESARROLLO CON IA § Cuando construir cuesta menos la decisión importa más` | Un agente puede implementar con gran velocidad una especificación débil, reproducir patrones convencionales que no encajan con el contexto y agregar opciones plausibles que nadie pidió. Por  |
-| `DOCTRINA PARA DESARROLLO CON IA § Determinismo y generación` | La elección no es entre un producto determinista o un producto con IA. Un sistema confiable combina ambos según la naturaleza de cada decisión. |
-| `DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora` | Ahora que podemos construir casi cualquier cosa con mayor facilidad, ¿qué merece ser construido y qué debemos dejar deliberadamente fuera? |
-| `DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora` | Esta pregunta introduce una obligación que antes podía quedar oculta por el costo técnico. Debe plantearse durante la definición de producto y al evaluar alternativas, no utilizarse durante  |
-| `FLUJO DE TRABAJO § Artefactos ajustados al contexto` | Cada artefacto existe para responder una pregunta, no para satisfacer una plantilla. Puede ser una sección del PRD, una vista derivada, una tabla, una prueba o un documento separado. Si la i |
-| `FLUJO DE TRABAJO § Del propósito a una solución verificable` | El flujo evita que la generación de código se convierta en el primer acto de diseño. No pretende crear una fase documental pesada ni imponer una estructura al PRD. Busca comprender el fundam |
-| `O07` | Estados y casos extremos cubiertos. |
-| `PRINCIPIOS DE DISEÑO § Diez compromisos que gobiernan las decisiones` | Los principios no describen aspiraciones decorativas. Cada uno debe ser capaz de cambiar una decisión, detener una implementación o exigir evidencia adicional. Si una frase no tiene consecue |
 | `SH-AP · Señales de que el producto se aleja del manifiesto` | La Job Story es una feature disfrazada · La motivación dice usar un dashboard, recibir alertas o pulsar un botón. · Reformular el avance que necesita la persona sin anticipar la respuesta. |
 | `SH-AP · Señales de que el producto se aleja del manifiesto` | La circunstancia fue inventada · El equipo redacta una historia plausible sin observar conducta, tensión o contexto real. · Marcarla como hipótesis y obtener evidencia antes de ampliar la im |
 | `SH-AP · Señales de que el producto se aleja del manifiesto` | La interfaz replica la base de datos · El usuario debe elegir tipos, estados o relaciones internas. · Traducir la estructura a objetivos y decisiones humanas. |
@@ -80,17 +69,6 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 | `SH-GOV · Responsabilidades` | Ingeniería · Absorbe complejidad, garantiza estados, rendimiento, accesibilidad y recuperación. |
 | `SH-GOV · Responsabilidades` | Agente de IA · Planifica e implementa dentro del fundamento y del contrato; declara supuestos, mantiene cobertura y no reduce ni amplía alcance por iniciativa propia. |
 | `SH-GOV · Responsabilidades` | Revisión humana · Evalúa causalidad, sentido, riesgo, experiencia completa y evidencia; no se limita a revisar código. |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Navegación · `SH-INDEX` · Índice operativo y regla de uso de identificadores |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Principios · `P01`–`P10` · Diez compromisos que gobiernan las decisiones |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Fundamento · `SH-FUND` · Definición de producto, autoridad, alcance y Job Stories de referencia |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Directivas para IA · `D01`–`D06` · Doctrina para equipos y agentes |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Flujo · `F01`–`F08` · Ocho pasos desde el fundamento hasta la verificación |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Artefactos · `A01`–`A08` · Ocho respuestas documentales ajustadas al contexto |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Detención · `SH-STOP`, `STOP01`–`STOP07` · Condiciones que impiden avanzar o aceptar |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Contrato del agente · `CR01`–`CR08` · Instrucciones reutilizables para desarrollar |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Entrega del agente · `O01`–`O09` · Contenido esperado de los resultados en lenguaje natural |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Verificación · `V01`–`V12` · Dimensiones de evidencia para aceptar una solución |
-| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Controles transversales · `SH-SCORE`, `SH-AP`, `SH-GOV`, `SH-DONE`, `SH-POCKET` · Decisión, anti patrones, gobernanza, terminado y guía breve |
 | `SH-SCORE · Preguntas para una revisión de producto` | ¿Qué fuente autorizada y qué fundamento de producto justifican esta decisión? |
 | `SH-SCORE · Preguntas para una revisión de producto` | ¿La implementación y sus pruebas dan cuenta del alcance completo? |
 | `SH-SCORE · Preguntas para una revisión de producto` | Cuando existen Jobs to Be Done o Job Stories, ¿cómo se relaciona esta decisión con ellos? |
@@ -122,14 +100,16 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 | `SH-STOP · Regla de detención antes de generar` | ¿Qué comportamiento necesita certeza determinista? |
 | `SH-STOP · Regla de detención antes de generar` | ¿Qué no forma parte del alcance y quién estableció esa exclusión? |
 | `SH-STOP · Regla de detención antes de generar` | ¿Qué evidencia demostrará que el desarrollo está completo? |
-| `VERIFICACIÓN § Pruebas para aceptar una solución` | La aceptación debe producir evidencia. La impresión de que una pantalla se ve limpia o que el código compila no demuestra que el producto cumpla su propósito. |
 
 ---
 
-## Fuera · 26
+## Fuera · 40
 
 | Dirección | Texto del manifiesto | Razón |
 |---|---|---|
+| `CONTRATO REUTILIZABLE § Instrucciones para un agente de desarrollo` | El siguiente contrato puede incorporarse a las instrucciones de un repositorio, a un PRD o al prompt de un agente de código. Debe acompañarse con el contexto específico del producto y no sus | Su destino es el paquete, no un control: el contrato se incorpora en la plantilla de `AGENTS.md`. |
+| `CONTRATO REUTILIZABLE § Prompt breve para iniciar una tarea` | Antes de escribir código, identifica la definición de producto autorizada, explica su fundamento y confirma el alcance completo. Reconoce todas las historias, capacidades, reglas y criterios | Su destino es el paquete: es el prompt de `START_WITH_AI_AGENT.md`. |
+| `PRINCIPIOS DE DISEÑO § Diez compromisos que gobiernan las decisiones` | Los principios no describen aspiraciones decorativas. Cada uno debe ser capaz de cambiar una decisión, detener una implementación o exigir evidencia adicional. Si una frase no tiene consecue | Gobierna la adaptación y no el producto. El anexo lo cita como criterio para admitir un control. |
 | `SH-GOV · Control de cambios de las versiones 2.0 y 2.1` | Unidad de diseño · La Job Story concreta el progreso dentro de un Jobs to Be Done. · El progreso del usuario sigue siendo la medida principal. | Historia de versiones del manifiesto. No cambia una decisión de construcción. |
 | `SH-GOV · Control de cambios de las versiones 2.0 y 2.1` | Arquitectura · Se incorpora un nivel entre principio y regla. · Principios, reglas y pruebas conservan su función. | Historia de versiones del manifiesto. No cambia una decisión de construcción. |
 | `SH-GOV · Control de cambios de las versiones 2.0 y 2.1` | Flujo y artefactos · Se exige circunstancia, motivación, resultado y evidencia antes de diseñar. · Se mantiene la documentación mínima que cambia decisiones. | Historia de versiones del manifiesto. No cambia una decisión de construcción. |
@@ -142,6 +122,17 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 | `SH-GOV · Control de cambios de las versiones 2.0 y 2.1` | Planificación · Se separa descomposición, secuencia y paralelismo de cualquier decisión de alcance. · Continúan la claridad previa, las reglas, los riesgos y la aceptación. | Historia de versiones del manifiesto. No cambia una decisión de construcción. |
 | `SH-GOV · Control de cambios de las versiones 2.0 y 2.1` | Estrategia de entrega · La incrementalidad deja de ser un supuesto del núcleo. · Cada proyecto puede adoptar fases o releases cuando corresponda. | Historia de versiones del manifiesto. No cambia una decisión de construcción. |
 | `SH-GOV · Control de cambios de las versiones 2.0 y 2.1` | Implementación SDD · Se reserva para anexos y adaptadores independientes. · El núcleo conserva principios y garantías que toda implementación debe respetar. | Historia de versiones del manifiesto. No cambia una decisión de construcción. |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Navegación · `SH-INDEX` · Índice operativo y regla de uso de identificadores | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Principios · `P01`–`P10` · Diez compromisos que gobiernan las decisiones | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Fundamento · `SH-FUND` · Definición de producto, autoridad, alcance y Job Stories de referencia | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Directivas para IA · `D01`–`D06` · Doctrina para equipos y agentes | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Flujo · `F01`–`F08` · Ocho pasos desde el fundamento hasta la verificación | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Artefactos · `A01`–`A08` · Ocho respuestas documentales ajustadas al contexto | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Detención · `SH-STOP`, `STOP01`–`STOP07` · Condiciones que impiden avanzar o aceptar | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Contrato del agente · `CR01`–`CR08` · Instrucciones reutilizables para desarrollar | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Entrega del agente · `O01`–`O09` · Contenido esperado de los resultados en lenguaje natural | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Verificación · `V01`–`V12` · Dimensiones de evidencia para aceptar una solución | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
+| `SH-INDEX · ÍNDICE OPERATIVO PARA AGENTES` | Controles transversales · `SH-SCORE`, `SH-AP`, `SH-GOV`, `SH-DONE`, `SH-POCKET` · Decisión, anti patrones, gobernanza, terminado y guía breve | Capa de navegación. El propio núcleo dice que sus identificadores «no agregan doctrina, prioridad, etapas, artefactos ni criterios: solo señalan contenido ya aprobado». |
 | `SH-POCKET · Catorce preguntas antes de aceptar una decisión` | ¿Cuál es la fuente autorizada y qué alcance establece? | Preguntas dirigidas a una persona. Su destino es el documento de quien decide, no los comandos. |
 | `SH-POCKET · Catorce preguntas antes de aceptar una decisión` | ¿La planificación da cuenta de todos los elementos obligatorios? | Preguntas dirigidas a una persona. Su destino es el documento de quien decide, no los comandos. |
 | `SH-POCKET · Catorce preguntas antes de aceptar una decisión` | ¿Qué circunstancia concreta activa la necesidad? | Preguntas dirigidas a una persona. Su destino es el documento de quien decide, no los comandos. |
@@ -159,7 +150,7 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 
 ---
 
-## Editorial · 47
+## Editorial · 50
 
 Secciones que el paquete distribuye como documentación y no como método.
 
@@ -167,6 +158,8 @@ Secciones que el paquete distribuye como documentación y no como método.
 |---|---|---|
 | `(preámbulo)` | Principios, fundamento de producto, Job Stories y pruebas de decisión para construir productos centrados en el progreso situado de las personas | Sección sin consecuencia sobre una decisión de construcción. |
 | `(preámbulo)` | Construimos herramientas para ampliar las capacidades de las personas, no para exhibir las capacidades del software. | Sección sin consecuencia sobre una decisión de construcción. |
+| `DOCTRINA PARA DESARROLLO CON IA § Cuando construir cuesta menos la decisión importa más` | Los agentes de código reducen el costo de transformar instrucciones en software. Esa ventaja cambia el cuello de botella. El problema ya no es solo si una capacidad puede construirse, sino s | Expone por qué la doctrina importa ahora. No cambia una decisión de construcción. |
+| `DOCTRINA PARA DESARROLLO CON IA § Cuando construir cuesta menos la decisión importa más` | Un agente puede implementar con gran velocidad una especificación débil, reproducir patrones convencionales que no encajan con el contexto y agregar opciones plausibles que nadie pidió. Por  | Expone por qué la doctrina importa ahora. No cambia una decisión de construcción. |
 | `EJEMPLO APLICADO § Criterio de éxito` | El objetivo no es que el estudiante llegue al final de la secuencia. Es que pueda resolver o explicar un ejercicio equivalente con menos ayuda. Esa diferencia cambia la interfaz, la lógica,  | Sección sin consecuencia sobre una decisión de construcción. |
 | `EJEMPLO APLICADO § Del pedido de función a la circunstancia` | **Formulación débil.** Como estudiante quiero recibir pistas para poder resolver derivadas. El rol es genérico, la pista ya prescribe la respuesta y el resultado no distingue comprensión de  | Sección sin consecuencia sobre una decisión de construcción. |
 | `EJEMPLO APLICADO § Del pedido de función a la circunstancia` | **Job Story principal.** *Cuando he leído una explicación y todavía no sé qué regla aplicar, necesito identificar el concepto previo que no comprendo, para poder retomar el ejercicio sin dep | Sección sin consecuencia sobre una decisión de construcción. |
@@ -179,6 +172,7 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `EJEMPLO APLICADO § Rediseño del recorrido` | 5\. Pedir que explique el razonamiento o complete un paso equivalente antes de avanzar. | Sección sin consecuencia sobre una decisión de construcción. |
 | `EJEMPLO APLICADO § Rediseño del recorrido` | 6\. Mantener siempre una ruta para retroceder, cambiar de explicación o solicitar ayuda humana. | Sección sin consecuencia sobre una decisión de construcción. |
 | `EJEMPLO APLICADO § Tutor de cálculo para una persona que todavía no entiende` | Considere una aplicación que explica derivadas, propone un ejercicio, ofrece una pista y finalmente muestra la solución. El flujo parece completo. Sin embargo, si la persona falla después de | Sección sin consecuencia sobre una decisión de construcción. |
+| `FLUJO DE TRABAJO § Del propósito a una solución verificable` | El flujo evita que la generación de código se convierta en el primer acto de diseño. No pretende crear una fase documental pesada ni imponer una estructura al PRD. Busca comprender el fundam | Explica qué evita el flujo. Los pasos que lo componen sí están compilados. |
 | `INFLUENCIAS Y NOTAS § Declaración final` | La tecnología puede ser extraordinariamente sofisticada detrás de la interfaz. Delante de ella debe permanecer una persona concentrada en aquello que quería conseguir. | Sección sin consecuencia sobre una decisión de construcción. |
 | `INFLUENCIAS Y NOTAS § Fuentes consultadas` | Craft. [<u>Acerca de Craft</u>](https://www.craft.do/es/about). Historia del fundador y reflexiones sobre forma, función, fricción, complejidad adaptable y atención al detalle. | Sección sin consecuencia sobre una decisión de construcción. |
 | `INFLUENCIAS Y NOTAS § Fuentes consultadas` | Balint Orosz. [<u>Introducing Craft 3</u>](https://www.craft.do/blog/welcome-to-craft3), 28 de noviembre de 2024. Adaptación al contexto, reducción de carga cognitiva, rendimiento y funciona | Sección sin consecuencia sobre una decisión de construcción. |
@@ -215,7 +209,7 @@ Secciones que el paquete distribuye como documentación y no como método.
 
 ---
 
-## Compilado · 127
+## Compilado · 133
 
 | Dirección | Texto del manifiesto |
 |---|---|
@@ -235,6 +229,9 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `CR06` | Reserva las reglas críticas para lógica verificable. Declara incertidumbre. No ejecutes acciones de alto impacto sin autorización proporcional. Mantén trazabilidad, revisión y reversibilidad |
 | `CR07` | Respeta el alcance acordado y conserva trazabilidad con su fundamento. No agregues features, modos, configuraciones ni abstracciones no solicitadas. Cubre estados vacíos, carga, error, éxito |
 | `CR08` | Reconcilia la implementación contra la definición completa de producto. Verifica resultados, reglas, criterios y, cuando correspondan, las Job Stories en sus circunstancias. Comprueba tambié |
+| `DOCTRINA PARA DESARROLLO CON IA § Determinismo y generación` | La elección no es entre un producto determinista o un producto con IA. Un sistema confiable combina ambos según la naturaleza de cada decisión. |
+| `DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora` | Ahora que podemos construir casi cualquier cosa con mayor facilidad, ¿qué merece ser construido y qué debemos dejar deliberadamente fuera? |
+| `DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora` | Esta pregunta introduce una obligación que antes podía quedar oculta por el costo técnico. Debe plantearse durante la definición de producto y al evaluar alternativas, no utilizarse durante  |
 | `F01` | Comprender el fundamento · Reconocer las fuentes, la autoridad, el alcance, la estructura utilizada y los resultados esperados. · Mapa fiel de la definición de producto, sin reformularla por |
 | `F02` | Establecer cobertura · Inventariar historias, capacidades, reglas, estados, recorridos, criterios y relaciones aplicables. · Cobertura completa y vacíos o contradicciones visibles. |
 | `F03` | Planificar la implementación · Resolver dependencias, bloqueantes, orden, paralelismo, integración y pruebas sin modificar el alcance. · Plan coherente que da cuenta de toda la definición ap |
@@ -243,12 +240,14 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `F06` | Modelar reglas y riesgos · Separar lógica determinista, comportamiento generativo, permisos y acciones irreversibles. · Mapa de decisiones y límites. |
 | `F07` | Explorar y prototipar · Comparar alternativas y probar comprensión, jerarquía y recuperación antes de optimizar código. · Razón de la alternativa elegida y evidencia del recorrido. |
 | `F08` | Construir, integrar y verificar · Implementar el plan, mantener trazabilidad y reconciliar resultados contra el alcance completo. · Código, pruebas y evidencia de cobertura; pendientes y exc |
+| `FLUJO DE TRABAJO § Artefactos ajustados al contexto` | Cada artefacto existe para responder una pregunta, no para satisfacer una plantilla. Puede ser una sección del PRD, una vista derivada, una tabla, una prueba o un documento separado. Si la i |
 | `O01` | Fuentes autorizadas y fundamento de producto que justifican el desarrollo. |
 | `O02` | Inventario de alcance y cobertura de historias, capacidades, reglas, estados y criterios aplicables. |
 | `O03` | Jobs to Be Done y Job Stories cuando formen parte de la definición o aporten una vista derivada útil. |
 | `O04` | Evidencia disponible, supuestos y criterios de resultado. |
 | `O05` | Alternativa elegida y razón de descarte de opciones más complejas. |
 | `O06` | Archivos o componentes modificados y límites del cambio. |
+| `O07` | Estados y casos extremos cubiertos. |
 | `O08` | Pruebas ejecutadas y evidencia de resultado. |
 | `O09` | Riesgos, incertidumbres, pendientes, excepciones y decisiones que aún requieren juicio humano. |
 | `P01 · Pruebas de decisión` | ¿Puede señalarse la fuente autorizada que justifica esta decisión y su relación con el alcance completo? |
@@ -346,3 +345,4 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `V10` | El flujo funciona con teclado, foco visible, etiquetas comprensibles, contraste y tecnologías de asistencia aplicables. |
 | `V11` | Las acciones críticas cumplen el presupuesto de respuesta o muestran progreso honesto. |
 | `V12` | Las salidas variables declaran incertidumbre; las reglas críticas son verificables; las acciones sensibles requieren autorización. |
+| `VERIFICACIÓN § Pruebas para aceptar una solución` | La aceptación debe producir evidencia. La impresión de que una pantalla se ve limpia o que el código compila no demuestra que el producto cumpla su propósito. |
