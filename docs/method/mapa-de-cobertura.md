@@ -8,18 +8,18 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 
 | Estado | Enunciados | |
 |---|---:|---|
-| **compilado** | 122 | su texto literal está en la compilación · 40% |
+| **compilado** | 127 | su texto literal está en la compilación · 42% |
 | **fuera** | 26 | queda fuera del método, con razón decidida · 8% |
 | **editorial** | 47 | no puede cambiar una decisión de construcción · 15% |
-| **pendiente** | 105 | debería estar y no está · 35% |
+| **pendiente** | 100 | debería estar y no está · 33% |
 | | **300** | enunciados comprobables del manifiesto |
 
-**Cobertura de lo que debe compilarse: 122 de 227 (53%).** Lo editorial y lo declarado fuera no cuentan en el denominador: no faltan, fueron decididos.
+**Cobertura de lo que debe compilarse: 127 de 227 (55%).** Lo editorial y lo declarado fuera no cuentan en el denominador: no faltan, fueron decididos.
 
 
 ---
 
-## Pendiente · 105
+## Pendiente · 100
 
 | Dirección | Texto del manifiesto |
 |---|---|
@@ -32,6 +32,7 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 | `DOCTRINA PARA DESARROLLO CON IA § La segunda pregunta rectora` | Esta pregunta introduce una obligación que antes podía quedar oculta por el costo técnico. Debe plantearse durante la definición de producto y al evaluar alternativas, no utilizarse durante  |
 | `FLUJO DE TRABAJO § Artefactos ajustados al contexto` | Cada artefacto existe para responder una pregunta, no para satisfacer una plantilla. Puede ser una sección del PRD, una vista derivada, una tabla, una prueba o un documento separado. Si la i |
 | `FLUJO DE TRABAJO § Del propósito a una solución verificable` | El flujo evita que la generación de código se convierta en el primer acto de diseño. No pretende crear una fase documental pesada ni imponer una estructura al PRD. Busca comprender el fundam |
+| `O07` | Estados y casos extremos cubiertos. |
 | `PRINCIPIOS DE DISEÑO § Diez compromisos que gobiernan las decisiones` | Los principios no describen aspiraciones decorativas. Cada uno debe ser capaz de cambiar una decisión, detener una implementación o exigir evidencia adicional. Si una frase no tiene consecue |
 | `SH-AP · Señales de que el producto se aleja del manifiesto` | La Job Story es una feature disfrazada · La motivación dice usar un dashboard, recibir alertas o pulsar un botón. · Reformular el avance que necesita la persona sin anticipar la respuesta. |
 | `SH-AP · Señales de que el producto se aleja del manifiesto` | La circunstancia fue inventada · El equipo redacta una historia plausible sin observar conducta, tensión o contexto real. · Marcarla como hipótesis y obtener evidencia antes de ampliar la im |
@@ -74,12 +75,6 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 | `SH-FUND · Relación entre los niveles` | Job Story · La circunstancia, la motivación y el resultado que activan una necesidad concreta · Diseñar desde roles genéricos o pedidos literales |
 | `SH-FUND · Relación entre los niveles` | Respuesta del producto · El comportamiento del sistema elegido para resolver la historia · Confundir el problema con la primera solución imaginada |
 | `SH-FUND · Relación entre los niveles` | Evidencia de aceptación · La observación que demuestra progreso en esa circunstancia · Aceptar una entrega porque funciona técnicamente |
-| `SH-GOV · Puntos de control` | Antes de diseñar · Fuentes, autoridad, alcance, resultados, evidencia, supuestos y no objetivos están claros; las Job Stories se comprenden cuando existen. |
-| `SH-GOV · Puntos de control` | Antes de generar código · El plan cubre la definición completa y establece dependencias, respuesta elegida, rutas, estados, reglas críticas, riesgos y aceptación. |
-| `SH-GOV · Puntos de control` | Durante la construcción · La descomposición organiza el trabajo sin alterar el alcance; bloqueos, pendientes y excepciones permanecen visibles. |
-| `SH-GOV · Puntos de control` | Antes de integrar · Cada cambio conserva trazabilidad con su fundamento, respeta alcance, cubre estados y pasa pruebas técnicas. |
-| `SH-GOV · Puntos de control` | Antes de liberar · La implementación completa demuestra resultados, cobertura, comprensión, control y calidad de experiencia. |
-| `SH-GOV · Puntos de control` | Después de liberar · Se observan resultado, fricción, abandono y errores; se revisan el fundamento, las historias y sus supuestos cuando corresponda. |
 | `SH-GOV · Responsabilidades` | Producto · Establece la definición autorizada, el alcance, los resultados, las reglas, los no objetivos y la evidencia de éxito; valida Jobs to Be Done y Job Stories cuando se utilizan. |
 | `SH-GOV · Responsabilidades` | Diseño · Traduce el fundamento de producto a recorridos coherentes con el modelo mental de la persona y protege su atención; utiliza Job Stories cuando permiten concretar la situación. |
 | `SH-GOV · Responsabilidades` | Ingeniería · Absorbe complejidad, garantiza estados, rendimiento, accesibilidad y recuperación. |
@@ -220,7 +215,7 @@ Secciones que el paquete distribuye como documentación y no como método.
 
 ---
 
-## Compilado · 122
+## Compilado · 127
 
 | Dirección | Texto del manifiesto |
 |---|---|
@@ -254,7 +249,6 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `O04` | Evidencia disponible, supuestos y criterios de resultado. |
 | `O05` | Alternativa elegida y razón de descarte de opciones más complejas. |
 | `O06` | Archivos o componentes modificados y límites del cambio. |
-| `O07` | Estados y casos extremos cubiertos. |
 | `O08` | Pruebas ejecutadas y evidencia de resultado. |
 | `O09` | Riesgos, incertidumbres, pendientes, excepciones y decisiones que aún requieren juicio humano. |
 | `P01 · Pruebas de decisión` | ¿Puede señalarse la fuente autorizada que justifica esta decisión y su relación con el alcance completo? |
@@ -320,6 +314,12 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `P10 · Reglas de diseño` | Permitir revisar, editar, exportar y revertir cuando el dominio lo permita. |
 | `P10 · Reglas de diseño` | Explicar el uso de datos y separar autorización, recomendación y ejecución. |
 | `SH-FUND · Cadena de trazabilidad` | Aceptación · Qué evidencia autoriza declarar completo el desarrollo · Resultados, reglas y criterios se cumplen bajo las condiciones definidas |
+| `SH-GOV · Puntos de control` | Antes de diseñar · Fuentes, autoridad, alcance, resultados, evidencia, supuestos y no objetivos están claros; las Job Stories se comprenden cuando existen. |
+| `SH-GOV · Puntos de control` | Antes de generar código · El plan cubre la definición completa y establece dependencias, respuesta elegida, rutas, estados, reglas críticas, riesgos y aceptación. |
+| `SH-GOV · Puntos de control` | Durante la construcción · La descomposición organiza el trabajo sin alterar el alcance; bloqueos, pendientes y excepciones permanecen visibles. |
+| `SH-GOV · Puntos de control` | Antes de integrar · Cada cambio conserva trazabilidad con su fundamento, respeta alcance, cubre estados y pasa pruebas técnicas. |
+| `SH-GOV · Puntos de control` | Antes de liberar · La implementación completa demuestra resultados, cobertura, comprensión, control y calidad de experiencia. |
+| `SH-GOV · Puntos de control` | Después de liberar · Se observan resultado, fricción, abandono y errores; se revisan el fundamento, las historias y sus supuestos cuando corresponda. |
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP01` No existe un fundamento de producto identificable o la solución parece preceder al problema. |
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP02` El plan no da cuenta de todo el alcance obligatorio definido por producto. |
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP03` Se pretende omitir, modificar o postergar una parte sin una decisión autorizada. |

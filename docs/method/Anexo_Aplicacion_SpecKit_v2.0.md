@@ -274,10 +274,24 @@ El método funciona de dos maneras, y ambas son legítimas:
 
 **El workflow es el camino recomendado, no un requisito.** Un método que solo funciona bajo workflow excluye a quien invoca comandos sueltos, y la adopción es el objetivo de esta adaptación.
 
-Las compuertas mínimas del workflow son dos, y ambas trazan al núcleo:
+### Las compuertas no las elige la adaptación
 
-- **Antes de `implement`**, autorización humana explícita — `SH-GOV` y `STOP04`.
-- **Antes de declarar terminado**, conformidad y revisión — `SH-DONE` y `CR08`.
+**`SH-GOV § Puntos de control` especifica seis momentos, cada uno con su decisión requerida.** Ninguna compuerta se diseña: se cita.
+
+| Momento que nombra el manifiesto | Dónde cae en el flujo de SpecKit |
+|---|---|
+| Antes de diseñar | después de `specify` y `clarify`, antes de `plan` |
+| Antes de generar código | después de `tasks` y `analyze`, antes de `implement` |
+| Durante la construcción | dentro de `implement`, entre bloques |
+| Antes de integrar | `analyze`, antes de incorporar el cambio |
+| Antes de liberar | `converge`, antes de declarar terminado |
+| Después de liberar | **fuera del flujo de SpecKit** |
+
+La compilación literal, con la decisión requerida de cada momento, vive en `docs/method/compuertas-del-metodo.md`, generada. Lo único que aporta la adaptación es **dónde cae cada momento**, que es una necesidad técnica: el manifiesto no habla de SpecKit.
+
+**Una brecha queda declarada.** El manifiesto exige, después de liberar, observar resultado, fricción, abandono y errores, y revisar el fundamento y sus supuestos cuando corresponda. **El flujo de SpecKit termina antes.** Es una brecha de la herramienta, no del método, y se declara en lugar de resolverse en silencio.
+
+Hasta esta versión el anexo afirmaba que las compuertas mínimas eran dos. Las había elegido el agente.
 
 ---
 

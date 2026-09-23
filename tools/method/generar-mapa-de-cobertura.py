@@ -31,7 +31,12 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parents[2]
 IDENTIFICADORES = RAIZ / "docs/method/identificadores-nucleo-v2.1.json"
-COMPILACION = RAIZ / "docs/method/inventario-de-objetos.md"
+# Todo artefacto que compile el manifiesto cuenta como cobertura. Agregar uno
+# aquí es lo único que hay que recordar al compilar una parte nueva.
+COMPILACION = [
+    RAIZ / "docs/method/inventario-de-objetos.md",
+    RAIZ / "docs/method/compuertas-del-metodo.md",
+]
 SALIDA = RAIZ / "docs/method/mapa-de-cobertura.md"
 
 # Secciones cuyo contenido no puede cambiar una decisión de construcción. Viajan
@@ -91,10 +96,25 @@ def censo(d: dict) -> list[dict]:
     return out
 
 
+def esta_compilado(texto: str, compilado: str) -> bool:
+    """Un enunciado está compilado si su texto aparece literalmente.
+
+    Se compara también por segmento: una fila de tabla se censa unida —«Antes de
+    diseñar · Fuentes, autoridad…»— y en la compilación el rótulo y su contenido
+    pueden ir separados. Comparar solo la fila unida daba por pendiente lo que
+    estaba compilado.
+    """
+    for segmento in [texto] + texto.split(" · "):
+        n = norm(segmento)
+        if len(n) >= 40 and n[:70] in compilado:
+            return True
+    return False
+
+
 def estado(entrada: dict, compilado: str) -> tuple[str, str]:
     dir_ = entrada["direccion"]
     ident = dir_.split(" · ")[0]
-    if norm(entrada["texto"])[:70] in compilado:
+    if esta_compilado(entrada["texto"], compilado):
         return "compilado", ""
     if ident in FUERA:
         return "fuera", FUERA[ident]
@@ -107,7 +127,7 @@ def estado(entrada: dict, compilado: str) -> tuple[str, str]:
 def main() -> int:
     m = json.loads(IDENTIFICADORES.read_text(encoding="utf-8"))
     d = {e["id"]: e for e in m["disposiciones"]}
-    compilado = norm(COMPILACION.read_text(encoding="utf-8"))
+    compilado = norm(" ".join(p.read_text(encoding="utf-8") for p in COMPILACION if p.exists()))
 
     filas = []
     for e in censo(d):
@@ -118,7 +138,7 @@ def main() -> int:
         e = {"direccion": p["titulo"], "clase": "pasaje", "texto": " ".join(p["texto"].split()), "sub": ""}
         if seccion in EDITORIALES:
             filas.append((e, "editorial", "Sección sin consecuencia sobre una decisión de construcción."))
-        elif norm(e["texto"])[:70] in compilado:
+        elif esta_compilado(e["texto"], compilado):
             filas.append((e, "compilado", ""))
         else:
             filas.append((e, "pendiente", ""))
