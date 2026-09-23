@@ -331,6 +331,12 @@ def c6_atribucion_cruzada(preset: Path, anclas: dict, inf: Informe) -> None:
             if len(ids) != 1:
                 continue  # con varias citas no se puede atribuir una frase
             citado = ids[0]
+            # En una tabla de tres columnas la tercera es contexto —dónde se
+            # comprueba—, no cita. Mirarla atribuye al identificador de la fila
+            # un texto que solo nombra el objeto, y eso es un falso positivo.
+            celdas = [c.strip() for c in linea.strip().strip("|").split("|")]
+            if linea.strip().startswith("|") and len(celdas) >= 3:
+                linea = celdas[1]
             ajenas: dict[str, list[str]] = {}
             for tri in trigramas(RX_ID.sub(" ", linea)):
                 otro = dueno.get(tri)
