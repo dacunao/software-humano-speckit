@@ -65,6 +65,20 @@ def puntos_de_control(d: dict) -> list[tuple[str, str]]:
     return filas
 
 
+def preguntas_de_detencion(d: dict) -> list[str]:
+    """Las preguntas que `SH-STOP` exige poder responder antes de generar.
+
+    El propio identificador se llama «Regla de detención **antes de generar**»,
+    de modo que su lugar es esa compuerta y no un objeto. Son el contenido
+    concreto de una decisión que el manifiesto enuncia en una línea.
+    """
+    preguntas = [l.strip()[2:].strip() for l in d["SH-STOP"]["texto"].split("\n")
+                 if l.strip().startswith("- ¿") or l.strip().startswith("- Cuando")]
+    if not preguntas:
+        raise SystemExit("`SH-STOP` ya no enumera preguntas; el núcleo cambió")
+    return preguntas
+
+
 def main() -> int:
     d = {e["id"]: e for e in json.loads(IDENTIFICADORES.read_text(encoding="utf-8"))["disposiciones"]}
     filas = puntos_de_control(d)
@@ -89,6 +103,12 @@ def main() -> int:
               f"*Cita de `SH-GOV § Puntos de control`, literal.*\n",
               f"**Dónde cae en SpecKit:** {donde}",
               f"\n**Objetos que se comprueban:** {objetos}\n"]
+        if momento == "Antes de generar código":
+            L += ["\n**El núcleo detalla esta compuerta.** `SH-STOP` se llama «Regla de detención antes de "
+                  "generar», y enumera lo que el agente debe poder responder con precisión, en el nivel que "
+                  "exijan el riesgo y la complejidad, antes de comenzar una implementación:\n"]
+            L += [f"- {q}" for q in preguntas_de_detencion(d)]
+            L.append("")
     L += ["\n---\n\n## Lo que esta compilación deja visto\n",
           "**El último momento no tiene operación nativa.** El manifiesto exige observar resultado, fricción, "
           "abandono y errores después de liberar, y revisar el fundamento y sus supuestos cuando corresponda. "

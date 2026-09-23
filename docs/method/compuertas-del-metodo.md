@@ -33,6 +33,19 @@ El manifiesto especifica seis momentos con su decisión requerida. **Ninguna com
 **Objetos que se comprueban:** Cobertura · Modelo de estados · IA · Registro de decisiones · Plan de aceptación
 
 
+**El núcleo detalla esta compuerta.** `SH-STOP` se llama «Regla de detención antes de generar», y enumera lo que el agente debe poder responder con precisión, en el nivel que exijan el riesgo y la complejidad, antes de comenzar una implementación:
+
+- ¿Cuál es la definición de producto autorizada y qué alcance establece?
+- ¿Qué elementos del fundamento justifican el desarrollo y qué evidencia los respalda?
+- ¿La planificación da cuenta de todas las historias, capacidades, reglas, estados y criterios obligatorios?
+- Cuando existen Job Stories, ¿la circunstancia, la motivación y el resultado están separados de la solución?
+- ¿Cuál es la ruta principal y qué estados alternativos importan?
+- ¿Qué decisiones debe tomar el usuario y cuáles puede resolver el sistema?
+- ¿Qué comportamiento necesita certeza determinista?
+- ¿Qué no forma parte del alcance y quién estableció esa exclusión?
+- ¿Qué evidencia demostrará que el desarrollo está completo?
+
+
 ## Durante la construcción
 
 > **Decisión requerida.** La descomposición organiza el trabajo sin alterar el alcance; bloqueos, pendientes y excepciones permanecen visibles.

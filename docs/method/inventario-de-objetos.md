@@ -68,6 +68,8 @@ falta una que debería estar, eso es el hallazgo.
 | Qué debe informar | `O06` | Archivos o componentes modificados y límites del cambio. |
 | Cuándo detenerse | `STOP02` | El plan no da cuenta de todo el alcance obligatorio definido por producto. |
 | Cuándo detenerse | `STOP03` | Se pretende omitir, modificar o postergar una parte sin una decisión autorizada. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | El plan selecciona alcance · Se implementan algunas historias o reglas y se posterga el resto sin una decisión de producto. · Restablecer la cobertura completa o registrar una modificación explícita y aprobada. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | La descomposición parece exclusión · Una fase técnica se presenta como si redefiniera lo que el PRD exige. · Separar orden de ejecución, estado de avance y alcance comprometido. |
 | Cómo lo comprueba el núcleo | `SH-FUND § Alcance completo y autoridad de producto` | Toda omisión, modificación o postergación debe ser explícita, trazable y aprobada por la autoridad de producto. |
 | Cómo lo comprueba el núcleo | `SH-FUND § Alcance completo y autoridad de producto` | Si las restricciones de tiempo, recursos o tecnología impiden cubrir el alcance, el plan debe hacer visible la incompatibilidad y solicitar una decisión. |
 | Cómo lo comprueba el núcleo | `SH-FUND § Alcance completo y autoridad de producto` | Una estrategia incremental, por fases o por releases puede utilizarse cuando el proyecto la adopta; no es una obligación del núcleo. |
@@ -91,6 +93,8 @@ falta una que debería estar, eso es el hallazgo.
 | Qué debe informar | `O03` | Jobs to Be Done y Job Stories cuando formen parte de la definición o aporten una vista derivada útil. |
 | Qué evidencia exige | `V02` Progreso | Las personas alcanzan los resultados definidos y pueden reconocerlos; cuando existen Job Stories, esto se comprueba en sus circunstancias. |
 | Qué evidencia exige | `V03` Causalidad | La evidencia relaciona la situación, la necesidad y el resultado sin depender de un pedido de funcionalidad; cuando aplica, conserva circunstancia y motivación. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | La Job Story es una feature disfrazada · La motivación dice usar un dashboard, recibir alertas o pulsar un botón. · Reformular el avance que necesita la persona sin anticipar la respuesta. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | La circunstancia fue inventada · El equipo redacta una historia plausible sin observar conducta, tensión o contexto real. · Marcarla como hipótesis y obtener evidencia antes de ampliar la implementación. |
 | Cómo lo comprueba el núcleo | `SH-FUND § Relación entre los niveles` | Jobs to Be Done · El progreso amplio que la persona busca conseguir · Organizar el producto alrededor de funcionalidades |
 | Cómo lo comprueba el núcleo | `SH-FUND § Relación entre los niveles` | Job Story · La circunstancia, la motivación y el resultado que activan una necesidad concreta · Diseñar desde roles genéricos o pedidos literales |
 | Cómo lo comprueba el núcleo | `SH-FUND § Relación entre los niveles` | Respuesta del producto · El comportamiento del sistema elegido para resolver la historia · Confundir el problema con la primera solución imaginada |
@@ -131,6 +135,7 @@ falta una que debería estar, eso es el hallazgo.
 | Qué debe hacer el agente | `CR07` Al implementar | Respeta el alcance acordado y conserva trazabilidad con su fundamento. No agregues features, modos, configuraciones ni abstracciones no solicitadas. Cubre estados vacíos, carga, error, éxito y recuperación e integra las partes relacionadas. |
 | Qué debe informar | `O07` | Estados y casos extremos cubiertos. |
 | Qué evidencia exige | `V09` Estados | Carga, vacío, error, éxito, interrupción y retorno mantienen contexto y orientación. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | El happy path define el producto · Errores, vacíos e interrupciones quedan para después. · Modelar estados antes de implementar y aceptarlos explícitamente. |
 
 
 ## A06 · V05 · Carga
@@ -146,6 +151,9 @@ falta una que debería estar, eso es el hallazgo.
 | Qué exige antes de implementar | `D03` Simplicidad deliberada | Preferir la solución que exige menos conceptos, decisiones y memoria al usuario cuando ambas logran el mismo resultado. · Menos código no es la medida; menos carga innecesaria sí. |
 | Dónde vive | `A06` Presupuesto de complejidad | ¿Qué carga estamos agregando? · Conceptos nuevos; decisiones; pasos; excepciones; opciones visibles |
 | Qué debe hacer el agente | `CR07` Al implementar | Respeta el alcance acordado y conserva trazabilidad con su fundamento. No agregues features, modos, configuraciones ni abstracciones no solicitadas. Cubre estados vacíos, carga, error, éxito y recuperación e integra las partes relacionadas. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | Más opciones se confunden con más valor · Cada excepción se convierte en un control visible. · Resolver por contexto y revelar excepciones cuando aparezcan. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | La estética maquilla la fricción · La pantalla luce bien, pero exige decisiones innecesarias. · Evaluar el recorrido completo y el esfuerzo real. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | El agente agrega por si acaso · Aparecen modos, preferencias y abstracciones no pedidas. · Definir exclusiones y exigir justificación por capacidad. |
 
 
 ## A07 · Plan de aceptación
@@ -212,6 +220,8 @@ falta una que debería estar, eso es el hallazgo.
 | Dónde vive | `A04` Contrato de experiencia | ¿Qué debe comprender y poder hacer la persona? · Ruta principal; lenguaje; decisiones; feedback; control; recuperación |
 | Qué debe hacer el agente | `CR05` Al diseñar | No expongas estructuras internas. Usa lenguaje del usuario, convenciones conocidas, jerarquía clara, profundidad progresiva, valores predeterminados editables y feedback inmediato. |
 | Cuándo detenerse | `STOP05` | La interfaz expone una complejidad interna que el sistema podría absorber. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | La interfaz replica la base de datos · El usuario debe elegir tipos, estados o relaciones internas. · Traducir la estructura a objetivos y decisiones humanas. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | El tutorial compensa una interfaz oscura · La tarea básica requiere explicación previa. · Revisar lenguaje, jerarquía, convenciones y feedback. |
 
 
 ## V06 · Profundidad
@@ -247,6 +257,7 @@ falta una que debería estar, eso es el hallazgo.
 | Qué compromiso lo gobierna | `P07` regla 2 · La confianza se diseña | Permitir deshacer, corregir o volver a un estado seguro cuando sea razonable. |
 | Qué exige antes de implementar | `D06` IA subordinada al usuario | Usar IA para proponer, explicar y ejecutar bajo límites claros, manteniendo revisión y reversibilidad proporcionales al impacto. · La fluidez de una respuesta nunca sustituye evidencia ni autorización. |
 | Qué debe hacer el agente | `CR06` Al usar IA | Reserva las reglas críticas para lógica verificable. Declara incertidumbre. No ejecutes acciones de alto impacto sin autorización proporcional. Mantén trazabilidad, revisión y reversibilidad. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | La confirmación sustituye la reversibilidad · Se pregunta varias veces, pero no existe deshacer. · Diseñar recuperación y usar confirmaciones solo según riesgo. |
 
 
 ## V09 · Estados
@@ -276,6 +287,7 @@ falta una que debería estar, eso es el hallazgo.
 | Qué compromiso lo gobierna | `P09` regla 1 · El tiempo y la continuidad forman parte de la interfaz | Definir presupuestos de respuesta para las interacciones críticas. |
 | Qué compromiso lo gobierna | `P09` regla 2 · El tiempo y la continuidad forman parte de la interfaz | Mostrar progreso honesto y permitir continuar cuando una operación pueda demorarse. |
 | Dónde vive | `A05` Modelo de estados | ¿Qué puede ocurrir y qué transiciones son válidas? · Estados; eventos; reglas; errores; permisos; persistencia |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | La velocidad técnica oculta la espera · La operación tarda sin feedback o bloquea todo el flujo. · Responder de inmediato, mostrar progreso y preservar continuidad. |
 
 
 ## V12 · IA
@@ -289,6 +301,8 @@ falta una que debería estar, eso es el hallazgo.
 | Qué paso del flujo lo produce | `F06` Modelar reglas y riesgos | Modelar reglas y riesgos · Separar lógica determinista, comportamiento generativo, permisos y acciones irreversibles. · Mapa de decisiones y límites. |
 | Qué debe hacer el agente | `CR06` Al usar IA | Reserva las reglas críticas para lógica verificable. Declara incertidumbre. No ejecutes acciones de alto impacto sin autorización proporcional. Mantén trazabilidad, revisión y reversibilidad. |
 | Cuándo detenerse | `STOP06` | Una acción sensible carece de determinismo, trazabilidad o recuperación. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | La IA llena vacíos conceptuales · Un prompt ambiguo produce una implementación grande. · Detener, aclarar supuestos materiales y preservar el alcance autorizado. |
+| Cómo lo comprueba el núcleo | `SH-AP § Señales de que el producto se aleja del manifiesto` | La respuesta fluida parece verdadera · El usuario no distingue hecho, inferencia y propuesta. · Mostrar fuente, incertidumbre, límites y ruta de verificación. |
 
 
 ---

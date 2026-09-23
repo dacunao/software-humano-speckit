@@ -60,13 +60,13 @@ OBJETOS = [
     ("A02 · V01", "Cobertura", {
         "que_es": ["V01"], "paso": ["F02", "F03"], "artefacto": ["A02"],
         "instruccion": ["CR03", "CR07"], "informe": ["O02", "O06"],
-        "comprobacion_directa": [("SH-FUND", "Alcance completo y autoridad de producto"),
+        "comprobacion_directa": [("SH-AP", "Señales de que el producto se aleja del manifiesto", "El plan selecciona alcance"), ("SH-AP", "Señales de que el producto se aleja del manifiesto", "La descomposición parece exclusión"), ("SH-FUND", "Alcance completo y autoridad de producto"),
                                  ("SH-FUND", "Cadena de trazabilidad")],
         "detencion": ["STOP02", "STOP03"]}),
     ("A03", "Ficha de Job Story cuando aplique", {
         "que_es": ["A03"], "compromiso": [("P01", 2), ("P02", 2)], "paso": ["F04"],
         "instruccion": ["CR02"], "informe": ["O03"], "evidencia": ["V02", "V03"],
-        "comprobacion_directa": [("SH-FUND", "Relación entre los niveles"),
+        "comprobacion_directa": [("SH-AP", "Señales de que el producto se aleja del manifiesto", "La Job Story es una feature disfrazada"), ("SH-AP", "Señales de que el producto se aleja del manifiesto", "La circunstancia fue inventada"), ("SH-FUND", "Relación entre los niveles"),
                                  ("SH-FUND", "Evidencia mínima que acompaña la historia"),
                                  ("SH-FUND", "Pruebas de calidad antes de diseñar")]}),
     ("A04", "Contrato de experiencia", {
@@ -75,11 +75,13 @@ OBJETOS = [
     ("A05", "Modelo de estados", {
         "que_es": ["A05"], "compromiso": [("P08", 0)], "directiva": ["D02"],
         "paso": ["F06"], "instruccion": ["CR07"], "informe": ["O07"],
-        "evidencia": ["V09"]}),
+        "evidencia": ["V09"],
+        "comprobacion_directa": [("SH-AP", "Señales de que el producto se aleja del manifiesto", "El happy path define el producto")]}),
     ("A06 · V05", "Carga", {
         "que_es": ["V05"], "compromiso": [("P06", 0), ("P06", 1), ("P06", 2),
                                           ("P03", 1), ("P03", 2)],
-        "directiva": ["D03"], "artefacto": ["A06"], "instruccion": ["CR07"]}),
+        "directiva": ["D03"], "artefacto": ["A06"], "instruccion": ["CR07"],
+        "comprobacion_directa": [("SH-AP", "Señales de que el producto se aleja del manifiesto", "Más opciones se confunden con más valor"), ("SH-AP", "Señales de que el producto se aleja del manifiesto", "La estética maquilla la fricción"), ("SH-AP", "Señales de que el producto se aleja del manifiesto", "El agente agrega por si acaso")]}),
     ("A07", "Plan de aceptación", {
         "que_es": ["A07"], "compromiso": [("P02", 0), ("P02", 1), ("P08", 2)],
         "directiva": ["D05", "VERIFICACIÓN § Pruebas para aceptar una solución"], "paso": ["F08"], "instruccion": ["CR08"],
@@ -98,7 +100,8 @@ OBJETOS = [
     ("V04", "Comprensión", {
         "que_es": ["V04"], "compromiso": [("P05", 0), ("P05", 1), ("P08", 1),
                                           ("P03", 0)],
-        "instruccion": ["CR05"], "artefacto": ["A04"], "detencion": ["STOP05"]}),
+        "instruccion": ["CR05"], "artefacto": ["A04"], "detencion": ["STOP05"],
+        "comprobacion_directa": [("SH-AP", "Señales de que el producto se aleja del manifiesto", "La interfaz replica la base de datos"), ("SH-AP", "Señales de que el producto se aleja del manifiesto", "El tutorial compensa una interfaz oscura")]}),
     ("V06", "Profundidad", {
         "que_es": ["V06"], "compromiso": [("P04", 0), ("P04", 1), ("P04", 2)],
         "instruccion": ["CR05"], "artefacto": ["A04"]}),
@@ -107,18 +110,21 @@ OBJETOS = [
         "instruccion": ["CR06"]}),
     ("V08", "Control", {
         "que_es": ["V08"], "compromiso": [("P10", 1), ("P10", 2), ("P07", 1)],
-        "directiva": ["D06"], "instruccion": ["CR06"]}),
+        "directiva": ["D06"], "instruccion": ["CR06"],
+        "comprobacion_directa": [("SH-AP", "Señales de que el producto se aleja del manifiesto", "La confirmación sustituye la reversibilidad")]}),
     ("V09", "Estados", {
         "que_es": ["V09"], "compromiso": [("P09", 2)], "artefacto": ["A05"],
         "informe": ["O07"]}),
     ("V10", "Accesibilidad", {
         "que_es": ["V10"], "directiva": ["D05"], "artefacto": ["A07"]}),
     ("V11", "Rendimiento", {
-        "que_es": ["V11"], "compromiso": [("P09", 0), ("P09", 1)], "artefacto": ["A05"]}),
+        "que_es": ["V11"], "compromiso": [("P09", 0), ("P09", 1)], "artefacto": ["A05"],
+        "comprobacion_directa": [("SH-AP", "Señales de que el producto se aleja del manifiesto", "La velocidad técnica oculta la espera")]}),
     ("V12", "IA", {
         "que_es": ["V12"],
         "directiva": ["D04", "D06", "DOCTRINA PARA DESARROLLO CON IA § Determinismo y generación"],
-        "paso": ["F06"], "instruccion": ["CR06"], "detencion": ["STOP06"]}),
+        "paso": ["F06"], "instruccion": ["CR06"], "detencion": ["STOP06"],
+        "comprobacion_directa": [("SH-AP", "Señales de que el producto se aleja del manifiesto", "La IA llena vacíos conceptuales"), ("SH-AP", "Señales de que el producto se aleja del manifiesto", "La respuesta fluida parece verdadera")]}),
 ]
 
 # El núcleo nombra tres cosas dos veces. Afirmar que son una sola cosa es una
@@ -201,6 +207,20 @@ def cargar():
             d[x["id"]] = {"id": x["id"], "familia": "pasaje", "titulo": x["titulo"],
                           "texto": x["texto"], "cuerpo": x["texto"]}
     return d
+
+
+def fila_de_subseccion(d, ident: str, subtitulo: str, rotulo: str) -> str:
+    """Una fila concreta de una subsección, por su rótulo.
+
+    Los antipatrones viven en una sola tabla pero cada uno vigila un objeto
+    distinto: «el plan selecciona alcance» es de cobertura y «la estética
+    maquilla la fricción» es de carga. Citar la tabla entera los mandaría todos
+    al mismo lugar.
+    """
+    for fila in filas_de_subseccion(d, ident, subtitulo):
+        if fila.startswith(rotulo):
+            return fila
+    raise SystemExit(f"`{ident} § {subtitulo}` ya no tiene la fila «{rotulo}»; el núcleo cambió")
 
 
 def filas_de_subseccion(d, ident: str, subtitulo: str) -> list[str]:
@@ -302,6 +322,11 @@ falta una que debería estar, eso es el hallazgo.
         L.append("|---|---|---|")
         for clave, etiqueta in APORTES:
             for ref in angulos.get(clave, []):
+                if isinstance(ref, tuple) and len(ref) == 3:
+                    ident, sub, rotulo = ref
+                    fila = fila_de_subseccion(d, ident, sub, rotulo)
+                    L.append(f"| {etiqueta} | `{ident} § {sub}` | {fila.replace('|', '·')} |")
+                    continue
                 if isinstance(ref, tuple) and isinstance(ref[1], str):
                     ident, sub = ref
                     for fila in filas_de_subseccion(d, ident, sub):

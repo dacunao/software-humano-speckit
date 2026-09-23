@@ -8,35 +8,21 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 
 | Estado | Enunciados | |
 |---|---:|---|
-| **compilado** | 160 | su texto literal está en la compilación · 53% |
+| **compilado** | 183 | su texto literal está en la compilación · 61% |
 | **fuera** | 40 | queda fuera del método, con razón decidida · 13% |
 | **editorial** | 50 | no puede cambiar una decisión de construcción · 16% |
-| **pendiente** | 50 | debería estar y no está · 16% |
+| **pendiente** | 27 | debería estar y no está · 9% |
 | | **300** | enunciados comprobables del manifiesto |
 
-**Cobertura de lo que debe compilarse: 160 de 210 (76%).** Lo editorial y lo declarado fuera no cuentan en el denominador: no faltan, fueron decididos.
+**Cobertura de lo que debe compilarse: 183 de 210 (87%).** Lo editorial y lo declarado fuera no cuentan en el denominador: no faltan, fueron decididos.
 
 
 ---
 
-## Pendiente · 50
+## Pendiente · 27
 
 | Dirección | Texto del manifiesto |
 |---|---|
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | La Job Story es una feature disfrazada · La motivación dice usar un dashboard, recibir alertas o pulsar un botón. · Reformular el avance que necesita la persona sin anticipar la respuesta. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | La circunstancia fue inventada · El equipo redacta una historia plausible sin observar conducta, tensión o contexto real. · Marcarla como hipótesis y obtener evidencia antes de ampliar la im |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | La interfaz replica la base de datos · El usuario debe elegir tipos, estados o relaciones internas. · Traducir la estructura a objetivos y decisiones humanas. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | Más opciones se confunden con más valor · Cada excepción se convierte en un control visible. · Resolver por contexto y revelar excepciones cuando aparezcan. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | La IA llena vacíos conceptuales · Un prompt ambiguo produce una implementación grande. · Detener, aclarar supuestos materiales y preservar el alcance autorizado. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | El plan selecciona alcance · Se implementan algunas historias o reglas y se posterga el resto sin una decisión de producto. · Restablecer la cobertura completa o registrar una modificación e |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | La descomposición parece exclusión · Una fase técnica se presenta como si redefiniera lo que el PRD exige. · Separar orden de ejecución, estado de avance y alcance comprometido. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | El tutorial compensa una interfaz oscura · La tarea básica requiere explicación previa. · Revisar lenguaje, jerarquía, convenciones y feedback. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | La confirmación sustituye la reversibilidad · Se pregunta varias veces, pero no existe deshacer. · Diseñar recuperación y usar confirmaciones solo según riesgo. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | El happy path define el producto · Errores, vacíos e interrupciones quedan para después. · Modelar estados antes de implementar y aceptarlos explícitamente. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | La respuesta fluida parece verdadera · El usuario no distingue hecho, inferencia y propuesta. · Mostrar fuente, incertidumbre, límites y ruta de verificación. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | La velocidad técnica oculta la espera · La operación tarda sin feedback o bloquea todo el flujo. · Responder de inmediato, mostrar progreso y preservar continuidad. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | La estética maquilla la fricción · La pantalla luce bien, pero exige decisiones innecesarias. · Evaluar el recorrido completo y el esfuerzo real. |
-| `SH-AP · Señales de que el producto se aleja del manifiesto` | El agente agrega por si acaso · Aparecen modos, preferencias y abstracciones no pedidas. · Definir exclusiones y exigir justificación por capacidad. |
 | `SH-GOV · Responsabilidades` | Producto · Establece la definición autorizada, el alcance, los resultados, las reglas, los no objetivos y la evidencia de éxito; valida Jobs to Be Done y Job Stories cuando se utilizan. |
 | `SH-GOV · Responsabilidades` | Diseño · Traduce el fundamento de producto a recorridos coherentes con el modelo mental de la persona y protege su atención; utiliza Job Stories cuando permiten concretar la situación. |
 | `SH-GOV · Responsabilidades` | Ingeniería · Absorbe complejidad, garantiza estados, rendimiento, accesibilidad y recuperación. |
@@ -64,15 +50,6 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 | `SH-SCORE · Scorecard de decisión` | Confiabilidad y tiempo · 0 / 1 / 2 · Rendimiento, persistencia y feedback cumplen lo esperado |
 | `SH-SCORE · Scorecard de decisión` | Uso responsable de IA · 0 / 1 / 2 · Incertidumbre, límites y determinismo están resueltos |
 | `SH-SCORE · Scorecard de decisión` | Calidad acumulativa · 0 / 1 / 2 · Estados, lenguaje y microinteracciones son coherentes |
-| `SH-STOP · Regla de detención antes de generar` | ¿Cuál es la definición de producto autorizada y qué alcance establece? |
-| `SH-STOP · Regla de detención antes de generar` | ¿Qué elementos del fundamento justifican el desarrollo y qué evidencia los respalda? |
-| `SH-STOP · Regla de detención antes de generar` | ¿La planificación da cuenta de todas las historias, capacidades, reglas, estados y criterios obligatorios? |
-| `SH-STOP · Regla de detención antes de generar` | Cuando existen Job Stories, ¿la circunstancia, la motivación y el resultado están separados de la solución? |
-| `SH-STOP · Regla de detención antes de generar` | ¿Cuál es la ruta principal y qué estados alternativos importan? |
-| `SH-STOP · Regla de detención antes de generar` | ¿Qué decisiones debe tomar el usuario y cuáles puede resolver el sistema? |
-| `SH-STOP · Regla de detención antes de generar` | ¿Qué comportamiento necesita certeza determinista? |
-| `SH-STOP · Regla de detención antes de generar` | ¿Qué no forma parte del alcance y quién estableció esa exclusión? |
-| `SH-STOP · Regla de detención antes de generar` | ¿Qué evidencia demostrará que el desarrollo está completo? |
 
 ---
 
@@ -182,7 +159,7 @@ Secciones que el paquete distribuye como documentación y no como método.
 
 ---
 
-## Compilado · 160
+## Compilado · 183
 
 | Dirección | Texto del manifiesto |
 |---|---|
@@ -285,6 +262,20 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `P10 · Reglas de diseño` | Pedir confirmación proporcional al impacto, no para cada gesto ni después de una acción irreversible. |
 | `P10 · Reglas de diseño` | Permitir revisar, editar, exportar y revertir cuando el dominio lo permita. |
 | `P10 · Reglas de diseño` | Explicar el uso de datos y separar autorización, recomendación y ejecución. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | La Job Story es una feature disfrazada · La motivación dice usar un dashboard, recibir alertas o pulsar un botón. · Reformular el avance que necesita la persona sin anticipar la respuesta. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | La circunstancia fue inventada · El equipo redacta una historia plausible sin observar conducta, tensión o contexto real. · Marcarla como hipótesis y obtener evidencia antes de ampliar la im |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | La interfaz replica la base de datos · El usuario debe elegir tipos, estados o relaciones internas. · Traducir la estructura a objetivos y decisiones humanas. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | Más opciones se confunden con más valor · Cada excepción se convierte en un control visible. · Resolver por contexto y revelar excepciones cuando aparezcan. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | La IA llena vacíos conceptuales · Un prompt ambiguo produce una implementación grande. · Detener, aclarar supuestos materiales y preservar el alcance autorizado. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | El plan selecciona alcance · Se implementan algunas historias o reglas y se posterga el resto sin una decisión de producto. · Restablecer la cobertura completa o registrar una modificación e |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | La descomposición parece exclusión · Una fase técnica se presenta como si redefiniera lo que el PRD exige. · Separar orden de ejecución, estado de avance y alcance comprometido. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | El tutorial compensa una interfaz oscura · La tarea básica requiere explicación previa. · Revisar lenguaje, jerarquía, convenciones y feedback. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | La confirmación sustituye la reversibilidad · Se pregunta varias veces, pero no existe deshacer. · Diseñar recuperación y usar confirmaciones solo según riesgo. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | El happy path define el producto · Errores, vacíos e interrupciones quedan para después. · Modelar estados antes de implementar y aceptarlos explícitamente. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | La respuesta fluida parece verdadera · El usuario no distingue hecho, inferencia y propuesta. · Mostrar fuente, incertidumbre, límites y ruta de verificación. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | La velocidad técnica oculta la espera · La operación tarda sin feedback o bloquea todo el flujo. · Responder de inmediato, mostrar progreso y preservar continuidad. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | La estética maquilla la fricción · La pantalla luce bien, pero exige decisiones innecesarias. · Evaluar el recorrido completo y el esfuerzo real. |
+| `SH-AP · Señales de que el producto se aleja del manifiesto` | El agente agrega por si acaso · Aparecen modos, preferencias y abstracciones no pedidas. · Definir exclusiones y exigir justificación por capacidad. |
 | `SH-FUND · Alcance completo y autoridad de producto` | Toda omisión, modificación o postergación debe ser explícita, trazable y aprobada por la autoridad de producto. |
 | `SH-FUND · Alcance completo y autoridad de producto` | Si las restricciones de tiempo, recursos o tecnología impiden cubrir el alcance, el plan debe hacer visible la incompatibilidad y solicitar una decisión. |
 | `SH-FUND · Alcance completo y autoridad de producto` | Una estrategia incremental, por fases o por releases puede utilizarse cuando el proyecto la adopta; no es una obligación del núcleo. |
@@ -326,6 +317,15 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP05` La interfaz expone una complejidad interna que el sistema podría absorber. |
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP06` Una acción sensible carece de determinismo, trazabilidad o recuperación. |
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP07` El equipo solo puede demostrar que el código funciona, no que el usuario progresa. |
+| `SH-STOP · Regla de detención antes de generar` | ¿Cuál es la definición de producto autorizada y qué alcance establece? |
+| `SH-STOP · Regla de detención antes de generar` | ¿Qué elementos del fundamento justifican el desarrollo y qué evidencia los respalda? |
+| `SH-STOP · Regla de detención antes de generar` | ¿La planificación da cuenta de todas las historias, capacidades, reglas, estados y criterios obligatorios? |
+| `SH-STOP · Regla de detención antes de generar` | Cuando existen Job Stories, ¿la circunstancia, la motivación y el resultado están separados de la solución? |
+| `SH-STOP · Regla de detención antes de generar` | ¿Cuál es la ruta principal y qué estados alternativos importan? |
+| `SH-STOP · Regla de detención antes de generar` | ¿Qué decisiones debe tomar el usuario y cuáles puede resolver el sistema? |
+| `SH-STOP · Regla de detención antes de generar` | ¿Qué comportamiento necesita certeza determinista? |
+| `SH-STOP · Regla de detención antes de generar` | ¿Qué no forma parte del alcance y quién estableció esa exclusión? |
+| `SH-STOP · Regla de detención antes de generar` | ¿Qué evidencia demostrará que el desarrollo está completo? |
 | `STOP01` | No existe un fundamento de producto identificable o la solución parece preceder al problema. |
 | `STOP02` | El plan no da cuenta de todo el alcance obligatorio definido por producto. |
 | `STOP03` | Se pretende omitir, modificar o postergar una parte sin una decisión autorizada. |
