@@ -6,3 +6,6 @@ dist/
 # Cachés de las herramientas del método
 __pycache__/
 *.pyc
+
+# Artefactos de construcción del bundle
+tools/speckit/bundle-*/*.zip
