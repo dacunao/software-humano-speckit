@@ -94,9 +94,18 @@ echo "==> Sincronizando el manifiesto de integridad del repositorio"
 # Generarlo aquí evita que quede describiendo una versión anterior, que es lo
 # que ocurrió con el 1.6.0.
 grep -v '  tools/speckit/Software_Humano_.*\.zip$' "$STAGE/SHA256SUMS" > "$RAIZ/SHA256SUMS"
-( cd "$RAIZ" && shasum -a 256 -c SHA256SUMS >/dev/null ) \
-  && echo "    integridad del repositorio: $(wc -l < "$RAIZ/SHA256SUMS" | tr -d ' ') archivos" \
-  || { echo "    FALLO: el manifiesto de la raíz no verifica"; exit 1; }
+# La raíz de este repositorio es la instalación del propio método sobre sí mismo:
+# `package/` es la fuente y la raíz es la copia instalada. Si una diverge, el
+# repositorio dejó de correr el método que distribuye, y conviene saber cuál.
+if ! ( cd "$RAIZ" && shasum -a 256 -c SHA256SUMS >/dev/null 2>&1 ); then
+  echo "    FALLO: la instalación de la raíz no coincide con el paquete armado."
+  echo "    Archivos que divergieron:"
+  ( cd "$RAIZ" && shasum -a 256 -c SHA256SUMS 2>/dev/null \
+      | grep -v ': OK$' | sed 's/^/      /' )
+  echo "    Copia la fuente sobre la raíz, o corrige la fuente si el cambio era ahí."
+  exit 1
+fi
+echo "    integridad del repositorio: $(wc -l < "$RAIZ/SHA256SUMS" | tr -d ' ') archivos"
 
 echo "==> Empaquetando la distribución"
 ( cd "$DIST" && zip -q -r -X "${NOMBRE}.zip" "$NOMBRE" )

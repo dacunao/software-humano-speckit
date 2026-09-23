@@ -12,6 +12,7 @@ Lo que no esté aquí ni en el núcleo, y se use en posición de definición, **
 
 | Término | Por qué es maquinaria y no doctrina |
 |---|---|
+| speckit | Nombre de la herramienta que el método adapta. |
 | texto literal | Rótulo de columna: la cita del núcleo, sin reformular. |
 | comprobacion | Cada control que el ensamblado ejecuta. Maquinaria de la adaptación. |
 | completar por proyecto | Sección de AGENTS.md que cada proyecto llena. |

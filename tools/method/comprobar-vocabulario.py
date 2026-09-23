@@ -113,7 +113,13 @@ def en_posicion_de_definicion(texto: str) -> list[str]:
             # términos, y tomarlas produce ruido como «fusionados» o «dos objetos».
             siguiente = lineas[i + 1].strip() if i + 1 < len(lineas) else ""
             salida.extend(celdas if re.match(r"^\|[\s|:-]+\|$", siguiente) else celdas[:1])
-        salida.extend(re.findall(r"\*\*(.+?)\*\*", s))
+        # Negrita solo al principio de la línea: es el patrón con que se
+        # instituye un término —«**Nombre.** Explicación»—. La negrita a media
+        # frase es énfasis —«**no instales**», «**detente**»— y tomarla produce
+        # falsos positivos sobre cualquier documento con prosa enfática.
+        m = re.match(r"^(?:[-*]\s+|\d+\.\s+)?\*\*(.+?)\*\*", s)
+        if m:
+            salida.append(m.group(1))
     return salida
 
 
