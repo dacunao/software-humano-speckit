@@ -18,6 +18,15 @@ DIST="$RAIZ/dist"
 STAGE="$DIST/$NOMBRE"
 PRESET_DIR="software-humano-spec-kit-preset-${VERSION_PRESET}"
 
+echo "==> Comprobando conformidad antes de ensamblar"
+# Un paquete que no puede demostrar su correspondencia con el manifiesto no se
+# distribuye. Las comprobaciones se ejecutan antes de copiar nada, para que un
+# fallo no deje un dist/ a medio armar.
+python3 "$RAIZ/tools/method/extraer-identificadores.py" --comprobar
+python3 "$RAIZ/tools/method/comprobar-vocabulario.py"
+python3 "$RAIZ/tools/method/comprobar-conformidad.py"
+echo
+
 echo "==> Limpiando dist/"
 rm -rf "$DIST"
 mkdir -p "$STAGE"
