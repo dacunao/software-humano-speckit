@@ -8,48 +8,14 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 
 | Estado | Enunciados | |
 |---|---:|---|
-| **compilado** | 183 | su texto literal está en la compilación · 61% |
+| **compilado** | 210 | su texto literal está en la compilación · 70% |
 | **fuera** | 40 | queda fuera del método, con razón decidida · 13% |
 | **editorial** | 50 | no puede cambiar una decisión de construcción · 16% |
-| **pendiente** | 27 | debería estar y no está · 9% |
+| **pendiente** | 0 | debería estar y no está · 0% |
 | | **300** | enunciados comprobables del manifiesto |
 
-**Cobertura de lo que debe compilarse: 183 de 210 (87%).** Lo editorial y lo declarado fuera no cuentan en el denominador: no faltan, fueron decididos.
+**Cobertura de lo que debe compilarse: 210 de 210 (100%).** Lo editorial y lo declarado fuera no cuentan en el denominador: no faltan, fueron decididos.
 
-
----
-
-## Pendiente · 27
-
-| Dirección | Texto del manifiesto |
-|---|---|
-| `SH-GOV · Responsabilidades` | Producto · Establece la definición autorizada, el alcance, los resultados, las reglas, los no objetivos y la evidencia de éxito; valida Jobs to Be Done y Job Stories cuando se utilizan. |
-| `SH-GOV · Responsabilidades` | Diseño · Traduce el fundamento de producto a recorridos coherentes con el modelo mental de la persona y protege su atención; utiliza Job Stories cuando permiten concretar la situación. |
-| `SH-GOV · Responsabilidades` | Ingeniería · Absorbe complejidad, garantiza estados, rendimiento, accesibilidad y recuperación. |
-| `SH-GOV · Responsabilidades` | Agente de IA · Planifica e implementa dentro del fundamento y del contrato; declara supuestos, mantiene cobertura y no reduce ni amplía alcance por iniciativa propia. |
-| `SH-GOV · Responsabilidades` | Revisión humana · Evalúa causalidad, sentido, riesgo, experiencia completa y evidencia; no se limita a revisar código. |
-| `SH-SCORE · Preguntas para una revisión de producto` | ¿Qué fuente autorizada y qué fundamento de producto justifican esta decisión? |
-| `SH-SCORE · Preguntas para una revisión de producto` | ¿La implementación y sus pruebas dan cuenta del alcance completo? |
-| `SH-SCORE · Preguntas para una revisión de producto` | Cuando existen Jobs to Be Done o Job Stories, ¿cómo se relaciona esta decisión con ellos? |
-| `SH-SCORE · Preguntas para una revisión de producto` | ¿La formulación describe una necesidad o es una funcionalidad redactada con otra fórmula? |
-| `SH-SCORE · Preguntas para una revisión de producto` | ¿Qué carga cognitiva introduce y cuál elimina? |
-| `SH-SCORE · Preguntas para una revisión de producto` | ¿Estamos exponiendo una complejidad interna? |
-| `SH-SCORE · Preguntas para una revisión de producto` | ¿Puede eliminarse algún elemento sin reducir capacidad ni control? |
-| `SH-SCORE · Preguntas para una revisión de producto` | ¿La persona sabe qué ocurrirá antes de actuar? |
-| `SH-SCORE · Preguntas para una revisión de producto` | ¿Puede recuperarse con facilidad si se equivoca o si el sistema falla? |
-| `SH-SCORE · Preguntas para una revisión de producto` | ¿La IA está proponiendo, decidiendo o ejecutando? ¿Ese nivel está autorizado? |
-| `SH-SCORE · Preguntas para una revisión de producto` | ¿Qué haría que rechazáramos esta implementación aunque técnicamente funcione? |
-| `SH-SCORE · Scorecard de decisión` | Fundamento trazable · 0 / 1 / 2 · Fuentes, autoridad, alcance, resultados y condiciones son identificables |
-| `SH-SCORE · Scorecard de decisión` | Cobertura del producto · 0 / 1 / 2 · Todo elemento obligatorio tiene implementación, prueba o excepción aprobada |
-| `SH-SCORE · Scorecard de decisión` | Job Stories aplicables · 0 / 1 / 2 · Cuando existen, circunstancia, motivación y resultado conservan evidencia suficiente |
-| `SH-SCORE · Scorecard de decisión` | Progreso del usuario · 0 / 1 / 2 · La implementación produce los resultados definidos por el producto |
-| `SH-SCORE · Scorecard de decisión` | Carga cognitiva · 0 / 1 / 2 · Reduce o justifica conceptos, decisiones y pasos |
-| `SH-SCORE · Scorecard de decisión` | Claridad de interfaz · 0 / 1 / 2 · Estado, acción y consecuencia se comprenden |
-| `SH-SCORE · Scorecard de decisión` | Control y recuperación · 0 / 1 / 2 · Existe revisión, corrección o reversibilidad proporcional |
-| `SH-SCORE · Scorecard de decisión` | Profundidad progresiva · 0 / 1 / 2 · La capacidad aparece cuando corresponde |
-| `SH-SCORE · Scorecard de decisión` | Confiabilidad y tiempo · 0 / 1 / 2 · Rendimiento, persistencia y feedback cumplen lo esperado |
-| `SH-SCORE · Scorecard de decisión` | Uso responsable de IA · 0 / 1 / 2 · Incertidumbre, límites y determinismo están resueltos |
-| `SH-SCORE · Scorecard de decisión` | Calidad acumulativa · 0 / 1 / 2 · Estados, lenguaje y microinteracciones son coherentes |
 
 ---
 
@@ -159,7 +125,7 @@ Secciones que el paquete distribuye como documentación y no como método.
 
 ---
 
-## Compilado · 183
+## Compilado · 210
 
 | Dirección | Texto del manifiesto |
 |---|---|
@@ -310,6 +276,11 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `SH-GOV · Puntos de control` | Antes de integrar · Cada cambio conserva trazabilidad con su fundamento, respeta alcance, cubre estados y pasa pruebas técnicas. |
 | `SH-GOV · Puntos de control` | Antes de liberar · La implementación completa demuestra resultados, cobertura, comprensión, control y calidad de experiencia. |
 | `SH-GOV · Puntos de control` | Después de liberar · Se observan resultado, fricción, abandono y errores; se revisan el fundamento, las historias y sus supuestos cuando corresponda. |
+| `SH-GOV · Responsabilidades` | Producto · Establece la definición autorizada, el alcance, los resultados, las reglas, los no objetivos y la evidencia de éxito; valida Jobs to Be Done y Job Stories cuando se utilizan. |
+| `SH-GOV · Responsabilidades` | Diseño · Traduce el fundamento de producto a recorridos coherentes con el modelo mental de la persona y protege su atención; utiliza Job Stories cuando permiten concretar la situación. |
+| `SH-GOV · Responsabilidades` | Ingeniería · Absorbe complejidad, garantiza estados, rendimiento, accesibilidad y recuperación. |
+| `SH-GOV · Responsabilidades` | Agente de IA · Planifica e implementa dentro del fundamento y del contrato; declara supuestos, mantiene cobertura y no reduce ni amplía alcance por iniciativa propia. |
+| `SH-GOV · Responsabilidades` | Revisión humana · Evalúa causalidad, sentido, riesgo, experiencia completa y evidencia; no se limita a revisar código. |
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP01` No existe un fundamento de producto identificable o la solución parece preceder al problema. |
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP02` El plan no da cuenta de todo el alcance obligatorio definido por producto. |
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP03` Se pretende omitir, modificar o postergar una parte sin una decisión autorizada. |
@@ -317,6 +288,28 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP05` La interfaz expone una complejidad interna que el sistema podría absorber. |
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP06` Una acción sensible carece de determinismo, trazabilidad o recuperación. |
 | `SH-POCKET · Siete razones para detener una implementación` | `STOP07` El equipo solo puede demostrar que el código funciona, no que el usuario progresa. |
+| `SH-SCORE · Preguntas para una revisión de producto` | ¿Qué fuente autorizada y qué fundamento de producto justifican esta decisión? |
+| `SH-SCORE · Preguntas para una revisión de producto` | ¿La implementación y sus pruebas dan cuenta del alcance completo? |
+| `SH-SCORE · Preguntas para una revisión de producto` | Cuando existen Jobs to Be Done o Job Stories, ¿cómo se relaciona esta decisión con ellos? |
+| `SH-SCORE · Preguntas para una revisión de producto` | ¿La formulación describe una necesidad o es una funcionalidad redactada con otra fórmula? |
+| `SH-SCORE · Preguntas para una revisión de producto` | ¿Qué carga cognitiva introduce y cuál elimina? |
+| `SH-SCORE · Preguntas para una revisión de producto` | ¿Estamos exponiendo una complejidad interna? |
+| `SH-SCORE · Preguntas para una revisión de producto` | ¿Puede eliminarse algún elemento sin reducir capacidad ni control? |
+| `SH-SCORE · Preguntas para una revisión de producto` | ¿La persona sabe qué ocurrirá antes de actuar? |
+| `SH-SCORE · Preguntas para una revisión de producto` | ¿Puede recuperarse con facilidad si se equivoca o si el sistema falla? |
+| `SH-SCORE · Preguntas para una revisión de producto` | ¿La IA está proponiendo, decidiendo o ejecutando? ¿Ese nivel está autorizado? |
+| `SH-SCORE · Preguntas para una revisión de producto` | ¿Qué haría que rechazáramos esta implementación aunque técnicamente funcione? |
+| `SH-SCORE · Scorecard de decisión` | Fundamento trazable · 0 / 1 / 2 · Fuentes, autoridad, alcance, resultados y condiciones son identificables |
+| `SH-SCORE · Scorecard de decisión` | Cobertura del producto · 0 / 1 / 2 · Todo elemento obligatorio tiene implementación, prueba o excepción aprobada |
+| `SH-SCORE · Scorecard de decisión` | Job Stories aplicables · 0 / 1 / 2 · Cuando existen, circunstancia, motivación y resultado conservan evidencia suficiente |
+| `SH-SCORE · Scorecard de decisión` | Progreso del usuario · 0 / 1 / 2 · La implementación produce los resultados definidos por el producto |
+| `SH-SCORE · Scorecard de decisión` | Carga cognitiva · 0 / 1 / 2 · Reduce o justifica conceptos, decisiones y pasos |
+| `SH-SCORE · Scorecard de decisión` | Claridad de interfaz · 0 / 1 / 2 · Estado, acción y consecuencia se comprenden |
+| `SH-SCORE · Scorecard de decisión` | Control y recuperación · 0 / 1 / 2 · Existe revisión, corrección o reversibilidad proporcional |
+| `SH-SCORE · Scorecard de decisión` | Profundidad progresiva · 0 / 1 / 2 · La capacidad aparece cuando corresponde |
+| `SH-SCORE · Scorecard de decisión` | Confiabilidad y tiempo · 0 / 1 / 2 · Rendimiento, persistencia y feedback cumplen lo esperado |
+| `SH-SCORE · Scorecard de decisión` | Uso responsable de IA · 0 / 1 / 2 · Incertidumbre, límites y determinismo están resueltos |
+| `SH-SCORE · Scorecard de decisión` | Calidad acumulativa · 0 / 1 / 2 · Estados, lenguaje y microinteracciones son coherentes |
 | `SH-STOP · Regla de detención antes de generar` | ¿Cuál es la definición de producto autorizada y qué alcance establece? |
 | `SH-STOP · Regla de detención antes de generar` | ¿Qué elementos del fundamento justifican el desarrollo y qué evidencia los respalda? |
 | `SH-STOP · Regla de detención antes de generar` | ¿La planificación da cuenta de todas las historias, capacidades, reglas, estados y criterios obligatorios? |

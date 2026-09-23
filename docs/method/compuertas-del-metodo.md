@@ -79,6 +79,40 @@ El manifiesto especifica seis momentos con su decisión requerida. **Ninguna com
 **Objetos que se comprueban:** Plan de aceptación · Progreso · Comprensión · Control · las doce dimensiones
 
 
+**El núcleo detalla esta compuerta.** El scorecard de decisión puntúa cada dimensión con 0 cuando no existe evidencia, 1 cuando el cumplimiento es parcial o depende de un supuesto no validado, y 2 cuando existe evidencia suficiente.
+
+| Criterio | Pregunta de evidencia |
+|---|---|
+| Fundamento trazable | Fuentes, autoridad, alcance, resultados y condiciones son identificables |
+| Cobertura del producto | Todo elemento obligatorio tiene implementación, prueba o excepción aprobada |
+| Job Stories aplicables | Cuando existen, circunstancia, motivación y resultado conservan evidencia suficiente |
+| Progreso del usuario | La implementación produce los resultados definidos por el producto |
+| Carga cognitiva | Reduce o justifica conceptos, decisiones y pasos |
+| Claridad de interfaz | Estado, acción y consecuencia se comprenden |
+| Control y recuperación | Existe revisión, corrección o reversibilidad proporcional |
+| Profundidad progresiva | La capacidad aparece cuando corresponde |
+| Confiabilidad y tiempo | Rendimiento, persistencia y feedback cumplen lo esperado |
+| Uso responsable de IA | Incertidumbre, límites y determinismo están resueltos |
+| Calidad acumulativa | Estados, lenguaje y microinteracciones son coherentes |
+
+> Criterio de salida recomendado. Ninguna dimensión crítica puede puntuar 0. Los criterios relacionados con seguridad, permisos, dinero, datos personales o acciones irreversibles deben puntuar 2 antes de liberar. Para el resto, el equipo debe definir su umbral según el riesgo y el alcance.
+
+
+Y las preguntas que el núcleo enumera para una revisión de producto:
+
+- ¿Qué fuente autorizada y qué fundamento de producto justifican esta decisión?
+- ¿La implementación y sus pruebas dan cuenta del alcance completo?
+- Cuando existen Jobs to Be Done o Job Stories, ¿cómo se relaciona esta decisión con ellos?
+- ¿La formulación describe una necesidad o es una funcionalidad redactada con otra fórmula?
+- ¿Qué carga cognitiva introduce y cuál elimina?
+- ¿Estamos exponiendo una complejidad interna?
+- ¿Puede eliminarse algún elemento sin reducir capacidad ni control?
+- ¿La persona sabe qué ocurrirá antes de actuar?
+- ¿Puede recuperarse con facilidad si se equivoca o si el sistema falla?
+- ¿La IA está proponiendo, decidiendo o ejecutando? ¿Ese nivel está autorizado?
+- ¿Qué haría que rechazáramos esta implementación aunque técnicamente funcione?
+
+
 ## Después de liberar
 
 > **Decisión requerida.** Se observan resultado, fricción, abandono y errores; se revisan el fundamento, las historias y sus supuestos cuando corresponda.
@@ -89,6 +123,20 @@ El manifiesto especifica seis momentos con su decisión requerida. **Ninguna com
 
 **Objetos que se comprueban:** Progreso · Causalidad · Carga
 
+
+---
+
+## Quién responde por qué
+
+Una compuerta necesita quién decida. El manifiesto lo asigna por rol, y la adaptación **no reasigna nada**: lo cita.
+
+| Responsable | Obligación principal |
+|---|---|
+| Producto | Establece la definición autorizada, el alcance, los resultados, las reglas, los no objetivos y la evidencia de éxito; valida Jobs to Be Done y Job Stories cuando se utilizan. |
+| Diseño | Traduce el fundamento de producto a recorridos coherentes con el modelo mental de la persona y protege su atención; utiliza Job Stories cuando permiten concretar la situación. |
+| Ingeniería | Absorbe complejidad, garantiza estados, rendimiento, accesibilidad y recuperación. |
+| Agente de IA | Planifica e implementa dentro del fundamento y del contrato; declara supuestos, mantiene cobertura y no reduce ni amplía alcance por iniciativa propia. |
+| Revisión humana | Evalúa causalidad, sentido, riesgo, experiencia completa y evidencia; no se limita a revisar código. |
 
 ---
 

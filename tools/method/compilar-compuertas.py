@@ -79,11 +79,40 @@ def preguntas_de_detencion(d: dict) -> list[str]:
     return preguntas
 
 
+def filas(d: dict, ident: str, subtitulo: str) -> list[str]:
+    """Filas de tabla y viñetas de una subsección, sin la cabecera."""
+    dentro, salida = False, []
+    for l in d[ident]["texto"].split("\n"):
+        s = l.strip()
+        if s.startswith("#"):
+            dentro = re.sub(r"^#+\s*", "", s).split(" · ")[0].strip() == subtitulo
+            continue
+        if not dentro:
+            continue
+        if s.startswith("|") and not re.match(r"^\|[\s|:-]+\|$", s):
+            celdas = [c.strip() for c in s.strip("|").split("|")]
+            if celdas and not celdas[0].startswith("**"):
+                salida.append(" · ".join(celdas))
+        elif re.match(r"^(-|\d+\\?\.)\s", s):
+            salida.append(s.lstrip("-0123456789\\. ").strip())
+    if not salida:
+        raise SystemExit(f"`{ident} § {subtitulo}` ya no existe; el núcleo cambió")
+    return salida
+
+
+def criterio_de_salida(d: dict) -> str:
+    """La frase que fija cuándo el scorecard autoriza liberar."""
+    m = re.search(r"(Criterio de salida recomendado\..*?)\n", d["SH-SCORE"]["texto"], re.S)
+    if not m:
+        raise SystemExit("`SH-SCORE` ya no declara su criterio de salida; el núcleo cambió")
+    return " ".join(m.group(1).split())
+
+
 def main() -> int:
     d = {e["id"]: e for e in json.loads(IDENTIFICADORES.read_text(encoding="utf-8"))["disposiciones"]}
-    filas = puntos_de_control(d)
+    puntos = puntos_de_control(d)
 
-    faltan = [m for m, _ in filas if m not in CORRESPONDENCIA]
+    faltan = [m for m, _ in puntos if m not in CORRESPONDENCIA]
     if faltan:
         raise SystemExit(
             "el manifiesto nombra momentos sin correspondencia declarada: " + ", ".join(faltan)
@@ -96,19 +125,38 @@ def main() -> int:
          "|---|---|",
          "| Dónde cae cada momento en el flujo de SpecKit, y qué objetos se comprueban ahí | El momento y su decisión requerida, literal |",
          "\n---\n"]
-    for momento, decision in filas:
+    for momento, decision in puntos:
         donde, objetos = CORRESPONDENCIA[momento]
         L += [f"\n## {momento}\n",
               f"> **Decisión requerida.** {decision}\n",
               f"*Cita de `SH-GOV § Puntos de control`, literal.*\n",
               f"**Dónde cae en SpecKit:** {donde}",
               f"\n**Objetos que se comprueban:** {objetos}\n"]
+        if momento == "Antes de liberar":
+            L += ["\n**El núcleo detalla esta compuerta.** El scorecard de decisión puntúa cada dimensión con "
+                  "0 cuando no existe evidencia, 1 cuando el cumplimiento es parcial o depende de un supuesto no "
+                  "validado, y 2 cuando existe evidencia suficiente.\n",
+                  "| Criterio | Pregunta de evidencia |", "|---|---|"]
+            for f in filas(d, "SH-SCORE", "Scorecard de decisión"):
+                c = f.split(" · ")
+                L.append(f"| {c[0]} | {c[-1]} |")
+            L += [f"\n> {criterio_de_salida(d)}\n",
+                  "\nY las preguntas que el núcleo enumera para una revisión de producto:\n"]
+            L += [f"- {q}" for q in filas(d, "SH-SCORE", "Preguntas para una revisión de producto")]
+            L.append("")
         if momento == "Antes de generar código":
             L += ["\n**El núcleo detalla esta compuerta.** `SH-STOP` se llama «Regla de detención antes de "
                   "generar», y enumera lo que el agente debe poder responder con precisión, en el nivel que "
                   "exijan el riesgo y la complejidad, antes de comenzar una implementación:\n"]
             L += [f"- {q}" for q in preguntas_de_detencion(d)]
             L.append("")
+    L += ["\n---\n\n## Quién responde por qué\n",
+          "Una compuerta necesita quién decida. El manifiesto lo asigna por rol, y la adaptación **no reasigna "
+          "nada**: lo cita.\n",
+          "| Responsable | Obligación principal |", "|---|---|"]
+    for f in filas(d, "SH-GOV", "Responsabilidades"):
+        c = f.split(" · ")
+        L.append(f"| {c[0]} | {' · '.join(c[1:])} |")
     L += ["\n---\n\n## Lo que esta compilación deja visto\n",
           "**El último momento no tiene operación nativa.** El manifiesto exige observar resultado, fricción, "
           "abandono y errores después de liberar, y revisar el fundamento y sus supuestos cuando corresponda. "
@@ -116,7 +164,7 @@ def main() -> int:
           "en lugar de resolverse en silencio.\n",
           "**La adaptación no elige cuántas compuertas hay.** Son seis porque el manifiesto escribe seis.\n"]
     SALIDA.write_text("\n".join(L) + "\n", encoding="utf-8")
-    print(f"escrito {SALIDA.relative_to(RAIZ)} · {len(filas)} compuertas")
+    print(f"escrito {SALIDA.relative_to(RAIZ)} · {len(puntos)} compuertas")
     return 0
 
 
