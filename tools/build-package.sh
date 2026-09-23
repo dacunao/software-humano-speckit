@@ -10,13 +10,23 @@
 set -euo pipefail
 
 RAIZ="$(CDPATH="" cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION_PAQUETE="1.6.0"
-VERSION_PRESET="1.2.0"
+VERSION_PAQUETE="2.0.0"
+# Las cinco capas del método comparten el número de salida 2.0.0. No están
+# acopladas: cuando una necesite un parche se mueve sola, y esa divergencia
+# significará que esa capa cambió. Lo que no significaba nada era que salieran
+# desalineadas de origen.
+VERSION_PRESET="2.0.0"
+VERSION_EXTENSION="2.0.0"
+VERSION_WORKFLOW="2.0.0"
+VERSION_BUNDLE="2.0.0"
 NOMBRE="software-humano-speckit-starter-v${VERSION_PAQUETE}"
 
 DIST="$RAIZ/dist"
 STAGE="$DIST/$NOMBRE"
 PRESET_DIR="software-humano-spec-kit-preset-${VERSION_PRESET}"
+EXTENSION_DIR="conformidad-${VERSION_EXTENSION}"
+WORKFLOW_DIR="workflow-software-humano-${VERSION_WORKFLOW}"
+BUNDLE_DIR="bundle-software-humano-${VERSION_BUNDLE}"
 
 echo "==> Comprobando conformidad antes de ensamblar"
 # Un paquete que no puede demostrar su correspondencia con el manifiesto no se
@@ -37,18 +47,31 @@ cp -R "$RAIZ/package/." "$STAGE/"
 echo "==> Copiando doctrina canónica (sin duplicarla en el repositorio)"
 mkdir -p "$STAGE/docs/method"
 cp "$RAIZ/docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md" "$STAGE/docs/method/"
+cp "$RAIZ/docs/method/Anexo_Aplicacion_SpecKit_v2.0.md"              "$STAGE/docs/method/"
 cp "$RAIZ/docs/method/Anexo_Aplicacion_SpecKit_v1.2.md"              "$STAGE/docs/method/"
+cp "$RAIZ/docs/method/GUIA_DE_IMPLEMENTACION_SPECKIT.md"             "$STAGE/docs/method/"
+cp "$RAIZ/docs/method/inventario-de-objetos.md"                      "$STAGE/docs/method/"
+cp "$RAIZ/docs/method/compuertas-del-metodo.md"                      "$STAGE/docs/method/"
+cp "$RAIZ/docs/method/mapa-de-cobertura.md"                          "$STAGE/docs/method/"
+cp "$RAIZ/docs/method/vocabulario-de-maquinaria.md"                  "$STAGE/docs/method/"
 
-echo "==> Copiando el preset v${VERSION_PRESET}"
-cp -R "$RAIZ/tools/speckit/$PRESET_DIR" "$STAGE/tools/speckit/"
+echo "==> Copiando las cuatro capas del método v2.0.0"
+for d in "$PRESET_DIR" "$EXTENSION_DIR" "$WORKFLOW_DIR" "$BUNDLE_DIR"; do
+  cp -R "$RAIZ/tools/speckit/$d" "$STAGE/tools/speckit/"
+done
 
 echo "==> Eliminando basura del sistema de archivos"
 find "$STAGE" -name '.DS_Store' -delete
 find "$STAGE" -name '__MACOSX' -type d -exec rm -rf {} + 2>/dev/null || true
 
-echo "==> Empaquetando el preset"
+echo "==> Empaquetando cada capa por separado"
+# Cada una se instala por su cuenta mientras no haya catálogo publicado: el zip
+# de un bundle lleva solo su manifiesto, no los componentes.
 ( cd "$STAGE/tools/speckit" \
-  && zip -q -r -X "Software_Humano_SpecKit_Preset_v${VERSION_PRESET}.zip" "$PRESET_DIR" )
+  && zip -q -r -X "Software_Humano_Preset_v${VERSION_PRESET}.zip"    "$PRESET_DIR" \
+  && zip -q -r -X "Software_Humano_Conformidad_v${VERSION_EXTENSION}.zip" "$EXTENSION_DIR" \
+  && zip -q -r -X "Software_Humano_Workflow_v${VERSION_WORKFLOW}.zip"     "$WORKFLOW_DIR" \
+  && zip -q -r -X "Software_Humano_Bundle_v${VERSION_BUNDLE}.zip"         "$BUNDLE_DIR" )
 
 echo "==> Asegurando permisos de ejecución"
 chmod +x "$STAGE/tools/speckit/preflight.sh" \
@@ -64,6 +87,16 @@ echo "==> Generando SHA256SUMS"
 
 echo "==> Verificando integridad recién generada"
 ( cd "$STAGE" && shasum -a 256 -c SHA256SUMS >/dev/null )
+
+echo "==> Sincronizando el manifiesto de integridad del repositorio"
+# El de dist/ cubre el paquete armado, zips incluidos. El de la raíz cubre las
+# fuentes: los zips son salida de este script y no existen en el repositorio.
+# Generarlo aquí evita que quede describiendo una versión anterior, que es lo
+# que ocurrió con el 1.6.0.
+grep -v '  tools/speckit/Software_Humano_.*\.zip$' "$STAGE/SHA256SUMS" > "$RAIZ/SHA256SUMS"
+( cd "$RAIZ" && shasum -a 256 -c SHA256SUMS >/dev/null ) \
+  && echo "    integridad del repositorio: $(wc -l < "$RAIZ/SHA256SUMS" | tr -d ' ') archivos" \
+  || { echo "    FALLO: el manifiesto de la raíz no verifica"; exit 1; }
 
 echo "==> Empaquetando la distribución"
 ( cd "$DIST" && zip -q -r -X "${NOMBRE}.zip" "$NOMBRE" )

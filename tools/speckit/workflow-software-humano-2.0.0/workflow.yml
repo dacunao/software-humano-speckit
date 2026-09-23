@@ -3,7 +3,7 @@ schema_version: "1.0"
 workflow:
   id: "software-humano"
   name: "Ciclo SDD con las compuertas del manifiesto"
-  version: "1.0.0"
+  version: "2.0.0"
   author: "Damián Acuña"
   description: "Ejecuta el ciclo nativo de SpecKit con las compuertas que el Manifiesto de Software Humano especifica, y la comprobación de conformidad en los momentos que el propio manifiesto nombra."
 

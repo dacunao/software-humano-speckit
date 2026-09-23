@@ -153,9 +153,9 @@ Una constitución materializada debe contener las quince familias completas. `in
 
 ## Decisiones técnicas aprobadas
 
-- **Versionado semántico independiente** para el paquete, el preset, el núcleo y el anexo. La versión del preset no sigue a la del núcleo.
-- **El preset solo usa presets nativos de SpecKit.** No se crean extensiones, workflows ni bundles, y no se adopta `constitution-sync`. Lo fija el anexo, que descarta esos mecanismos con su razón.
-- **Composición `wrap`** para los ocho comandos: el core nativo permanece íntegro. El reemplazo total queda reservado a incompatibilidades que la composición no pueda neutralizar.
+- **Versionado semántico independiente** para el paquete, el preset, el núcleo y el anexo. La versión del preset no sigue a la del núcleo. **Las cinco capas del método salen alineadas en 2.0.0** —paquete, preset, extensión, workflow y bundle—, y eso no las acopla: cuando una necesite un parche se mueve sola, y esa divergencia significará que esa capa cambió.
+- **Cuatro mecanismos nativos, no uno.** Preset para la doctrina en los artefactos, extensión para la conformidad, workflow para el cumplimiento y bundle para la distribución. Hasta la propuesta 008 este archivo decía que solo se usaban presets; la condición que el propio anexo fijó para salir de ahí —«una necesidad técnica demostrada que el preset no pueda resolver»— se cumplió por dos vías: su guía oficial dice que un preset no puede agregar capacidades, y el motor de workflows es el único lugar de SpecKit donde un paso lo ejecuta el motor y no el agente.
+- **Composición `wrap` sin frontmatter** para los ocho comandos. Una capa que declara frontmatter reemplaza el del core y borra sus `handoffs`; una que no lo declara lo conserva entero. **Adición, no sustitución, en las plantillas**: sustituir borra las secciones que los comandos nativos buscan por su nombre. La sustitución queda reservada a la plantilla de constitución, cuyo contenido es por definición propio.
 - **El checklist nativo se conserva sin intervención.**
 - **Compatibilidad declarada** con SpecKit `>=1.0.0,<2.0.0`, verificada sobre 1.0.8.
 - **`SHA256SUMS` cubre los archivos invariantes**, y deliberadamente **no** cubre `AGENTS.md`, que cada proyecto completa.

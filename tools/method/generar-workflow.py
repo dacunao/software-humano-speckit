@@ -24,7 +24,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parents[2]
 IDENTIFICADORES = RAIZ / "docs/method/identificadores-nucleo-v2.1.json"
-SALIDA = RAIZ / "tools/speckit/workflow-software-humano-1.0.0/workflow.yml"
+SALIDA = RAIZ / "tools/speckit/workflow-software-humano-2.0.0/workflow.yml"
 
 CONFORMIDAD = ".specify/extensions/conformidad/scripts/conformidad.sh"
 
@@ -74,7 +74,7 @@ def main() -> int:
     L = ['schema_version: "1.0"', "", "workflow:",
          '  id: "software-humano"',
          '  name: "Ciclo SDD con las compuertas del manifiesto"',
-         '  version: "1.0.0"',
+         '  version: "2.0.0"',
          '  author: "Damián Acuña"',
          '  description: "Ejecuta el ciclo nativo de SpecKit con las compuertas que el Manifiesto de '
          'Software Humano especifica, y la comprobación de conformidad en los momentos que el propio '
