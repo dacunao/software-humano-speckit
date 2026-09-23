@@ -8,18 +8,18 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 
 | Estado | Enunciados | |
 |---|---:|---|
-| **compilado** | 133 | su texto literal está en la compilación · 44% |
+| **compilado** | 160 | su texto literal está en la compilación · 53% |
 | **fuera** | 40 | queda fuera del método, con razón decidida · 13% |
 | **editorial** | 50 | no puede cambiar una decisión de construcción · 16% |
-| **pendiente** | 77 | debería estar y no está · 25% |
+| **pendiente** | 50 | debería estar y no está · 16% |
 | | **300** | enunciados comprobables del manifiesto |
 
-**Cobertura de lo que debe compilarse: 133 de 210 (63%).** Lo editorial y lo declarado fuera no cuentan en el denominador: no faltan, fueron decididos.
+**Cobertura de lo que debe compilarse: 160 de 210 (76%).** Lo editorial y lo declarado fuera no cuentan en el denominador: no faltan, fueron decididos.
 
 
 ---
 
-## Pendiente · 77
+## Pendiente · 50
 
 | Dirección | Texto del manifiesto |
 |---|---|
@@ -37,33 +37,6 @@ Es el artefacto `A02` del núcleo aplicado al propio paquete: *«¿cómo se dar�
 | `SH-AP · Señales de que el producto se aleja del manifiesto` | La velocidad técnica oculta la espera · La operación tarda sin feedback o bloquea todo el flujo. · Responder de inmediato, mostrar progreso y preservar continuidad. |
 | `SH-AP · Señales de que el producto se aleja del manifiesto` | La estética maquilla la fricción · La pantalla luce bien, pero exige decisiones innecesarias. · Evaluar el recorrido completo y el esfuerzo real. |
 | `SH-AP · Señales de que el producto se aleja del manifiesto` | El agente agrega por si acaso · Aparecen modos, preferencias y abstracciones no pedidas. · Definir exclusiones y exigir justificación por capacidad. |
-| `SH-FUND · Alcance completo y autoridad de producto` | Toda omisión, modificación o postergación debe ser explícita, trazable y aprobada por la autoridad de producto. |
-| `SH-FUND · Alcance completo y autoridad de producto` | Si las restricciones de tiempo, recursos o tecnología impiden cubrir el alcance, el plan debe hacer visible la incompatibilidad y solicitar una decisión. |
-| `SH-FUND · Alcance completo y autoridad de producto` | Una estrategia incremental, por fases o por releases puede utilizarse cuando el proyecto la adopta; no es una obligación del núcleo. |
-| `SH-FUND · Alcance completo y autoridad de producto` | La completitud se determina reconciliando la implementación y la evidencia contra la definición de producto completa y sus excepciones aprobadas. |
-| `SH-FUND · Cadena de trazabilidad` | Definición de producto · Qué debe construirse y bajo qué condiciones · Todo elemento obligatorio tiene cobertura o una excepción aprobada |
-| `SH-FUND · Cadena de trazabilidad` | Jobs to Be Done · Qué progreso general merece atención cuando esta forma resulta aplicable · El resultado sigue siendo relevante para la persona |
-| `SH-FUND · Cadena de trazabilidad` | Job Story · Qué circunstancia concreta debe atenderse cuando la fuente utiliza esta forma · La historia está validada y no prescribe una solución no autorizada |
-| `SH-FUND · Cadena de trazabilidad` | Diseño e implementación · Qué comportamiento responde al fundamento · Cada elemento tiene una razón trazable |
-| `SH-FUND · Cuándo el fundamento es identificable` | Fuente y autoridad · ¿De dónde proviene y quién puede modificarlo? · Origen trazable y autoridad reconocida |
-| `SH-FUND · Cuándo el fundamento es identificable` | Razón · ¿Qué situación, necesidad, problema u oportunidad aborda? · Justificación comprensible sin depender de la solución |
-| `SH-FUND · Cuándo el fundamento es identificable` | Resultado · ¿Qué cambio o progreso debe producir? · Resultado reconocible para las personas o para el producto |
-| `SH-FUND · Cuándo el fundamento es identificable` | Condiciones y límites · ¿Qué reglas, restricciones y exclusiones deben respetarse? · Límites suficientes para evitar decisiones silenciosas |
-| `SH-FUND · Cuándo el fundamento es identificable` | Evidencia · ¿Cómo sabremos que se cumplió? · Criterios, observaciones o pruebas proporcionales al riesgo |
-| `SH-FUND · Evidencia mínima que acompaña la historia` | Conducta actual · ¿Qué hace hoy la persona? · Pasos, alternativa o abandono observados |
-| `SH-FUND · Evidencia mínima que acompaña la historia` | Obstáculo o ansiedad · ¿Qué frena o vuelve riesgoso el avance? · Duda, costo, temor, esfuerzo o dependencia relevante |
-| `SH-FUND · Evidencia mínima que acompaña la historia` | Evidencia causal · ¿Qué respalda la relación entre circunstancia y motivación? · Observación, entrevista, dato de uso o supuesto declarado |
-| `SH-FUND · Evidencia mínima que acompaña la historia` | Evidencia de éxito · ¿Qué demostraría que hubo progreso? · Conducta o resultado observable dentro de la circunstancia |
-| `SH-FUND · Pruebas de calidad antes de diseñar` | La circunstancia describe un desencadenante concreto y no una categoría de usuario. |
-| `SH-FUND · Pruebas de calidad antes de diseñar` | La motivación expresa progreso o comprensión y no una funcionalidad solicitada. |
-| `SH-FUND · Pruebas de calidad antes de diseñar` | El resultado puede reconocerse sin confundirlo con completar el flujo del producto. |
-| `SH-FUND · Pruebas de calidad antes de diseñar` | La historia está respaldada por evidencia o identifica con claridad el supuesto pendiente. |
-| `SH-FUND · Pruebas de calidad antes de diseñar` | La formulación permite comparar varias respuestas, incluida la opción de no construir. |
-| `SH-FUND · Pruebas de calidad antes de diseñar` | El alcance es suficiente para cambiar una decisión, pero no intenta contener el trabajo completo del usuario. |
-| `SH-FUND · Relación entre los niveles` | Jobs to Be Done · El progreso amplio que la persona busca conseguir · Organizar el producto alrededor de funcionalidades |
-| `SH-FUND · Relación entre los niveles` | Job Story · La circunstancia, la motivación y el resultado que activan una necesidad concreta · Diseñar desde roles genéricos o pedidos literales |
-| `SH-FUND · Relación entre los niveles` | Respuesta del producto · El comportamiento del sistema elegido para resolver la historia · Confundir el problema con la primera solución imaginada |
-| `SH-FUND · Relación entre los niveles` | Evidencia de aceptación · La observación que demuestra progreso en esa circunstancia · Aceptar una entrega porque funciona técnicamente |
 | `SH-GOV · Responsabilidades` | Producto · Establece la definición autorizada, el alcance, los resultados, las reglas, los no objetivos y la evidencia de éxito; valida Jobs to Be Done y Job Stories cuando se utilizan. |
 | `SH-GOV · Responsabilidades` | Diseño · Traduce el fundamento de producto a recorridos coherentes con el modelo mental de la persona y protege su atención; utiliza Job Stories cuando permiten concretar la situación. |
 | `SH-GOV · Responsabilidades` | Ingeniería · Absorbe complejidad, garantiza estados, rendimiento, accesibilidad y recuperación. |
@@ -209,7 +182,7 @@ Secciones que el paquete distribuye como documentación y no como método.
 
 ---
 
-## Compilado · 133
+## Compilado · 160
 
 | Dirección | Texto del manifiesto |
 |---|---|
@@ -312,7 +285,34 @@ Secciones que el paquete distribuye como documentación y no como método.
 | `P10 · Reglas de diseño` | Pedir confirmación proporcional al impacto, no para cada gesto ni después de una acción irreversible. |
 | `P10 · Reglas de diseño` | Permitir revisar, editar, exportar y revertir cuando el dominio lo permita. |
 | `P10 · Reglas de diseño` | Explicar el uso de datos y separar autorización, recomendación y ejecución. |
+| `SH-FUND · Alcance completo y autoridad de producto` | Toda omisión, modificación o postergación debe ser explícita, trazable y aprobada por la autoridad de producto. |
+| `SH-FUND · Alcance completo y autoridad de producto` | Si las restricciones de tiempo, recursos o tecnología impiden cubrir el alcance, el plan debe hacer visible la incompatibilidad y solicitar una decisión. |
+| `SH-FUND · Alcance completo y autoridad de producto` | Una estrategia incremental, por fases o por releases puede utilizarse cuando el proyecto la adopta; no es una obligación del núcleo. |
+| `SH-FUND · Alcance completo y autoridad de producto` | La completitud se determina reconciliando la implementación y la evidencia contra la definición de producto completa y sus excepciones aprobadas. |
+| `SH-FUND · Cadena de trazabilidad` | Definición de producto · Qué debe construirse y bajo qué condiciones · Todo elemento obligatorio tiene cobertura o una excepción aprobada |
+| `SH-FUND · Cadena de trazabilidad` | Jobs to Be Done · Qué progreso general merece atención cuando esta forma resulta aplicable · El resultado sigue siendo relevante para la persona |
+| `SH-FUND · Cadena de trazabilidad` | Job Story · Qué circunstancia concreta debe atenderse cuando la fuente utiliza esta forma · La historia está validada y no prescribe una solución no autorizada |
+| `SH-FUND · Cadena de trazabilidad` | Diseño e implementación · Qué comportamiento responde al fundamento · Cada elemento tiene una razón trazable |
 | `SH-FUND · Cadena de trazabilidad` | Aceptación · Qué evidencia autoriza declarar completo el desarrollo · Resultados, reglas y criterios se cumplen bajo las condiciones definidas |
+| `SH-FUND · Cuándo el fundamento es identificable` | Fuente y autoridad · ¿De dónde proviene y quién puede modificarlo? · Origen trazable y autoridad reconocida |
+| `SH-FUND · Cuándo el fundamento es identificable` | Razón · ¿Qué situación, necesidad, problema u oportunidad aborda? · Justificación comprensible sin depender de la solución |
+| `SH-FUND · Cuándo el fundamento es identificable` | Resultado · ¿Qué cambio o progreso debe producir? · Resultado reconocible para las personas o para el producto |
+| `SH-FUND · Cuándo el fundamento es identificable` | Condiciones y límites · ¿Qué reglas, restricciones y exclusiones deben respetarse? · Límites suficientes para evitar decisiones silenciosas |
+| `SH-FUND · Cuándo el fundamento es identificable` | Evidencia · ¿Cómo sabremos que se cumplió? · Criterios, observaciones o pruebas proporcionales al riesgo |
+| `SH-FUND · Evidencia mínima que acompaña la historia` | Conducta actual · ¿Qué hace hoy la persona? · Pasos, alternativa o abandono observados |
+| `SH-FUND · Evidencia mínima que acompaña la historia` | Obstáculo o ansiedad · ¿Qué frena o vuelve riesgoso el avance? · Duda, costo, temor, esfuerzo o dependencia relevante |
+| `SH-FUND · Evidencia mínima que acompaña la historia` | Evidencia causal · ¿Qué respalda la relación entre circunstancia y motivación? · Observación, entrevista, dato de uso o supuesto declarado |
+| `SH-FUND · Evidencia mínima que acompaña la historia` | Evidencia de éxito · ¿Qué demostraría que hubo progreso? · Conducta o resultado observable dentro de la circunstancia |
+| `SH-FUND · Pruebas de calidad antes de diseñar` | La circunstancia describe un desencadenante concreto y no una categoría de usuario. |
+| `SH-FUND · Pruebas de calidad antes de diseñar` | La motivación expresa progreso o comprensión y no una funcionalidad solicitada. |
+| `SH-FUND · Pruebas de calidad antes de diseñar` | El resultado puede reconocerse sin confundirlo con completar el flujo del producto. |
+| `SH-FUND · Pruebas de calidad antes de diseñar` | La historia está respaldada por evidencia o identifica con claridad el supuesto pendiente. |
+| `SH-FUND · Pruebas de calidad antes de diseñar` | La formulación permite comparar varias respuestas, incluida la opción de no construir. |
+| `SH-FUND · Pruebas de calidad antes de diseñar` | El alcance es suficiente para cambiar una decisión, pero no intenta contener el trabajo completo del usuario. |
+| `SH-FUND · Relación entre los niveles` | Jobs to Be Done · El progreso amplio que la persona busca conseguir · Organizar el producto alrededor de funcionalidades |
+| `SH-FUND · Relación entre los niveles` | Job Story · La circunstancia, la motivación y el resultado que activan una necesidad concreta · Diseñar desde roles genéricos o pedidos literales |
+| `SH-FUND · Relación entre los niveles` | Respuesta del producto · El comportamiento del sistema elegido para resolver la historia · Confundir el problema con la primera solución imaginada |
+| `SH-FUND · Relación entre los niveles` | Evidencia de aceptación · La observación que demuestra progreso en esa circunstancia · Aceptar una entrega porque funciona técnicamente |
 | `SH-GOV · Puntos de control` | Antes de diseñar · Fuentes, autoridad, alcance, resultados, evidencia, supuestos y no objetivos están claros; las Job Stories se comprenden cuando existen. |
 | `SH-GOV · Puntos de control` | Antes de generar código · El plan cubre la definición completa y establece dependencias, respuesta elegida, rutas, estados, reglas críticas, riesgos y aceptación. |
 | `SH-GOV · Puntos de control` | Durante la construcción · La descomposición organiza el trabajo sin alterar el alcance; bloqueos, pendientes y excepciones permanecen visibles. |

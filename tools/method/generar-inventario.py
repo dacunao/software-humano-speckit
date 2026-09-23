@@ -39,6 +39,7 @@ APORTES = [
     ("informe", "Qué debe informar"),
     ("evidencia", "Qué evidencia exige"),
     ("detencion", "Cuándo detenerse"),
+    ("comprobacion_directa", "Cómo lo comprueba el núcleo"),
 ]
 
 # REPARTO DE DISPOSICIONES POR OBJETO · aporte de esta propuesta, sujeto a revisión.
@@ -48,6 +49,7 @@ OBJETOS = [
     # que hablan de leerlo y de detenerse si no existe, no los de producirlo.
     ("SH-FUND", "El fundamento de producto", {
         "que_es": ["SH-FUND"], "compromiso": [("P01", 0)], "directiva": ["D01"],
+        "comprobacion_directa": [("SH-FUND", "Cuándo el fundamento es identificable")],
         "detencion": ["STOP01"]}),
     # El mapa lo produce el método. Las disposiciones que le corresponden son las de producirlo, informarlo
     # y detenerse si una ambigüedad material se cierra sin autorización.
@@ -58,10 +60,15 @@ OBJETOS = [
     ("A02 · V01", "Cobertura", {
         "que_es": ["V01"], "paso": ["F02", "F03"], "artefacto": ["A02"],
         "instruccion": ["CR03", "CR07"], "informe": ["O02", "O06"],
+        "comprobacion_directa": [("SH-FUND", "Alcance completo y autoridad de producto"),
+                                 ("SH-FUND", "Cadena de trazabilidad")],
         "detencion": ["STOP02", "STOP03"]}),
     ("A03", "Ficha de Job Story cuando aplique", {
         "que_es": ["A03"], "compromiso": [("P01", 2), ("P02", 2)], "paso": ["F04"],
-        "instruccion": ["CR02"], "informe": ["O03"], "evidencia": ["V02", "V03"]}),
+        "instruccion": ["CR02"], "informe": ["O03"], "evidencia": ["V02", "V03"],
+        "comprobacion_directa": [("SH-FUND", "Relación entre los niveles"),
+                                 ("SH-FUND", "Evidencia mínima que acompaña la historia"),
+                                 ("SH-FUND", "Pruebas de calidad antes de diseñar")]}),
     ("A04", "Contrato de experiencia", {
         "que_es": ["A04"], "compromiso": [("P05", 2)], "paso": ["F05"],
         "instruccion": ["CR05"], "informe": ["O07"], "evidencia": ["V04", "V06"]}),
@@ -196,6 +203,34 @@ def cargar():
     return d
 
 
+def filas_de_subseccion(d, ident: str, subtitulo: str) -> list[str]:
+    """Las filas y viñetas de una subsección de un bloque extenso.
+
+    Los bloques transversales del núcleo —fundamento, gobernanza, antipatrones,
+    scorecard— traen tablas y listas cuyas filas son enunciados comprobables por
+    separado. Citar el bloque entero los cuenta como uno solo, que es lo que
+    hacía el inventario antes de descomponerlos.
+    """
+    e = d[ident]
+    dentro, salida = False, []
+    for l in e["texto"].split("\n"):
+        s = l.strip()
+        if s.startswith("#"):
+            dentro = re.sub(r"^#+\s*", "", s).split(" · ")[0].strip() == subtitulo
+            continue
+        if not dentro:
+            continue
+        if s.startswith("|") and not re.match(r"^\|[\s|:-]+\|$", s):
+            celdas = [c.strip() for c in s.strip("|").split("|")]
+            if celdas and not celdas[0].startswith("**"):
+                salida.append(" · ".join(celdas))
+        elif re.match(r"^(-|\d+\\?\.)\s", s):
+            salida.append(s.lstrip("-0123456789\\. ").strip())
+    if not salida:
+        raise SystemExit(f"`{ident}` ya no tiene la subsección «{subtitulo}»; el núcleo cambió")
+    return salida
+
+
 def texto(d, ref):
     """Fragmento literal de una referencia. Nunca redactado."""
     if isinstance(ref, tuple):
@@ -267,6 +302,11 @@ falta una que debería estar, eso es el hallazgo.
         L.append("|---|---|---|")
         for clave, etiqueta in APORTES:
             for ref in angulos.get(clave, []):
+                if isinstance(ref, tuple) and isinstance(ref[1], str):
+                    ident, sub = ref
+                    for fila in filas_de_subseccion(d, ident, sub):
+                        L.append(f"| {etiqueta} | `{ident} § {sub}` | {fila.replace('|', '·')} |")
+                    continue
                 titulo, t = texto(d, ref)
                 if isinstance(ref, tuple):
                     # Un principio se cita por su regla; un pasaje sin

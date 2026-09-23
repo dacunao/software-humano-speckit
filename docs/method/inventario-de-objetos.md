@@ -35,6 +35,11 @@ falta una que debería estar, eso es el hallazgo.
 | Qué compromiso lo gobierna | `P01` regla 1 · El progreso del usuario es la unidad de diseño | Identificar el fundamento de producto y la fuente autorizada que establece el alcance antes de diseñar una respuesta. |
 | Qué exige antes de implementar | `D01` Fundamento antes que implementación | Comprender la definición de producto, su autoridad, su alcance y la evidencia que la respalda antes de proponer componentes o código. Cuando existan Job Stories, conservar su circunstancia, motivación y resultado. · No comenzar a construir si una ambigüedad material puede alterar la solución, el alcance o una regla. |
 | Cuándo detenerse | `STOP01` | No existe un fundamento de producto identificable o la solución parece preceder al problema. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Cuándo el fundamento es identificable` | Fuente y autoridad · ¿De dónde proviene y quién puede modificarlo? · Origen trazable y autoridad reconocida |
+| Cómo lo comprueba el núcleo | `SH-FUND § Cuándo el fundamento es identificable` | Razón · ¿Qué situación, necesidad, problema u oportunidad aborda? · Justificación comprensible sin depender de la solución |
+| Cómo lo comprueba el núcleo | `SH-FUND § Cuándo el fundamento es identificable` | Resultado · ¿Qué cambio o progreso debe producir? · Resultado reconocible para las personas o para el producto |
+| Cómo lo comprueba el núcleo | `SH-FUND § Cuándo el fundamento es identificable` | Condiciones y límites · ¿Qué reglas, restricciones y exclusiones deben respetarse? · Límites suficientes para evitar decisiones silenciosas |
+| Cómo lo comprueba el núcleo | `SH-FUND § Cuándo el fundamento es identificable` | Evidencia · ¿Cómo sabremos que se cumplió? · Criterios, observaciones o pruebas proporcionales al riesgo |
 
 
 ## A01 · Mapa del fundamento
@@ -63,6 +68,15 @@ falta una que debería estar, eso es el hallazgo.
 | Qué debe informar | `O06` | Archivos o componentes modificados y límites del cambio. |
 | Cuándo detenerse | `STOP02` | El plan no da cuenta de todo el alcance obligatorio definido por producto. |
 | Cuándo detenerse | `STOP03` | Se pretende omitir, modificar o postergar una parte sin una decisión autorizada. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Alcance completo y autoridad de producto` | Toda omisión, modificación o postergación debe ser explícita, trazable y aprobada por la autoridad de producto. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Alcance completo y autoridad de producto` | Si las restricciones de tiempo, recursos o tecnología impiden cubrir el alcance, el plan debe hacer visible la incompatibilidad y solicitar una decisión. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Alcance completo y autoridad de producto` | Una estrategia incremental, por fases o por releases puede utilizarse cuando el proyecto la adopta; no es una obligación del núcleo. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Alcance completo y autoridad de producto` | La completitud se determina reconciliando la implementación y la evidencia contra la definición de producto completa y sus excepciones aprobadas. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Cadena de trazabilidad` | Definición de producto · Qué debe construirse y bajo qué condiciones · Todo elemento obligatorio tiene cobertura o una excepción aprobada |
+| Cómo lo comprueba el núcleo | `SH-FUND § Cadena de trazabilidad` | Jobs to Be Done · Qué progreso general merece atención cuando esta forma resulta aplicable · El resultado sigue siendo relevante para la persona |
+| Cómo lo comprueba el núcleo | `SH-FUND § Cadena de trazabilidad` | Job Story · Qué circunstancia concreta debe atenderse cuando la fuente utiliza esta forma · La historia está validada y no prescribe una solución no autorizada |
+| Cómo lo comprueba el núcleo | `SH-FUND § Cadena de trazabilidad` | Diseño e implementación · Qué comportamiento responde al fundamento · Cada elemento tiene una razón trazable |
+| Cómo lo comprueba el núcleo | `SH-FUND § Cadena de trazabilidad` | Aceptación · Qué evidencia autoriza declarar completo el desarrollo · Resultados, reglas y criterios se cumplen bajo las condiciones definidas |
 
 
 ## A03 · Ficha de Job Story cuando aplique
@@ -77,6 +91,20 @@ falta una que debería estar, eso es el hallazgo.
 | Qué debe informar | `O03` | Jobs to Be Done y Job Stories cuando formen parte de la definición o aporten una vista derivada útil. |
 | Qué evidencia exige | `V02` Progreso | Las personas alcanzan los resultados definidos y pueden reconocerlos; cuando existen Job Stories, esto se comprueba en sus circunstancias. |
 | Qué evidencia exige | `V03` Causalidad | La evidencia relaciona la situación, la necesidad y el resultado sin depender de un pedido de funcionalidad; cuando aplica, conserva circunstancia y motivación. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Relación entre los niveles` | Jobs to Be Done · El progreso amplio que la persona busca conseguir · Organizar el producto alrededor de funcionalidades |
+| Cómo lo comprueba el núcleo | `SH-FUND § Relación entre los niveles` | Job Story · La circunstancia, la motivación y el resultado que activan una necesidad concreta · Diseñar desde roles genéricos o pedidos literales |
+| Cómo lo comprueba el núcleo | `SH-FUND § Relación entre los niveles` | Respuesta del producto · El comportamiento del sistema elegido para resolver la historia · Confundir el problema con la primera solución imaginada |
+| Cómo lo comprueba el núcleo | `SH-FUND § Relación entre los niveles` | Evidencia de aceptación · La observación que demuestra progreso en esa circunstancia · Aceptar una entrega porque funciona técnicamente |
+| Cómo lo comprueba el núcleo | `SH-FUND § Evidencia mínima que acompaña la historia` | Conducta actual · ¿Qué hace hoy la persona? · Pasos, alternativa o abandono observados |
+| Cómo lo comprueba el núcleo | `SH-FUND § Evidencia mínima que acompaña la historia` | Obstáculo o ansiedad · ¿Qué frena o vuelve riesgoso el avance? · Duda, costo, temor, esfuerzo o dependencia relevante |
+| Cómo lo comprueba el núcleo | `SH-FUND § Evidencia mínima que acompaña la historia` | Evidencia causal · ¿Qué respalda la relación entre circunstancia y motivación? · Observación, entrevista, dato de uso o supuesto declarado |
+| Cómo lo comprueba el núcleo | `SH-FUND § Evidencia mínima que acompaña la historia` | Evidencia de éxito · ¿Qué demostraría que hubo progreso? · Conducta o resultado observable dentro de la circunstancia |
+| Cómo lo comprueba el núcleo | `SH-FUND § Pruebas de calidad antes de diseñar` | La circunstancia describe un desencadenante concreto y no una categoría de usuario. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Pruebas de calidad antes de diseñar` | La motivación expresa progreso o comprensión y no una funcionalidad solicitada. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Pruebas de calidad antes de diseñar` | El resultado puede reconocerse sin confundirlo con completar el flujo del producto. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Pruebas de calidad antes de diseñar` | La historia está respaldada por evidencia o identifica con claridad el supuesto pendiente. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Pruebas de calidad antes de diseñar` | La formulación permite comparar varias respuestas, incluida la opción de no construir. |
+| Cómo lo comprueba el núcleo | `SH-FUND § Pruebas de calidad antes de diseñar` | El alcance es suficiente para cambiar una decisión, pero no intenta contener el trabajo completo del usuario. |
 
 
 ## A04 · Contrato de experiencia
