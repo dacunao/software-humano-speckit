@@ -129,9 +129,11 @@ Si un campo está sin completar, el agente debe detenerse y solicitarlo. No lo i
 
 ## Fundamento de producto autorizado
 
-Este repositorio **no tiene un fundamento de producto en el sentido de `SH-FUND`**, y esa ausencia es correcta: no construye un producto para usuarios finales. Construye el método con el que otros lo construyen.
+**`docs/product/FUNDAMENTO_DEL_PAQUETE_DE_METODO.md`**, autorizado por Damián Acuña el 2026-09-23.
 
-Su fundamento es la doctrina que distribuye, y el criterio de corrección de cualquier cambio es la conformidad con ella:
+Hasta esa fecha este archivo afirmaba que el repositorio no necesitaba fundamento porque «no construye un producto para usuarios finales». **La afirmación era falsa**: el manifiesto declara que su marco sirve para «herramientas internas» y «productos con agentes», y está dirigido también a «agentes de código». El paquete está dentro de su alcance, y por lo tanto su desarrollo se gobierna por él.
+
+El fundamento se subordina a la doctrina que el paquete distribuye:
 
 - `docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md` — núcleo v2.1
 - `docs/method/Anexo_Aplicacion_SpecKit_v1.2.md` — anexo v1.2
