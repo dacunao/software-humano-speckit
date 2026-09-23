@@ -88,6 +88,13 @@ echo "==> Generando SHA256SUMS"
 echo "==> Verificando integridad recién generada"
 ( cd "$STAGE" && shasum -a 256 -c SHA256SUMS >/dev/null )
 
+echo "==> Ensayo de instalación sobre un proyecto desechable"
+# Instalar el paquete recién armado en un proyecto limpio y comprobar cada
+# afirmación de la instrucción 01. Un paquete que se arma pero no se instala no
+# está probado, y hasta ahora esa distancia se cubría a mano.
+bash "$RAIZ/tools/method/ensayo-de-instalacion.sh" | sed 's/^/    /'
+echo
+
 echo "==> Sincronizando el manifiesto de integridad del repositorio"
 # El de dist/ cubre el paquete armado, zips incluidos. El de la raíz cubre las
 # fuentes: los zips son salida de este script y no existen en el repositorio.
