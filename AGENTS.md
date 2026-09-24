@@ -16,8 +16,8 @@ Lee completos y en este orden:
 
 1. `docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md`
 2. El fundamento de producto autorizado de este proyecto — ver **Completar por proyecto**
-3. `docs/method/Anexo_Aplicacion_SpecKit_v1.2.md`
-4. El `README.md` del preset, en `tools/speckit/`
+3. `docs/method/Anexo_Aplicacion_SpecKit_v2.0.md`
+4. `docs/method/GUIA_DE_IMPLEMENTACION_SPECKIT.md`
 5. `instructions/00_REQUISITOS_DE_INSTALACION.md`
 6. Los artefactos vigentes de `.specify/`, una vez que existan
 
@@ -86,7 +86,7 @@ Una detención útil indica: el hecho, la evidencia, el impacto, la decisión re
 No modifiques sin instrucción humana explícita:
 
 - `docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md`
-- `docs/method/Anexo_Aplicacion_SpecKit_v1.2.md`
+- `docs/method/Anexo_Aplicacion_SpecKit_v2.0.md`
 - El fundamento de producto autorizado
 - El directorio del preset en `tools/speckit/`
 - `SHA256SUMS`
