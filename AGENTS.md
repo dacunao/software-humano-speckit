@@ -136,7 +136,7 @@ Hasta esa fecha este archivo afirmaba que el repositorio no necesitaba fundament
 El fundamento se subordina a la doctrina que el paquete distribuye:
 
 - `docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md` — núcleo v2.1
-- `docs/method/Anexo_Aplicacion_SpecKit_v1.2.md` — anexo v1.2
+- `docs/method/Anexo_Aplicacion_SpecKit_v2.0.md` — anexo v2.0
 - **Autoridad**: Damián Acuña
 
 La regla del anexo gobierna toda incorporación al paquete: *«Si una disposición de la adaptación no puede trazarse al núcleo v2.1 o a una necesidad técnica inevitable de SpecKit, no pertenece a la adaptación.»*
