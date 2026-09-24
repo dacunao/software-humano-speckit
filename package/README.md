@@ -1,9 +1,9 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 2.0.0
+**Versión del paquete:** 2.1.0
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 2.0
-**Preset · extensión · workflow · bundle:** 2.0.0
+**Preset · workflow:** 2.0.0 · **extensión · bundle:** 2.1.0
 **Autoridad:** Damián Acuña
 
 ## Qué es
@@ -120,9 +120,9 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
         ├── specify                                  Envoltorio con versión de SpecKit fijada.
         ├── shim/python3                             Intérprete con PyYAML para los scripts.
         ├── software-humano-spec-kit-preset-2.0.0/
-        ├── conformidad-2.0.0/
+        ├── conformidad-2.1.0/
         ├── workflow-software-humano-2.0.0/
-        ├── bundle-software-humano-2.0.0/
+        ├── bundle-software-humano-2.1.0/
         └── *.zip                                    Cada capa, empaquetada por separado.
 ```
 
@@ -184,6 +184,26 @@ Comprueba que lo que el manifiesto exige **esté presente y trazable**. No compr
 Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
 
 ## Historial de versiones
+
+### 2.1.0
+
+**La excepción aprobada exige sus cuatro campos**: `artefacto`, `seccion`,
+`razon` y `aprobada_por`. Hasta aquí bastaba nombrar la sección, y una línea sin
+razón ni aprobador pasaba como excepción aprobada — menos de lo que exige el
+manifiesto que el paquete distribuye. `artefacto` es nuevo y obligatorio porque
+una misma sección aparece en más de un artefacto, y la excepción declarada para
+uno tapaba la del otro.
+
+**La conformidad comprueba primero que el método siga instalado.** Un `override`
+del proyecto, otro preset con más precedencia o un addendum vaciado dejan el
+artefacto limpio porque nunca se le pidió nada. Ahora se verifica que el preset
+componga los ocho comandos, que los tres addenda no estén vacíos y que ningún
+`override` esté tapando uno de los ocho.
+
+**El bundle instalaba cero componentes reportando éxito.** Su manifiesto los
+declaraba fuera de `provides`, que es donde SpecKit los lee. Corregido; sigue sin
+poder instalarse hasta publicar las capas en un catálogo, y ninguna instrucción
+lo ofrece.
 
 ### 2.0.0
 

@@ -15,7 +15,7 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.0.0"
+PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.1.0"
 CONSERVAR=0
 [ "${1:-}" = "--conservar" ] && CONSERVAR=1
 
@@ -60,7 +60,7 @@ comprobar "SpecKit queda inicializado" "[ -d .specify ] && echo si" "si"
 
 echo "── Paso 3 · instalación de las tres capas"
 "$SPECIFY" preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.0" >/dev/null 2>&1
-"$SPECIFY" extension add --dev "tools/speckit/conformidad-2.0.0"                      </dev/null >/dev/null 2>&1
+"$SPECIFY" extension add --dev "tools/speckit/conformidad-2.1.0"                      </dev/null >/dev/null 2>&1
 "$SPECIFY" workflow add        "tools/speckit/workflow-software-humano-2.0.0"         </dev/null >/dev/null 2>&1
 comprobar "el preset queda instalado"      "$SPECIFY preset list 2>/dev/null | grep -c software-humano" "1"
 comprobar "la extensión queda instalada"   "[ -d .specify/extensions/conformidad ] && echo si" "si"
@@ -129,12 +129,38 @@ comprobar "una ausencia sin declarar detiene la conformidad" \
 cat >> .specify/extensions/conformidad/conformidad-config.yml <<'YML'
 
 excepciones:
-  - seccion: "Mapa de cobertura"
+  - artefacto: "spec.md"
+    seccion: "Mapa de cobertura"
     razon: "Proyecto de ensayo; no hay alcance real que cubrir."
     aprobada_por: "Ensayo automatizado"
 YML
 comprobar "la misma ausencia, declarada, no detiene nada" \
   ".specify/extensions/conformidad/scripts/conformidad.sh >/dev/null 2>&1; echo \$?" "0"
+
+
+echo "── Excepciones: las cuatro o ninguna"
+cat > .specify/extensions/conformidad/conformidad-config.local.yml <<'YML'
+excepciones:
+  - artefacto: "spec.md"
+    seccion: "Mapa de cobertura"
+YML
+rm -f .specify/extensions/conformidad/conformidad-config.yml
+comprobar "una excepción sin razón ni aprobador no es excepción aprobada" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh >/dev/null 2>&1; echo \$?" "1"
+comprobar "y dice cuál de los dos campos falta" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'sin razon y aprobada_por'" "1"
+
+echo "── Integridad del método instalado"
+comprobar "la conformidad confirma que el preset compone los ocho comandos" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'compone los ocho comandos'" "1"
+mkdir -p .specify/templates/overrides
+printf -- '---\ndescription: version del equipo\n---\n' > .specify/templates/overrides/speckit.plan.md
+comprobar "un override del proyecto sobre uno de los ocho se reporta y detiene" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'queda fuera del método'" "1"
+rm -rf .specify/templates/overrides
+: > .specify/presets/software-humano/templates/spec-addendum.md
+comprobar "un addendum vaciado se reporta" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'la plantilla ya no lleva el manifiesto'" "1"
 
 echo
 echo "  $ok comprobaciones pasaron · $fallo fallaron"

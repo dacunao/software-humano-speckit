@@ -3,7 +3,7 @@ schema_version: "1.0"
 extension:
   id: conformidad
   name: "Conformidad Software Humano"
-  version: "2.0.0"
+  version: "2.1.0"
   description: "Comprueba que los artefactos del proyecto contengan lo que el Manifiesto de Software Humano exige, y que toda ausencia esté declarada como excepción aprobada."
   category: "quality"
   effect: "read-only"

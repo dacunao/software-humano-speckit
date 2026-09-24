@@ -9,3 +9,8 @@ __pycache__/
 
 # Artefactos de construcción del bundle
 tools/speckit/bundle-*/*.zip
+
+# Cachés de catálogo que SpecKit escribe al consultar extensiones y workflows.
+# Son transitorias y locales; versionarlas ensucia el árbol sin aportar nada.
+.specify/extensions/.cache/
+.specify/workflows/.cache/
