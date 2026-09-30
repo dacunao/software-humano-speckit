@@ -8,7 +8,7 @@ A method package that applies the **Software Humano manifesto** to [SpecKit](htt
 
 **Read the manifesto:** [manifiesto.softwarehumano.com](https://manifiesto.softwarehumano.com)
 
-> **A note on language.** The manifesto is published in English, Spanish and Brazilian Portuguese on the site. **This package — its documents, instructions, tooling output and inline comments — is written in Spanish.** If you plan to adopt it, expect to work in Spanish.
+> **A note on language.** The manifesto is published in English, Spanish and Brazilian Portuguese on the site. **This package — its documents, instructions, tooling output and inline comments — is written in Spanish only.** If you work with a team that doesn't read it, the manifesto is translated; the package is not.
 
 ---
 

@@ -8,6 +8,8 @@ Paquete de método que aplica el **Manifiesto de Software Humano** al ciclo de d
 
 **Manifiesto completo:** [manifiesto.softwarehumano.com](https://manifiesto.softwarehumano.com)
 
+> **Sobre el idioma.** El manifiesto está publicado en inglés, español y portugués de Brasil en el sitio. **Este paquete —sus documentos, instrucciones, mensajes de las herramientas y comentarios— está escrito solo en español.** Si trabajas con un equipo que no lo lee, el manifiesto sí está traducido; el paquete no.
+
 ---
 
 ## El manifiesto
@@ -18,7 +20,7 @@ El **Núcleo del manifiesto para el desarrollo de software humano con inteligenc
 
 Construir un producto tiene un costo, y ese costo no desaparece: se reparte. Una parte la paga el equipo; la otra se la pasa a quien usa el producto, en atención, en aprendizaje y en decisiones que no vino a tomar. Ese traspaso casi nunca se decide.
 
-De ahí se siguen sus afirmaciones menos habituales: que un producto sin errores puede fracasar por saturación, que la complejidad la absorbe el equipo y no la interfaz, y que la atención tiene presupuesto y se verifica como se verifica el rendimiento.
+De ahí se siguen sus afirmaciones menos habituales: que un producto sin errores puede fracasar por saturación, que la complejidad pertenece al sistema y no a la interfaz, y que la atención tiene presupuesto y se verifica como se verifica el rendimiento.
 
 El texto completo está en [`docs/method/`](docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md) y en [el sitio](https://manifiesto.softwarehumano.com). Es la fuente de autoridad de todo lo demás.
 

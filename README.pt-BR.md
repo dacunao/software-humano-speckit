@@ -8,7 +8,7 @@ Pacote de método que aplica o **Manifesto de Software Humano** ao ciclo de dese
 
 **Leia o manifesto:** [manifiesto.softwarehumano.com](https://manifiesto.softwarehumano.com)
 
-> **Sobre o idioma.** O manifesto está publicado em inglês, espanhol e português do Brasil no site. **Este pacote — seus documentos, instruções, mensagens das ferramentas e comentários — está escrito em espanhol.** Se pretende adotá-lo, conte com trabalhar em espanhol.
+> **Sobre o idioma.** O manifesto está publicado em inglês, espanhol e português do Brasil no site. **Este pacote — seus documentos, instruções, mensagens das ferramentas e comentários — está escrito apenas em espanhol.** Se você trabalha com uma equipe que não o lê, o manifesto está traduzido; o pacote não.
 
 ---
 
@@ -22,11 +22,11 @@ Construir um produto tem um custo, e esse custo não desaparece: ele se reparte.
 
 Daí decorrem suas afirmações menos habituais: que um produto sem erros pode fracassar por saturação, que a complexidade pertence ao sistema e não à interface, e que a atenção tem orçamento e se verifica como se verifica o desempenho.
 
-O texto completo está em [`docs/method/`](docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md) (em espanhol) e no [site](https://manifiesto.softwarehumano.com). É a fonte de autoridade de todo o resto.
+O texto completo está em [`docs/method/`](docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md) (em espanhol) e no [site](https://manifiesto.softwarehumano.com). É a fonte de autoridade do resto.
 
 ## Para que tipo de produtos
 
-O próprio manifesto declara seu alcance:
+O próprio manifesto declara seu escopo:
 
 > O marco serve para produtos em que a experiência de uso influencia diretamente o resultado: **aplicações web e móveis, ferramentas internas, sistemas de aprendizagem, serviços digitais, produtos com agentes e soluções assistidas por IA.** Dirige-se a product managers, designers, desenvolvedores e agentes de código que participam de decisões de produto.
 
