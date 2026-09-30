@@ -1,9 +1,9 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 2.2.4
+**Versión del paquete:** 2.3.0
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 2.0
-**Preset:** 2.0.1 · **workflow:** 2.0.0 · **extensión:** 2.2.0 · **bundle:** 2.1.0
+**Preset:** 2.0.2 · **workflow:** 2.0.0 · **extensión:** 2.2.1 · **bundle:** 2.1.0
 **Autoridad:** Damián Acuña
 
 ## Qué es
@@ -119,8 +119,8 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
         ├── preflight.sh                             Comprueba el entorno. No modifica nada.
         ├── specify                                  Envoltorio con versión de SpecKit fijada.
         ├── shim/python3                             Intérprete con PyYAML para los scripts.
-        ├── software-humano-spec-kit-preset-2.0.1/
-        ├── conformidad-2.2.0/
+        ├── software-humano-spec-kit-preset-2.0.2/
+        ├── conformidad-2.2.1/
         ├── workflow-software-humano-2.0.0/
         ├── bundle-software-humano-2.1.0/
         └── *.zip                                    Cada capa, empaquetada por separado.
@@ -184,6 +184,18 @@ Comprueba que lo que el manifiesto exige **esté presente y trazable**. No compr
 Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
 
 ## Historial de versiones
+
+### 2.3.0
+
+**El preset y la extensión tienen su propio README**, en inglés, escrito para
+quien los evalúa desde el catálogo de comunidad de SpecKit. Su plantilla de
+envío pide documentación del componente y no del marco. El contenido de ambos
+componentes sigue en español, y los dos README lo dicen.
+
+**El ensamblado comprueba que el bundle fije las versiones reales.** Fijaba el
+preset en 2.0.0 mientras el componente iba por 2.0.1, y nada lo miraba: ni
+`bundle validate`, que valida el esquema. Un pin que miente es peor que no
+tenerlo, porque parece verificado.
 
 ### 2.2.4
 

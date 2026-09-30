@@ -10,13 +10,13 @@
 set -euo pipefail
 
 RAIZ="$(CDPATH="" cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION_PAQUETE="2.2.4"
+VERSION_PAQUETE="2.3.0"
 # Las cinco capas del método comparten el número de salida 2.0.0. No están
 # acopladas: cuando una necesite un parche se mueve sola, y esa divergencia
 # significará que esa capa cambió. Lo que no significaba nada era que salieran
 # desalineadas de origen.
-VERSION_PRESET="2.0.1"
-VERSION_EXTENSION="2.2.0"
+VERSION_PRESET="2.0.2"
+VERSION_EXTENSION="2.2.1"
 VERSION_WORKFLOW="2.0.0"
 VERSION_BUNDLE="2.1.0"
 NOMBRE="software-humano-speckit-starter-v${VERSION_PAQUETE}"
@@ -77,6 +77,30 @@ echo "==> Asegurando permisos de ejecución"
 chmod +x "$STAGE/tools/speckit/preflight.sh" \
          "$STAGE/tools/speckit/specify" \
          "$STAGE/tools/speckit/shim/python3"
+
+echo "==> Comprobando que el bundle fije las versiones reales"
+python3 - "$RAIZ" <<'PYBUNDLE'
+import pathlib, re, sys
+raiz = pathlib.Path(sys.argv[1])
+bundle = next(raiz.glob("tools/speckit/bundle-*/bundle.yml"))
+texto = bundle.read_text()
+fallos = []
+for pin, fuente in re.findall(r'version:\s*"([^"]+)"\s*\n\s*source:\s*"\.\./([^"]+)"', texto):
+    manifiesto = next((raiz / "tools/speckit" / fuente).glob("*.yml"), None)
+    if manifiesto is None:
+        fallos.append(f"{fuente}: no se encontró su manifiesto"); continue
+    # `schema_version` va sin sangría y la del componente dentro de su bloque,
+    # así que la sangría las distingue. Sin eso se lee «1.0» para todo.
+    real = re.search(r'^\s+version:\s*"([^"]+)"', manifiesto.read_text(), re.M)
+    real = real.group(1) if real else "?"
+    if real != pin:
+        fallos.append(f"{fuente}: el bundle fija {pin} y el componente declara {real}")
+if fallos:
+    print("    FALLO: el bundle fija versiones que no coinciden con los componentes.")
+    for f in fallos: print("      " + f)
+    sys.exit(1)
+print("    el bundle fija las versiones que los componentes declaran")
+PYBUNDLE
 
 echo "==> Generando SHA256SUMS"
 # Quedan fuera los archivos que **pertenecen al proyecto que instala**, no al
