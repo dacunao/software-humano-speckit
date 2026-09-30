@@ -3,7 +3,7 @@ schema_version: "1.0"
 preset:
   id: "software-humano"
   name: "Software Humano"
-  version: "2.0.0"
+  version: "2.0.1"
   description: "Aplica el Manifiesto de Software Humano al ciclo SDD nativo de SpecKit citando su texto, sin reformularlo."
   author: "Damián Acuña"
   repository: "https://github.com/dacunao/software-humano-speckit"
@@ -13,6 +13,26 @@ requires:
   # 1.0.0 es la primera versión donde la composición de comandos conserva el
   # frontmatter del core cuando la capa no declara uno. Estos comandos dependen
   # de eso para no perder descripción, handoffs ni scripts.
+  #
+  # NINGUNO DE LOS OCHO COMANDOS DECLARA FRONTMATTER, Y NO ES UNA OMISIÓN.
+  #
+  # La razón técnica es la de arriba. La de comportamiento la midió el segundo
+  # piloto y pesa más: la descripción nativa nombra artefactos y momentos
+  # —«across spec.md, plan.md, and tasks.md after task generation»—, y por eso
+  # un agente la reconoce cuando alguien describe esa situación hablando. El
+  # preset 1.2.0 la reemplazaba por «analiza doctrina, cobertura y
+  # trazabilidad», que no nombra ningún artefacto ni dice cuándo aplica, y el
+  # agente dejó de invocar los comandos.
+  #
+  # En ese piloto `workflow run` no se usó ni una vez, y aun así corrieron diez
+  # `analyze` y siete `converge`, elegidos por el agente turno a turno. Seis de
+  # los siete casos en que el método cambió una decisión salieron de ahí.
+  #
+  # Redeclarar frontmatter aquí «para mejorar las descripciones» rompe eso, y
+  # las aserciones sobre `handoffs` no lo detectarían: `analyze`, `converge` e
+  # `implement` no traen `handoffs` en el core. Por eso hay una comprobación
+  # propia en `tools/method/ensayo-de-instalacion.sh`, que detiene el
+  # ensamblado. Ver la propuesta 010, `D-010-1`.
   speckit_version: ">=1.0.0,<2.0.0"
 
 provides:

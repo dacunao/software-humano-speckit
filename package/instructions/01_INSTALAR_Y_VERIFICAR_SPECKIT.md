@@ -103,7 +103,7 @@ find "[PACKAGE_PATH]/tools/speckit" -name '.DS_Store' -delete
 Instala en este orden:
 
 ```bash
-$SPECIFY_CMD preset add    --dev "[PACKAGE_PATH]/tools/speckit/software-humano-spec-kit-preset-2.0.0"
+$SPECIFY_CMD preset add    --dev "[PACKAGE_PATH]/tools/speckit/software-humano-spec-kit-preset-2.0.1"
 $SPECIFY_CMD extension add --dev "[PACKAGE_PATH]/tools/speckit/conformidad-2.1.0"
 $SPECIFY_CMD workflow add        "[PACKAGE_PATH]/tools/speckit/workflow-software-humano-2.0.0"
 ```
@@ -236,10 +236,16 @@ La instalación termina aquí. **No ejecutes `specify` ni ninguna operación pos
 
 | Modo | Cómo se usa | Qué garantiza |
 |---|---|---|
-| **Comandos sueltos** | El agente invoca `speckit.*` desde lenguaje natural | La doctrina en los artefactos. **El agente puede omitir una comprobación** |
-| **Workflow** | Una persona o una integración continua ejecuta `$SPECIFY_CMD workflow run software-humano` | Todo lo anterior, más las compuertas y la conformidad, **que el agente no ejecuta y no puede saltarse** |
+| **Comandos sueltos** | El agente invoca `speckit.*` al reconocer la situación que cada comando nombra, desde lenguaje natural | La doctrina en los artefactos que se produzcan. **Depende de que el agente reconozca el momento**: si nadie describe esa situación, el comando no corre |
+| **Workflow** | Una persona o una integración continua ejecuta `$SPECIFY_CMD workflow run software-humano` | Lo mismo, más las compuertas y la conformidad, **que ejecuta el motor y el agente no puede saltarse** |
 
-El workflow es el camino recomendado, **no un requisito**.
+**Ninguno de los dos es «el previsto». Son dos, y sirven a personas distintas.**
+
+El workflow sirve a quien quiere el ciclo completo sin decidir turno a turno, y a una integración continua. Los comandos sueltos sirven a quien trabaja conversando.
+
+En el piloto del sitio, `workflow run` **no se usó ni una vez**, y aun así corrieron diez `analyze`, siete `converge` y la conformidad antes de cada implementación, elegidos por el agente según lo que pedía cada turno. Seis de los siete casos en que el método cambió una decisión salieron de comandos que nadie tecleó.
+
+Por eso los ocho comandos **no declaran frontmatter**: conservan la descripción nativa de SpecKit, que nombra artefactos y momentos concretos, y es lo que permite que un agente reconozca cuándo aplican. No es un detalle de implementación: es lo que hace que el método funcione sin que nadie teclee un comando.
 
 ---
 

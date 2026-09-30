@@ -1,9 +1,9 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 2.1.0
+**Versión del paquete:** 2.1.1
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 2.0
-**Preset · workflow:** 2.0.0 · **extensión · bundle:** 2.1.0
+**Preset:** 2.0.1 · **workflow:** 2.0.0 · **extensión · bundle:** 2.1.0
 **Autoridad:** Damián Acuña
 
 ## Qué es
@@ -119,7 +119,7 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
         ├── preflight.sh                             Comprueba el entorno. No modifica nada.
         ├── specify                                  Envoltorio con versión de SpecKit fijada.
         ├── shim/python3                             Intérprete con PyYAML para los scripts.
-        ├── software-humano-spec-kit-preset-2.0.0/
+        ├── software-humano-spec-kit-preset-2.0.1/
         ├── conformidad-2.1.0/
         ├── workflow-software-humano-2.0.0/
         ├── bundle-software-humano-2.1.0/
@@ -184,6 +184,19 @@ Comprueba que lo que el manifiesto exige **esté presente y trazable**. No compr
 Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
 
 ## Historial de versiones
+
+### 2.1.1
+
+**Los ocho comandos no declaran frontmatter, y ahora está protegido.** El
+piloto del sitio midió por qué importa: la descripción nativa nombra artefactos
+y momentos, y por eso un agente reconoce cuándo aplica cada comando al oír la
+situación descrita en lenguaje natural. `workflow run` no se usó ni una vez y
+aun así corrieron diez `analyze` y siete `converge`. El ensamblado ahora
+detiene si alguna capa redeclara frontmatter — las aserciones sobre `handoffs`
+no lo detectaban, porque `analyze`, `converge` e `implement` no los traen.
+
+**La tabla de los dos modos deja de llamar «recomendado» al que no se usa.**
+Describe ambos sin jerarquía y dice de qué depende cada uno.
 
 ### 2.1.0
 

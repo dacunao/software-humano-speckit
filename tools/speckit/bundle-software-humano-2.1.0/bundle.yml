@@ -33,7 +33,7 @@ provides:
   presets:
     - id: "software-humano"
       version: "2.0.0"
-      source: "../software-humano-spec-kit-preset-2.0.0"
+      source: "../software-humano-spec-kit-preset-2.0.1"
       priority: 10
       # Obligatoria y validada por SpecKit, aunque el instalador no la use: las
       # estrategias que gobiernan de verdad están por elemento en preset.yml

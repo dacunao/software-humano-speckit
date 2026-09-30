@@ -15,7 +15,7 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.1.0"
+PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.1.1"
 CONSERVAR=0
 [ "${1:-}" = "--conservar" ] && CONSERVAR=1
 
@@ -59,7 +59,7 @@ git add -A >/dev/null 2>&1 && git -c user.email=e@e -c user.name=e commit -qm ba
 comprobar "SpecKit queda inicializado" "[ -d .specify ] && echo si" "si"
 
 echo "── Paso 3 · instalación de las tres capas"
-"$SPECIFY" preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.0" >/dev/null 2>&1
+"$SPECIFY" preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.1" >/dev/null 2>&1
 "$SPECIFY" extension add --dev "tools/speckit/conformidad-2.1.0"                      </dev/null >/dev/null 2>&1
 "$SPECIFY" workflow add        "tools/speckit/workflow-software-humano-2.0.0"         </dev/null >/dev/null 2>&1
 comprobar "el preset queda instalado"      "$SPECIFY preset list 2>/dev/null | grep -c software-humano" "1"
@@ -92,6 +92,23 @@ comprobar "speckit.plan conserva su descripción nativa" \
   "head -4 .specify/presets/software-humano/.composed/speckit.plan.md | grep -c 'implementation planning workflow'" "1"
 comprobar "speckit.plan conserva sus scripts" \
   "head -20 .specify/presets/software-humano/.composed/speckit.plan.md | grep -c '^scripts:'" "1"
+
+echo "── Lo que hace invocable al método desde conversación"
+# El piloto midió que los comandos se disparan porque su descripción nativa
+# nombra artefactos y momentos. Una capa que declara frontmatter la reemplaza y
+# el agente deja de reconocer cuándo aplican. Las aserciones sobre `handoffs`
+# NO lo detectan: analyze, converge e implement no traen handoffs en el core.
+# El frontmatter es `---` en la PRIMERA línea. `grep -l '^---'` busca en todo el
+# archivo y estos comandos usan `---` como separador horizontal: daba 8 de 8 y
+# habría detenido el ensamblado por un defecto que no existía.
+comprobar "ningún comando del preset declara frontmatter propio" \
+  "for f in .specify/presets/software-humano/commands/*.md; do head -1 \"\$f\"; done | grep -c '^---'" "0"
+comprobar "los ocho comandos empiezan en el marcador del core" \
+  "grep -c '^{CORE_TEMPLATE}' .specify/presets/software-humano/commands/*.md | grep -c ':1$'" "8"
+comprobar "speckit.analyze conserva la descripción nativa que nombra los artefactos" \
+  "head -4 .specify/presets/software-humano/.composed/speckit.analyze.md | grep -c 'cross-artifact consistency'" "1"
+comprobar "speckit.converge conserva la suya" \
+  "head -5 .specify/presets/software-humano/.composed/speckit.converge.md | grep -c 'Assess the current codebase'" "1"
 
 echo "── Paso 5.4 · el checklist sigue nativo"
 comprobar "el preset no toca speckit.checklist" \
