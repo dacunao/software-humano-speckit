@@ -2,7 +2,7 @@
 
 # Roadmap
 
-What we know is missing, in plain sight. Each item has an issue for discussion and, where one exists, the proposal where it is analyzed.
+What we know is missing, in plain sight. Each item has an issue for discussion and, where applicable, the proposal where it is analyzed.
 
 This list **promises no dates**. None of its items is committed: they are identified, measured and open.
 

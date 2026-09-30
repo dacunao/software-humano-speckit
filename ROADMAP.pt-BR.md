@@ -2,7 +2,7 @@
 
 # Roteiro
 
-O que sabemos que falta, à vista. Cada tema tem sua issue para discussão e, quando existe, a proposta onde está analisado.
+O que sabemos que falta, à vista. Cada tema tem sua issue para discussão e, quando for o caso, a proposta onde está analisado.
 
 Esta lista **não promete datas**. Nenhum de seus temas está comprometido: estão identificados, medidos e abertos.
 
@@ -14,7 +14,7 @@ Esta lista **não promete datas**. Nenhum de seus temas está comprometido: est�
 
 | Tema | Por que importa | Onde |
 |---|---|---|
-| **O pacote reclama a raiz do projeto** | Instalar o método deixa sete arquivos seus na raiz alheia, e um deles — `LICENSE` — segue fixado pela verificação de integridade | [#1](https://github.com/dacunao/software-humano-speckit/issues/1) · [proposta 011](docs/proposals/011-el-paquete-reclama-la-raiz-del-proyecto.md) |
+| **O pacote se apropria da raiz do projeto** | Instalar o método deixa sete arquivos seus na raiz alheia, e um deles — `LICENSE` — segue fixado pela verificação de integridade | [#1](https://github.com/dacunao/software-humano-speckit/issues/1) · [proposta 011](docs/proposals/011-el-paquete-reclama-la-raiz-del-proyecto.md) |
 | **Custo de execução** | Uma invocação de `plan` carrega ~36.500 tokens de método antes de tocar o projeto. Dois terços são a constituição, e nunca foi otimizada | [#2](https://github.com/dacunao/software-humano-speckit/issues/2) · [análise 007](docs/proposals/007-analisis-de-costo-de-ejecucion-del-metodo.md) |
 | **Editar o arquivo que o agente lê não é detectado** | É a quarta de quatro vias pelas quais o método pode ficar sem efeito. As outras três estão fechadas | [#3](https://github.com/dacunao/software-humano-speckit/issues/3) · [proposta 010](docs/proposals/010-evaluacion-del-piloto-del-sitio.md) |
 | **O bundle não pode ser instalado** | O Spec Kit resolve componentes a partir de catálogos, não de caminhos locais. A quarta camada existe e não funciona | [#4](https://github.com/dacunao/software-humano-speckit/issues/4) |
