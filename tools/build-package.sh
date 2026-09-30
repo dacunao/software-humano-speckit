@@ -10,7 +10,7 @@
 set -euo pipefail
 
 RAIZ="$(CDPATH="" cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION_PAQUETE="2.2.3"
+VERSION_PAQUETE="2.2.4"
 # Las cinco capas del método comparten el número de salida 2.0.0. No están
 # acopladas: cuando una necesite un parche se mueve sola, y esa divergencia
 # significará que esa capa cambió. Lo que no significaba nada era que salieran

@@ -1,6 +1,6 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 2.2.3
+**Versión del paquete:** 2.2.4
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 2.0
 **Preset:** 2.0.1 · **workflow:** 2.0.0 · **extensión:** 2.2.0 · **bundle:** 2.1.0
@@ -184,6 +184,14 @@ Comprueba que lo que el manifiesto exige **esté presente y trazable**. No compr
 Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
 
 ## Historial de versiones
+
+### 2.2.4
+
+**`LICENSE` queda con el texto MIT puro.** La 2.2.3 le anexaba una aclaración en
+español sobre qué cubre y qué no; eso bajaba la similitud y GitHub reportaba la
+licencia como «Other» — exactamente lo que el cambio anterior quería evitar.
+Comprobado en la ficha del repositorio publicado. La aclaración ya estaba en
+`LICENSING.md`, que explica la frontera, la CC BY y los terceros.
 
 ### 2.2.3
 

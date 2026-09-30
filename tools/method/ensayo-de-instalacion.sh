@@ -15,7 +15,7 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.2.3"
+PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.2.4"
 CONSERVAR=0
 [ "${1:-}" = "--conservar" ] && CONSERVAR=1
 
