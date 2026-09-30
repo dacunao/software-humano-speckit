@@ -1,6 +1,6 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 2.2.0
+**Versión del paquete:** 2.2.1
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 2.0
 **Preset:** 2.0.1 · **workflow:** 2.0.0 · **extensión:** 2.2.0 · **bundle:** 2.1.0
@@ -184,6 +184,13 @@ Comprueba que lo que el manifiesto exige **esté presente y trazable**. No compr
 Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
 
 ## Historial de versiones
+
+### 2.2.1
+
+**`PARA_QUIEN_DECIDE.md` dice dónde el método no llega**, con los cuatro
+defectos del primer sitio que encontró una persona usándolo y que pasaron todas
+las comprobaciones. El método no sustituye la prueba con personas: la vuelve
+exigible.
 
 ### 2.2.0
 

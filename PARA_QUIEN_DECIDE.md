@@ -121,7 +121,20 @@ El propio manifiesto fija la unidad de medida, y no es la cobertura:
 
 > «Su unidad de medida no es la cantidad de funcionalidades entregadas. Es **el progreso que una persona puede lograr con claridad, confianza y control**.»
 
-Eso solo se sabe probando con personas.
+Eso solo se sabe probando con personas. Y no es una cautela teórica: en el primer sitio construido con este método, **cuatro defectos los encontró la persona usando el producto**, no el método.
+
+| Lo que fallaba | Quién lo encontró |
+|---|---|
+| El índice «En esta página» dejaba fuera secciones | una persona, usándolo |
+| Al cambiar de idioma se perdía la posición en la página | una persona, usándolo |
+| «Enlace a esta sección» se enlazaba a sí mismo | una persona, usándolo |
+| La búsqueda no se podía recorrer con el teclado | una persona, usándolo |
+
+Los cuatro pasaron todas las comprobaciones. Y tienen que pasarlas: **los comandos revisan que los artefactos sean coherentes entre sí y que el código haga lo que dicen las tareas. Ninguno mira la pantalla.**
+
+Los cuatro son, además, exactamente lo que el manifiesto se propone evitar: trabajo que el producto le pasó a la persona.
+
+**Por eso el método no sustituye la prueba con personas: la vuelve exigible.** Si nadie usa el producto antes de aprobarlo, no hay comprobación que lo salve — y esa decisión es tuya, no del agente.
 
 ---
 
