@@ -208,3 +208,42 @@ Opciones:
 No modifica el núcleo, el anexo, el preset, la extensión, el workflow ni el paquete. No incrementa ninguna versión. No cierra ninguna de las cuatro decisiones.
 
 Una propuesta no es una autorización.
+
+---
+
+# 9 · Corrección · 2026-09-29
+
+**El § 6 afirma «no hay evidencia sobre el fin». Es falso, y la corrección importa porque el fin es lo único que el método existe para servir.**
+
+## Qué dice el registro
+
+`specs/001-sitio-manifiesto/evidencia/pruebas-comprension.md` del repositorio del sitio recoge seis observaciones de personas que usaron el sitio durante su desarrollo, cada una con el cambio que produjo:
+
+| Observación | Cambio |
+|---|---|
+| El texto único del núcleo es una muralla y tiene contenidos duplicados | División del núcleo en nueve divisiones sin duplicados (PRD v1.2, `RQ-15`) |
+| Falta una búsqueda como la de los sitios de documentación | Búsqueda por idioma (`FR-023`, `RQ-16`) |
+| La cabecera cambia de altura según el idioma | Altura única en los tres idiomas |
+| El aviso de versión preliminar y «Olvidar mi elección» no aportan | Se retiraron |
+| El menú superior debería estar siempre presente | Cabecera fija (`T180`) |
+| Aspecto visual | Sistema visual v1.0, aprobado (`T171`) |
+
+Por decisión de Damián Acuña del 2026-09-28, esa retroalimentación **cuenta como la ronda temprana** y cierra `T086` y `T087`. `T103` y `T104` —la ronda final contra el sitio completo, con la dirección visual aplicada y los tres idiomas— siguen abiertas.
+
+## Lo que sí queda en pie del § 6
+
+Que **`T103`–`T104` no se han hecho**. Eso es cierto y era lo único que el informe de la sesión del sitio afirmaba.
+
+## Lo que hay que enmendar
+
+Que «no hay evidencia sobre el fin». La hay, y es la más pertinente de todo este piloto: **seis observaciones de personas que cambiaron el producto**, y al menos dos de ellas —la muralla de texto con duplicados, y el aviso y el control que no aportaban— son exactamente carga transferida a la persona, que es lo que el manifiesto se propone reducir.
+
+Eso **no** convierte al piloto en evidencia de que el método produzca mejor software: las seis observaciones las trajo gente usando el sitio, no una comprobación. Pero sí establece que el fin fue medido y actuó sobre el producto, que es distinto de no tener nada.
+
+## Por qué ocurrió el error, y a quién corresponde
+
+Tomé el § 6 del informe de la sesión del sitio —«el efecto del método en las personas que usan el sitio: la ronda final con personas (`T103`–`T104`) no se ha hecho»— y lo repetí como «no hay evidencia sobre el fin». **Son dos afirmaciones distintas**, y la segunda no se sigue de la primera.
+
+No abrí `pruebas-comprension.md` antes de escribirlo. Es el mismo fallo sobre el que esta sesión advirtió a la del sitio el 2026-09-25 al responder qué había salido mal con la comunicación entre agentes: contestar sobre el estado de un archivo desde el contexto en vez de abrirlo. Lo detectó la autoridad, no una comprobación.
+
+*Inferencia mía:* esto refuerza `D-010-4` en vez de debilitarlo. Un informe que separa hecho de suposición con rigor —como el de la sesión del sitio— aun así deja que un lector derive una conclusión más amplia que la afirmada. **Ninguna comprobación del método detecta esa clase de deriva**, porque el artefacto está completo y es correcto: lo que falla es la lectura.
