@@ -1,6 +1,6 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 2.2.2
+**Versión del paquete:** 2.2.3
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 2.0
 **Preset:** 2.0.1 · **workflow:** 2.0.0 · **extensión:** 2.2.0 · **bundle:** 2.1.0
@@ -184,6 +184,20 @@ Comprueba que lo que el manifiesto exige **esté presente y trazable**. No compr
 Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
 
 ## Historial de versiones
+
+### 2.2.3
+
+**`SHA256SUMS` deja de fijar el `README.md` de la raíz.** Estaba cubierto, de
+modo que un proyecto que instalaba el método no podía tener su propio README
+sin que la verificación de integridad fallara. El primer sitio construido con
+el método tuvo que rodearlo poniendo el suyo en `.github/README.md`.
+
+Se excluye por ruta: los README de `tools/speckit/shim/` y del bundle son del
+método y siguen cubiertos.
+
+`LICENSE` sigue cubierto y tiene el mismo problema. No se cambia aquí porque el
+arreglo real es que los archivos del método dejen de vivir en la raíz del
+proyecto, y eso cambia la forma del paquete.
 
 ### 2.2.2
 

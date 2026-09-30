@@ -10,7 +10,7 @@
 set -euo pipefail
 
 RAIZ="$(CDPATH="" cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION_PAQUETE="2.2.2"
+VERSION_PAQUETE="2.2.3"
 # Las cinco capas del método comparten el número de salida 2.0.0. No están
 # acopladas: cuando una necesite un parche se mueve sola, y esa divergencia
 # significará que esa capa cambió. Lo que no significaba nada era que salieran
@@ -79,8 +79,22 @@ chmod +x "$STAGE/tools/speckit/preflight.sh" \
          "$STAGE/tools/speckit/shim/python3"
 
 echo "==> Generando SHA256SUMS"
+# Quedan fuera los archivos que **pertenecen al proyecto que instala**, no al
+# método. Fijarlos obliga a cada proyecto a conservarlos tal cual para que su
+# verificación de integridad pase, y eso es apropiarse de su repositorio:
+#
+#   AGENTS.md   cada proyecto lo completa — ya estaba fuera
+#   README.md   el README de un repositorio es suyo
+#
+# Se excluye por ruta y no por nombre: `tools/speckit/shim/README.md` y el del
+# bundle sí son del método y siguen cubiertos.
+#
+# `LICENSE` sigue cubierto y no debería: un proyecto también tiene la suya. No
+# se toca aquí porque el arreglo real es que los archivos del método dejen de
+# vivir en la raíz del proyecto, y eso cambia la forma del paquete. Queda en la
+# propuesta 011.
 ( cd "$STAGE" \
-  && find . -type f ! -name 'SHA256SUMS' ! -name 'AGENTS.md' -print0 \
+  && find . -type f ! -name 'SHA256SUMS' ! -name 'AGENTS.md' ! -path './README.md' -print0 \
      | LC_ALL=C sort -z \
      | xargs -0 shasum -a 256 \
      | sed 's|  \./|  |' > SHA256SUMS )
@@ -100,11 +114,7 @@ echo "==> Sincronizando el manifiesto de integridad del repositorio"
 # fuentes: los zips son salida de este script y no existen en el repositorio.
 # Generarlo aquí evita que quede describiendo una versión anterior, que es lo
 # que ocurrió con el 1.6.0.
-# `README.md` queda fuera por la misma razón que `AGENTS.md`: el README de un
-# repositorio es suyo y no del método. La raíz lleva el del repositorio —en tres
-# idiomas—, y el del paquete viaja dentro de `package/` y de la distribución.
-grep -v '  tools/speckit/Software_Humano_.*\.zip$' "$STAGE/SHA256SUMS" \
-  | grep -v '  README\.md$' > "$RAIZ/SHA256SUMS"
+grep -v '  tools/speckit/Software_Humano_.*\.zip$' "$STAGE/SHA256SUMS" > "$RAIZ/SHA256SUMS"
 # La raíz de este repositorio es la instalación del propio método sobre sí mismo:
 # `package/` es la fuente y la raíz es la copia instalada. Si una diverge, el
 # repositorio dejó de correr el método que distribuye, y conviene saber cuál.
