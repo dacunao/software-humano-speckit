@@ -14,7 +14,12 @@
 #      pidió nada. Comprobar los artefactos sin comprobar esto primero es
 #      mirar por un vidrio que alguien quitó.
 #
-#   2. Que las secciones que el manifiesto exige existan y tengan contenido,
+#   2. Que lo decidido haya llegado. Una decisión tomada hablando se registra
+#      en AGENTS.md o en el fundamento, y puede no llegar nunca a spec.md ni a
+#      plan.md. El artefacto queda completo y correcto, así que ninguna otra
+#      comprobación lo ve. Esta compara cuándo cambió cada uno por última vez.
+#
+#   3. Que las secciones que el manifiesto exige existan y tengan contenido,
 #      y que toda ausencia esté declarada como excepción aprobada.
 #
 # Qué NO comprueba, y conviene saberlo: si lo escrito en esas secciones es
@@ -137,6 +142,57 @@ for pid, datos in presets.items():
   return "$roto"
 }
 
+# ── Lo decidido llegó a los artefactos ──────────────────────────────────────
+#
+# Qué detecta: que una fuente rectora cambiara DESPUÉS que spec.md o plan.md.
+# Cuando eso pasa, algo se decidió y no llegó; es certeza, no sospecha.
+#
+# Qué NO detecta, y conviene saberlo: lo contrario no prueba nada. Que spec.md
+# sea más reciente no significa que haya absorbido la decisión — pudo tocarse
+# por cualquier otra razón. Esta comprobación cubre una dirección sola.
+#
+# Usa la fecha del último commit, no la del sistema de archivos: un `clone` o un
+# `checkout` reescriben las mtime y la comparación diría cualquier cosa.
+
+fecha_de() {  # último cambio registrado, en segundos
+  [ -f "$RAIZ/$1" ] || return 1
+  git -C "$RAIZ" log -1 --format=%ct -- "$1" 2>/dev/null
+}
+
+comprobar_frescura() {
+  local feature="$1" roto=0
+  if ! git -C "$RAIZ" rev-parse --git-dir >/dev/null 2>&1; then
+    echo "  aviso · sin repositorio git: no se pudo comprobar si lo decidido llegó"
+    return 0
+  fi
+  # La ruta del fundamento la declara AGENTS.md en «Completar por proyecto».
+  local fundamento
+  fundamento="$(sed -n 's/^- \*\*Ruta\*\*:[[:space:]]*`\([^`]*\)`.*/\1/p' "$RAIZ/AGENTS.md" 2>/dev/null | head -1)"
+
+  declare -a RECTORAS=("AGENTS.md")
+  if [ -n "$fundamento" ] && [ -f "$RAIZ/$fundamento" ]; then
+    RECTORAS+=("$fundamento")
+  else
+    echo "  aviso · no se pudo leer la ruta del fundamento en AGENTS.md; se comprueba solo AGENTS.md"
+  fi
+
+  for derivado in "$feature/spec.md" "$feature/plan.md"; do
+    local td; td="$(fecha_de "$derivado")" || continue
+    [ -n "$td" ] || continue
+    for rectora in "${RECTORAS[@]}"; do
+      local tr; tr="$(fecha_de "$rectora")"
+      [ -n "$tr" ] || continue
+      if [ "$tr" -gt "$td" ]; then
+        echo "  FALTA · $(basename "$derivado") es anterior a $rectora — algo se decidió y no llegó"
+        echo "           $rectora cambió el $(date -r "$tr" '+%Y-%m-%d %H:%M' 2>/dev/null)"
+        echo "           $(basename "$derivado") no se toca desde el $(date -r "$td" '+%Y-%m-%d %H:%M' 2>/dev/null)"
+        roto=$((roto+1))
+      fi
+    done
+  done
+  return "$roto"
+}
+
 echo "conformidad · integridad del método"
 if comprobar_instalacion; then
   echo "  el preset compone los ocho comandos y las tres plantillas llevan el manifiesto"
@@ -210,6 +266,15 @@ if [ -z "$FEATURE" ] || [ ! -d "$RAIZ/$FEATURE" ]; then
   exit "$INSTALACION_ROTA"
 fi
 
+echo "conformidad · lo decidido llegó a los artefactos"
+if comprobar_frescura "$FEATURE"; then
+  echo "  spec.md y plan.md son posteriores a AGENTS.md y al fundamento"
+  FRESCURA_ROTA=0
+else
+  FRESCURA_ROTA=1
+fi
+echo
+
 echo "conformidad · $FEATURE"
 [ -f "$CONFIG" ] && echo "  excepciones declaradas en $(basename "$CONFIG")" || echo "  sin archivo de excepciones"
 echo
@@ -241,7 +306,7 @@ echo
 echo "  $cubiertas con contenido · $exceptuadas con excepción aprobada · $faltan sin declarar"
 [ "$sin_artefacto" -gt 0 ] && echo "  ($sin_artefacto comprobaciones omitidas: su artefacto aún no existe)"
 
-if [ "$faltan" -gt 0 ] || [ "$INSTALACION_ROTA" -ne 0 ]; then
+if [ "$faltan" -gt 0 ] || [ "$INSTALACION_ROTA" -ne 0 ] || [ "${FRESCURA_ROTA:-0}" -ne 0 ]; then
   echo
   if [ "$faltan" -gt 0 ]; then
     echo "El método no rechaza lo incompleto: rechaza lo que falta sin que nadie lo sepa."
@@ -250,6 +315,10 @@ if [ "$faltan" -gt 0 ] || [ "$INSTALACION_ROTA" -ne 0 ]; then
   fi
   [ "$INSTALACION_ROTA" -ne 0 ] && \
     echo "El método no está instalado entero: lo de arriba se comprobó sobre un método incompleto."
+  [ "${FRESCURA_ROTA:-0}" -ne 0 ] && { \
+    echo "Una fuente rectora cambió después que el artefacto que deriva de ella."; \
+    echo "No hay comando que propague ese cambio: se lleva a mano. Al hacerlo, la"; \
+    echo "comprobación vuelve a verde sola."; }
   exit 1
 fi
 exit 0

@@ -1,5 +1,35 @@
 # Registro de cambios · extensión Conformidad
 
+## 2.2.0
+
+**Comprueba que lo decidido haya llegado a los artefactos.** Una decisión tomada
+hablando se registra en `AGENTS.md` o en el fundamento, y puede no llegar nunca
+a `spec.md` ni a `plan.md`. El artefacto queda completo y correcto, de modo que
+ninguna otra comprobación lo ve: ni `analyze`, ni `converge`, ni la conformidad
+anterior.
+
+Ocurrió en el piloto del sitio y está medido. Durante veintiuna horas `AGENTS.md`
+llevó tres decisiones de la autoridad —inglés estadounidense, la página Acerca y
+la navegación estándar— que `spec.md` no tenía. Las fases 29, 31 y 32 se
+implementaron dentro de esa ventana, cada una precedida por esta misma
+comprobación, que entonces no miraba esto y salía en verde.
+
+Ahora compara la fecha del último commit de `AGENTS.md` y del fundamento contra
+la de `spec.md` y `plan.md`. Si una fuente rectora es posterior, lo reporta
+nombrando cuál y con qué fechas, y detiene.
+
+**Qué no detecta, y queda dicho en el propio script:** lo contrario no prueba
+nada. Que `spec.md` sea más reciente no significa que haya absorbido la
+decisión; pudo tocarse por cualquier otra razón. La comprobación cubre una
+dirección sola.
+
+Usa la fecha del commit y no la del sistema de archivos: un `clone` o un
+`checkout` reescriben las mtime. Sin repositorio git lo dice y no comprueba, en
+vez de reportar verde.
+
+**No hay comando que propague el cambio.** Se lleva a mano, y al hacerlo la
+comprobación vuelve a verde sola.
+
 ## 2.1.0
 
 **La excepción aprobada exige sus cuatro campos.** Hasta aquí bastaba nombrar la

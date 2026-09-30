@@ -15,7 +15,7 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.1.1"
+PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.2.0"
 CONSERVAR=0
 [ "${1:-}" = "--conservar" ] && CONSERVAR=1
 
@@ -60,7 +60,7 @@ comprobar "SpecKit queda inicializado" "[ -d .specify ] && echo si" "si"
 
 echo "── Paso 3 · instalación de las tres capas"
 "$SPECIFY" preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.1" >/dev/null 2>&1
-"$SPECIFY" extension add --dev "tools/speckit/conformidad-2.1.0"                      </dev/null >/dev/null 2>&1
+"$SPECIFY" extension add --dev "tools/speckit/conformidad-2.2.0"                      </dev/null >/dev/null 2>&1
 "$SPECIFY" workflow add        "tools/speckit/workflow-software-humano-2.0.0"         </dev/null >/dev/null 2>&1
 comprobar "el preset queda instalado"      "$SPECIFY preset list 2>/dev/null | grep -c software-humano" "1"
 comprobar "la extensión queda instalada"   "[ -d .specify/extensions/conformidad ] && echo si" "si"
@@ -178,6 +178,34 @@ rm -rf .specify/templates/overrides
 : > .specify/presets/software-humano/templates/spec-addendum.md
 comprobar "un addendum vaciado se reporta" \
   ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'la plantilla ya no lleva el manifiesto'" "1"
+
+echo "── Lo decidido llegó a los artefactos"
+# Se provoca la ventana real del piloto: una fuente rectora cambia después del
+# artefacto que deriva de ella. Se usan commits porque la comprobación lee la
+# fecha del commit, no la del sistema de archivos.
+# La capa del preset se restaura: la comprobación anterior la vació a propósito
+# y aquí estorbaría el diagnóstico.
+git checkout -- .specify/presets/software-humano/templates/spec-addendum.md 2>/dev/null \
+  || printf 'Lo que el manifiesto exige en este artefacto\n' > .specify/presets/software-humano/templates/spec-addendum.md
+# Fechas explícitas: `git log --format=%ct` tiene resolución de SEGUNDOS, y dos
+# commits del ensayo caen en el mismo. La ventana real del piloto duró horas;
+# la del ensayo hay que forzarla o la comprobación parece no disparar.
+fechar() { GIT_AUTHOR_DATE="$1" GIT_COMMITTER_DATE="$1" \
+  git -c user.email=e@e -c user.name=e commit -qm "$2" >/dev/null 2>&1; }
+git add -A >/dev/null 2>&1
+fechar "2026-09-28T23:32:00" "artefactos"
+printf '\n<!-- una decisión tomada conversando -->\n' >> AGENTS.md
+git add AGENTS.md >/dev/null 2>&1
+fechar "2026-09-29T16:28:00" "decisión en AGENTS.md"
+comprobar "una decisión que no llegó a spec.md detiene la conformidad" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh >/dev/null 2>&1; echo \$?" "1"
+comprobar "y nombra cuál artefacto quedó atrás" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'spec.md es anterior a AGENTS.md'" "1"
+printf '\n<!-- la decisión, ya recogida -->\n' >> specs/001-ensayo/spec.md
+git add specs >/dev/null 2>&1
+fechar "2026-09-29T21:06:00" "spec recoge la decisión"
+comprobar "al reconciliar a mano, vuelve a verde sola" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'son posteriores a AGENTS.md'" "1"
 
 echo
 echo "  $ok comprobaciones pasaron · $fallo fallaron"

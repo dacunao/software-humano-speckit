@@ -104,7 +104,7 @@ Instala en este orden:
 
 ```bash
 $SPECIFY_CMD preset add    --dev "[PACKAGE_PATH]/tools/speckit/software-humano-spec-kit-preset-2.0.1"
-$SPECIFY_CMD extension add --dev "[PACKAGE_PATH]/tools/speckit/conformidad-2.1.0"
+$SPECIFY_CMD extension add --dev "[PACKAGE_PATH]/tools/speckit/conformidad-2.2.0"
 $SPECIFY_CMD workflow add        "[PACKAGE_PATH]/tools/speckit/workflow-software-humano-2.0.0"
 ```
 
@@ -229,6 +229,30 @@ Y declara su límite al informar: comprueba que las secciones existan y tengan c
 ### 9. No ejecutar todavía el desarrollo del producto
 
 La instalación termina aquí. **No ejecutes `specify` ni ninguna operación posterior** sin una instrucción explícita y sin que el fundamento de producto esté registrado en la sección **Completar por proyecto** de `AGENTS.md`.
+
+---
+
+## Un límite que conviene conocer antes de empezar
+
+**No hay comando que propague un cambio del fundamento.**
+
+`specify` lee el fundamento una vez y produce `spec.md`; de ahí en adelante todo
+deriva de `spec.md`. Cuando el fundamento cambia —y cambia—, `spec.md` y
+`plan.md` se actualizan **a mano**. No es un defecto de este método: el ciclo
+nativo de SpecKit supone un fundamento estable, y esta adaptación no lo cubre.
+
+En el piloto del sitio el fundamento pasó de la versión 1.0 a la 1.6, y esos dos
+artefactos se reescribieron seis veces a mano. Es el costo recurrente más alto
+observado.
+
+Lo que sí hace el método es **avisar cuando quedaron atrás**: la comprobación de
+conformidad compara la fecha del último cambio de `AGENTS.md` y del fundamento
+contra la de `spec.md` y `plan.md`, y detiene si una fuente rectora es
+posterior. No reconcilia; dice que hay que reconciliar, y en qué archivo.
+
+Esto cubre también las decisiones que se toman conversando. En el mismo piloto,
+`AGENTS.md` llevó durante veintiuna horas tres decisiones de la autoridad que
+`spec.md` no tenía, y tres fases se implementaron dentro de esa ventana.
 
 ---
 

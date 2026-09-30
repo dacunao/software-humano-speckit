@@ -1,9 +1,9 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 2.1.1
+**Versión del paquete:** 2.2.0
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 2.0
-**Preset:** 2.0.1 · **workflow:** 2.0.0 · **extensión · bundle:** 2.1.0
+**Preset:** 2.0.1 · **workflow:** 2.0.0 · **extensión:** 2.2.0 · **bundle:** 2.1.0
 **Autoridad:** Damián Acuña
 
 ## Qué es
@@ -120,7 +120,7 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
         ├── specify                                  Envoltorio con versión de SpecKit fijada.
         ├── shim/python3                             Intérprete con PyYAML para los scripts.
         ├── software-humano-spec-kit-preset-2.0.1/
-        ├── conformidad-2.1.0/
+        ├── conformidad-2.2.0/
         ├── workflow-software-humano-2.0.0/
         ├── bundle-software-humano-2.1.0/
         └── *.zip                                    Cada capa, empaquetada por separado.
@@ -184,6 +184,21 @@ Comprueba que lo que el manifiesto exige **esté presente y trazable**. No compr
 Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
 
 ## Historial de versiones
+
+### 2.2.0
+
+**La conformidad comprueba que lo decidido haya llegado.** Una decisión tomada
+conversando se registra en `AGENTS.md` o en el fundamento y puede no llegar
+nunca a `spec.md` ni a `plan.md`. El artefacto queda completo y correcto, así
+que ninguna otra comprobación lo ve. Ahora se compara la fecha del último
+cambio y se detiene si una fuente rectora quedó por delante.
+
+En el piloto del sitio esa ventana duró veintiuna horas y tres fases se
+implementaron dentro de ella.
+
+**La instrucción de instalación declara el límite**: no hay comando que
+propague un cambio del fundamento. Se lleva a mano; el método avisa cuándo hace
+falta, no reconcilia.
 
 ### 2.1.1
 

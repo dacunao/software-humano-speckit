@@ -19,7 +19,7 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.1.1"
+PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.2.0"
 CONSERVAR=0
 [ "${1:-}" = "--conservar" ] && CONSERVAR=1
 [ -d "$PAQUETE" ] || { echo "No existe $PAQUETE. Ejecuta tools/build-package.sh primero."; exit 2; }
@@ -54,7 +54,7 @@ instalar() {
   git -c user.email=e@e -c user.name=e commit -qm base >/dev/null 2>&1
   specify init --here --force --non-interactive --script sh --integration claude --ignore-agent-tools >/dev/null 2>&1
   specify preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.1" >/dev/null 2>&1
-  specify extension add --dev "tools/speckit/conformidad-2.1.0"              </dev/null >/dev/null 2>&1
+  specify extension add --dev "tools/speckit/conformidad-2.2.0"              </dev/null >/dev/null 2>&1
   specify workflow add        "tools/speckit/workflow-software-humano-2.0.0" </dev/null >/dev/null 2>&1
 }
 
@@ -84,7 +84,7 @@ HUMANA="$(shasum -a 256 .specify/memory/constitution.md | cut -d' ' -f1)"
 PREVIA="$(shasum -a 256 specs/001-previa/spec.md | cut -d' ' -f1)"
 
 specify preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.1" >/dev/null 2>&1
-specify extension add --dev "tools/speckit/conformidad-2.1.0"              </dev/null >/dev/null 2>&1
+specify extension add --dev "tools/speckit/conformidad-2.2.0"              </dev/null >/dev/null 2>&1
 specify workflow add        "tools/speckit/workflow-software-humano-2.0.0" </dev/null >/dev/null 2>&1
 
 comprobar "la constitución escrita por la persona no se toca" \

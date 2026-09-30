@@ -43,8 +43,8 @@ provides:
 
   extensions:
     - id: "conformidad"
-      version: "2.1.0"
-      source: "../conformidad-2.1.0"
+      version: "2.2.0"
+      source: "../conformidad-2.2.0"
 
   workflows:
     - id: "software-humano"
