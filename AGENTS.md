@@ -220,6 +220,8 @@ No pueden cerrarse con un valor predeterminado. Requieren decisión de Damián A
 
 ## Decisiones ya resueltas
 
+- **`docs/proposals/` se publica** — resuelto el 2026-09-30 por Damián Acuña, con el repositorio ya público y a la vista. El registro de mantenimiento queda accesible **incluido lo incómodo**: el costo de ejecución medido del análisis 007, los hallazgos negativos del piloto en la 010, `M1` de la 003 —donde la coordinación entre agentes desplazó a la autoridad de producto— y la 011, que registra que el paquete se apropia de archivos del proyecto que lo instala. No se retira nada ni se suaviza. `SH-DONE` rechaza «lo que falta sin que nadie lo sepa», y ocultar este registro sería incumplirlo en el propio repositorio que lo distribuye.
+
 - **Qué se retira del repositorio antes de publicar** — resuelto el 2026-09-30 por Damián Acuña. Se retiraron el preset 1.2.0 y su ZIP, superados por el 2.0.1; `Software_Humano_Manifesto_Site_Starter_v1.0.0.zip`, que es la distribución del starter específico del sitio y **embebe el PRD de otro proyecto**; y los artefactos generados por la instalación —`.specify/` y `.claude/skills/`—, que estaban dos versiones atrás. Todo queda en la historia de git.
 
 - **Licencias del paquete** — resueltas el 2026-09-21 por Damián Acuña. Frontera **por naturaleza y no por carpeta**: MIT para el preset, las herramientas, las instrucciones y el anexo v1.2; CC BY 4.0 para el texto del núcleo v2.1, incluida su proyección en `templates/constitution-template.md`. Ver `LICENSE`, `LICENSE` y `LICENSE-CONTENT`.
