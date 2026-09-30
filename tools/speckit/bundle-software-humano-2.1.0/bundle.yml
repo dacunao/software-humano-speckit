@@ -32,8 +32,8 @@ requires:
 provides:
   presets:
     - id: "software-humano"
-      version: "2.0.2"
-      source: "../software-humano-spec-kit-preset-2.0.2"
+      version: "2.0.3"
+      source: "../software-humano-spec-kit-preset-2.0.3"
       priority: 10
       # Obligatoria y validada por SpecKit, aunque el instalador no la use: las
       # estrategias que gobiernan de verdad están por elemento en preset.yml
@@ -43,8 +43,8 @@ provides:
 
   extensions:
     - id: "conformidad"
-      version: "2.2.1"
-      source: "../conformidad-2.2.1"
+      version: "2.2.2"
+      source: "../conformidad-2.2.2"
 
   workflows:
     - id: "software-humano"

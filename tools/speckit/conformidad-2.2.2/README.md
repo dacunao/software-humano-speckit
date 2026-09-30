@@ -45,10 +45,12 @@ When a field is missing, the check names which one rather than reporting the sec
 ## Installation
 
 ```bash
-specify extension add --dev ./conformidad-2.2.1
+specify extension add --dev ./conformidad-2.2.2
 ```
 
-This scaffolds `conformidad-config.yml`, where exceptions are declared. Requires Spec Kit `>=1.0.0,<2.0.0`.
+This scaffolds `conformidad-config.yml`, where exceptions are declared.
+
+Requires Spec Kit `>=1.0.0,<2.0.0`. Verified on 1.0.8.
 
 ## Running it
 
@@ -77,5 +79,7 @@ MIT.
 ## Author and documentation
 
 Manifesto and method by **Damián Acuña** · [manifiesto.softwarehumano.com](https://manifiesto.softwarehumano.com)
+
+The package was developed with assistance from Claude, under his authorship and decision.
 
 Full documentation, in Spanish: [github.com/dacunao/software-humano-speckit](https://github.com/dacunao/software-humano-speckit)

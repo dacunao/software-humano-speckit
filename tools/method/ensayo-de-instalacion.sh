@@ -15,7 +15,7 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.3.0"
+PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.3.1"
 CONSERVAR=0
 [ "${1:-}" = "--conservar" ] && CONSERVAR=1
 
@@ -59,8 +59,8 @@ git add -A >/dev/null 2>&1 && git -c user.email=e@e -c user.name=e commit -qm ba
 comprobar "SpecKit queda inicializado" "[ -d .specify ] && echo si" "si"
 
 echo "── Paso 3 · instalación de las tres capas"
-"$SPECIFY" preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.2" >/dev/null 2>&1
-"$SPECIFY" extension add --dev "tools/speckit/conformidad-2.2.1"                      </dev/null >/dev/null 2>&1
+"$SPECIFY" preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.3" >/dev/null 2>&1
+"$SPECIFY" extension add --dev "tools/speckit/conformidad-2.2.2"                      </dev/null >/dev/null 2>&1
 "$SPECIFY" workflow add        "tools/speckit/workflow-software-humano-2.0.0"         </dev/null >/dev/null 2>&1
 comprobar "el preset queda instalado"      "$SPECIFY preset list 2>/dev/null | grep -c software-humano" "1"
 comprobar "la extensión queda instalada"   "[ -d .specify/extensions/conformidad ] && echo si" "si"

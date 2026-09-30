@@ -19,7 +19,7 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.3.0"
+PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.3.1"
 CONSERVAR=0
 [ "${1:-}" = "--conservar" ] && CONSERVAR=1
 [ -d "$PAQUETE" ] || { echo "No existe $PAQUETE. Ejecuta tools/build-package.sh primero."; exit 2; }
@@ -53,8 +53,8 @@ instalar() {
   git add -A >/dev/null 2>&1
   git -c user.email=e@e -c user.name=e commit -qm base >/dev/null 2>&1
   specify init --here --force --non-interactive --script sh --integration claude --ignore-agent-tools >/dev/null 2>&1
-  specify preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.2" >/dev/null 2>&1
-  specify extension add --dev "tools/speckit/conformidad-2.2.1"              </dev/null >/dev/null 2>&1
+  specify preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.3" >/dev/null 2>&1
+  specify extension add --dev "tools/speckit/conformidad-2.2.2"              </dev/null >/dev/null 2>&1
   specify workflow add        "tools/speckit/workflow-software-humano-2.0.0" </dev/null >/dev/null 2>&1
 }
 
@@ -83,8 +83,8 @@ echo '{"feature_directory":"specs/001-previa"}' > .specify/feature.json
 HUMANA="$(shasum -a 256 .specify/memory/constitution.md | cut -d' ' -f1)"
 PREVIA="$(shasum -a 256 specs/001-previa/spec.md | cut -d' ' -f1)"
 
-specify preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.2" >/dev/null 2>&1
-specify extension add --dev "tools/speckit/conformidad-2.2.1"              </dev/null >/dev/null 2>&1
+specify preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.3" >/dev/null 2>&1
+specify extension add --dev "tools/speckit/conformidad-2.2.2"              </dev/null >/dev/null 2>&1
 specify workflow add        "tools/speckit/workflow-software-humano-2.0.0" </dev/null >/dev/null 2>&1
 
 comprobar "la constitución escrita por la persona no se toca" \
@@ -163,7 +163,7 @@ specify preset remove preset-ajeno </dev/null >/dev/null 2>&1
 
 # B.3 · reinstalación
 specify preset remove software-humano </dev/null >/dev/null 2>&1
-specify preset add --dev "tools/speckit/software-humano-spec-kit-preset-2.0.2" >/dev/null 2>&1
+specify preset add --dev "tools/speckit/software-humano-spec-kit-preset-2.0.3" >/dev/null 2>&1
 comprobar "reinstalar el preset no duplica ni rompe la composición" \
   "grep -c 'Lo que el manifiesto exige' .specify/presets/software-humano/.composed/speckit.plan.md" "1"
 comprobar "reinstalar no altera el alcance de la integración" \

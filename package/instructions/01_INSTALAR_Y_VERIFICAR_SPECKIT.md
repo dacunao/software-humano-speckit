@@ -103,8 +103,8 @@ find "[PACKAGE_PATH]/tools/speckit" -name '.DS_Store' -delete
 Instala en este orden:
 
 ```bash
-$SPECIFY_CMD preset add    --dev "[PACKAGE_PATH]/tools/speckit/software-humano-spec-kit-preset-2.0.2"
-$SPECIFY_CMD extension add --dev "[PACKAGE_PATH]/tools/speckit/conformidad-2.2.1"
+$SPECIFY_CMD preset add    --dev "[PACKAGE_PATH]/tools/speckit/software-humano-spec-kit-preset-2.0.3"
+$SPECIFY_CMD extension add --dev "[PACKAGE_PATH]/tools/speckit/conformidad-2.2.2"
 $SPECIFY_CMD workflow add        "[PACKAGE_PATH]/tools/speckit/workflow-software-humano-2.0.0"
 ```
 

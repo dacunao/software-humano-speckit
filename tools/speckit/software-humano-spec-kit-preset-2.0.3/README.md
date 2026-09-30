@@ -24,7 +24,7 @@ Each command gains one table: where the manifesto says it, what it requires, and
 ## Installation
 
 ```bash
-specify preset add --dev ./software-humano-spec-kit-preset-2.0.2
+specify preset add --dev ./software-humano-spec-kit-preset-2.0.3
 ```
 
 Then materialize the constitution with your agent's `speckit.constitution` command. Note that many agents load their command catalog at startup, so a command registered in the current session may not exist until you reopen it.
@@ -68,5 +68,7 @@ The preset code is **MIT**. The manifesto core's text — including its projecti
 ## Author and documentation
 
 Manifesto and method by **Damián Acuña** · [manifiesto.softwarehumano.com](https://manifiesto.softwarehumano.com)
+
+The package was developed with assistance from Claude, under his authorship and decision.
 
 Full documentation, in Spanish: [github.com/dacunao/software-humano-speckit](https://github.com/dacunao/software-humano-speckit)
