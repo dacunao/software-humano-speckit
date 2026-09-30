@@ -102,6 +102,12 @@ Qual arquivo cai de que lado está explicado em [`LICENSING.md`](LICENSING.md). 
 
 Manifesto e método de **Damián Acuña**. O desenvolvimento do pacote foi feito com assistência de Claude, sob sua autoria e decisão.
 
+## Roteiro
+
+O que sabemos que falta está à vista, com uma issue por tema: [ROADMAP.pt-BR.md](ROADMAP.pt-BR.md).
+
+Um tema entra nessa lista quando algo o mediu —um piloto, um ensaio, uma análise com sua evidência— e sai quando uma decisão da autoridade de produto o aplica. Se você usa o método e algo atrapalha, as [issues](https://github.com/dacunao/software-humano-speckit/issues) estão abertas.
+
 ## Como é mantido
 
 `docs/proposals/` é o registro de manutenção: acrescenta-se, não se reescreve. Cada proposta distingue fato observado, inferência e decisão humana requerida, e nenhuma se aplica sem decisão da autoridade de produto.

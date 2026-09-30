@@ -102,6 +102,12 @@ Which file falls on which side is explained in [`LICENSING.md`](LICENSING.md). S
 
 Manifesto and method by **Damián Acuña**. The package was developed with assistance from Claude, under his authorship and decision.
 
+## Roadmap
+
+What we know is missing is listed in the open, with an issue for each item: [ROADMAP.md](ROADMAP.md).
+
+An item joins that list when something measured it — a pilot, a rehearsal, an analysis with its evidence — and leaves it when a decision from the product authority applies it. If you use the method and something gets in your way, the [issues](https://github.com/dacunao/software-humano-speckit/issues) are open.
+
 ## How it's maintained
 
 `docs/proposals/` is the maintenance record: entries are added, never rewritten. Each proposal separates observed fact, inference, and the decision that belongs to a person — and none is applied without a decision from the product authority.
