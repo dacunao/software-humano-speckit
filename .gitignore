@@ -14,3 +14,11 @@ tools/speckit/bundle-*/*.zip
 # Son transitorias y locales; versionarlas ensucia el árbol sin aportar nada.
 .specify/extensions/.cache/
 .specify/workflows/.cache/
+
+# La instalación de SpecKit de este repositorio. No se versiona: este proyecto
+# construye el método, no lo ejecuta sobre sí mismo. Ver AGENTS.md.
+.specify/
+
+# Las skills que registra la integración de SpecKit. Generadas por la
+# instalación, como .specify/, y por la misma razón no se versionan.
+.claude/skills/

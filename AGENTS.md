@@ -164,6 +164,22 @@ Una constitución materializada debe contener las quince familias completas. `in
 
 No aplica como contrato de producto. El paquete se redacta íntegramente en **español**, incluidos documentos, comentarios y mensajes de las herramientas. El núcleo en español conserva la autoridad doctrinal.
 
+## Este repositorio no ejecuta el ciclo SDD sobre sí mismo
+
+**El «Flujo SpecKit obligatorio» de más arriba no aplica acá, y conviene saber por qué antes de instalar nada.**
+
+Este proyecto **construye** el método; no construye un producto con `specs/`. No tiene especificación, ni plan, ni tareas, ni feature activa, y nunca invocó un comando `speckit.*`. Instalar el preset sobre este repositorio no verificaría nada que las herramientas de `tools/method/` no verifiquen mejor.
+
+Por eso `.specify/` **no se versiona** y está en `.gitignore`. Si aparece en tu copia de trabajo, es tuya y local.
+
+**Esto no significa que el repositorio esté fuera del manifiesto.** Se gobierna por él de otra manera, y esa sí se usa: las reglas de trabajo y las condiciones de detención de este archivo, las propuestas de `docs/proposals/` antes de aplicar cualquier cambio, y las comprobaciones que corren en cada ensamblado.
+
+**Cómo se verifica este repositorio**, que es lo que reemplaza al ciclo:
+
+- `tools/build-package.sh` — conformidad con el núcleo, vocabulario, integridad y el ensayo de instalación completo
+- `tools/method/ensayo-de-instalacion.sh` — instala el paquete en un proyecto desechable y comprueba cada afirmación de la instrucción 01
+- `tools/method/ensayo-de-resistencia.sh` — tres escenarios adversos sobre una instalación correcta
+
 ## Herramientas del proyecto
 
 - **SpecKit**: `tools/speckit/specify`, que fija una instancia aislada en 1.0.8. La instalación global está en 0.15.0 al servicio de otros proyectos y **no debe actualizarse desde aquí**.
@@ -201,9 +217,10 @@ No pueden cerrarse con un valor predeterminado. Requieren decisión de Damián A
 
 - **Hallazgos del piloto.** Registrados en `docs/pilot/registro-del-piloto.md` del repositorio del sitio, evaluados en `docs/proposals/003`. Una propuesta no es una autorización.
 - **`FR-009` del PRD del sitio** afirma que la adaptación «fue validada técnicamente en versión 1.0.0». La instalada y verificada es la 1.0.2. Corregirlo es decisión de la autoridad de producto del sitio, no de este repositorio.
-- **`Software_Humano_Manifesto_Site_Starter_v1.0.0.zip`**, rastreado en la raíz, es la distribución del starter específico del sitio y embebe su PRD. Conservarlo como artefacto histórico o retirarlo por coherencia con `T007` está sin decidir.
 
 ## Decisiones ya resueltas
+
+- **Qué se retira del repositorio antes de publicar** — resuelto el 2026-09-30 por Damián Acuña. Se retiraron el preset 1.2.0 y su ZIP, superados por el 2.0.1; `Software_Humano_Manifesto_Site_Starter_v1.0.0.zip`, que es la distribución del starter específico del sitio y **embebe el PRD de otro proyecto**; y los artefactos generados por la instalación —`.specify/` y `.claude/skills/`—, que estaban dos versiones atrás. Todo queda en la historia de git.
 
 - **Licencias del paquete** — resueltas el 2026-09-21 por Damián Acuña. Frontera **por naturaleza y no por carpeta**: MIT para el preset, las herramientas, las instrucciones y el anexo v1.2; CC BY 4.0 para el texto del núcleo v2.1, incluida su proyección en `templates/constitution-template.md`. Ver `LICENSE`, `LICENSE` y `LICENSE-CONTENT`.
 - **Licencia del preset** — MIT desde la v1.0.2. La versión 1.0.1 y anteriores declaraban una licencia propietaria que prohibía publicar, lo que volvía inejecutable `CL-10`.
