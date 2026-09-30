@@ -1,351 +1,109 @@
-# Software Humano para SpecKit — paquete de método
+**English** · [Español](README.es.md) · [Português (BR)](README.pt-BR.md)
 
-**Versión del paquete:** 2.2.1
-**Núcleo del manifiesto:** 2.1
-**Anexo de aplicación SpecKit:** 2.0
-**Preset:** 2.0.1 · **workflow:** 2.0.0 · **extensión:** 2.2.0 · **bundle:** 2.1.0
-**Autoridad:** Damián Acuña
+# Software Humano for SpecKit
 
-## Qué es
+> We build tools that extend what people can do — not tools that show off what software can do.
 
-Un paquete autocontenido que instala el **Manifiesto de Software Humano** como doctrina operativa dentro del ciclo SDD nativo de SpecKit, en cualquier proyecto.
+A method package that applies the **Software Humano manifesto** to [SpecKit](https://github.com/github/spec-kit)'s spec-driven development cycle, in any project.
 
-**La doctrina no se reformula: se cita.** Cada exigencia que el método pone delante del agente es texto literal del manifiesto, y el ensamblado no produce el paquete si alguna cita no se encuentra en su fuente.
+**Read the manifesto:** [manifiesto.softwarehumano.com](https://manifiesto.softwarehumano.com)
 
-### Las cuatro capas
+> **A note on language.** The manifesto is published in English, Spanish and Brazilian Portuguese on the site. **This package — its documents, instructions, tooling output and inline comments — is written in Spanish.** If you plan to adopt it, expect to work in Spanish.
 
-| Capa | Qué aporta |
-|---|---|
-| **Preset** | Lo que el manifiesto exige en cada operación, citado, y los artefactos que define, agregados a las plantillas nativas |
-| **Extensión** `conformidad` | Comprueba que los artefactos tengan lo exigido y que toda ausencia esté declarada como excepción aprobada |
-| **Workflow** | Las compuertas que el propio manifiesto especifica, y la conformidad en los momentos que nombra |
-| **Bundle** | Fija las versiones de las tres anteriores |
+---
 
-**No incluye un fundamento de producto.** Ese lo aporta cada proyecto, en la forma que ya tenga. El paquete es el método.
+## The manifesto
 
-### Lo que no hace
+The **Core of the manifesto for human software development with artificial intelligence**, by **Damián Acuña**, answers one question:
 
-**No sustituye el comportamiento nativo de SpecKit.** Los comandos conservan su descripción, sus `handoffs` y sus scripts; las plantillas conservan sus secciones y sus tokens. El método agrega, no reemplaza.
+> How do we build software that amplifies what people can accomplish, **without handing them the complexity of the technology**?
 
-**No rechaza lo incompleto. Rechaza lo que falta sin que nadie lo sepa.** La definición de terminado del manifiesto admite dos estados: implementación con evidencia verificable, **o excepción explícita y aprobada**. Un repositorio que nació antes del manifiesto entra declarando lo que todavía no cumple.
+Building a product has a cost, and that cost does not disappear — it gets divided. The team pays part of it. The rest is handed to the person using the product, paid in attention, in learning, and in decisions they never came to make. That handover is almost never a decision.
 
-## Empieza aquí
+From there follow its least conventional claims: that a product with no defects can still fail through overload, that complexity belongs to the system and not to the interface, and that attention has a budget which is verified the way performance is.
 
-1. Descomprime este paquete **en la raíz del repositorio** que usarás. No en una subcarpeta: si `SHA256SUMS` y `AGENTS.md` no quedan junto a `.git`, mueve el contenido.
-2. Verifica la integridad:
+The full text lives in [`docs/method/`](docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md) (Spanish) and on [the site](https://manifiesto.softwarehumano.com). It is the source of authority for everything else here.
 
-   ```bash
-   shasum -a 256 -c SHA256SUMS
-   ```
+## What kind of products this is for
 
-3. Lee [`PARA_QUIEN_DECIDE.md`](PARA_QUIEN_DECIDE.md). Es corto y es el único escrito para ti: dice qué parte del método **no se delega**.
-4. Comprueba el entorno **antes de instalar nada**:
+The manifesto states its own scope:
 
-   ```bash
-   tools/speckit/preflight.sh
-   ```
+> The framework serves products where the experience of use directly shapes the outcome: **web and mobile applications, internal tools, learning systems, digital services, agent-based products and AI-assisted solutions.** It addresses product managers, designers, developers and coding agents who take part in product decisions.
 
-5. Coloca tu fundamento de producto en `docs/product/` y completa la sección **Completar por proyecto** al final de `AGENTS.md`. La [plantilla de fundamento](docs/product/PLANTILLA_FUNDAMENTO_DE_PRODUCTO.md) explica qué debe poder responderse.
-6. Abre el repositorio con el agente elegido y entrégale el contenido de [`START_WITH_AI_AGENT.md`](START_WITH_AI_AGENT.md).
-7. Permite que inspeccione el entorno antes de modificarlo.
-8. Responde las decisiones humanas que aparezcan durante `clarify`.
-9. Revisa en lenguaje natural `spec.md`, `plan.md`, `tasks.md` y el informe de `analyze`.
-10. Autoriza `implement` únicamente cuando esos artefactos sean coherentes, completos y sin decisiones materiales abiertas.
+If the experience of use doesn't change the outcome of what you build, this method will cost you more than it returns.
 
-Los agentes que reconocen `AGENTS.md` cargarán las reglas automáticamente. Claude Code carga `CLAUDE.md`, que referencia `AGENTS.md` sin duplicarlo.
+## What the package does
 
-## Cuenta con dos sesiones, no una
+A manifesto doesn't apply itself. An agent with the doctrine available can skip it with nothing stopping it, and with no one noticing until the product is already built.
 
-Las skills o comandos que registra `specify init` suelen cargarse al iniciar la sesión del agente. Por eso la instalación normalmente requiere:
+This package puts the manifesto's provisions **inside the commands the team already runs**, quoting its literal text rather than rephrasing it. Of 300 checkable statements in the core, 210 are compiled; 40 are declared out of scope and 50 are editorial.
 
-- **Sesión 1**: comprobar entorno, inicializar SpecKit, instalar y verificar las tres capas instalables.
-- **Sesión 2**: materializar y verificar la constitución.
+It does not modify SpecKit. It uses four of its documented extension mechanisms.
 
-Es lo esperado, no una falla.
+## What it does not do
 
-## Dos modos de uso
+**It is not a design system or a visual guide.** No components, no typefaces, no palettes, no opinions on how a product should look. It sets criteria — accessibility, states, cognitive load, performance, traceability — not aesthetics. Visual direction is the team's call.
 
-| Modo | Cómo se usa | Qué garantiza |
-|---|---|---|
-| **Comandos sueltos** | El agente invoca `speckit.*` desde lenguaje natural | La doctrina en los artefactos. **El agente puede omitir una comprobación** |
-| **Workflow** | Una persona o una integración continua lo ejecuta | Todo lo anterior, más las compuertas y la conformidad, **que el agente no ejecuta y no puede saltarse** |
+**It does not check that the product is good.** It checks that what the manifesto requires is present and traceable. The commands review consistency between artifacts, and code against tasks; none of them looks at the screen. Whether the experience meets the principles is judged by a person using the product.
 
-El workflow es el camino recomendado, **no un requisito**: un método que solo funciona bajo workflow excluye a quien invoca comandos sueltos.
+**The method does not replace testing with people: it makes it non-optional.**
 
-## Orden de lectura y autoridad
+## Getting started
 
-Ningún documento debe absorber el papel de otro.
+You need [SpecKit](https://github.com/github/spec-kit) `>=1.0.0,<2.0.0`, Python 3 with PyYAML, git, and an AI agent with a SpecKit integration.
 
-| Orden | Fuente | Qué gobierna |
-|---:|---|---|
-| 1 | [`docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md`](docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md) | Cómo se concibe, decide, implementa y verifica software humano. |
-| 2 | Tu fundamento de producto, en `docs/product/` | Qué debe construirse, con qué alcance y qué evidencia permite aceptarlo. |
-| 3 | [`docs/method/Anexo_Aplicacion_SpecKit_v2.0.md`](docs/method/Anexo_Aplicacion_SpecKit_v2.0.md) | Cómo se corresponde el núcleo con los mecanismos nativos de SpecKit. |
-| 4 | [`docs/method/GUIA_DE_IMPLEMENTACION_SPECKIT.md`](docs/method/GUIA_DE_IMPLEMENTACION_SPECKIT.md) | Cómo se construye y se mantiene esa correspondencia. |
-| 5 | Las cuatro capas, en `tools/speckit/` | Cómo se materializa técnicamente. |
-| 6 | SpecKit nativo | El ciclo SDD y todo comportamiento que el método no modifique. |
+```bash
+# Download the package from Releases and unpack it into your project
+unzip software-humano-speckit-starter-vX.Y.Z.zip -d /tmp/sh
+cp -R /tmp/sh/software-humano-speckit-starter-vX.Y.Z/. .
 
-El núcleo y el fundamento no compiten: el núcleo gobierna el método; el fundamento gobierna el producto. Ante una contradicción real o aparente, el agente debe identificarla y **detener la decisión afectada**, no inventar una conciliación.
-
-## Contenido
-
-```text
-├── README.md
-├── AGENTS.md                         Reglas persistentes. Neutral de agente y de proyecto.
-├── CLAUDE.md                         Referencia a AGENTS.md + lo específico de Claude Code.
-├── PARA_QUIEN_DECIDE.md              Para la persona: qué no se delega.
-├── START_WITH_AI_AGENT.md            Prompt de arranque.
-├── SHA256SUMS
-├── LICENSE                           Frontera de licencias, por naturaleza.
-├── LICENSE-CODE                      MIT · método, herramientas e instrucciones.
-├── LICENSE-CONTENT                   CC BY 4.0 · texto del núcleo v2.1.
-├── docs/
-│   ├── method/
-│   │   ├── Manifiesto_Software_Humano_IA_Nucleo_v2.1.md
-│   │   ├── Anexo_Aplicacion_SpecKit_v2.0.md
-│   │   ├── Anexo_Aplicacion_SpecKit_v1.2.md      Superado; se conserva para instalaciones previas.
-│   │   ├── GUIA_DE_IMPLEMENTACION_SPECKIT.md     Cómo mantener el método sobre SpecKit.
-│   │   ├── inventario-de-objetos.md              Qué gobierna el manifiesto, generado.
-│   │   ├── compuertas-del-metodo.md              Los seis momentos y su decisión requerida.
-│   │   ├── mapa-de-cobertura.md                  Qué del manifiesto está compilado y qué no.
-│   │   └── vocabulario-de-maquinaria.md          Términos que no son doctrina, declarados.
-│   └── product/
-│       └── PLANTILLA_FUNDAMENTO_DE_PRODUCTO.md
-├── instructions/
-│   ├── 00_REQUISITOS_DE_INSTALACION.md     Requisitos de entorno y checklist.
-│   └── 01_INSTALAR_Y_VERIFICAR_SPECKIT.md  Procedimiento y verificación.
-└── tools/
-    └── speckit/
-        ├── preflight.sh                             Comprueba el entorno. No modifica nada.
-        ├── specify                                  Envoltorio con versión de SpecKit fijada.
-        ├── shim/python3                             Intérprete con PyYAML para los scripts.
-        ├── software-humano-spec-kit-preset-2.0.1/
-        ├── conformidad-2.2.0/
-        ├── workflow-software-humano-2.0.0/
-        ├── bundle-software-humano-2.1.0/
-        └── *.zip                                    Cada capa, empaquetada por separado.
+# Verify it arrived intact, and that your environment works
+shasum -a 256 -c SHA256SUMS
+tools/speckit/preflight.sh
 ```
 
-Cada capa viaja como directorio y como ZIP. El directorio facilita inspección e instalación local; el ZIP conserva la distribución verificable. **El ZIP del bundle lleva solo su manifiesto**, no los componentes: instalarlo por identificador exige un catálogo publicado.
+Then fill in the **Completar por proyecto** section at the end of `AGENTS.md` and hand your agent the prompt in [`START_WITH_AI_AGENT.md`](package/START_WITH_AI_AGENT.md). The step-by-step verifiable procedure is in [`instructions/01`](package/instructions/01_INSTALAR_Y_VERIFICAR_SPECKIT.md).
 
-## Requisitos previos
+> Installation usually takes **two sessions**: many agents load their command catalog at startup, so freshly installed commands don't exist until you reopen. That's expected.
 
-Comprobados todos por `tools/speckit/preflight.sh`:
+## What's inside
 
-- un repositorio Git con árbol limpio;
-- SpecKit compatible con `>=1.0.0,<2.0.0`;
-- **un `python3` en el `PATH` con PyYAML** — sin él, la resolución de plantillas falla;
-- una integración de agente elegida por una persona;
-- permiso para inicializar SpecKit si no existe `.specify/`;
-- capacidad del agente para ejecutar comandos, leer Markdown y presentar resultados en lenguaje natural.
+| Layer | SpecKit mechanism | What it contributes |
+|---|---|---|
+| Preset | `preset` | The doctrine inside the eight commands and the three templates |
+| Conformance | `extension` | Checks that what is required is present, and stops when something is missing and undeclared |
+| Gates | `workflow` | The control points the manifesto itself specifies, run by the engine |
+| Distribution | `bundle` | Composes and pins the other three |
 
-No se requiere ninguna tecnología concreta: el paquete no impone arquitectura. Esas decisiones pertenecen a tu fundamento de producto.
+Plus the documentation: the core, the annex tracing every provision back to SpecKit, the implementation guide, the installation instructions, and [`PARA_QUIEN_DECIDE.md`](package/PARA_QUIEN_DECIDE.md) — written for the person who approves, not for the agent.
 
-## Flujo autorizado
+## Two modes, depending on how you work
 
-El paquete conserva el flujo nativo de SpecKit y le agrega las compuertas que el manifiesto especifica.
+**Individual commands.** The agent invokes each command when it recognizes the situation that command names, from natural language. This enables the doctrine in the artifacts without anyone typing a command; it depends on the agent recognizing the moment.
 
-1. `constitution` — instala o verifica la proyección del núcleo v2.1.
-2. `specify` — deriva la especificación desde el fundamento completo.
-3. `clarify` — resuelve decisiones materiales sin adivinarlas.
-4. **Punto de control · antes de diseñar.**
-5. `plan` — define la estrategia técnica y las dependencias.
-6. `tasks` — deriva trabajo para todo el alcance autorizado.
-7. `analyze` — comprueba doctrina, cobertura y trazabilidad.
-8. **Comprobación de conformidad y punto de control · antes de generar código.**
-9. `implement` — solo después de autorización explícita.
-10. **Punto de control · antes de integrar.**
-11. `converge` — reconcilia implementación, alcance y evidencia.
-12. **Comprobación de conformidad y punto de control · antes de liberar.**
+**Workflow.** The whole cycle runs at once. This additionally enables the gates and the conformance check, which the engine runs and the agent cannot skip.
 
-El manifiesto llama **puntos de control** a esos momentos. Bajo comandos sueltos son responsabilidad de la persona; bajo workflow los ejecuta el motor como pasos `gate`, y cuatro de los seis son expresables así.
+Neither is "the right one". Someone working conversationally, deciding turn by turn, will lean on the first; someone who wants the closed cycle, or runs it in CI, on the second. Both are installed and you can alternate.
 
-Una ejecución parcial es avance, **no una reducción del alcance**. El agente no puede inventar prioridades, MVP, releases, exclusiones ni aceptación.
+## Licensing
 
-## Qué significa estar listo para desarrollar
+The package mixes two natures, and the boundary is defined by nature rather than by folder:
 
-- SpecKit está inicializado con la integración elegida;
-- las tres capas instalables están instaladas y verificadas;
-- **los comandos compuestos conservan la descripción, los `handoffs` y los `scripts` nativos**;
-- las plantillas conservan sus secciones y tokens nativos, y llevan agregados los artefactos del manifiesto;
-- el checklist nativo sigue sin intervenir;
-- la constitución v2.1 completa está materializada y verificada;
-- el fundamento de producto fue utilizado como fuente autorizada;
-- las decisiones materiales necesarias para planificar están resueltas;
-- `spec.md`, `plan.md`, `tasks.md` y `analyze` conservan todo el alcance;
-- una persona revisó los artefactos y autorizó comenzar `implement`.
-
-**Instalar el método o generar código no basta** para declarar que el proyecto está preparado.
-
-## Qué mide y qué no mide este método
-
-Comprueba que lo que el manifiesto exige **esté presente y trazable**. No comprueba que lo escrito sea bueno: una tabla llena de frases plausibles pasa toda comprobación de forma.
-
-Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
-
-## Historial de versiones
-
-### 2.2.1
-
-**`PARA_QUIEN_DECIDE.md` dice dónde el método no llega**, con los cuatro
-defectos del primer sitio que encontró una persona usándolo y que pasaron todas
-las comprobaciones. El método no sustituye la prueba con personas: la vuelve
-exigible.
-
-### 2.2.0
-
-**La conformidad comprueba que lo decidido haya llegado.** Una decisión tomada
-conversando se registra en `AGENTS.md` o en el fundamento y puede no llegar
-nunca a `spec.md` ni a `plan.md`. El artefacto queda completo y correcto, así
-que ninguna otra comprobación lo ve. Ahora se compara la fecha del último
-cambio y se detiene si una fuente rectora quedó por delante.
-
-En el piloto del sitio esa ventana duró veintiuna horas y tres fases se
-implementaron dentro de ella.
-
-**La instrucción de instalación declara el límite**: no hay comando que
-propague un cambio del fundamento. Se lleva a mano; el método avisa cuándo hace
-falta, no reconcilia.
-
-### 2.1.1
-
-**Los ocho comandos no declaran frontmatter, y ahora está protegido.** El
-piloto del sitio midió por qué importa: la descripción nativa nombra artefactos
-y momentos, y por eso un agente reconoce cuándo aplica cada comando al oír la
-situación descrita en lenguaje natural. `workflow run` no se usó ni una vez y
-aun así corrieron diez `analyze` y siete `converge`. El ensamblado ahora
-detiene si alguna capa redeclara frontmatter — las aserciones sobre `handoffs`
-no lo detectaban, porque `analyze`, `converge` e `implement` no los traen.
-
-**La tabla de los dos modos deja de llamar «recomendado» al que no se usa.**
-Describe ambos sin jerarquía y dice de qué depende cada uno.
-
-### 2.1.0
-
-**La excepción aprobada exige sus cuatro campos**: `artefacto`, `seccion`,
-`razon` y `aprobada_por`. Hasta aquí bastaba nombrar la sección, y una línea sin
-razón ni aprobador pasaba como excepción aprobada — menos de lo que exige el
-manifiesto que el paquete distribuye. `artefacto` es nuevo y obligatorio porque
-una misma sección aparece en más de un artefacto, y la excepción declarada para
-uno tapaba la del otro.
-
-**La conformidad comprueba primero que el método siga instalado.** Un `override`
-del proyecto, otro preset con más precedencia o un addendum vaciado dejan el
-artefacto limpio porque nunca se le pidió nada. Ahora se verifica que el preset
-componga los ocho comandos, que los tres addenda no estén vacíos y que ningún
-`override` esté tapando uno de los ocho.
-
-**El bundle instalaba cero componentes reportando éxito.** Su manifiesto los
-declaraba fuera de `provides`, que es donde SpecKit los lee. Corregido; sigue sin
-poder instalarse hasta publicar las capas en un catálogo, y ninguna instrucción
-lo ofrece.
-
-### 2.0.0
-
-Reconstrucción completa del método. **No modifica el núcleo v2.1.**
-
-- **La doctrina se cita, no se reformula.** Se encontraron diez defectos en la versión anterior y nueve eran de transcripción: un criterio de salida convertido en criterio de entrada, una regla inventada y atribuida al núcleo, una exigencia debilitada de «y» a «o». Ahora no hay campo de redacción propia y el ensamblado verifica cada cita contra su fuente.
-- **Cuatro mecanismos nativos, no uno.** Preset, extensión, workflow y bundle.
-- **Los comandos conservan su frontmatter nativo.** La versión anterior lo declaraba y con eso borraba los `handoffs` —el encadenamiento entre comandos— en los cinco que los traen.
-- **Las plantillas se amplían, no se sustituyen.** Sustituir borraba las secciones que `analyze` busca por su nombre y los tokens que SpecKit sustituye por la invocación del agente.
-- **Los puntos de control no se diseñan: se citan.** El manifiesto especifica seis momentos con su decisión requerida.
-- **La conformidad admite excepciones aprobadas**, que es como un repositorio que ya existía adopta el método sin ser bloqueado.
-
-### 1.6.0
-
-**Nuevo `PARA_QUIEN_DECIDE.md`: el primer documento del paquete escrito para la persona y no para el agente.**
-
-La compilación del preset 1.2.0 dejó setenta y nueve comprobaciones a cargo del agente. Lo que no se pudo compilar quedó a cargo de la persona —no aprobar un gate rechazado por prisa, correr las pruebas con personas, y leer lo que el agente pone delante— **y ningún documento se lo decía**. Un método que transfiere obligaciones a quien no sabe que las tiene no las transfirió: las perdió.
-
-El documento tiene cuatro momentos, cinco preguntas y una tabla de respuestas huecas frente a reales. Es corto a propósito y declara que debe seguir siéndolo.
-
-No toca el preset, que permanece en v1.2.0.
-
-### 1.5.0
-
-**Preset 1.2.0: las disposiciones pasan de prosa a comprobación.** La 1.1.0 nombró qué debe activar cada comando; al medirlo, menos de la mitad de esas obligaciones podía responderse sí o no mirando el artefacto. Ahora cada una está expresada como comprobación verificable, y **las que no compilan están declaradas como tales**.
-
-Una disposición compila cuando se expresa como «X existe», «X traza a Y» o «ninguna X sin Z». Se resiste cuando se expresa como un adjetivo de calidad. Las que nombran artefactos y estados compilan; las que nombran cualidades no.
-
-Ninguna comprobación verifica si la persona comprende, confía o progresa: eso exige pruebas moderadas con personas, y cada comando lo declara en lugar de darlo por cubierto.
-
-Sin cambio doctrinal: un proyecto instalado **no necesita rematerializar su constitución**.
-
-### 1.4.1
-
-Dos reglas nuevas en la plantilla de `AGENTS.md`, que cubren el territorio donde el preset **estructuralmente no llega**: los comandos `speckit.*` solo gobiernan mientras uno de ellos corre, y los tres fallos de juicio del primer piloto ocurrieron en conversación, fuera de todo comando y de todo artefacto.
-
-- La regla 1 se amplía de «antes de proponer componentes o código» a **antes de proponer cualquier cosa**, incluida una dirección de diseño o una alternativa, consultando la doctrina **antes** de formular la propuesta.
-- La regla 11 es nueva: **antes de abrir una decisión a la persona, comprobar que las fuentes rectoras no la resuelvan ya**, pudiendo nombrar cuál se consultó.
-
-Sigue siendo persuasión, no coerción. `AGENTS.md` es la única capa presente cuando no corre ningún comando, y por eso es donde estas reglas pueden servir de algo.
-
-No toca el preset, que permanece en v1.1.0.
-
-### 1.4.0
-
-**El preset pasa a cumplir el anexo que materializa.** Hasta 1.0.2 no incorporaba las *referencias por operación* que el anexo exige en su línea 516 y verifica en sus criterios 14 y 15: de unas cien asignaciones, citaba tres.
-
-La consecuencia, medida en el primer piloto real, era que el preset protegía el alcance y la autoridad y no aplicaba los principios de experiencia ni los controles de verificación.
-
-**Preset 1.1.0**, en cuatro capas para que la doctrina no pueda saltarse en silencio:
-
-1. Cada comando nombra las disposiciones que el anexo le asigna y qué exige cada una **en ese momento**.
-2. Cada comando obliga a **declarar qué activó y con qué consecuencia concreta**.
-3. `plan-template.md` y `tasks-template.md` tienen el hueco donde esa declaración vive.
-4. `analyze` **comprueba que la declaración exista y sea concreta**; su ausencia es un hallazgo.
-
-Sin cambio doctrinal: `constitution-template.md` es byte a byte la de 1.0.2, así que un proyecto instalado **no necesita rematerializar su constitución**.
-
-### 1.3.0
-
-**Nuevo apartado en la plantilla de `AGENTS.md`: protocolo de coordinación entre sesiones.**
-
-Se agrega porque la plantilla no preguntaba si el proyecto usaría más de un agente ni bajo qué reglas, y esa omisión tuvo consecuencia medida: durante el desarrollo de este método, dos sesiones sostuvieron ocho rondas de mensajes cruzados que produjeron 17 de 25 commits sin instrucción humana, y la autoridad de producto quedó fuera de su propio proyecto. Registrado como `M1` en las propuestas del repositorio del paquete.
-
-El apartado pide declarar qué sesiones trabajan, qué archivos pueden colisionar, qué exige aprobación humana previa y a quién reporta cada una. Fija además una regla: **ningún commit antes de que la autoridad haya visto de qué se trata**.
-
-**No toca el preset**, que permanece en v1.0.2. Un proyecto con el preset instalado no necesita re-sincronizar nada por esta versión.
-
-### 1.2.0
-
-**El paquete pasa a ser redistribuible.** Hasta 1.1.1 no tenía `LICENSE`, de modo que quedaba como «todos los derechos reservados» por omisión mientras invitaba a instalarse en cualquier proyecto. Y el `LICENSE` del preset decía expresamente «no permission is granted to… publish», lo que volvía **inejecutable** la decisión aprobada de publicarlo en el catálogo de comunidad de SpecKit.
-
-| Área | Cambio |
+| What | License |
 |---|---|
-| `LICENSE`, `LICENSE-CODE`, `LICENSE-CONTENT` | Nuevos. Declaran la frontera por naturaleza: MIT para código y operación, CC BY 4.0 para el texto del núcleo |
-| Anexo v1.2 | Queda bajo MIT. Es documentación de la adaptación, no doctrina |
-| Preset 1.0.2 | Sustituye la licencia propietaria por MIT; `preset.yml` declara `license: "MIT"`. **Sin cambio doctrinal ni funcional** |
+| Preset, extension, workflow, bundle, tooling and instructions | [MIT](LICENSE) |
+| The manifesto core's text, including its projection as a constitution | [CC BY 4.0](LICENSE-CONTENT) |
 
-Un proyecto con 1.0.1 instalado **no necesita rematerializar su constitución** al adoptar esta versión: la proyección doctrinal es byte a byte la misma.
+Which file falls on which side is explained in [`LICENSING.md`](LICENSING.md). Suggested attribution for the text:
 
-### 1.1.1
+> «Núcleo del manifiesto para el desarrollo de software humano con inteligencia artificial v2.1», by Damián Acuña, licensed CC BY 4.0.
 
-`AGENTS.md` sale de `SHA256SUMS`. Al migrar el primer repositorio a 1.1.0 se hizo evidente que completar la sección «Completar por proyecto» —el uso previsto del archivo— rompía la verificación de integridad. Un control que falla en el caso normal deja de ser un control.
+## Authorship
 
-## Integridad y licencias
+Manifesto and method by **Damián Acuña**. The package was developed with assistance from Claude, under his authorship and decision.
 
-`SHA256SUMS` verifica los archivos **invariantes** del método: el manifiesto, el anexo, el preset, las instrucciones y las herramientas. Usa rutas relativas, de modo que sigue verificando si mueves el paquete completo o lo instalas en un repositorio con otros archivos.
+## How it's maintained
 
-**`AGENTS.md` queda deliberadamente fuera de la verificación**, porque su sección «Completar por proyecto» está diseñada para que cada repositorio la edite. Incluirlo haría que la integridad fallara en cuanto alguien usara el paquete como se espera, y eso enseñaría a ignorar el resultado. Si `SHA256SUMS` falla, hay un problema real.
+`docs/proposals/` is the maintenance record: entries are added, never rewritten. Each proposal separates observed fact, inference, and the decision that belongs to a person — and none is applied without a decision from the product authority.
 
-### Licencias
-
-El paquete contiene **dos naturalezas bajo dos licencias**, con la frontera definida **por naturaleza y no por carpeta**:
-
-| Qué | Licencia |
-|---|---|
-| Preset, herramientas, instrucciones y el anexo v1.2 | [MIT](LICENSE-CODE) |
-| Texto del núcleo del manifiesto v2.1, dondequiera que aparezca | [CC BY 4.0](LICENSE-CONTENT) |
-
-`templates/constitution-template.md` vive dentro del preset y es **contenido**, no código: su texto doctrinal es el del núcleo. [`LICENSE`](LICENSE) explica la frontera completa.
-
-Puedes instalar, modificar y redistribuir el paquete sin pedir permiso, y citar, traducir o adaptar el texto del manifiesto con atribución.
-
-Este paquete no concede licencia alguna sobre SpecKit ni sobre software de terceros, que conservan las suyas.
-
-El preset conserva su licencia propietaria en su propio directorio. Este paquete no concede una licencia adicional sobre el manifiesto, SpecKit ni software de terceros.
-
-## Una nota sobre fechas
-
-El núcleo v2.1 declara **ratificación el 2026-09-20**; el paquete se fecha el **2026-09-21**. La diferencia es deliberada: la doctrina se ratifica antes de empaquetarse. No es una inconsistencia que deba corregirse.
+The method is validated on real projects, and its findings are evaluated here before anything changes.

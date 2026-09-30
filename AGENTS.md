@@ -205,7 +205,7 @@ No pueden cerrarse con un valor predeterminado. Requieren decisión de Damián A
 
 ## Decisiones ya resueltas
 
-- **Licencias del paquete** — resueltas el 2026-09-21 por Damián Acuña. Frontera **por naturaleza y no por carpeta**: MIT para el preset, las herramientas, las instrucciones y el anexo v1.2; CC BY 4.0 para el texto del núcleo v2.1, incluida su proyección en `templates/constitution-template.md`. Ver `LICENSE`, `LICENSE-CODE` y `LICENSE-CONTENT`.
+- **Licencias del paquete** — resueltas el 2026-09-21 por Damián Acuña. Frontera **por naturaleza y no por carpeta**: MIT para el preset, las herramientas, las instrucciones y el anexo v1.2; CC BY 4.0 para el texto del núcleo v2.1, incluida su proyección en `templates/constitution-template.md`. Ver `LICENSE`, `LICENSE` y `LICENSE-CONTENT`.
 - **Licencia del preset** — MIT desde la v1.0.2. La versión 1.0.1 y anteriores declaraban una licencia propietaria que prohibía publicar, lo que volvía inejecutable `CL-10`.
 
 ---

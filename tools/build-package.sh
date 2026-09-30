@@ -10,7 +10,7 @@
 set -euo pipefail
 
 RAIZ="$(CDPATH="" cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION_PAQUETE="2.2.1"
+VERSION_PAQUETE="2.2.2"
 # Las cinco capas del método comparten el número de salida 2.0.0. No están
 # acopladas: cuando una necesite un parche se mueve sola, y esa divergencia
 # significará que esa capa cambió. Lo que no significaba nada era que salieran
@@ -100,7 +100,11 @@ echo "==> Sincronizando el manifiesto de integridad del repositorio"
 # fuentes: los zips son salida de este script y no existen en el repositorio.
 # Generarlo aquí evita que quede describiendo una versión anterior, que es lo
 # que ocurrió con el 1.6.0.
-grep -v '  tools/speckit/Software_Humano_.*\.zip$' "$STAGE/SHA256SUMS" > "$RAIZ/SHA256SUMS"
+# `README.md` queda fuera por la misma razón que `AGENTS.md`: el README de un
+# repositorio es suyo y no del método. La raíz lleva el del repositorio —en tres
+# idiomas—, y el del paquete viaja dentro de `package/` y de la distribución.
+grep -v '  tools/speckit/Software_Humano_.*\.zip$' "$STAGE/SHA256SUMS" \
+  | grep -v '  README\.md$' > "$RAIZ/SHA256SUMS"
 # La raíz de este repositorio es la instalación del propio método sobre sí mismo:
 # `package/` es la fuente y la raíz es la copia instalada. Si una diverge, el
 # repositorio dejó de correr el método que distribuye, y conviene saber cuál.

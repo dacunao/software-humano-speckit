@@ -1,6 +1,6 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 2.2.1
+**Versión del paquete:** 2.2.2
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 2.0
 **Preset:** 2.0.1 · **workflow:** 2.0.0 · **extensión:** 2.2.0 · **bundle:** 2.1.0
@@ -97,7 +97,7 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
 ├── START_WITH_AI_AGENT.md            Prompt de arranque.
 ├── SHA256SUMS
 ├── LICENSE                           Frontera de licencias, por naturaleza.
-├── LICENSE-CODE                      MIT · método, herramientas e instrucciones.
+├── LICENSE                      MIT · método, herramientas e instrucciones.
 ├── LICENSE-CONTENT                   CC BY 4.0 · texto del núcleo v2.1.
 ├── docs/
 │   ├── method/
@@ -184,6 +184,14 @@ Comprueba que lo que el manifiesto exige **esté presente y trazable**. No compr
 Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
 
 ## Historial de versiones
+
+### 2.2.2
+
+**`LICENSE` pasa a ser el texto íntegro de la licencia MIT**, para que GitHub y
+cualquier herramienta que lea licencias la detecten. La explicación de la
+frontera entre código y texto citado —que ningún texto legal puede dar— se
+mueve a `LICENSING.md`. `LICENSE-CODE` desaparece: su contenido es ahora
+`LICENSE`. `LICENSE-CONTENT` no cambia.
 
 ### 2.2.1
 
@@ -313,7 +321,7 @@ El apartado pide declarar qué sesiones trabajan, qué archivos pueden colisiona
 
 | Área | Cambio |
 |---|---|
-| `LICENSE`, `LICENSE-CODE`, `LICENSE-CONTENT` | Nuevos. Declaran la frontera por naturaleza: MIT para código y operación, CC BY 4.0 para el texto del núcleo |
+| `LICENSE`, `LICENSE`, `LICENSE-CONTENT` | Nuevos. Declaran la frontera por naturaleza: MIT para código y operación, CC BY 4.0 para el texto del núcleo |
 | Anexo v1.2 | Queda bajo MIT. Es documentación de la adaptación, no doctrina |
 | Preset 1.0.2 | Sustituye la licencia propietaria por MIT; `preset.yml` declara `license: "MIT"`. **Sin cambio doctrinal ni funcional** |
 
@@ -335,7 +343,7 @@ El paquete contiene **dos naturalezas bajo dos licencias**, con la frontera defi
 
 | Qué | Licencia |
 |---|---|
-| Preset, herramientas, instrucciones y el anexo v1.2 | [MIT](LICENSE-CODE) |
+| Preset, herramientas, instrucciones y el anexo v1.2 | [MIT](LICENSE) |
 | Texto del núcleo del manifiesto v2.1, dondequiera que aparezca | [CC BY 4.0](LICENSE-CONTENT) |
 
 `templates/constitution-template.md` vive dentro del preset y es **contenido**, no código: su texto doctrinal es el del núcleo. [`LICENSE`](LICENSE) explica la frontera completa.

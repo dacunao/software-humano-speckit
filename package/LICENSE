@@ -1,59 +1,35 @@
-# Licencias del paquete Software Humano para SpecKit
+MIT License
 
-Este paquete contiene **dos naturalezas distintas** bajo **dos licencias distintas**.
+Copyright (c) 2026 Damián Acuña
 
-**La frontera se define por naturaleza y no por carpeta.** Un archivo pertenece a una u otra según lo que es, no según dónde vive. Por eso `templates/constitution-template.md`, que vive dentro del preset, es contenido y no código.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Código y operación · MIT
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Cubre el preset, las herramientas, las instrucciones y la documentación del método:
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-- `tools/speckit/software-humano-spec-kit-preset-*/` — `preset.yml`, los ocho comandos compuestos, y las plantillas de especificación, plan y tareas
-- `tools/speckit/preflight.sh`, `tools/speckit/specify`, `tools/speckit/shim/`
-- `instructions/`
-- `docs/method/Anexo_Aplicacion_SpecKit_v1.2.md`
-- `docs/product/PLANTILLA_FUNDAMENTO_DE_PRODUCTO.md`
-- `README.md`, `AGENTS.md`, `CLAUDE.md`, `START_WITH_AI_AGENT.md`
-- `SHA256SUMS`
+----------------------------------------------------------------------
 
-Texto completo en [`LICENSE-CODE`](LICENSE-CODE).
+Esta licencia cubre el código y la operación del paquete: el preset, la
+extensión de conformidad, el workflow, el bundle, las herramientas y las
+instrucciones.
 
-**Por qué el anexo va aquí.** El anexo no es doctrina: es la especificación técnica de cómo el preset aplica el núcleo a SpecKit. Él mismo lo declara — «este anexo no mejora ni expande el manifiesto; hace que SpecKit lo aplique mediante sus mecanismos nativos». Es documentación de una adaptación, y sigue a la adaptación.
+NO cubre el texto del Núcleo del manifiesto para el desarrollo de software
+humano con inteligencia artificial v2.1, que se publica bajo CC BY 4.0 — ver
+LICENSE-CONTENT. La frontera entre ambas licencias se define por naturaleza y
+no por carpeta, y está explicada en LICENSING.md.
 
-## Texto del manifiesto · CC BY 4.0
-
-Cubre el **Núcleo del manifiesto para el desarrollo de software humano con inteligencia artificial v2.1**, dondequiera que aparezca dentro de este paquete:
-
-- `docs/method/Manifiesto_Software_Humano_IA_Nucleo_v2.1.md`
-- `tools/speckit/software-humano-spec-kit-preset-*/templates/constitution-template.md` — la proyección operativa del mismo texto, reorganizada únicamente para cumplir la jerarquía nativa de constitución de SpecKit
-
-Texto completo en [`LICENSE-CONTENT`](LICENSE-CONTENT).
-
-**Por qué la plantilla de constitución va aquí.** Su contenido doctrinal es el del núcleo, verificable: ignorando las líneas de ancla, ambos archivos tienen el mismo digest. Reorganizar encabezados para satisfacer una herramienta no convierte doctrina en código.
-
-## Qué significa en la práctica
-
-| Quieres | Puedes |
-|---|---|
-| Instalar el paquete en tu proyecto | Sí, sin pedir permiso |
-| Modificar el preset, las herramientas o las instrucciones | Sí, conservando el aviso de copyright |
-| Redistribuir el paquete, modificado o no | Sí, conservando ambos avisos |
-| Citar, traducir o adaptar el texto del manifiesto | Sí, con atribución |
-| Usar cualquiera de las dos partes comercialmente | Sí |
-
-Lo que **no** concede este paquete: ninguna licencia sobre GitHub SpecKit ni sobre cualquier otro software de terceros, que conservan las suyas.
-
-## Sobre la integridad doctrinal
-
-Una licencia permisiva sobre el texto del manifiesto **no debilita su integridad**. Esa integridad no se sostiene en restringir la copia, sino en los mecanismos que el propio método define: versión declarada, anclas estables, procedencia visible, `SHA256SUMS`, y la autoridad doctrinal del original en español.
-
-Quien adapte el texto puede hacerlo; lo que no puede es presentar su adaptación como el núcleo aprobado.
-
-## Autoría y versiones
-
-Copyright (c) 2026 Damián Acuña.
-
-- Núcleo del manifiesto: **v2.1**, ratificado el 2026-09-20
-- Anexo de aplicación SpecKit: **v1.2**
-- Preset Software Humano: **v1.0.2**
-- Paquete: **v1.2.0**
+GitHub SpecKit y cualquier otro software de terceros conservan sus propias
+licencias y avisos de copyright.
