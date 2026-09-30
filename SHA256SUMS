@@ -15,9 +15,11 @@ d91ce189e468b78805cbad57bda5c53e2aaf76c4d53aec3bf10f507ca013dab5  docs/method/vo
 c1c498dd1cdcd18547cfd40fc6e73a577dbd93ab678de1e35a76dd7b1fe2893b  docs/product/PLANTILLA_FUNDAMENTO_DE_PRODUCTO.md
 35392534bae21904ecb4e6d09d1ecb9b8249f9cece8ed1060ba06ff9886030c3  instructions/00_REQUISITOS_DE_INSTALACION.md
 b8f5c6677112ecc804e69d453b653143a5fd2ae8c05cf2d9bb87ad055df35a34  instructions/01_INSTALAR_Y_VERIFICAR_SPECKIT.md
+a92030247bebeddf932e996b9de1b0f199178b01fac6e933a3fb14a0d162734c  tools/speckit/bundle-software-humano-2.1.0/LICENSE
 1067bf876a3c1e9f9e37fd8b370a5fe14a85846fdee56cf4869c5176ac7166fa  tools/speckit/bundle-software-humano-2.1.0/README.md
 d241a9b6c6d56cf30f279eda9e372438b2a799be86bcaf966c763a40ca961b17  tools/speckit/bundle-software-humano-2.1.0/bundle.yml
 2d0398824d843620a265fafbfcecb3b91aa4b786703eedeac4c042c0f3a00a24  tools/speckit/conformidad-2.2.2/CHANGELOG.md
+a92030247bebeddf932e996b9de1b0f199178b01fac6e933a3fb14a0d162734c  tools/speckit/conformidad-2.2.2/LICENSE
 7cabbba6597e1970286d501c06ad691888a0a17f81d2bb11eb6b05b0af7b4da8  tools/speckit/conformidad-2.2.2/README.md
 cf52fe928272b7f6122432de6a6c60406ca0cb49b83ef613cb82b874ca833b10  tools/speckit/conformidad-2.2.2/commands/speckit.conformidad.comprobar.md
 b195a0aa2cfa74b2b295f0e3d6fb549fe0ea8ba8eb51258b43cbfa2a386146d0  tools/speckit/conformidad-2.2.2/config-template.yml
@@ -26,6 +28,9 @@ b195a0aa2cfa74b2b295f0e3d6fb549fe0ea8ba8eb51258b43cbfa2a386146d0  tools/speckit/
 9cae851d0e308baede709c46ecdca9b177fe826f17d3b2e234420904b7083595  tools/speckit/preflight.sh
 7862984673769a22f0299a17f7bfd00fbfc72672b1a88a8344cc35e100f1b4ae  tools/speckit/shim/README.md
 7340ac211155011d33f76cdd84cc390cc55fb68b7417ed08b7ca08ef9f92ed29  tools/speckit/shim/python3
+a92030247bebeddf932e996b9de1b0f199178b01fac6e933a3fb14a0d162734c  tools/speckit/software-humano-spec-kit-preset-2.0.3/LICENSE
+507c0e871e47d803e9ff9b12d32ea2accf2479291a486997ce25f76c6cbfab77  tools/speckit/software-humano-spec-kit-preset-2.0.3/LICENSE-CONTENT
+1c88ff422933b621378e47ff40a4fcaadc7397f5a5c4a440a4cce6664c010b6a  tools/speckit/software-humano-spec-kit-preset-2.0.3/LICENSING.md
 8df5f741d04c70479e4df2f6e1e317ac0ddeb041809a9f2080a8ff4d80824415  tools/speckit/software-humano-spec-kit-preset-2.0.3/README.md
 0e08b8d43ab2fe2370fff9887c62c8a3943ae7f4174e790c335a1904d2e94fc2  tools/speckit/software-humano-spec-kit-preset-2.0.3/commands/speckit.analyze.md
 ab74780a2919e25f3067d1bd812614e6d058ee7c24ed6a43a56600a3204cfc53  tools/speckit/software-humano-spec-kit-preset-2.0.3/commands/speckit.clarify.md
@@ -41,4 +46,5 @@ c5974be71f66f816fa20bebd070f10d32094fedcd33919a0545b8cf7a5e28c01  tools/speckit/
 60a8e086b87a99108cbdd52fd1be61e17ce1236a149114c6b27b4190f859d859  tools/speckit/software-humano-spec-kit-preset-2.0.3/templates/spec-addendum.md
 fefabf16fad8bafe03116208c52b05b32d1816ef1c506bfd35f7d1319f2d3d3a  tools/speckit/software-humano-spec-kit-preset-2.0.3/templates/tasks-addendum.md
 8c5d5c370ab40f62c2c3d1ed71d180c806ceeb27b0dd88b7eb4f3b265912ce44  tools/speckit/specify
+a92030247bebeddf932e996b9de1b0f199178b01fac6e933a3fb14a0d162734c  tools/speckit/workflow-software-humano-2.0.0/LICENSE
 8793b13da323393fbd4a14876790d01ec4233f45cb1a47c7b543d3271942f3de  tools/speckit/workflow-software-humano-2.0.0/workflow.yml

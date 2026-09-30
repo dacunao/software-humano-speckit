@@ -10,7 +10,7 @@
 set -euo pipefail
 
 RAIZ="$(CDPATH="" cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION_PAQUETE="2.3.1"
+VERSION_PAQUETE="2.3.2"
 # Las cinco capas del método comparten el número de salida 2.0.0. No están
 # acopladas: cuando una necesite un parche se mueve sola, y esa divergencia
 # significará que esa capa cambió. Lo que no significaba nada era que salieran
@@ -67,6 +67,27 @@ find "$STAGE" -name '__MACOSX' -type d -exec rm -rf {} + 2>/dev/null || true
 echo "==> Empaquetando cada capa por separado"
 # Cada una se instala por su cuenta mientras no haya catálogo publicado: el zip
 # de un bundle lleva solo su manifiesto, no los componentes.
+# Cada componente lleva su licencia adentro, como archivo del repositorio y no
+# como salida de este script: un archivo que se descarga y se instala por su
+# cuenta no puede depender de que alguien tenga a mano el resto del paquete.
+# MIT exige que su aviso acompañe a todas las copias, y el catálogo de comunidad
+# de SpecKit lo pide como requisito de envío.
+#
+# El preset lleva además `LICENSE-CONTENT` y su propio `LICENSING.md`, y no es
+# simetría: su `templates/constitution-template.md` es texto del núcleo bajo
+# CC BY 4.0, no código bajo MIT. Distribuirlo con una sola licencia lo
+# licenciaría mal. Es `DP-03`.
+for d in "$PRESET_DIR" "$EXTENSION_DIR" "$WORKFLOW_DIR" "$BUNDLE_DIR"; do
+  if [ ! -f "$RAIZ/tools/speckit/$d/LICENSE" ]; then
+    echo "    FALLO: $d no lleva su LICENSE. Un componente se distribuye solo."
+    exit 1
+  fi
+done
+if [ ! -f "$RAIZ/tools/speckit/$PRESET_DIR/LICENSE-CONTENT" ]; then
+  echo "    FALLO: el preset no lleva LICENSE-CONTENT, y proyecta el núcleo bajo CC BY."
+  exit 1
+fi
+
 ( cd "$STAGE/tools/speckit" \
   && zip -q -r -X "Software_Humano_Preset_v${VERSION_PRESET}.zip"    "$PRESET_DIR" \
   && zip -q -r -X "Software_Humano_Conformidad_v${VERSION_EXTENSION}.zip" "$EXTENSION_DIR" \

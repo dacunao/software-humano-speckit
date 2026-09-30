@@ -19,7 +19,7 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.3.1"
+PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.3.2"
 CONSERVAR=0
 [ "${1:-}" = "--conservar" ] && CONSERVAR=1
 [ -d "$PAQUETE" ] || { echo "No existe $PAQUETE. Ejecuta tools/build-package.sh primero."; exit 2; }

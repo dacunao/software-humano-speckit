@@ -1,6 +1,6 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 2.3.1
+**Versión del paquete:** 2.3.2
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 2.0
 **Preset:** 2.0.3 · **workflow:** 2.0.0 · **extensión:** 2.2.2 · **bundle:** 2.1.0
@@ -184,6 +184,19 @@ Comprueba que lo que el manifiesto exige **esté presente y trazable**. No compr
 Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
 
 ## Historial de versiones
+
+### 2.3.2
+
+**Cada componente lleva su licencia adentro.** Los archivos por componente se
+descargan y se instalan solos, y no podían depender de que alguien tuviera el
+resto del paquete a mano. MIT exige que su aviso acompañe a todas las copias, y
+el catálogo de comunidad de SpecKit lo pide como requisito de envío.
+
+El preset lleva además `LICENSE-CONTENT` y su propio `LICENSING.md`: su
+`templates/constitution-template.md` es texto del núcleo bajo CC BY 4.0, no
+código bajo MIT. Distribuirlo con una sola licencia lo licenciaba mal.
+
+El ensamblado detiene si un componente no lleva la suya.
 
 ### 2.3.1
 
