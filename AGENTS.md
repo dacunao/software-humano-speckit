@@ -159,6 +159,15 @@ Una constitución materializada debe contener las quince familias completas. `in
 - **El checklist nativo se conserva sin intervención.**
 - **Compatibilidad declarada** con SpecKit `>=1.0.0,<2.0.0`, verificada sobre 1.0.8.
 - **`SHA256SUMS` cubre los archivos invariantes**, y deliberadamente **no** cubre `AGENTS.md`, que cada proyecto completa.
+- **Etiquetas de release con prefijo por componente**, aprobado el 2026-10-01. El paquete se publica como `vX.Y.Z`; un componente que se publica por separado lleva su capa y su nombre en la etiqueta: `preset-software-humano-v2.0.3`, `extension-conformidad-v2.2.3`.
+
+  **Por qué existe.** El catálogo comunitario de SpecKit exige que la versión declarada de un componente coincida con el número de su etiqueta de descarga, y rechaza el envío cuando no coincide —sin descargar el archivo—. Con etiquetas desnudas eso obliga a elegir entre alinear las cinco capas en un número, que destruye lo que informa el versionado independiente de arriba, o publicar etiquetas `v2.0.3` que al lado de `v2.3.3` se leen como un retroceso del paquete. El prefijo evita las dos cosas: el validador acepta «scoped tags whose version suffix matches», y la lista de releases queda legible porque cada entrada dice de qué componente es.
+
+  **Cómo se publica.** El título de la release nombra el componente y su versión —«Extensión Conformidad 2.2.3»—, no solo la etiqueta: es el título, y no la etiqueta, lo que hace que la lista no se lea como números desordenados. Y la release del paquete queda marcada como `Latest`: GitHub se la otorga a la última creada, de modo que publicar componentes después obliga a devolverla con `gh release edit <paquete> --latest`.
+
+  **Lo que un componente no reemplaza.** Quien llega al método instala la release del paquete completo. Los ZIP por componente instalan una sola capa y existen para el catálogo.
+
+  **Y el ZIP no es reproducible**: dos ensamblados de fuentes idénticas dan huellas distintas, porque `zip` guarda fechas. La huella de una release vale para el archivo publicado y no se obtiene reensamblando. El catálogo fija la del archivo que descargó, así que reemplazar un asset ya catalogado la invalida: una versión nueva se publica como etiqueta nueva, nunca sobrescribiendo una existente.
 
 ## Contrato lingüístico
 
