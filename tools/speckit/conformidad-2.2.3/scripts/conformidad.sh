@@ -159,8 +159,30 @@ fecha_de() {  # último cambio registrado, en segundos
   git -C "$RAIZ" log -1 --format=%ct -- "$1" 2>/dev/null
 }
 
+unir_en_prosa() {  # «a» · «a y b» · «a, b y c»
+  local salida=""
+  while [ $# -gt 0 ]; do
+    if [ -z "$salida" ];  then salida="$1"
+    elif [ $# -eq 1 ];    then salida="$salida y $1"
+    else                       salida="$salida, $1"
+    fi
+    shift
+  done
+  printf '%s' "$salida"
+}
+
 comprobar_frescura() {
   local feature="$1" roto=0
+  # Qué se comparó de verdad. El mensaje de éxito lo nombra en vez de afirmar un
+  # texto fijo.
+  #
+  # Hasta la 2.2.2 ese mensaje decía «posteriores a AGENTS.md y al fundamento»
+  # aunque no hubiera podido leer la ruta del fundamento: avisaba y acto seguido
+  # se desdecía, con la frase tranquilizadora al final. Afirmaba haber comparado
+  # justo lo que no comparó, y es el único caso donde la frase importa.
+  FRESCURA_RECTORAS=""
+  FRESCURA_DERIVADOS=""
+
   if ! git -C "$RAIZ" rev-parse --git-dir >/dev/null 2>&1; then
     echo "  aviso · sin repositorio git: no se pudo comprobar si lo decidido llegó"
     return 0
@@ -175,10 +197,16 @@ comprobar_frescura() {
   else
     echo "  aviso · no se pudo leer la ruta del fundamento en AGENTS.md; se comprueba solo AGENTS.md"
   fi
+  FRESCURA_RECTORAS="$(unir_en_prosa "${RECTORAS[@]}")"
+
+  # Los derivados que existen, no los que esperábamos: un artefacto ausente no
+  # se compara, y el mensaje no puede nombrarlo como comprobado.
+  declare -a DERIVADOS_VISTOS=()
 
   for derivado in "$feature/spec.md" "$feature/plan.md"; do
     local td; td="$(fecha_de "$derivado")" || continue
     [ -n "$td" ] || continue
+    DERIVADOS_VISTOS+=("$(basename "$derivado")")
     for rectora in "${RECTORAS[@]}"; do
       local tr; tr="$(fecha_de "$rectora")"
       [ -n "$tr" ] || continue
@@ -190,6 +218,11 @@ comprobar_frescura() {
       fi
     done
   done
+  # `set -u` con bash 3.2 revienta al expandir un arreglo vacío: se consulta el
+  # tamaño primero.
+  if [ "${#DERIVADOS_VISTOS[@]}" -gt 0 ]; then
+    FRESCURA_DERIVADOS="$(unir_en_prosa "${DERIVADOS_VISTOS[@]}")"
+  fi
   return "$roto"
 }
 
@@ -268,7 +301,13 @@ fi
 
 echo "conformidad · lo decidido llegó a los artefactos"
 if comprobar_frescura "$FEATURE"; then
-  echo "  spec.md y plan.md son posteriores a AGENTS.md y al fundamento"
+  if [ -n "$FRESCURA_DERIVADOS" ]; then
+    # «no es posterior» y no «son posteriores»: dos cambios en el mismo commit
+    # comparten segundo, y eso pasa la comprobación con razón.
+    echo "  comparado $FRESCURA_DERIVADOS contra $FRESCURA_RECTORAS · ninguna fuente rectora es posterior"
+  elif [ -n "$FRESCURA_RECTORAS" ]; then
+    echo "  aviso · no hay spec.md ni plan.md todavía: nada contra lo que comparar"
+  fi
   FRESCURA_ROTA=0
 else
   FRESCURA_ROTA=1

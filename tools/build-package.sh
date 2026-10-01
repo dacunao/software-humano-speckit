@@ -10,15 +10,15 @@
 set -euo pipefail
 
 RAIZ="$(CDPATH="" cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION_PAQUETE="2.3.2"
+VERSION_PAQUETE="2.3.3"
 # Las cinco capas del método comparten el número de salida 2.0.0. No están
 # acopladas: cuando una necesite un parche se mueve sola, y esa divergencia
 # significará que esa capa cambió. Lo que no significaba nada era que salieran
 # desalineadas de origen.
 VERSION_PRESET="2.0.3"
-VERSION_EXTENSION="2.2.2"
+VERSION_EXTENSION="2.2.3"
 VERSION_WORKFLOW="2.0.0"
-VERSION_BUNDLE="2.1.0"
+VERSION_BUNDLE="2.1.1"
 NOMBRE="software-humano-speckit-starter-v${VERSION_PAQUETE}"
 
 DIST="$RAIZ/dist"

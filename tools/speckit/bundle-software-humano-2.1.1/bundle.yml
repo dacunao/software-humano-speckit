@@ -3,7 +3,7 @@ schema_version: "1.0"
 bundle:
   id: "software-humano"
   name: "Software Humano"
-  version: "2.1.0"
+  version: "2.1.1"
   role: "developer"
   description: "Instala el método que aplica el Manifiesto de Software Humano al ciclo SDD de SpecKit: la doctrina compilada en los artefactos, la comprobación de conformidad y las compuertas que el propio manifiesto especifica."
   author: "Damián Acuña"
@@ -43,8 +43,8 @@ provides:
 
   extensions:
     - id: "conformidad"
-      version: "2.2.2"
-      source: "../conformidad-2.2.2"
+      version: "2.2.3"
+      source: "../conformidad-2.2.3"
 
   workflows:
     - id: "software-humano"

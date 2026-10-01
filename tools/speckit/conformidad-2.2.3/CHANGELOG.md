@@ -1,5 +1,42 @@
 # Registro de cambios · extensión Conformidad
 
+## 2.2.3
+
+**El mensaje de la comprobación de frescura dice qué comparó, en vez de afirmar
+un texto fijo.**
+
+Hasta la 2.2.2 ese mensaje era literal: «spec.md y plan.md son posteriores a
+AGENTS.md y al fundamento». Se imprimía siempre que la comprobación pasara,
+incluso cuando no había podido leer la ruta del fundamento en `AGENTS.md`. En ese
+caso el script avisaba —«se comprueba solo AGENTS.md»— y acto seguido se
+desdecía, con la frase tranquilizadora al final, que es la que queda.
+
+Afirmaba haber comparado justo lo que no comparó, y es el único caso donde la
+frase importa. Reproducido sobre un proyecto cuyo fundamento era **más nuevo**
+que `spec.md` —el caso que la comprobación existe para atrapar— y declarado en
+`AGENTS.md` con un formato distinto al de la plantilla: salía en verde.
+
+Ahora el mensaje nombra las fuentes rectoras que leyó y los artefactos que
+encontró:
+
+    comparado spec.md y plan.md contra AGENTS.md y docs/product/Fundamento_v1.5.md
+    · ninguna fuente rectora es posterior
+
+**Y un artefacto ausente deja de contarse como comprobado.** Si no hay `spec.md`
+ni `plan.md`, antes afirmaba que ambos eran posteriores; ahora dice que no hay
+nada contra lo que comparar.
+
+**«ninguna es posterior» y no «son posteriores»**, porque dos cambios en el mismo
+commit comparten segundo y eso pasa la comprobación con razón.
+
+Qué no cambia: la lógica de detección es la misma, y sigue cubriendo una
+dirección sola. Que `spec.md` sea más reciente no prueba que absorbiera la
+decisión.
+
+**Cómo apareció.** Corriendo la extensión en el segundo proyecto real que la
+usa. Ahí el mensaje era correcto —ese proyecto declara la ruta con el formato de
+la plantilla—, y el defecto salió de leer por qué lo era.
+
 ## 2.2.0
 
 **Comprueba que lo decidido haya llegado a los artefactos.** Una decisión tomada

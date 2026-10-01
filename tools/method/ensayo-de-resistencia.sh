@@ -19,7 +19,19 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.3.2"
+# El ensayo prueba el paquete que el ensamblado acaba de producir, así que la
+# versión no se fija acá: fijarla obliga a editar este archivo en cada
+# incremento, y olvidarlo hace que el ensayo pruebe el paquete anterior sin que
+# nada lo diga. Pasó: el incremento a 2.3.3 lo dejó buscando el v2.3.2.
+# La barra final limita el glob a directorios: sin ella cuenta también el ZIP,
+# que vive al lado y empieza igual.
+PAQUETE="$(ls -d "$RAIZ"/dist/software-humano-speckit-starter-v*/ 2>/dev/null | head -1)"
+PAQUETE="${PAQUETE%/}"
+cuantos="$(ls -d "$RAIZ"/dist/software-humano-speckit-starter-v*/ 2>/dev/null | wc -l | tr -d ' ')"
+if [ "$cuantos" -gt 1 ]; then
+  echo "Hay $cuantos paquetes en dist/. Borra los que no correspondan: el ensayo no puede elegir."
+  exit 2
+fi
 CONSERVAR=0
 [ "${1:-}" = "--conservar" ] && CONSERVAR=1
 [ -d "$PAQUETE" ] || { echo "No existe $PAQUETE. Ejecuta tools/build-package.sh primero."; exit 2; }
@@ -54,7 +66,7 @@ instalar() {
   git -c user.email=e@e -c user.name=e commit -qm base >/dev/null 2>&1
   specify init --here --force --non-interactive --script sh --integration claude --ignore-agent-tools >/dev/null 2>&1
   specify preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.3" >/dev/null 2>&1
-  specify extension add --dev "tools/speckit/conformidad-2.2.2"              </dev/null >/dev/null 2>&1
+  specify extension add --dev "tools/speckit/conformidad-2.2.3"              </dev/null >/dev/null 2>&1
   specify workflow add        "tools/speckit/workflow-software-humano-2.0.0" </dev/null >/dev/null 2>&1
 }
 
@@ -84,7 +96,7 @@ HUMANA="$(shasum -a 256 .specify/memory/constitution.md | cut -d' ' -f1)"
 PREVIA="$(shasum -a 256 specs/001-previa/spec.md | cut -d' ' -f1)"
 
 specify preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.3" >/dev/null 2>&1
-specify extension add --dev "tools/speckit/conformidad-2.2.2"              </dev/null >/dev/null 2>&1
+specify extension add --dev "tools/speckit/conformidad-2.2.3"              </dev/null >/dev/null 2>&1
 specify workflow add        "tools/speckit/workflow-software-humano-2.0.0" </dev/null >/dev/null 2>&1
 
 comprobar "la constitución escrita por la persona no se toca" \

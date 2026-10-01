@@ -1,9 +1,9 @@
 # Software Humano para SpecKit — paquete de método
 
-**Versión del paquete:** 2.3.2
+**Versión del paquete:** 2.3.3
 **Núcleo del manifiesto:** 2.1
 **Anexo de aplicación SpecKit:** 2.0
-**Preset:** 2.0.3 · **workflow:** 2.0.0 · **extensión:** 2.2.2 · **bundle:** 2.1.0
+**Preset:** 2.0.3 · **workflow:** 2.0.0 · **extensión:** 2.2.3 · **bundle:** 2.1.1
 **Autoridad:** Damián Acuña
 
 ## Qué es
@@ -120,9 +120,9 @@ El núcleo y el fundamento no compiten: el núcleo gobierna el método; el funda
         ├── specify                                  Envoltorio con versión de SpecKit fijada.
         ├── shim/python3                             Intérprete con PyYAML para los scripts.
         ├── software-humano-spec-kit-preset-2.0.3/
-        ├── conformidad-2.2.2/
+        ├── conformidad-2.2.3/
         ├── workflow-software-humano-2.0.0/
-        ├── bundle-software-humano-2.1.0/
+        ├── bundle-software-humano-2.1.1/
         └── *.zip                                    Cada capa, empaquetada por separado.
 ```
 
@@ -184,6 +184,15 @@ Comprueba que lo que el manifiesto exige **esté presente y trazable**. No compr
 Esa distancia la cierran `analyze`, una persona, y —para el resultado— las pruebas con personas que el propio manifiesto exige antes de aceptar. **La unidad de medida del manifiesto no es la cobertura: es el progreso que una persona puede lograr con claridad, confianza y control.**
 
 ## Historial de versiones
+
+### 2.3.3
+
+**La extensión pasa a 2.2.3 y el bundle a 2.1.1.** El mensaje de la comprobación
+de frescura afirmaba haber comparado el fundamento incluso cuando no había
+podido leer su ruta: avisaba y después se desdecía. Ahora nombra lo que comparó.
+El bundle se mueve porque fija la versión de la extensión.
+
+Ninguna otra capa cambia: el preset sigue en 2.0.3 y el workflow en 2.0.0.
 
 ### 2.3.2
 

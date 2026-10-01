@@ -15,7 +15,19 @@
 set -uo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PAQUETE="$RAIZ/dist/software-humano-speckit-starter-v2.3.2"
+# El ensayo prueba el paquete que el ensamblado acaba de producir, así que la
+# versión no se fija acá: fijarla obliga a editar este archivo en cada
+# incremento, y olvidarlo hace que el ensayo pruebe el paquete anterior sin que
+# nada lo diga. Pasó: el incremento a 2.3.3 lo dejó buscando el v2.3.2.
+# La barra final limita el glob a directorios: sin ella cuenta también el ZIP,
+# que vive al lado y empieza igual.
+PAQUETE="$(ls -d "$RAIZ"/dist/software-humano-speckit-starter-v*/ 2>/dev/null | head -1)"
+PAQUETE="${PAQUETE%/}"
+cuantos="$(ls -d "$RAIZ"/dist/software-humano-speckit-starter-v*/ 2>/dev/null | wc -l | tr -d ' ')"
+if [ "$cuantos" -gt 1 ]; then
+  echo "Hay $cuantos paquetes en dist/. Borra los que no correspondan: el ensayo no puede elegir."
+  exit 2
+fi
 CONSERVAR=0
 [ "${1:-}" = "--conservar" ] && CONSERVAR=1
 
@@ -60,7 +72,7 @@ comprobar "SpecKit queda inicializado" "[ -d .specify ] && echo si" "si"
 
 echo "── Paso 3 · instalación de las tres capas"
 "$SPECIFY" preset add    --dev "tools/speckit/software-humano-spec-kit-preset-2.0.3" >/dev/null 2>&1
-"$SPECIFY" extension add --dev "tools/speckit/conformidad-2.2.2"                      </dev/null >/dev/null 2>&1
+"$SPECIFY" extension add --dev "tools/speckit/conformidad-2.2.3"                      </dev/null >/dev/null 2>&1
 "$SPECIFY" workflow add        "tools/speckit/workflow-software-humano-2.0.0"         </dev/null >/dev/null 2>&1
 comprobar "el preset queda instalado"      "$SPECIFY preset list 2>/dev/null | grep -c software-humano" "1"
 comprobar "la extensión queda instalada"   "[ -d .specify/extensions/conformidad ] && echo si" "si"
@@ -204,8 +216,29 @@ comprobar "y nombra cuál artefacto quedó atrás" \
 printf '\n<!-- la decisión, ya recogida -->\n' >> specs/001-ensayo/spec.md
 git add specs >/dev/null 2>&1
 fechar "2026-09-29T21:06:00" "spec recoge la decisión"
-comprobar "al reconciliar a mano, vuelve a verde sola" \
-  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'son posteriores a AGENTS.md'" "1"
+# Se comprueba el MENSAJE de frescura y no el código de salida del script: a
+# esta altura del ensayo quedan en pie escenarios anteriores —una excepción
+# incompleta a propósito— que lo mantienen en 1 con razón. Mirar el código acá
+# mide el ensayo entero y no la comprobación que interesa.
+comprobar "al reconciliar a mano, la frescura vuelve a verde sola" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'ninguna fuente rectora es posterior'" "1"
+comprobar "y el mensaje nombra contra qué comparó" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'comparado spec.md contra AGENTS.md'" "1"
+# Nombra spec.md sola porque este proyecto no tiene plan.md. El mensaje viejo
+# afirmaba «spec.md y plan.md» sin que plan.md existiera: el otro lado del mismo
+# defecto, y el ensayo también lo daba por bueno.
+comprobar "y no nombra un plan.md que no existe" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep 'ninguna fuente rectora es posterior' | grep -c plan.md" "0"
+
+# Este proyecto de ensayo tiene el `AGENTS.md` de la plantilla, cuya ruta del
+# fundamento es el marcador `docs/product/[completar]`: no resuelve. Es el caso
+# que la 2.2.3 arregla, y el ensayo lo venía corriendo sin verlo —afirmaba el
+# texto viejo, que decía «y al fundamento» aunque el fundamento no se comparara.
+# Estas dos comprobaciones existen para que no vuelva.
+comprobar "avisa que no pudo leer la ruta del fundamento" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep -c 'no se pudo leer la ruta del fundamento'" "1"
+comprobar "y entonces el mensaje de éxito no afirma el fundamento" \
+  ".specify/extensions/conformidad/scripts/conformidad.sh 2>/dev/null | grep 'ninguna fuente rectora es posterior' | grep -c fundamento" "0"
 
 echo
 echo "  $ok comprobaciones pasaron · $fallo fallaron"

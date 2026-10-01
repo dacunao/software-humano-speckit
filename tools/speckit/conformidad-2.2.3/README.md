@@ -45,7 +45,7 @@ When a field is missing, the check names which one rather than reporting the sec
 ## Installation
 
 ```bash
-specify extension add --dev ./conformidad-2.2.2
+specify extension add --dev ./conformidad-2.2.3
 ```
 
 This scaffolds `conformidad-config.yml`, where exceptions are declared.
