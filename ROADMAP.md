@@ -22,6 +22,8 @@ It is published for the same reason the method exists. The manifesto's definitio
 | **A catalog entry pins a version, and nothing updates it** | Every new version of a component leaves the Spec Kit catalog pointing at the previous one, and correcting it means submitting the whole form again | [#10](https://github.com/dacunao/software-humano-speckit/issues/10) |
 | **No command propagates a change in the foundation** | In the first site the foundation changed six times, and the spec and plan were rewritten by hand all six | [#5](https://github.com/dacunao/software-humano-speckit/issues/5) · [proposal 010](docs/proposals/010-evaluacion-del-piloto-del-sitio.md) |
 | **The package exists only in Spanish** | Deliberate — the doctrine holds its authority in Spanish — and a real limit on adoption | [#6](https://github.com/dacunao/software-humano-speckit/issues/6) |
+| **The environment check and the shim probe different interpreters** | The environment can pass with a warning on a machine where the shim then fails; on Intel Macs that is the normal case | [#11](https://github.com/dacunao/software-humano-speckit/issues/11) |
+| **The shim depends on a system interpreter** | Today the only one carrying PyYAML is Apple's, and nothing in the package guarantees it keeps doing so | [#12](https://github.com/dacunao/software-humano-speckit/issues/12) |
 | **No quick-start guide** | The method supports three ways of working — conversing, invoking, workflow — and nothing tells a newcomer which one fits their style | [#9](https://github.com/dacunao/software-humano-speckit/issues/9) |
 
 ## How items get here

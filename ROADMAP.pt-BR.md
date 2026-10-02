@@ -22,6 +22,8 @@ Esta lista **não promete datas**. Nenhum de seus temas está comprometido: est�
 | **A entrada do catálogo fixa uma versão e nada a atualiza** | Cada nova versão de um componente deixa o catálogo do Spec Kit apontando para a anterior, e corrigir isso exige reenviar o formulário completo | [#10](https://github.com/dacunao/software-humano-speckit/issues/10) |
 | **Nenhum comando propaga uma mudança do fundamento** | No primeiro site o fundamento mudou seis vezes, e a especificação e o plano foram refeitos à mão nas seis | [#5](https://github.com/dacunao/software-humano-speckit/issues/5) · [proposta 010](docs/proposals/010-evaluacion-del-piloto-del-sitio.md) |
 | **O pacote existe apenas em espanhol** | É deliberado — a doutrina tem sua autoridade em espanhol — e é um limite real de adoção | [#6](https://github.com/dacunao/software-humano-speckit/issues/6) |
+| **A verificação de ambiente e o atalho não testam os mesmos interpretadores** | O ambiente pode ser aprovado com um aviso numa máquina onde o atalho depois falha; em Mac Intel esse é o caso normal | [#11](https://github.com/dacunao/software-humano-speckit/issues/11) |
+| **O atalho depende de um Python do sistema** | Hoje o único que traz PyYAML é o da Apple, e nada no pacote garante que continue trazendo | [#12](https://github.com/dacunao/software-humano-speckit/issues/12) |
 | **Falta um guia de início rápido** | O método admite três formas de trabalhar — conversar, invocar, workflow — e nada diz a quem chega qual lhe convém conforme seu estilo | [#9](https://github.com/dacunao/software-humano-speckit/issues/9) |
 
 ## Como se decide o que entra

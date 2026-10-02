@@ -22,6 +22,8 @@ Se publica por la misma razón que el método existe. La definición de terminad
 | **La entrada del catálogo fija una versión y nada la actualiza** | Cada versión nueva de un componente deja al catálogo de SpecKit apuntando a la anterior, y corregirlo exige reenviar el formulario completo | [#10](https://github.com/dacunao/software-humano-speckit/issues/10) |
 | **Ningún comando propaga un cambio del fundamento** | En el primer sitio, el fundamento cambió seis veces y la especificación y el plan se rehicieron a mano las seis | [#5](https://github.com/dacunao/software-humano-speckit/issues/5) · [propuesta 010](docs/proposals/010-evaluacion-del-piloto-del-sitio.md) |
 | **El paquete existe solo en español** | Es deliberado —la doctrina tiene su autoridad en español— y es un límite real de adopción | [#6](https://github.com/dacunao/software-humano-speckit/issues/6) |
+| **La comprobación de entorno y el atajo no prueban los mismos intérpretes** | El entorno puede quedar aprobado con un aviso en una máquina donde el atajo después falla; en Mac Intel es el caso normal | [#11](https://github.com/dacunao/software-humano-speckit/issues/11) |
+| **El atajo depende de un Python del sistema** | Hoy el único que trae PyYAML es el de Apple, y que siga trayéndola no lo garantiza nada del paquete | [#12](https://github.com/dacunao/software-humano-speckit/issues/12) |
 | **Falta una guía de inicio rápido** | El método admite tres formas de trabajar —conversar, invocar, workflow— y nada le dice a quien llega cuál le conviene según su estilo | [#9](https://github.com/dacunao/software-humano-speckit/issues/9) |
 
 ## Cómo se decide qué entra
