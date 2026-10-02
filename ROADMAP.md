@@ -18,11 +18,10 @@ It is published for the same reason the method exists. The manifesto's definitio
 | **Execution cost** | A `plan` invocation loads ~36,500 tokens of method before touching the project. Two thirds is the constitution, and it was never optimized | [#2](https://github.com/dacunao/software-humano-speckit/issues/2) · [analysis 007](docs/proposals/007-analisis-de-costo-de-ejecucion-del-metodo.md) |
 | **Editing the agent-facing file is not detected** | It is the fourth of four ways the method can be left without effect. The other three are closed | [#3](https://github.com/dacunao/software-humano-speckit/issues/3) · [proposal 010](docs/proposals/010-evaluacion-del-piloto-del-sitio.md) |
 | **Workflow gates cannot be resumed** | Without a terminal — CI, or an agent running it for you — the run pauses and there is no way to supply the verdict | [#8](https://github.com/dacunao/software-humano-speckit/issues/8) |
-| **The bundle cannot be installed** | Spec Kit resolves components from catalogs, not from local paths. The fourth layer exists and does not work | [#4](https://github.com/dacunao/software-humano-speckit/issues/4) |
+| **The bundle cannot be installed** | Spec Kit's community catalog is discovery-only: being listed does not make anything installable by name. And the bundle is in no catalog. The fourth layer exists and does not work | [#4](https://github.com/dacunao/software-humano-speckit/issues/4) |
 | **No command propagates a change in the foundation** | In the first site the foundation changed six times, and the spec and plan were rewritten by hand all six | [#5](https://github.com/dacunao/software-humano-speckit/issues/5) · [proposal 010](docs/proposals/010-evaluacion-del-piloto-del-sitio.md) |
 | **The package exists only in Spanish** | Deliberate — the doctrine holds its authority in Spanish — and a real limit on adoption | [#6](https://github.com/dacunao/software-humano-speckit/issues/6) |
 | **No quick-start guide** | The method supports three ways of working — conversing, invoking, workflow — and nothing tells a newcomer which one fits their style | [#9](https://github.com/dacunao/software-humano-speckit/issues/9) |
-| **Listing in the Spec Kit catalog** | Unblocks the bundle and makes the method discoverable | [#7](https://github.com/dacunao/software-humano-speckit/issues/7) |
 
 ## How items get here
 

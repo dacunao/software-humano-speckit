@@ -18,11 +18,10 @@ Se publica por la misma razón que el método existe. La definición de terminad
 | **Costo de ejecución** | Una invocación de `plan` carga ~36.500 tokens de método antes de tocar el proyecto. Dos tercios son la constitución, y nunca se optimizó | [#2](https://github.com/dacunao/software-humano-speckit/issues/2) · [análisis 007](docs/proposals/007-analisis-de-costo-de-ejecucion-del-metodo.md) |
 | **Editar el archivo que lee el agente no se detecta** | Es la cuarta de cuatro vías por las que el método puede quedar sin efecto. Las otras tres están cerradas | [#3](https://github.com/dacunao/software-humano-speckit/issues/3) · [propuesta 010](docs/proposals/010-evaluacion-del-piloto-del-sitio.md) |
 | **Las compuertas del workflow no se pueden reanudar** | Sin terminal —integración continua, o un agente corriéndolo por ti— la corrida pausa y no hay forma de darle la decisión | [#8](https://github.com/dacunao/software-humano-speckit/issues/8) |
-| **El bundle no se puede instalar** | SpecKit resuelve componentes desde catálogos, no desde rutas locales. La cuarta capa existe y no funciona | [#4](https://github.com/dacunao/software-humano-speckit/issues/4) |
+| **El bundle no se puede instalar** | El catálogo comunitario de SpecKit es solo de descubrimiento: estar listado no habilita instalar por nombre. Y el bundle no está en ningún catálogo. La cuarta capa existe y no funciona | [#4](https://github.com/dacunao/software-humano-speckit/issues/4) |
 | **Ningún comando propaga un cambio del fundamento** | En el primer sitio, el fundamento cambió seis veces y la especificación y el plan se rehicieron a mano las seis | [#5](https://github.com/dacunao/software-humano-speckit/issues/5) · [propuesta 010](docs/proposals/010-evaluacion-del-piloto-del-sitio.md) |
 | **El paquete existe solo en español** | Es deliberado —la doctrina tiene su autoridad en español— y es un límite real de adopción | [#6](https://github.com/dacunao/software-humano-speckit/issues/6) |
 | **Falta una guía de inicio rápido** | El método admite tres formas de trabajar —conversar, invocar, workflow— y nada le dice a quien llega cuál le conviene según su estilo | [#9](https://github.com/dacunao/software-humano-speckit/issues/9) |
-| **Registro en el catálogo de SpecKit** | Desbloquea el bundle y hace descubrible el método | [#7](https://github.com/dacunao/software-humano-speckit/issues/7) |
 
 ## Cómo se decide qué entra
 
